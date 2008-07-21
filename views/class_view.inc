@@ -26,7 +26,12 @@ class login extends html
            <tr>
              <td colspan="2" rowspan="1"></td>
            </tr>
+           <tr>
+           <td style="width: 117px; text-align: center; vertical-align: middle;"
+ colspan="2" rowspan="1">
            <input type="submit"/>
+           </td>
+           </tr>
          </tbody>
         </table>
         &nbsp;</form>
