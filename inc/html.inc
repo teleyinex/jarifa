@@ -20,10 +20,14 @@ class html
             <head>
               <meta content="text/html; charset=utf-8"  http-equiv="content-type">
              <title>'.$title.'</title>
+             <style type="text/css">
+             @import url("views/style.css");
+             </style>
             </head> 
             <body>
             ');
     }
+
 
     function footer()
     {

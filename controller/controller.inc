@@ -1,6 +1,7 @@
 <?php 
 require_once("inc/db_conn.inc");
 require_once("model/data.inc");
+require_once("views/class_view.inc");
 
 class controller
 {
@@ -9,6 +10,7 @@ class controller
       public $db_host='localhost';
       public $db_name='ogm';
       public $db=''; // The DB handler
+      public $auth=False;
 
 
       public function __construct()
@@ -33,12 +35,41 @@ class controller
                 $_SESSION['userid']=$user->id;
                 $_SESSION['role']=$user->role;
                 $_SESSION['supplier']=$user->supplier;
+                $this->auth=True;
                 return(True);
               }
               else
               {
+                  $this->auth=False;
                   return(False);
               }
+          }
+      }
+
+      function logout()
+      {
+          session_unset();
+          session_destroy();
+          header("Location: index.php");
+      }
+
+      function view($view='start')
+      {
+          switch ($view)
+          {
+
+            case 'start':
+            {
+                $layout = new start_page();
+                $layout->page();      
+                break;
+            }
+            case 'login':
+            {
+                $layout = new login_page();
+                $layout->page();
+                break;
+            }
           }
       }
 
