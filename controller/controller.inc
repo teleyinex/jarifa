@@ -1,0 +1,46 @@
+<?php 
+require_once("inc/db_conn.inc");
+require_once("model/data.inc");
+
+class controller
+{
+      public $db_user='ogm';
+      public $db_password='ogm';
+      public $db_host='localhost';
+      public $db_name='ogm';
+      public $db=''; // The DB handler
+
+
+      public function __construct()
+      {
+          
+          session_start();
+          $this->db = new DbConn();
+          $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
+
+      }
+      function authenticate($userid=null,$password=null)
+      {
+          if (($userid==null) or ($password==null))     
+          {
+              return(False);
+          }
+          else
+          {
+              $user =  $this->db->lookup_fields('users','user','id,role,supplier','id="'.$userid.'" and password="'.md5($password).'"');
+              if (!$user==null)
+              {
+                $_SESSION['userid']=$user->id;
+                $_SESSION['role']=$user->role;
+                $_SESSION['supplier']=$user->supplier;
+                return(True);
+              }
+              else
+              {
+                  return(False);
+              }
+          }
+      }
+
+}
+?>
