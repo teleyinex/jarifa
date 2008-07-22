@@ -1,7 +1,6 @@
 <?php 
 class html
 {
-
     function __construct($language='es_ES.utf8')
     {
         putenv("LANG=$language");
@@ -11,7 +10,7 @@ class html
         textdomain($domain);
     }
 
-    function header()
+    function header($msg=null)
     {
         $title = gettext("OGM Server");
         printf('
@@ -25,13 +24,59 @@ class html
              </style>
             </head> 
             <body>
+            <div id="container">
+            <div id="header">
+                <h1>'.$msg.'</h1>
+            </div>
             ');
+    }
+
+    function menu($role=null,$h2=null)
+    {
+        printf('
+                <div id="menu">
+                <ul id="menu_list">
+                <li><a href="index.php">'.gettext("Start").'</a>
+                ');
+        switch ($role)
+        {
+        case 'allocator':
+        {
+            printf('<li><a href="index.php?action=project">'.gettext("Projects").'</a>');
+            break;
+        }
+        case 'supplier':
+        {
+            printf('<li><a href="index.php?action=machine">'.gettext("Machines").'</a>
+                <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
+                <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
+            break;
+        }
+        case 'root':
+        {
+            printf('<li><a href="index.php?action=project">'.gettext("Projects").'</a>
+                <li><a href="index.php?action=machine">'.gettext("Machines").'</a>
+                <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
+                <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
+                ');
+            break;
+        }
+
+        }
+        printf ('
+            <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
+            </ul></div>
+            <div id="content">
+            <h2>'.$h2.'</h2> 
+            ');
+
     }
 
 
     function footer()
     {
         printf('
+            </div>
             </body>
             </html>
         ');

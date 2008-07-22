@@ -55,35 +55,22 @@ class controller
 
       function view($view='start',$role='default',$msg=null)
       {
-          if ($role=='default') $view='login';
           switch ($view)
           {
 
             case 'start':
             {
-                switch ($role)
-                {
-                    case 'root':
-                    {
-                        $layout = new start_page('root');
-                        $layout->page();
-                        break;
-                    }
-                    case 'allocator':
-                    {
-                        $layout = new start_page('allocator');
-                        $layout->page();
-                        break;
-                    }
-                    case 'supplier':
-                    {
-                        $layout = new start_page('supplier');
-                        $layout->page();
-                        break;
-                    }
-                }
+                $layout = new start_page($_SESSION['role']);
+                $layout->page();
                 break;
             }
+
+            case 'project':
+                {
+                    $layout = new project_page($_SESSION['role']);
+                    $layout->page();
+                    break;
+                }
 
             case 'login':
             {

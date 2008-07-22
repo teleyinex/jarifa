@@ -32,6 +32,35 @@ if (isset($_SESSION['userid']))
             break;
         }
 
+        // Projects action
+        case 'project':
+        {
+            $ctr->view("project",$_SESSION['role']);
+            break;
+        }
+        
+        // Machines action
+        case 'machine':
+        {
+            $ctr->view("machine",$_SESSION['role']);
+            break;
+        }
+        
+        // Pools action
+        case 'pool':
+        {
+            $ctr->view("pool",$_SESSION['role']);
+            break;
+        }
+        
+        // Stats action
+        case 'stat':
+        {
+            $ctr->view("stat",$_SESSION['role']);
+            break;
+        }
+
+
         // Logout action
         case 'logout':
         {

@@ -10,7 +10,6 @@ class login_page extends html
     {
         $this->header();
         printf('
-        <div id="container">
         <form method="post" action="index.php" name="login">
         <input type="hidden" name="action" value="auth">
         <table  style="text-align: left; margin-left: auto; margin-right: auto; height: 66px; width: 308px;"
@@ -36,7 +35,6 @@ class login_page extends html
          </tbody>
         </table>
         &nbsp;</form>
-        </div>
         ',gettext("User"),gettext("Password"));
         $this->footer();
     }
@@ -58,79 +56,53 @@ class start_page extends html
         {
             case 'root':
             {
-                $this->header();
-                printf('
-                        <div id="container">
-                        <div id="header">
-                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
-                        </div>
-                        <div id="menu">
-                        <ul id="menu_list">
-                        <li><a href="index.php?action=machine">'.gettext("Machines").'</a>
-                        <li><a href="index.php?action=project">'.gettext("Projects").'</a>
-                        <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
-                        <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
-                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
-                        </ul>
-                        </div>
-                        <div id="content">
-                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
-                        <p>
-                        
-                        </p>
-                        </div>
-                ');
+                $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("Choose an action from the left panel"));
                 break;
             }
             case 'allocator':
             {
-                $this->header();
-                printf('
-                        <div id="container">
-                        <div id="header">
-                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
-                        </div>
-                        <div id="menu">
-                        <ul id="menu_list">
-                        <li><a href="index.php?action=project">'.gettext("Projects").'</a>
-                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
-                        </ul>
-                        </div>
-                        <div id="content">
-                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
-                        <p>
-                        
-                        </p>
-                        </div>
-                ');
+                $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
+ 
+                $this->menu($this->role,gettext("Choose an action from the left panel"));
                 break;
             }
             case 'supplier':
             {
-                $this->header();
-                printf('
-                        <div id="container">
-                        <div id="header">
-                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
-                        </div>
-                        <div id="menu">
-                        <ul id="menu_list">
-                        <li><a href="index.php?action=machine">'.gettext("Machines").'</a>
-                        <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
-                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
-                        </ul>
-                        </div>
-                        <div id="content">
-                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
-                        <p>
-                        
-                        </p>
-                        </div>
-                ');
+                $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("Choose an action from the left panel"));
                 break;
             }
 
         }
     }
+}
+
+class project_page extends html
+{
+    public $action;
+    public $role;
+    function __construct($role=null,$action=null)
+    {
+        $this->action=$action;
+        $this->role=$role;
+    }
+
+    function page()
+    {
+        switch ($this->action)
+        {
+            default:
+            {
+                $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("Available BOINC projects"));
+                break;
+            }
+        
+        }
+    
+    }
+
+
 }
 ?>
