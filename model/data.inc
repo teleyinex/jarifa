@@ -1,4 +1,14 @@
 <?php 
+
+class project
+{
+    public $id;
+    public $url;
+    public $signature;
+    public $authenticator;
+    public $share;
+}
+
 class user
 {
     public $id;
@@ -6,4 +16,5 @@ class user
     public $role;
     public $supplier;
 }
+
 ?>

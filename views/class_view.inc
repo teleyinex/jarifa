@@ -1,5 +1,6 @@
 <?php 
 require_once("inc/html.inc");
+require_once("inc/acc.inc");
 
 class login_page extends html
 {
@@ -92,6 +93,12 @@ class project_page extends html
     {
         switch ($this->action)
         {
+            case 'edit':
+            {
+                $this->header(gettext("Projects"));
+                $this->menu($this->role,gettext("Editing project"));
+                break;
+            }
             default:
             {
                 $this->header(gettext("Wellcome").' '.$_SESSION['userid']);

@@ -1,4 +1,6 @@
 <?php 
+require_once("model/data.inc");
+
 class html
 {
     function __construct($language='es_ES.utf8')
@@ -69,6 +71,36 @@ class html
             <div id="content">
             <h2>'.$h2.'</h2> 
             ');
+
+    }
+
+
+    function table_project($obj)
+    {
+        // acction=up -> Update Project -> up
+        printf('<table border=1 align=center>');
+        printf('<tr><td>Name</td><td>Share</td><td align=center colspan="2" rowspan="1">Actions</td></tr>');
+        $row = count($obj);
+        for ($i=0 ; $i<$row;$i++)
+        {
+            printf ("<tr>");
+            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->id.'</a></td><td align=center>'.$obj[$i]->share.'<td>Edit</td><td>Delete</td>');
+            printf ("\n</tr>");
+        }
+        printf("</table>");
+    }
+
+    function table_project_edit($obj)
+    {
+        printf('<form method="post" action="index.php?action=up_project&id='.$obj->id.'" name="project">');
+        printf('<table border=1 align=center>');
+        printf('<tr><td>Name</td><td>Share</td><td>Actions</td></tr>');
+        printf ('<tr>');
+        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->id.'</a></td><td><input
+            size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
+        printf ("\n</tr>");
+        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf("</table>");
 
     }
 

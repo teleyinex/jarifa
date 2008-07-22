@@ -38,6 +38,12 @@ if (isset($_SESSION['userid']))
             $ctr->view("project",$_SESSION['role']);
             break;
         }
+
+        case 'ed_project':
+        {
+            $ctr->view("project",$_SESSION['role'],'edit');
+            break;
+        }
         
         // Machines action
         case 'machine':
