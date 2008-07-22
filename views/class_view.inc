@@ -11,7 +11,7 @@ class login_page extends html
         $this->header();
         printf('
         <div id="container">
-        <form method="post" action="auth.php" name="login">
+        <form method="post" action="index.php" name="login">
         <input type="hidden" name="action" value="auth">
         <table  style="text-align: left; margin-left: auto; margin-right: auto; height: 66px; width: 308px;"
          border="0" cellpadding="2" cellspacing="2">
@@ -55,13 +55,6 @@ class start_page extends html
                 </div>
                 <div id="menu">
                 <ul id="lista_menu">
-                <li><a href="index.php?action=vmt">Torres</a>
-                <li><a href="index.php?action=vmm">Monitores</a>
-                <li><a href="index.php?action=vmi">Impresoras</a>
-                <li><a href="index.php?action=vms">Scanners</a>
-                <li><a href="index.php?action=vmp">Portátiles</a>
-                <li><a href="index.php?action=vmf">Faxes</a>
-                <li><a href="index.php?action=vmo">Otros</a>
                 <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
                 </ul>
                 </div>
