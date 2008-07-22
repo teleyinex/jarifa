@@ -45,26 +45,108 @@ class login_page extends html
 
 class start_page extends html
 {
+    public $role;
+
+    function __construct($role='default')
+    {
+        $this->role = $role;
+    }
+
     function page()
     {
-        $this->header();
-        printf('
-                <div id="container">
-                <div id="header">
-                <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
-                </div>
-                <div id="menu">
-                <ul id="lista_menu">
-                <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
-                </ul>
-                </div>
-                <div id="contenido">
-                <h2>'.gettext("Choose an action from the left panel").'</h2> 
-                <p>
-                
-                </p>
-                </div>
-            ');
+        switch ($this->role)
+        {
+            case 'root':
+            {
+                $this->header();
+                printf('
+                        <div id="container">
+                        <div id="header">
+                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
+                        </div>
+                        <div id="menu">
+                        <ul id="menu_list">
+                        <li><a href="index.php?action=project">'.gettext("Projects").'</a>
+                        <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
+                        <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
+                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
+                        </ul>
+                        </div>
+                        <div id="content">
+                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
+                        <p>
+                        
+                        </p>
+                        </div>
+                ');
+                break;
+            }
+            case 'allocator':
+            {
+                $this->header();
+                printf('
+                        <div id="container">
+                        <div id="header">
+                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
+                        </div>
+                        <div id="menu">
+                        <ul id="menu_list">
+                        <li><a href="index.php?action=project">'.gettext("Projects").'</a>
+                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
+                        </ul>
+                        </div>
+                        <div id="content">
+                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
+                        <p>
+                        
+                        </p>
+                        </div>
+                ');
+                break;
+            }
+            case 'supplier':
+            {
+                $this->header();
+                printf('
+                        <div id="container">
+                        <div id="header">
+                        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
+                        </div>
+                        <div id="menu">
+                        <ul id="menu_list">
+                        <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
+                        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
+                        </ul>
+                        </div>
+                        <div id="content">
+                        <h2>'.gettext("Choose an action from the left panel").'</h2> 
+                        <p>
+                        
+                        </p>
+                        </div>
+                ');
+                break;
+            }
+
+        }
+        //$this->header();
+        //printf('
+        //        <div id="container">
+        //        <div id="header">
+        //        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
+        //        </div>
+        //        <div id="menu">
+        //        <ul id="lista_menu">
+        //        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
+        //        </ul>
+        //        </div>
+        //        <div id="contenido">
+        //        <h2>'.gettext("Choose an action from the left panel").'</h2> 
+        //        <p>
+        //        
+        //        </p>
+        //        </div>
+        //    ');
     }
 }
 ?>

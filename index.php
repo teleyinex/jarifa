@@ -28,7 +28,7 @@ if (isset($_SESSION['userid']))
         // Default screen
         case 'start':
         {
-            $ctr->view("start");
+            $ctr->view("start",$_SESSION['role']);
             break;
         }
 
@@ -42,7 +42,7 @@ if (isset($_SESSION['userid']))
         // Default screen
         default:
         {
-            $ctr->view("start");
+            $ctr->view("start",$_SESSION['role']);
             break;
         }
     }

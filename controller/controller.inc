@@ -53,17 +53,38 @@ class controller
           header("Location: index.php");
       }
 
-      function view($view='start')
+      function view($view='start',$role='default',$msg=null)
       {
+          if ($role=='default') $view='login';
           switch ($view)
           {
 
             case 'start':
             {
-                $layout = new start_page();
-                $layout->page();      
+                switch ($role)
+                {
+                    case 'root':
+                    {
+                        $layout = new start_page('root');
+                        $layout->page();
+                        break;
+                    }
+                    case 'allocator':
+                    {
+                        $layout = new start_page('allocator');
+                        $layout->page();
+                        break;
+                    }
+                    case 'supplier':
+                    {
+                        $layout = new start_page('supplier');
+                        $layout->page();
+                        break;
+                    }
+                }
                 break;
             }
+
             case 'login':
             {
                 $layout = new login_page();
