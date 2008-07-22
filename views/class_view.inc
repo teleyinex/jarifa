@@ -131,24 +131,6 @@ class start_page extends html
             }
 
         }
-        //$this->header();
-        //printf('
-        //        <div id="container">
-        //        <div id="header">
-        //        <h1>'. gettext("Wellcome").' '. $_SESSION['userid'].'</h1> 
-        //        </div>
-        //        <div id="menu">
-        //        <ul id="lista_menu">
-        //        <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
-        //        </ul>
-        //        </div>
-        //        <div id="contenido">
-        //        <h2>'.gettext("Choose an action from the left panel").'</h2> 
-        //        <p>
-        //        
-        //        </p>
-        //        </div>
-        //    ');
     }
 }
 ?>
