@@ -66,6 +66,7 @@ class start_page extends html
                         </div>
                         <div id="menu">
                         <ul id="menu_list">
+                        <li><a href="index.php?action=machine">'.gettext("Machines").'</a>
                         <li><a href="index.php?action=project">'.gettext("Projects").'</a>
                         <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
                         <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
@@ -114,6 +115,7 @@ class start_page extends html
                         </div>
                         <div id="menu">
                         <ul id="menu_list">
+                        <li><a href="index.php?action=machine">'.gettext("Machines").'</a>
                         <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
                         <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>
                         </ul>
