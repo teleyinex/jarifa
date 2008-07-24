@@ -42,6 +42,26 @@ class login_page extends html
 
 }
 
+class error_page extends html
+{
+    public $role;
+    public $msg;
+
+    function __construct($role='default',$msg=null)
+    {
+        $this->role = $role;
+        $this->msg = $msg;
+    }
+
+    function page()
+    {
+        $this->header(gettext("ERROR"));
+        $this->menu($this->role,gettext("An error has occurred"));
+        printf("<div id=error>".$this->msg."</div>");
+        $this->footer();
+    }
+}
+
 class start_page extends html
 {
     public $role;
@@ -97,6 +117,13 @@ class project_page extends html
             {
                 $this->header(gettext("Projects"));
                 $this->menu($this->role,gettext("Editing project"));
+                break;
+            }
+
+            case 'insert':
+            {
+                $this->header(gettext("Projects"));
+                $this->menu($this->role,gettext("Insert a new project"));
                 break;
             }
             default:

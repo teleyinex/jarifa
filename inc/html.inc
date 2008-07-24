@@ -88,6 +88,7 @@ class html
             printf ("\n</tr>");
         }
         printf("</table>");
+        printf('<div style="text-align: center;"><a href=index.php?action=vin_project>'.gettext("New Project").'</a></div>');
     }
 
     function table_project_edit($obj)

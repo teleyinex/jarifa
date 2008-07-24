@@ -48,13 +48,34 @@ if (isset($_SESSION['userid']))
         case 'up_project':
         {
             if ($_POST['delete'])
-                $ctr->delete_project($_GET['id']);
+                {
+                $err=$ctr->delete_project($_GET['id']);
+                }
             else
-                $ctr->update_project($_GET['id'],$_POST['share']);
-            $ctr->view("project",$_SESSION['role']);
+                {
+                $err=$ctr->update_project($_GET['id'],$_POST['share']);
+                }
+            if ($err != null) $ctr->view("project",$_SESSION['role']);
+            else $ctr->view("error",$_SESSION['role'],null,gettext("The project can not be updated or deleted"));
+                
             break;
         }
-        
+
+        case 'vin_project':
+        {
+            $ctr->view("project",$_SESSION['role'],'insert');
+            break;
+        }
+
+        case 'in_project':
+        {
+                if ($ctr->insert_project($_POST))
+                    $ctr->view("project",$_SESSION['role']);
+                else
+                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                break;
+        }
+
         // Machines action
         case 'machine':
         {
