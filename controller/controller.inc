@@ -2,7 +2,6 @@
 require_once("inc/db_conn.inc");
 require_once("model/data.inc");
 require_once("views/class_view.inc");
-require_once("inc/acc.inc");
 
 class controller
 {
