@@ -1,6 +1,6 @@
 <?php 
 require_once("inc/html.inc");
-require_once("inc/acc.inc");
+//require_once("inc/acc.inc");
 
 class login_page extends html
 {
@@ -130,6 +130,48 @@ class project_page extends html
             {
                 $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Available BOINC projects"));
+                break;
+            }
+        
+        }
+    
+    }
+}
+
+class pool_page extends html
+{
+    public $action;
+    public $role;
+    public $supplier;
+
+    function __construct($role=null,$supplier=null,$action=null)
+    {
+        $this->action=$action;
+        $this->role=$role;
+        $this->supplier=$supplier;
+    }
+
+    function page()
+    {
+        switch ($this->action)
+        {
+            case 'edit':
+            {
+                $this->header(gettext("Pools"));
+                $this->menu($this->role,gettext("Editing pool"));
+                break;
+            }
+
+            case 'insert':
+            {
+                $this->header(gettext("Pools"));
+                $this->menu($this->role,gettext("Create a new pool"));
+                break;
+            }
+            default:
+            {
+                $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("Available pools"));
                 break;
             }
         

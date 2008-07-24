@@ -1,8 +1,8 @@
 <?php 
 require_once("inc/db_conn.inc");
 require_once("inc/project.inc");
+require_once("inc/pool.inc");
 require_once("model/data.inc");
-require_once("views/class_view.inc");
 
 class controller extends html
 {
@@ -13,18 +13,17 @@ class controller extends html
       public $db=''; // The DB handler
       public $auth=False;
       public $project;
+      public $pool;
 
 
       public function __construct()
       {
           
           session_start();
-          $this->am = new accmng($this->db_user,$this->db_password,$this->db_host,$this->db_name);;
           $this->db = new DbConn();
           $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
-
-          $this->project = new HTMLproject;
-          
+          $this->project = new HTMLproject(null,$this->db);
+          $this->pool = new HTMLpool(null,null,$this->db);
 
       }
       function authenticate($userid=null,$password=null)
@@ -41,7 +40,6 @@ class controller extends html
                 $_SESSION['userid']=$user->id;
                 $_SESSION['role']=$user->role;
                 $_SESSION['supplier']=$user->supplier;
-                $this->auth=True;
                 return(True);
               }
               else
@@ -56,31 +54,76 @@ class controller extends html
       // Project Functions
       //
 
-      function project_list()
+      //function project_list()
+      //{
+      //    $obj = $this->db->enum_fields('project','project','*','1', 'order by id');
+      //    return($obj);
+      //}
+
+      //function edit_project($values)
+      //{
+      //    $obj = $this->db->lookup_fields('project','project','*','id="'.$values['id'].'"');
+      //    return($obj);
+      //}
+
+      //function update_project($id,$share)
+      //{
+      //  $obj = $this->db->lookup_id($id,'project','project');
+      //  return($this->db->update($obj,'project','share = '.$share));
+      //}
+
+      //function delete_project($id)
+      //{
+      //  $obj = $this->db->lookup_id($id,'project','project');
+      //  return($this->db->delete($obj,'project'));
+      //}
+
+      //function insert_project($values)
+      //{
+      //    $insert=True;
+      //    if (empty($values['name'])) $insert=False;
+      //    if (empty($values['url'])) $insert=False;
+      //    if (empty($values['signature'])) $insert=False;
+      //    if (empty($values['authenticator'])) $insert=False;
+      //    if ($insert)
+      //    {
+      //      $query = '(name,url,signature,authenticator,share) values ("'
+      //        .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
+      //      return($this->db->insert('project', $query));
+      //    }
+      //    else
+      //        return(False);
+      //}
+
+      //
+      // Pool Functions
+      //
+
+      function pool_list()
       {
-          $obj = $this->db->enum_fields('project','project','*','1', 'order by id');
+          $obj = $this->db->enum_fields('pool','pool','*','1', 'order by id');
           return($obj);
       }
 
-      function edit_project($values)
+      function edit_pool($values)
       {
-          $obj = $this->db->lookup_fields('project','project','*','id="'.$values['id'].'"');
+          $obj = $this->db->lookup_fields('pool','pool','*','id="'.$values['id'].'"');
           return($obj);
       }
 
-      function update_project($id,$share)
+      function update_pool($id,$name,$prefs)
       {
-        $obj = $this->db->lookup_id($id,'project','project');
-        return($this->db->update($obj,'project','share = '.$share));
+        $obj = $this->db->lookup_id($id,'pool','pool');
+        return($this->db->update($obj,'pool','name = '.$name. ', $prefs='.$prefs));
       }
 
-      function delete_project($id)
+      function delete_pool($id)
       {
-        $obj = $this->db->lookup_id($id,'project','project');
-        return($this->db->delete($obj,'project'));
+        $obj = $this->db->lookup_id($id,'pool','pool');
+        return($this->db->delete($obj,'pool'));
       }
 
-      function insert_project($values)
+      function insert_pool($values)
       {
           $insert=True;
           if (empty($values['name'])) $insert=False;
@@ -122,30 +165,43 @@ class controller extends html
                 break;
             }
 
+            case 'pool':
+            {
+                $this->pool->role = $_SESSION['role'];
+                $this->pool->supplier = $_SESSION['supplier'];
+                switch ($subaction)
+                {
+                    default:
+                    {
+                        $this->pool->page('start');
+                        $obj = $this->pool_list();
+                        $this->pool->table($obj);
+                        break;
+                    }
+                
+                } 
+                break;
+            }
+
             case 'project':
                 {
+                    $this->project->role = $_SESSION['role'];
                     switch ($subaction)
                     {
                         case 'edit':
                         {
-                            $layout = new project_page($_SESSION['role'],'edit');
-                            $layout->page();
-                            $obj = $this->edit_project($_GET);
-                            $this->project->edit($obj);
+                            $this->project->page('edit',$_GET);
                             break;
                         }
                         case 'insert':
                         {
-                            $layout = new project_page($_SESSION['role'],'insert');
-                            $layout->page();
-                            $this->project->insert();
+                            $this->project->page('insert');
                             break;
                         }
                         default:
                         {
-                            $layout = new project_page($_SESSION['role'],'start');
-                            $layout->page();
-                            $obj = $this->project_list();
+                            $this->project->page('start');
+                            $obj = $this->project->lists();
                             $this->project->table($obj);
                             break;
                         }

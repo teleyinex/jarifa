@@ -1,4 +1,11 @@
 <?php 
+class pool
+{
+    public $id;
+    public $name;
+    public $supplier;
+    public $prefs;
+}
 
 class project
 {
