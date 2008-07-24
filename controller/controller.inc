@@ -1,6 +1,6 @@
 <?php 
 require_once("inc/db_conn.inc");
-require_once("inc/project.inc");
+require_once("views/project.inc");
 require_once("inc/pool.inc");
 require_once("model/data.inc");
 
