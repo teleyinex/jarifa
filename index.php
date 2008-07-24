@@ -47,7 +47,10 @@ if (isset($_SESSION['userid']))
 
         case 'up_project':
         {
-            $ctr->update_project($_GET['id'],$_POST['share']);
+            if ($_POST['delete'])
+                $ctr->delete_project($_GET['id']);
+            else
+                $ctr->update_project($_GET['id'],$_POST['share']);
             $ctr->view("project",$_SESSION['role']);
             break;
         }

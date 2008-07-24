@@ -78,13 +78,13 @@ class html
     function table_project($obj)
     {
         // acction=up -> Update Project -> up
-        printf('<table border=1 align=center>');
-        printf('<tr><td>Name</td><td>Share</td><td align=center colspan="2" rowspan="1">Actions</td></tr>');
+        printf('<table border=1 align=center cellpadding="4">');
+        printf('<tr><td align="center">Name</td><td align="center">Share</td></tr>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td><td align=center>'.$obj[$i]->share.'<td>Edit</td><td>Delete</td>');
+            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td><td align=center>'.$obj[$i]->share.'');
             printf ("\n</tr>");
         }
         printf("</table>");
@@ -93,11 +93,11 @@ class html
     function table_project_edit($obj)
     {
         printf('<form method="post" action="index.php?action=up_project&id='.$obj->id.'" name="project">');
-        printf('<table border=1 align=center>');
-        printf('<tr><td>Name</td><td>Share</td><td>Actions</td></tr>');
+        printf('<table border=1 align=center cellpading="4">');
+        printf('<tr><td align="center">Name</td><td align="center">Share</td><td align="center">Delete</td></tr>');
         printf ('<tr>');
-        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td><input
-            name="share" size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
+        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td
+            align="center"><input name="share" size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
         printf ("\n</tr>");
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");

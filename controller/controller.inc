@@ -71,6 +71,12 @@ class controller
         return($this->db->update($obj,'project','share = '.$share));
       }
 
+      function delete_project($id)
+      {
+        $obj = $this->db->lookup_id($id,'project','project');
+        return($this->db->delete($obj,'project'));
+      }
+
       function logout()
       {
           session_unset();
