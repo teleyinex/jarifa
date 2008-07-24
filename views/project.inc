@@ -5,6 +5,9 @@ class HTMLproject extends html
 {
     public $role;
     public $db;
+    public $table='project';
+    public $class='project';
+
     function __construct($role=null,$db)
     {
         $this->role = $role;
@@ -111,25 +114,25 @@ class HTMLproject extends html
 
     function lists()
       {
-          $obj = $this->db->enum_fields('project','project','*','1', 'order by id');
+          $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
           return($obj);
       }
 
       function get($id)
       {
-          return ($this->db->lookup_fields('project','project','*','id="'.$id.'"'));
+          return ($this->db->lookup_fields($this->table,$this->class,'*','id="'.$id.'"'));
       }
 
       function update($id,$share)
       {
-        $obj = $this->db->lookup_id($id,'project','project');
-        return($this->db->update($obj,'project','share = '.$share));
+        $obj = $this->db->lookup_id($id,$this->table,$this->class);
+        return($this->db->update($obj,$this->table,'share = '.$share));
       }
 
       function delete($id)
       {
-        $obj = $this->db->lookup_id($id,'project','project');
-        return($this->db->delete($obj,'project'));
+        $obj = $this->db->lookup_id($id,$this->table,$this->class);
+        return($this->db->delete($obj,$this->table));
       }
 
       function insert($values)
@@ -143,7 +146,7 @@ class HTMLproject extends html
           {
             $query = '(name,url,signature,authenticator,share) values ("'
               .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
-            return($this->db->insert('project', $query));
+            return($this->db->insert($this->table, $query));
           }
           else
               return(False);
