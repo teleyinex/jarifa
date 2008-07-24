@@ -84,7 +84,7 @@ class html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->id.'</a></td><td align=center>'.$obj[$i]->share.'<td>Edit</td><td>Delete</td>');
+            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td><td align=center>'.$obj[$i]->share.'<td>Edit</td><td>Delete</td>');
             printf ("\n</tr>");
         }
         printf("</table>");
@@ -96,11 +96,12 @@ class html
         printf('<table border=1 align=center>');
         printf('<tr><td>Name</td><td>Share</td><td>Actions</td></tr>');
         printf ('<tr>');
-        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->id.'</a></td><td><input
-            size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
+        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td><input
+            name="share" size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
         printf ("\n</tr>");
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
+        printf("</form>");
 
     }
 

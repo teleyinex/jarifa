@@ -65,6 +65,12 @@ class controller
           return($obj);
       }
 
+      function update_project($id,$share)
+      {
+        $obj = $this->db->lookup_id($id,'project','project');
+        return($this->db->update($obj,'project','share = '.$share));
+      }
+
       function logout()
       {
           session_unset();
@@ -90,10 +96,8 @@ class controller
                     {
                         case 'edit':
                         {
-                            //$this->am->edit_project($_GET);
                             $layout = new project_page($_SESSION['role'],'edit');
                             $layout->page();
-                            //$obj = $this->am->edit_project($_GET);
                             $obj = $this->edit_project($_GET);
                             $this->am->html->table_project_edit($obj);
 

@@ -44,6 +44,13 @@ if (isset($_SESSION['userid']))
             $ctr->view("project",$_SESSION['role'],'edit');
             break;
         }
+
+        case 'up_project':
+        {
+            $ctr->update_project($_GET['id'],$_POST['share']);
+            $ctr->view("project",$_SESSION['role']);
+            break;
+        }
         
         // Machines action
         case 'machine':
