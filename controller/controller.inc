@@ -50,6 +50,22 @@ class controller
           }
       }
 
+      //
+      // Project Functions
+      //
+
+      function project_list()
+      {
+          $obj = $this->db->enum_fields('project','project','*','1', 'order by id');
+          return($obj);
+      }
+
+      function edit_project($values)
+      {
+          $obj = $this->db->lookup_fields('project','project','*','id="'.$values['id'].'"');
+          return($obj);
+      }
+
       function logout()
       {
           session_unset();
@@ -78,7 +94,8 @@ class controller
                             //$this->am->edit_project($_GET);
                             $layout = new project_page($_SESSION['role'],'edit');
                             $layout->page();
-                            $obj = $this->am->edit_project($_GET);
+                            //$obj = $this->am->edit_project($_GET);
+                            $obj = $this->edit_project($_GET);
                             $this->am->html->table_project_edit($obj);
 
                             break;
@@ -87,7 +104,7 @@ class controller
                         {
                             $layout = new project_page($_SESSION['role'],'start');
                             $layout->page();
-                            $obj = $this->am->project_list();
+                            $obj = $this->project_list();
                             $this->am->html->table_project($obj);
                             break;
                         }
