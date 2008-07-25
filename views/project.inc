@@ -10,7 +10,6 @@ class HTMLproject extends html
     public $language;
 
     function __construct($language,$role=null,$db)
-    //function __construct($role=null,$db)
     {
         $this->language=$language;
         putenv("LANG=$this->language");

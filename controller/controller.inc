@@ -18,7 +18,6 @@ class controller extends html
 
 
       public function __construct($language="es_ES.utf8")
-      //public function __construct()
       {
           
           session_start();
@@ -32,8 +31,6 @@ class controller extends html
           $this->language = $language;
           $this->pool = new HTMLpool($this->language,null,null,$this->db);
           $this->project = new HTMLproject($this->language,null,$this->db);
-          //$this->project = new HTMLproject(null,$this->db);
-          //$this->pool = new HTMLpool(null,null,$this->db);
 
       }
       function authenticate($userid=null,$password=null)

@@ -5,7 +5,6 @@ require_once("controller/controller.inc");
 require_once("inc/lang.inc");
 
 $ctr = new controller("es_ES.utf8");
-//$ctr = new controller();
 // If the user has not been authenticated and there is not any action, the login screen must be shown
 if (!isset($_SESSION['userid']) and (empty($_POST)))
 {

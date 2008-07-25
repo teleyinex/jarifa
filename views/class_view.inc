@@ -1,6 +1,5 @@
 <?php 
 require_once("inc/html.inc");
-//require_once("inc/acc.inc");
 
 class login_page extends html
 {
