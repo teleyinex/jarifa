@@ -10,10 +10,9 @@ class login_page extends html
     {
         putenv("LANG=$language");
         setlocale(LC_ALL, $language);
-        $domain = 'messages';
+        $domain = 'text';
         bindtextdomain($domain, "lang");
         textdomain($domain);
-
     }
 
     function page()

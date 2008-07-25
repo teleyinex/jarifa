@@ -21,11 +21,11 @@ class controller extends html
       {
           
           session_start();
-          putenv("LANG=$language");
-          setlocale(LC_ALL, $language);
-          $domain = 'messages';
-          bindtextdomain($domain, "lang");
-          textdomain($domain);
+          //putenv("LANG=$language");
+          //setlocale(LC_ALL, $language);
+          //$domain = 'messages';
+          //bindtextdomain($domain, "lang");
+          //textdomain($domain);
           $this->db = new DbConn();
           $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
           $this->language = $language;
