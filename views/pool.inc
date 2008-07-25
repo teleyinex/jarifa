@@ -143,6 +143,10 @@ class HTMLpool extends html
                   <td><input name="ram_idle_max" size="2" value="'.$obj->ram_idle_max.'"></td>
                 </tr>
                 <tr>
+                  <td>'.gettext("Delete Pool").'</td>
+                  <td><input name="delete" type=checkbox></td>
+                </tr>
+                <tr>
                   <td align="center" colspan="2" rowspan="1"><input type="submit"></td>
                 </tr>
               </tbody>
