@@ -7,9 +7,17 @@ class HTMLproject extends html
     public $db;
     public $table='project';
     public $class='project';
+    public $language;
 
-    function __construct($role=null,$db)
+    function __construct($language,$role=null,$db)
+    //function __construct($role=null,$db)
     {
+        $this->language=$language;
+        putenv("LANG=$this->language");
+        setlocale(LC_ALL, $this->language);
+        $domain = 'messages';
+        bindtextdomain($domain, "lang");
+        textdomain($domain);
         $this->role = $role;
         $this->db = $db;
     }

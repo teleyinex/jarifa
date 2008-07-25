@@ -4,7 +4,8 @@ require_once("views/class_view.inc");
 require_once("controller/controller.inc");
 require_once("inc/lang.inc");
 
-$ctr = new controller();
+$ctr = new controller("es_ES.utf8");
+//$ctr = new controller();
 // If the user has not been authenticated and there is not any action, the login screen must be shown
 if (!isset($_SESSION['userid']) and (empty($_POST)))
 {
@@ -88,6 +89,28 @@ if (isset($_SESSION['userid']))
             $ctr->view("pool",$_SESSION['role']);
             break;
         }
+
+        case 'ed_pool':
+        {
+            $ctr->view("pool",$_SESSION['role'],'edit');
+            break;
+        }
+
+        case 'up_pool':
+        {
+            if ($_POST['delete'])
+                {
+                $err=$ctr->pool->delete($_GET['id']);
+                }
+            else
+                {
+                $err=$ctr->pool->update($_GET['id'],$_POST['share']);
+                }
+            if ($err != null) $ctr->view("pool",$_SESSION['role']);
+            else $ctr->view("error",$_SESSION['role'],null,gettext("The pool can not be updated or deleted"));
+            break;
+        }
+
         
         // Stats action
         case 'stat':
