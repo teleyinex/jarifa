@@ -72,7 +72,10 @@ class HTMLpool extends html
         {
             printf ("<tr>");
             printf ('<td align=center><a href=index.php?action=ed_pool&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
-                <td align=center>'.$obj[$i]->user_active.'</td>
+                ');
+            if ($obj[$i]->user_active==1) printf('<td align=center>Yes</td>');
+            else printf('<td align=center>No</td>');
+            printf('
                 <td align="center">'.$obj[$i]->start_hour.'</td>
                 <td align="center">'.$obj[$i]->end_hour.'</td>
                 <td align="center">'.$obj[$i]->net_upload.' KB/s</td>
@@ -91,7 +94,7 @@ class HTMLpool extends html
 
     function html_edit($obj)
     {
-        printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="project">');
+        printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="pool">');
         printf('
             <table align="center" style="text-align: left; width: 400px;" border="1"
              cellpadding="2" cellspacing="2">
@@ -104,7 +107,7 @@ class HTMLpool extends html
                   <td>'.gettext("Run BOINC Always").'</td>
                   ');
         if ($obj->user_active==1) printf('<td><input name="user_active" type="checkbox" checked></td>');
-        else printf('<td><input name="user_active" value="false" type="checkbox"></td>');
+        else printf('<td><input name="user_active" type="checkbox" ></td>');
         printf('
                 </tr>
                 <tr>
@@ -197,10 +200,22 @@ class HTMLpool extends html
           return ($this->db->lookup_fields($this->table,$this->class,'*','id="'.$id.'"'));
       }
 
-      function update($id,$share)
+      function update($id,$values)
       {
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
-        return($this->db->update($obj,$this->table,'share = '.$share));
+        $query = 'name="'.$values['name'].'",';
+        print_r($values['user_active']);
+        if ($values['user_active']=="on") $query = $query . ' user_active=1,';
+        else $query = $query . ' user_active=0,';
+        $query = $query . ' start_hour="' . $values['start_hour'].
+            '", end_hour="'   . $values['end_hour'].
+            '", net_upload=' . $values['net_upload'].
+            ', net_download=' . $values['net_download'].
+            ', hd_max=' . $values['hd_max'].
+            ', hd_left='. $values['hd_left'].
+            ', ram_use_max='. $values['ram_use_max']. 
+            ', ram_idle_max='. $values['ram_idle_max'];
+        return($this->db->update($obj,$this->table,$query));
       }
 
       function delete($id)
