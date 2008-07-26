@@ -184,6 +184,13 @@ class controller extends html
                         break;
                     }
 
+                    case 'insert':
+                    {
+                        $this->pool->page('insert',$_POST);
+                        break;
+                    }
+
+
                     default:
                     {
                         $this->pool->page('start');

@@ -39,7 +39,7 @@ class HTMLpool extends html
 
             case 'insert':
             {
-                $this->header(gettext("Projects"));
+                $this->header(gettext("Pools"));
                 $this->menu($this->role,gettext("Create a new pool"));
                 $this->html_insert(); 
                 break;
@@ -159,35 +159,59 @@ class HTMLpool extends html
 
     function html_insert()
     {
-    printf('
-    <form method="post" action="index.php?action=in_pool">
-    <table style="text-align: left; width: 100px;" border="1"  cellpadding="2" cellspacing="2">
-        <tbody>
-          <tr>
-            <td>Name</td>
-            <td><input size="30" maxlength="255" name="name"></td>
-          </tr>
-          <tr>
-            <td>URL</td>
-            <td><input size="30" maxlength="255" name="url"></td>
-          </tr>
-          <tr>
-            <td>Signature</td>
-            <td><textarea cols="43" rows="5" name="signature"></textarea></td>
-          </tr>
-          <tr>
-            <td>Authenticator</td>
-            <td><input size="30" name="authenticator"></td>
-          </tr>
-          <tr>
-            <td>Share</td>
-            <td align="center"><input size="2" maxlength="3" name="share" value="50"></td>
-          </tr>
-          <tr>
-          <td align="center" colspan="2"><input name="submit" type="submit"></td>
-          </tr>
-        </tbody>
-    </table>
+    printf('<form method="post" action="index.php?action=in_pool">');
+        printf('
+            <table align="center" style="text-align: left; width: 400px;" border="1"
+             cellpadding="2" cellspacing="2">
+              <tbody>
+                <tr>
+                  <td>'.gettext("Name").'</td>
+                  <td><input name="name" size="10"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Run BOINC Always").'</td>
+                  ');
+        printf('<td><input name="user_active" type="checkbox" checked ></td>');
+        printf('
+                </tr>
+                <tr>
+                  <td>'.gettext("Start Hour").'</td>
+                  <td><input name="start_hour" size="6" value="00:00:00"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("End Hour").'</td>
+                  <td><input name="end_hour" size="6" value="00:00:00"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Net Upload").'</td>
+                  <td><input name="net_upload" size="2" value="0"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Net Download").'</td>
+                  <td><input name="net_download" size="2"  value="0"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("HD Max Space employed").'</td>
+                  <td><input name="hd_max" size="2" value="10"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Minimum HD Space Left").'</td>
+                  <td><input name="hd_left" size="2" value="0.1"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Max RAM when Active").'</td>
+                  <td><input name="ram_use_max" size="2" value="50"></td>
+                </tr>
+                <tr>
+                  <td>'.gettext("Max RAM when Idle").'</td>
+                  <td><input name="ram_idle_max" size="2" value="90"></td>
+                </tr>
+                <tr>
+                  <td align="center" colspan="2" rowspan="1"><input type="submit"></td>
+                </tr>
+              </tbody>
+            </table>
+
     </form>
     ');
     $this->footer();
@@ -230,15 +254,27 @@ class HTMLpool extends html
 
       function insert($values)
       {
+          print_r($values);
           $insert=True;
           if (empty($values['name'])) $insert=False;
-          if (empty($values['url'])) $insert=False;
-          if (empty($values['signature'])) $insert=False;
-          if (empty($values['authenticator'])) $insert=False;
+          if ($values['user_active']=="on") $values['user_active']=1;
+          else $values['user_active']=0;
+          if (empty($values['start_hour'])) $insert=False;
+          if (empty($values['end_hour'])) $insert=False;
+          //if (empty($values['net_upload'])) $insert=False;
+          //if (empty($values['net_download'])) $insert=False;
+          if (empty($values['hd_max'])) $insert=False;
+          if (empty($values['hd_left'])) $insert=False;
+          if (empty($values['ram_use_max'])) $insert=False;
+          if (empty($values['ram_idle_max'])) $insert=False;
           if ($insert)
           {
-            $query = '(name,url,signature,authenticator,share) values ("'
-              .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
+            $query = '(name,user_active, start_hour, end_hour, net_upload, net_download, hd_max, hd_left, ram_use_max,
+                ram_idle_max) values ("'
+              .$values['name'].'",
+              '.$values['user_active'].',"'.$values['start_hour'].'","'.$values['end_hour'].'",'.$values['net_upload'].',
+              '.$values['net_download'].','.$values['hd_max'].','.$values['hd_left'].', "'.$values['ram_use_max'].'",
+              "'.$values['ram_idle_max'].'")';
             return($this->db->insert($this->table, $query));
           }
           else

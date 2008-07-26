@@ -110,7 +110,21 @@ if (isset($_SESSION['userid']))
             break;
         }
 
-        
+        case 'vin_pool':
+        {
+            $ctr->view("pool",$_SESSION['role'],'insert');
+            break;
+        }
+
+        case 'in_pool':
+        {
+                if ($ctr->pool->insert($_POST))
+                    $ctr->view("pool",$_SESSION['role']);
+                else
+                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                break;
+        }
+       
         // Stats action
         case 'stat':
         {
