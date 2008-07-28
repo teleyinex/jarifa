@@ -68,8 +68,8 @@ if (isset($_SESSION['userid']))
 
         case 'in_user':
         {
-                if ($ctr->project->insert($_POST))
-                    $ctr->view("project",$_SESSION['role']);
+                if ($ctr->user->insert($_POST))
+                    $ctr->view("user",$_SESSION['role']);
                 else
                     $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
                 break;
