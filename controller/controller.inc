@@ -3,6 +3,7 @@ require_once("inc/db_conn.inc");
 require_once("views/project.inc");
 require_once("views/host.inc");
 require_once("views/pool.inc");
+require_once("views/user.inc");
 require_once("model/data.inc");
 
 class controller extends html
@@ -17,6 +18,7 @@ class controller extends html
       public $pool;
       public $language;
       public $host;
+      public $user;
 
 
       public function __construct($language="es_ES.utf8")
@@ -34,6 +36,7 @@ class controller extends html
           $this->pool = new HTMLpool($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
           $this->host = new HTMLhost($this->language,$_SESSION['role'],$this->db);
+          $this->user = new HTMLuser($this->language,$_SESSION['role'],$this->db);
 
       }
       function authenticate($userid=null,$password=null)
@@ -44,10 +47,10 @@ class controller extends html
           }
           else
           {
-              $user =  $this->db->lookup_fields('user','user','id,role,supplier','id="'.$userid.'" and password="'.md5($password).'"');
+              $user =  $this->db->lookup_fields('user','user','name,role,supplier','name="'.$userid.'" and password="'.md5($password).'"');
               if (!$user==null)
               {
-                $_SESSION['userid']=$user->id;
+                $_SESSION['userid']=$user->name;
                 $_SESSION['role']=$user->role;
                 $_SESSION['supplier']=$user->supplier;
                 return(True);
@@ -161,6 +164,33 @@ class controller extends html
                             $this->project->page('start');
                             $obj = $this->project->lists();
                             $this->project->table($obj);
+                            break;
+                        }
+
+                    }
+                    break;
+                }
+
+            case 'user':
+                {
+                    $this->user->role = $_SESSION['role'];
+                    switch ($subaction)
+                    {
+                        case 'edit':
+                        {
+                            $this->user->page('edit',$_GET);
+                            break;
+                        }
+                        case 'insert':
+                        {
+                            $this->user->page('insert');
+                            break;
+                        }
+                        default:
+                        {
+                            $this->user->page('start');
+                            $obj = $this->user->lists();
+                            $this->user->table($obj);
                             break;
                         }
 

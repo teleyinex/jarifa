@@ -31,6 +31,49 @@ if (isset($_SESSION['userid']))
             $ctr->view("start",$_SESSION['role']);
             break;
         }
+        
+        // Users action
+        case 'user':
+        {
+            $ctr->view("user",$_SESSION['role']);
+            break;
+        }
+
+        case 'ed_user':
+        {
+            $ctr->view("user",$_SESSION['role'],'edit');
+            break;
+        }
+
+        case 'vin_user':
+        {
+            $ctr->view("user",$_SESSION['role'],'insert');
+            break;
+        }
+        case 'up_user':
+        {
+            if ($_POST['delete'])
+                {
+                $err=$ctr->user->delete($_GET['id']);
+                }
+            else
+                {
+                $err=$ctr->user->update($_GET['id'],$_POST);
+                }
+            if ($err != null) $ctr->view("user",$_SESSION['role']);
+            else $ctr->view("error",$_SESSION['role'],null,gettext("The user can not be updated or deleted"));
+                
+            break;
+        }
+
+        case 'in_user':
+        {
+                if ($ctr->project->insert($_POST))
+                    $ctr->view("project",$_SESSION['role']);
+                else
+                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                break;
+        }
 
         // Projects action
         case 'project':
