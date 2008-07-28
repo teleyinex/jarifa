@@ -1,11 +1,12 @@
 <?php 
 require_once("inc/html.inc");
+require_once("model/data.inc");
 
 class HTMLpool extends html
 {
     public $role;
     public $db;
-    public $supplier;
+    public $user_supplier;
     public $table='pool';
     public $class='pool';
     public $language;
@@ -26,6 +27,7 @@ class HTMLpool extends html
 
     function page($view=null,$values=null)
     {
+
         switch ($view)
         {
             case 'edit':
@@ -33,7 +35,8 @@ class HTMLpool extends html
                 $this->header(gettext("Pools"));
                 $this->menu($this->role,gettext("Editing pool"));
                 $obj = $this->get($values['id']);
-                $this->html_edit($obj);
+                $suppliers = $this->suppliers();
+                $this->html_edit($obj,$suppliers);
                 break;
             }
 
@@ -41,7 +44,8 @@ class HTMLpool extends html
             {
                 $this->header(gettext("Pools"));
                 $this->menu($this->role,gettext("Create a new pool"));
-                $this->html_insert(); 
+                $suppliers = $this->suppliers();
+                $this->html_insert($suppliers); 
                 break;
             }
             default:
@@ -65,8 +69,12 @@ class HTMLpool extends html
             <td align="center">'.gettext("Start").'</td><td align="center">'.gettext("End").'</td>
             <td align="center">'.gettext("Upload").'</td><td align="center">'.gettext("Download").'</td>
             <td align="center">'.gettext("Max Space").'</td><td align="center">'.gettext("Left Space").'</td>
-            <td align="center">'.gettext("Max Active").'</td><td align="center">'.gettext("Max Idle").'</td>
-            </tr>');
+            <td align="center">'.gettext("Max Active").'</td><td align="center">'.gettext("Max Idle").'</td>');
+        if ($this->role == 'root')
+        {
+            printf('<td align="center">'.gettext("Supplier").'</td>');
+        }
+        printf('</tr>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
         {
@@ -85,6 +93,8 @@ class HTMLpool extends html
                 <td align="center">'.$obj[$i]->ram_use_max.' %%</td>
                 <td align="center">'.$obj[$i]->ram_idle_max.' %%</td>'
                   );
+            if ($this->role == 'root') 
+                printf('<td align="center">'.$obj[$i]->supplier.'</td>');
             printf ("\n</tr>");
         }
         printf("</table>");
@@ -92,7 +102,7 @@ class HTMLpool extends html
         $this->footer();
     }
 
-    function html_edit($obj)
+    function html_edit($obj,$suppliers=null)
     {
         printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="pool">');
         printf('
@@ -102,7 +112,21 @@ class HTMLpool extends html
                 <tr>
                   <td>'.gettext("Name").'</td>
                   <td><input name="name" size="10" value="'.$obj->name.'"></td>
-                </tr>
+                  </tr>');
+        if ($this->role == 'root')
+        {
+            printf('<tr><td>'.gettext("Supplier").'</td>');
+            printf('<td><select name="supplier">');
+            for ($i=0;$i<count($suppliers);$i++)
+            {
+                if ($obj->supplier == $suppliers[$i]->supplier)
+                    printf('<option value="'.$suppliers[$i]->supplier.'" selected="selected">'.$suppliers[$i]->supplier.'</option>');
+                else
+                    printf('<option value="'.$suppliers[$i]->supplier.'">'.$suppliers[$i]->supplier.'</option>');
+            }
+            printf('</select></td></tr>');
+        }
+        printf('
                 <tr>
                   <td>'.gettext("Run BOINC Always").'</td>
                   ');
@@ -157,7 +181,7 @@ class HTMLpool extends html
 
     }
 
-    function html_insert()
+    function html_insert($suppliers=null)
     {
     printf('<form method="post" action="index.php?action=in_pool">');
         printf('
@@ -167,7 +191,21 @@ class HTMLpool extends html
                 <tr>
                   <td>'.gettext("Name").'</td>
                   <td><input name="name" size="10"></td>
-                </tr>
+                  </tr>');
+        if ($this->role == 'root')
+        {
+            printf('<tr><td>'.gettext("Supplier").'</td>');
+            printf('<td><select name="supplier">');
+            for ($i=0;$i<count($suppliers);$i++)
+            {
+                if ($obj->supplier == $suppliers[$i]->supplier)
+                    printf('<option value="'.$suppliers[$i]->supplier.'" selected="selected">'.$suppliers[$i]->supplier.'</option>');
+                else
+                    printf('<option value="'.$suppliers[$i]->supplier.'">'.$suppliers[$i]->supplier.'</option>');
+            }
+            printf('</select></td></tr>');
+        }
+        printf('
                 <tr>
                   <td>'.gettext("Run BOINC Always").'</td>
                   ');
@@ -217,9 +255,18 @@ class HTMLpool extends html
     $this->footer();
     }
 
+    function suppliers()
+    {
+        $obj = $this->db->enum_fields('user','user','supplier','1','group by supplier');
+        return($obj);
+    }
+
     function lists()
       {
-          $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          if ($this->role == 'root')
+            $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          else
+            $obj = $this->db->enum_fields($this->table,$this->class,'*','supplier="'.$this->supplier.'"', 'order by id');
           return($obj);
       }
 
@@ -232,6 +279,8 @@ class HTMLpool extends html
       {
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
         $query = 'name="'.$values['name'].'",';
+        if ($this->role == 'root')
+            $query = $query . 'supplier="'.$values['supplier'].'",';
         print_r($values['user_active']);
         if ($values['user_active']=="on") $query = $query . ' user_active=1,';
         else $query = $query . ' user_active=0,';
@@ -254,7 +303,6 @@ class HTMLpool extends html
 
       function insert($values)
       {
-          print_r($values);
           $insert=True;
           if (empty($values['name'])) $insert=False;
           if ($values['user_active']=="on") $values['user_active']=1;
@@ -267,11 +315,13 @@ class HTMLpool extends html
           if (empty($values['hd_left'])) $insert=False;
           if (empty($values['ram_use_max'])) $insert=False;
           if (empty($values['ram_idle_max'])) $insert=False;
+          if ($this->role != 'root') $values['supplier']=$this->supplier;
           if ($insert)
           {
-            $query = '(name,user_active, start_hour, end_hour, net_upload, net_download, hd_max, hd_left, ram_use_max,
+            $query = '(name, supplier, user_active, start_hour, end_hour, net_upload, net_download, hd_max, hd_left, ram_use_max,
                 ram_idle_max) values ("'
-              .$values['name'].'",
+              .$values['name'].'","'
+              .$values['supplier'].'",
               '.$values['user_active'].',"'.$values['start_hour'].'","'.$values['end_hour'].'",'.$values['net_upload'].',
               '.$values['net_download'].','.$values['hd_max'].','.$values['hd_left'].', "'.$values['ram_use_max'].'",
               "'.$values['ram_idle_max'].'")';

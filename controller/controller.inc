@@ -31,9 +31,9 @@ class controller extends html
           $this->db = new DbConn();
           $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
           $this->language = $language;
-          $this->pool = new HTMLpool($this->language,null,null,$this->db);
-          $this->project = new HTMLproject($this->language,null,$this->db);
-          $this->host = new HTMLhost($this->language,null,$this->db);
+          $this->pool = new HTMLpool($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
+          $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
+          $this->host = new HTMLhost($this->language,$_SESSION['role'],$this->db);
 
       }
       function authenticate($userid=null,$password=null)
