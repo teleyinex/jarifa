@@ -25,7 +25,7 @@ class DbConn {
         echo "query: $q<br>\n";
         $ret = mysql_query($q, $this->db_conn);
         if (!$ret) {
-            echo "Database Error<br>\n";
+            //echo "Database Error<br>\n";
             //echo ": ", mysql_error(), "\n<pre>";
             //var_dump(debug_backtrace());
             //echo "</pre>query: $q\n";
