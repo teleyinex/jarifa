@@ -1,4 +1,12 @@
 <?php 
+class host 
+{
+    public $id;
+    public $poolid;
+    public $DBID;
+    public $CPID;
+}
+
 class pool
 {
     public $id;

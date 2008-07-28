@@ -1,6 +1,7 @@
 <?php 
 require_once("inc/db_conn.inc");
 require_once("views/project.inc");
+require_once("views/host.inc");
 require_once("views/pool.inc");
 require_once("model/data.inc");
 
@@ -15,6 +16,7 @@ class controller extends html
       public $project;
       public $pool;
       public $language;
+      public $host;
 
 
       public function __construct($language="es_ES.utf8")
@@ -31,6 +33,7 @@ class controller extends html
           $this->language = $language;
           $this->pool = new HTMLpool($this->language,null,null,$this->db);
           $this->project = new HTMLproject($this->language,null,$this->db);
+          $this->host = new HTMLhost($this->language,null,$this->db);
 
       }
       function authenticate($userid=null,$password=null)
@@ -57,95 +60,6 @@ class controller extends html
           }
       }
 
-      //
-      // Project Functions
-      //
-
-      //function project_list()
-      //{
-      //    $obj = $this->db->enum_fields('project','project','*','1', 'order by id');
-      //    return($obj);
-      //}
-
-      //function edit_project($values)
-      //{
-      //    $obj = $this->db->lookup_fields('project','project','*','id="'.$values['id'].'"');
-      //    return($obj);
-      //}
-
-      //function update_project($id,$share)
-      //{
-      //  $obj = $this->db->lookup_id($id,'project','project');
-      //  return($this->db->update($obj,'project','share = '.$share));
-      //}
-
-      //function delete_project($id)
-      //{
-      //  $obj = $this->db->lookup_id($id,'project','project');
-      //  return($this->db->delete($obj,'project'));
-      //}
-
-      //function insert_project($values)
-      //{
-      //    $insert=True;
-      //    if (empty($values['name'])) $insert=False;
-      //    if (empty($values['url'])) $insert=False;
-      //    if (empty($values['signature'])) $insert=False;
-      //    if (empty($values['authenticator'])) $insert=False;
-      //    if ($insert)
-      //    {
-      //      $query = '(name,url,signature,authenticator,share) values ("'
-      //        .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
-      //      return($this->db->insert('project', $query));
-      //    }
-      //    else
-      //        return(False);
-      //}
-
-      //
-      // Pool Functions
-      //
-
-      //function pool_list()
-      //{
-      //    $obj = $this->db->enum_fields('pool','pool','*','1', 'order by id');
-      //    return($obj);
-      //}
-
-      //function edit_pool($values)
-      //{
-      //    $obj = $this->db->lookup_fields('pool','pool','*','id="'.$values['id'].'"');
-      //    return($obj);
-      //}
-
-      //function update_pool($id,$name,$prefs)
-      //{
-      //  $obj = $this->db->lookup_id($id,'pool','pool');
-      //  return($this->db->update($obj,'pool','name = '.$name. ', $prefs='.$prefs));
-      //}
-
-      //function delete_pool($id)
-      //{
-      //  $obj = $this->db->lookup_id($id,'pool','pool');
-      //  return($this->db->delete($obj,'pool'));
-      //}
-
-      //function insert_pool($values)
-      //{
-      //    $insert=True;
-      //    if (empty($values['name'])) $insert=False;
-      //    if (empty($values['url'])) $insert=False;
-      //    if (empty($values['signature'])) $insert=False;
-      //    if (empty($values['authenticator'])) $insert=False;
-      //    if ($insert)
-      //    {
-      //      $query = '(name,url,signature,authenticator,share) values ("'
-      //        .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
-      //      return($this->db->insert('project', $query));
-      //    }
-      //    else
-      //        return(False);
-      //}
 
       function logout()
       {
@@ -169,6 +83,30 @@ class controller extends html
             {
                 $layout = new start_page($_SESSION['role']);
                 $layout->page();
+                break;
+            }
+
+            case 'host':
+            {
+                $this->host->role = $_SESSION['role'];
+                switch ($subaction)
+                {
+                    case 'edit':
+                    {
+                        $this->host->page('edit',$_GET);
+                        break;
+                    }
+
+                    default:
+                    {
+                        $this->host->page('start');
+                        $obj = $this->host->lists();
+                        $pools = $this->host->pools();
+                        $this->host->table($obj,$pools);
+                        break;
+                    }
+                
+                } 
                 break;
             }
 

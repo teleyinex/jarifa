@@ -75,12 +75,34 @@ if (isset($_SESSION['userid']))
                 break;
         }
 
-        // Machines action
-        case 'machine':
+        // Hosts action
+        case 'host':
         {
-            $ctr->view("machine",$_SESSION['role']);
+            $ctr->view("host",$_SESSION['role']);
             break;
         }
+
+        case 'ed_host':
+        {
+            $ctr->view("host",$_SESSION['role'],'edit');
+            break;
+        }
+
+        case 'up_host':
+        {
+            if ($_POST['delete'])
+                {
+                $err=$ctr->host->delete($_GET['id']);
+                }
+            else
+                {
+                $err=$ctr->host->update($_GET['id'],$_POST);
+                }
+            if ($err != null) $ctr->view("host",$_SESSION['role']);
+            else $ctr->view("error",$_SESSION['role'],null,gettext("The host can not be updated or deleted"));
+            break;
+        }
+
         
         // Pools action
         case 'pool':
