@@ -3,6 +3,7 @@ class host
 {
     public $id;
     public $poolid;
+    public $supplier;
     public $DBID;
     public $CPID;
 }
@@ -31,5 +32,4 @@ class user
     public $role;
     public $supplier;
 }
-
 ?>
