@@ -14,6 +14,15 @@ class pool
     public $name;
     public $supplier;
     public $prefs;
+    public $user_active;
+    public $start_hour;
+    public $end_hour;
+    public $net_upload;
+    public $net_download;
+    public $hd_max;
+    public $hd_left;
+    public $ram_use_max;
+    public $ram_idle_max;
 }
 
 class project

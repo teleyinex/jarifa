@@ -25,6 +25,33 @@ class HTMLpool extends html
         $this->language;
     }
 
+    function adapt_time($time,$action)
+    {
+        switch ($action)
+        {
+        case 'edit':
+        {
+            list($hour, $min) = split("\.",$time);
+            $min = round(((int)($min)*60)/100);
+            if (($hour) == '0') $hour = '00';
+            if (($min) == '0') $min = '00';
+            if ((strlen($hour)) == 1) $hour = '0'. $hour;
+            if ((strlen($min)) == 1) $min = '0'. $min ;
+            return($hour.':'.$min);
+        }
+
+        case 'insert':
+        {
+            list($hour, $min) = split(":",$time);
+            $min =  ((int)($min)*100)/60;
+            $min = round($min);
+            return($hour.'.'.$min);
+        }
+       
+        }
+        
+    }
+
     function page($view=null,$values=null)
     {
 
@@ -83,6 +110,8 @@ class HTMLpool extends html
                 ');
             if ($obj[$i]->user_active==1) printf('<td align=center>Yes</td>');
             else printf('<td align=center>No</td>');
+            $obj[$i]->start_hour = $this->adapt_time($obj[$i]->start_hour,'edit');
+            $obj[$i]->end_hour = $this->adapt_time($obj[$i]->end_hour,'edit');
             printf('
                 <td align="center">'.$obj[$i]->start_hour.'</td>
                 <td align="center">'.$obj[$i]->end_hour.'</td>
@@ -132,6 +161,9 @@ class HTMLpool extends html
                   ');
         if ($obj->user_active==1) printf('<td><input name="user_active" type="checkbox" checked></td>');
         else printf('<td><input name="user_active" type="checkbox" ></td>');
+        $obj->start_hour = $this->adapt_time($obj->start_hour,'edit');
+        $obj->end_hour = $this->adapt_time($obj->end_hour,'edit');
+
         printf('
                 </tr>
                 <tr>
@@ -284,11 +316,13 @@ class HTMLpool extends html
 
       function update($id,$values)
       {
+        $values['start_hour'] = $this->adapt_time($values['start_hour'],'insert');
+        $values['end_hour'] = $this->adapt_time($values['end_hour'],'insert');
+
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
         $query = 'name="'.$values['name'].'",';
         if ($this->role == 'root')
             $query = $query . 'supplier="'.$values['supplier'].'",';
-        print_r($values['user_active']);
         if ($values['user_active']=="on") $query = $query . ' user_active=1,';
         else $query = $query . ' user_active=0,';
         $query = $query . ' start_hour="' . $values['start_hour'].
@@ -323,6 +357,8 @@ class HTMLpool extends html
           if (empty($values['ram_use_max'])) $insert=False;
           if (empty($values['ram_idle_max'])) $insert=False;
           if ($this->role != 'root') $values['supplier']=$this->supplier;
+          $values['start_hour'] = $this->adapt_time($values['start_hour'],'insert');
+          $values['end_hour'] = $this->adapt_time($values['end_hour'],'insert');
           if ($insert)
           {
             $query = '(name, supplier, user_active, start_hour, end_hour, net_upload, net_download, hd_max, hd_left, ram_use_max,

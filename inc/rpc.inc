@@ -56,6 +56,7 @@ class rpc
         $this->host->poolid = $obj->id;
         $query = '(poolid,supplier,CPID,venue) values ('.$this->host->poolid.',"'.$this->host->supplier.'","'.$this->host->CPID.'",null)';
         $obj = $this->db->insert("host",$query);
+        $this->host->id = $this->db->insert_id();
         if (!empty($obj)) return ($this->db->insert_id());
         else return(False);
     }
@@ -79,11 +80,11 @@ cf85d9c9f04d6274ba0270593f235f52881a602694b122a522b08f7aa2e79491
         $this->xml->appendChild($element);
     }
 
-    function xmlOpaqueID($id)
+    function xmlOpaqueID()
     {
         $opaque= $this->dom->createElement('opaque');
         $this->xml->appendChild($opaque);
-        $element = $this->dom->createElement('id',$id);
+        $element = $this->dom->createElement('id',$this->host->id);
         $opaque->appendChild($element);
     }
 
@@ -92,6 +93,38 @@ cf85d9c9f04d6274ba0270593f235f52881a602694b122a522b08f7aa2e79491
         $projects = $this->db->enum_fields("project","project","*","1","order by id");
         if (!empty($projects)) return ($projects);
         else return (False);
+    }
+
+    function xmlPreferences()
+    {
+        $this->host = $this->db->lookup_fields('host','host','*','id='.$this->host->id);
+        $prefs = $this->db->lookup_fields('pool','pool','*','id='.$this->host->poolid);
+        if (!empty($prefs))
+        {
+           $global_preferences = $this->dom->createElement('global_preferences');
+           $this->xml->appendChild($global_preferences);
+           $element = $this->dom->createElement('run_if_user_active',$prefs->user_active);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('start_hour',$prefs->start_hour);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('end_hour',$prefs->end_hour);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('max_bytes_sec_up',$prefs->net_upload*1024);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('max_bytes_sec_down',$prefs->net_download*1024);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('disk_max_used_gb',$prefs->hd_max);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('disk_min_free_gb',$prefs->hd_left);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('ram_max_used_busy_pct',$prefs->ram_use_max);
+           $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('ram_max_used_idle_pct',$prefs->ram_idle_max);
+           $global_preferences->appendChild($element);
+        }
+        else
+            return(False);
+
     }
 
     function xmlProject($project)

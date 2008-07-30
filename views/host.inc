@@ -5,13 +5,14 @@ require_once("model/data.inc");
 class HTMLhost extends html
 {
     public $role;
+    public $supplier;
     public $db;
     public $pool;
     public $table='host';
     public $class='host';
     public $language;
 
-    function __construct($language,$role=null,$db)
+    function __construct($language,$role=null,$supplier=null,$db)
     {
         $this->language=$language;
         putenv("LANG=$this->language");
@@ -20,6 +21,7 @@ class HTMLhost extends html
         bindtextdomain($domain, "lang");
         textdomain($domain);
         $this->role = $role;
+        $this->supplier = $supplier;
         $this->db = $db;
         $this->language;
     }
@@ -85,7 +87,10 @@ class HTMLhost extends html
         $row = count($pools);
         for ($i=0; $i<$row; $i++)
         {
-            printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+            if ($this->role == "root")
+                printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'->'.$pools[$i]->supplier.'</option>');
+            else
+                printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
         }
         printf("</selection></td>");
         printf('<td align="center"><input name="delete" type=checkbox>');
@@ -99,13 +104,19 @@ class HTMLhost extends html
 
     function lists()
       {
-          $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          if ($this->role == 'root')
+            $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          else
+            $obj = $this->db->enum_fields($this->table,$this->class,'*','supplier="'.$this->supplier.'"', 'order by id');
           return($obj);
       }
 
     function pools()
     {
-        $obj = $this->db->enum_fields('pool','pool','*','1','order by id');
+        if ($this->role == 'root')
+            $obj = $this->db->enum_fields('pool','pool','*','1','order by id');
+        else
+            $obj = $this->db->enum_fields('pool','pool','*','supplier="'.$this->supplier.'"','order by id');
         return($obj);
     }
 

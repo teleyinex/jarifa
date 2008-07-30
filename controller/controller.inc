@@ -35,7 +35,7 @@ class controller extends html
           $this->language = $language;
           $this->pool = new HTMLpool($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
-          $this->host = new HTMLhost($this->language,$_SESSION['role'],$this->db);
+          $this->host = new HTMLhost($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->user = new HTMLuser($this->language,$_SESSION['role'],$this->db);
 
       }
