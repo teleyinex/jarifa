@@ -20,7 +20,7 @@ class rpc
         $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
         $this->user = new user();
         $this->host = new host();
-        $this->dom = new DOMDocument('1.0', 'iso-8859-1');
+        $this->dom = new DOMDocument('1.0', 'utf-8');
         $this->dom->formatOutput = true;
         $this->xml = $this->dom->createElement('acct_mgr_reply');
         $this->dom->appendChild($this->xml);
@@ -86,7 +86,26 @@ cf85d9c9f04d6274ba0270593f235f52881a602694b122a522b08f7aa2e79491
         $element = $this->dom->createElement('id',$id);
         $opaque->appendChild($element);
     }
+
+    function projects()
+    {
+        $projects = $this->db->enum_fields("project","project","*","1","order by id");
+        if (!empty($projects)) return ($projects);
+        else return (False);
+    }
+
+    function xmlProject($project)
+    {
+        $account = $this->dom->createElement('account');
+        $this->xml->appendChild($account);
+        $element = $this->dom->createElement('url',$project->url);
+        $account->appendChild($element);
+        $element = $this->dom->createElement('url_signature',"$project->signature");
+        $account->appendChild($element);
+        $element = $this->dom->createElement('authenticator',$project->authenticator);
+        $account->appendChild($element);
+        $element = $this->dom->createElement('resource_share',$project->share);
+        $account->appendChild($element);
+    }
 }
-
-
 ?>

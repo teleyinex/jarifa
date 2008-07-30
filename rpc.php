@@ -14,8 +14,6 @@ if ($rpc->auth($host))
         {
             $rpc->xmlSigningKey();
             $rpc->xmlOpaqueID($id);
-            echo $rpc->dom->saveXML();
-
         }
         else
             printf ("Error, no se ha añadido el host");
@@ -24,7 +22,13 @@ if ($rpc->auth($host))
     {
             $rpc->xmlSigningKey();
             $rpc->xmlOpaqueID($rpc->host->id);
-            echo $rpc->dom->saveXML();
     }
+
+    $projects = $rpc->projects();
+    foreach ($projects as $project)
+    {
+        $rpc->xmlProject($project);
+    }
+    echo $rpc->dom->saveXML();
 }
 ?>
