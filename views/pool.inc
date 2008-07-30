@@ -86,13 +86,20 @@ class HTMLpool extends html
 
     }
 
+    function hosts_per_pool($id)
+    {
+        $hosts = $this->db->enum_fields('host','host','id','poolid='.$id,'order by id');
+        return(count($hosts));
+    }
+
     function table($obj)
     {
         printf('<table border=1 align=center cellpadding="4">');
         printf('<tr><td colspan=2></td><td align="center" colspan=2>'.gettext("Time").'<td align="center" colspan=2>'.gettext("Network").'
                 <td align="center" colspan=2>'.gettext("Hard Disk Usage").'</td><td align="center"
                 colspan=2>'.gettext("Memory Usage").'</td></tr>');
-        printf('<tr><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Run Always").'</td>
+        printf('<tr><td align="center">'.gettext("Name").'<td align="center">'.gettext("Hosts").'</td>
+            </td><td align="center">'.gettext("Run Always").'</td>
             <td align="center">'.gettext("Start").'</td><td align="center">'.gettext("End").'</td>
             <td align="center">'.gettext("Upload").'</td><td align="center">'.gettext("Download").'</td>
             <td align="center">'.gettext("Max Space").'</td><td align="center">'.gettext("Left Space").'</td>
@@ -108,6 +115,7 @@ class HTMLpool extends html
             printf ("<tr>");
             printf ('<td align=center><a href=index.php?action=ed_pool&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
                 ');
+            printf ('<td align="center">'.$this->hosts_per_pool($obj[$i]->id).'</td>');
             if ($obj[$i]->user_active==1) printf('<td align=center>Yes</td>');
             else printf('<td align=center>No</td>');
             $obj[$i]->start_hour = $this->adapt_time($obj[$i]->start_hour,'edit');
