@@ -172,22 +172,45 @@ class HTMLuser extends html
 
       function delete($id)
       {
-        $obj = $this->db->lookup_id($id,$this->table,$this->class);
-        return($this->db->delete($obj,$this->table));
+        $user = $this->db->lookup_fields('user','user','*','id='.$id);
+        $suppliers = $this->db->enum_fields('user','user','supplier','supplier="'.$user->supplier.'"','order by supplier');
+        if (count($suppliers)>1)
+        {
+            $obj = $this->db->lookup_id($id,$this->table,$this->class);
+            return($this->db->delete($obj,$this->table));
+        }
+        else
+        {
+            $obj = $this->db->lookup_id($id,$this->table,$this->class);
+            $this->db->delete($obj,$this->table);
+            $default_pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$user->supplier.'"');
+            return($this->db->delete($default_pool,'pool'));
+        }
       }
 
       function insert($values)
       {
           $insert=True;
+          $create_default_pool=False;
           if (empty($values['name'])) $insert=False;
           if (empty($values['password'])) $insert=False;
           if (empty($values['role'])) $insert=False;
           if (empty($values['supplier'])) $insert=False;
           if ($insert)
           {
+            $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
+            if (empty($pool)) $create_default_pool = True;
             $query = '(name,password,role,supplier) values ("'
               .$values['name'].'", "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'")';
-            return($this->db->insert($this->table, $query));
+            $res = $this->db->insert($this->table, $query);
+            if ($res and $create_default_pool)
+            {
+                {
+                    $query = '(name,supplier) values ("default","'.$values['supplier'].'")';
+                    return($this->db->insert('pool',$query));
+                }
+            }
+            return($res);
           }
           else
               return(False);
