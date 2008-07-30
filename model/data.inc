@@ -23,6 +23,8 @@ class project
     public $signature;
     public $authenticator;
     public $share;
+    public $detach;
+    public $update;
 }
 
 class user

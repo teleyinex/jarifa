@@ -54,14 +54,22 @@ class HTMLproject extends html
 
     function table($obj)
     {
-        // acction=up -> Update Project -> up
         printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td align="center">Name</td><td align="center">Share</td></tr>');
+        printf('<tr><td align="center">'.gettext("Name").'</td>
+            <td align="center">'.gettext("Share").'</td>
+            <td align="center">'.gettext("Detach").'</td>
+            <td align="center">'.gettext("Update").'</td>
+            </tr>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td><td align=center>'.$obj[$i]->share.'');
+            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
+                     <td align=center>'.$obj[$i]->share.'</td>');
+            if ($obj[$i]->detach) printf('<td align="center">'.gettext("Yes").'</td>');
+            else printf('<td align="center">'.gettext("No").'</td>');
+            if ($obj[$i]->update) printf('<td align="center">'.gettext("Yes").'</td>');
+            else printf('<td align="center">'.gettext("No").'</td>');
             printf ("\n</tr>");
         }
         printf("</table>");
@@ -72,15 +80,23 @@ class HTMLproject extends html
     {
         printf('<form method="post" action="index.php?action=up_project&id='.$obj->id.'" name="project">');
         printf('<table border=1 align=center cellpading="4">');
-        printf('<tr><td align="center">Name</td><td align="center">Share</td><td align="center">Delete</td></tr>');
+        printf('<tr><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
+                    <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
+                    <td align="center">'.gettext("Delete").'</td>
+                    
+                    </tr>');
         printf ('<tr>');
         printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td
-            align="center"><input name="share" size="2" value="'.$obj->share.'"><td align=center><input name="delete" type="checkbox"></td>');
+            align="center"><input name="share" size="2" value="'.$obj->share.'">');
+        if ($obj->detach) printf ('<td align="center"><input name="detach" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="detach" type="checkbox"></td>');
+        if ($obj->update) printf ('<td align="center"><input name="update" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="update" type="checkbox"></td>');
+        printf('<td align=center><input name="delete" type="checkbox"></td>');
         printf ("\n</tr>");
-        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
-
     }
 
     function html_insert()
@@ -130,10 +146,15 @@ class HTMLproject extends html
           return ($this->db->lookup_fields($this->table,$this->class,'*','id="'.$id.'"'));
       }
 
-      function update($id,$share)
+      function update($id,$values)
       {
+        $query = 'share='.$values['share'];
+        if ($values['detach']) $query = $query . ', detach=1';
+        else $query = $query . ', detach=0';
+        if ($values['update']) $query = $query . ', `update`=1';
+        else $query = $query . ', `update`=0';
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
-        return($this->db->update($obj,$this->table,'share = '.$share));
+        return($this->db->update($obj,$this->table,$query));
       }
 
       function delete($id)

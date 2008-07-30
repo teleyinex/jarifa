@@ -106,6 +106,10 @@ cf85d9c9f04d6274ba0270593f235f52881a602694b122a522b08f7aa2e79491
         $account->appendChild($element);
         $element = $this->dom->createElement('resource_share',$project->share);
         $account->appendChild($element);
+        $element = $this->dom->createElement('detach',$project->detach);
+        $account->appendChild($element);
+        $element = $this->dom->createElement('update',$project->update);
+        $account->appendChild($element);
     }
 }
 ?>

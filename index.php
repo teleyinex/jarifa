@@ -101,7 +101,7 @@ if (isset($_SESSION['userid']))
                 }
             else
                 {
-                $err=$ctr->project->update($_GET['id'],$_POST['share']);
+                $err=$ctr->project->update($_GET['id'],$_POST);
                 }
             if ($err != null) $ctr->view("project",$_SESSION['role']);
             else $ctr->view("error",$_SESSION['role'],null,gettext("The project can not be updated or deleted"));
