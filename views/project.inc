@@ -99,11 +99,11 @@ class HTMLproject extends html
           </tr>
           <tr>
             <td>Signature</td>
-            <td><textarea cols="43" rows="5" name="signature"></textarea></td>
+            <td><input size="30" maxlength="1024" name="signature"></td>
           </tr>
           <tr>
             <td>Authenticator</td>
-            <td><input size="30" name="authenticator"></td>
+            <td><input size="30" maxlenght="1024" name="authenticator"></td>
           </tr>
           <tr>
             <td>Share</td>
@@ -152,7 +152,7 @@ class HTMLproject extends html
           if ($insert)
           {
             $query = '(name,url,signature,authenticator,share) values ("'
-              .$values['name'].'", "'.$values['url'].'","'.$values['signature'].'","'.$values['authenticator'].'",'.$values['share'].')';
+              .$values['name'].'", "'.$values['url'].'","'.str_replace(' ','',$values['signature']).'","'.$values['authenticator'].'",'.$values['share'].')';
             return($this->db->insert($this->table, $query));
           }
           else
