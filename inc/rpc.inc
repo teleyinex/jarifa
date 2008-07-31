@@ -11,6 +11,8 @@ class rpc
     public $db_password;
     public $db_host;
     public $db_name;
+    public $ac_name;
+    public $ac_public_signature;
     public $user;
     public $host;
 
@@ -34,6 +36,8 @@ class rpc
         $this->db_password = $conf->db->password;
         $this->db_host = $conf->db->host;
         $this->db_name = $conf->db->name;
+        $this->ac_name = $conf->account_manager->name;
+        $this->ac_public_signature = $conf->account_manager->public_signature;
     }
     
     function auth($host)
@@ -73,20 +77,9 @@ class rpc
 
     function xmlSigningKey()
     {
-        $element = $this->dom->createElement('name','AM Server Daniel');
+        $element = $this->dom->createElement('name',$this->ac_name);
         $this->xml->appendChild($element);
-        $element = $this->dom->createElement('signing_key','
-1024
-b440f5493bf962f8f6a3f857589f7a0db28497ce0c8053c5047412b0347b0b1e
-010dd31f8980b4385b2bcc8babf466c5f02eb3f81555c612630fad817518f4a5
-5b4af13a1d3f5c9dd87b3f1c9a0d426f4dd771f61f8d0b4b95e24f50ab24344c
-cf85d9c9f04d6274ba0270593f235f52881a602694b122a522b08f7aa2e79491
-0000000000000000000000000000000000000000000000000000000000000000
-0000000000000000000000000000000000000000000000000000000000000000
-0000000000000000000000000000000000000000000000000000000000000000
-0000000000000000000000000000000000000000000000000000000000010001
-.
-');
+        $element = $this->dom->createElement('signing_key',$this->ac_public_signature);
         $this->xml->appendChild($element);
     }
 
