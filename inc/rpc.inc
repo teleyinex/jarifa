@@ -7,16 +7,17 @@ class rpc
     public $dom;
     public $xml;
     public $db;
-    public $db_user='ogm';
-    public $db_password='ogm';
-    public $db_host='localhost';
-    public $db_name='ogm';
+    public $db_user;
+    public $db_password;
+    public $db_host;
+    public $db_name;
     public $user;
     public $host;
 
     public function __construct()
     {
         $this->db = new DbConn();
+        $this->load_config();
         $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
         $this->user = new user();
         $this->host = new host();
@@ -24,6 +25,15 @@ class rpc
         $this->dom->formatOutput = true;
         $this->xml = $this->dom->createElement('acct_mgr_reply');
         $this->dom->appendChild($this->xml);
+    }
+
+    function load_config()
+    {
+        $conf = simplexml_load_file("conf/ogm.conf");
+        $this->db_user = $conf->user;
+        $this->db_password = $conf->password;
+        $this->db_host = $conf->host;
+        $this->db_name = $conf->name;
     }
     
     function auth($host)
