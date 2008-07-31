@@ -39,10 +39,10 @@ class controller extends html
       function load_config()
       {
           $conf = simplexml_load_file("conf/ogm.conf");
-          $this->db_user = $conf->user;
-          $this->db_password = $conf->password;
-          $this->db_host = $conf->host;
-          $this->db_name = $conf->name;
+          $this->db_user = $conf->db->user;
+          $this->db_password = $conf->db->password;
+          $this->db_host = $conf->db->host;
+          $this->db_name = $conf->db->name;
       }
 
       function authenticate($userid=null,$password=null)
