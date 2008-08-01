@@ -118,10 +118,6 @@ class HTMLproject extends html
             <td><input size="30" maxlength="1024" name="signature"></td>
           </tr>
           <tr>
-            <td>Authenticator</td>
-            <td><input size="30" maxlenght="1024" name="authenticator"></td>
-          </tr>
-          <tr>
             <td>Share</td>
             <td align="center"><input size="2" maxlength="3" name="share" value="50"></td>
           </tr>
@@ -130,6 +126,7 @@ class HTMLproject extends html
           </tr>
         </tbody>
     </table>
+          <input name="authenticator" type="hidden">
     </form>
     ');
     $this->footer();

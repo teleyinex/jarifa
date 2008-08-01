@@ -111,10 +111,17 @@ if (isset($_SESSION['userid']))
 
         case 'in_project':
         {
-                if ($ctr->project->insert($_POST))
-                    $ctr->view("project",$_SESSION['role']);
+                $weak_auth = $ctr->create_boinc_user($_POST['url']);
+                if (!empty($weak_auth))
+                {
+                    $_POST['authenticator'] = $weak_auth;
+                    if ($ctr->project->insert($_POST))
+                        $ctr->view("project",$_SESSION['role']);
+                    else
+                        $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                }
                 else
-                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                        $ctr->view("error",$_SESSION['role'],null,gettext("The BOINC project is not available."));
                 break;
         }
 

@@ -13,6 +13,9 @@ class controller extends html
       public $db_host;
       public $db_name;
       public $db=''; // The DB handler
+      public $boinc_user_email;
+      public $boinc_user_name;
+      public $boinc_passwd;
       public $auth=False;
       public $project;
       public $pool;
@@ -43,6 +46,28 @@ class controller extends html
           $this->db_password = $conf->db->password;
           $this->db_host = $conf->db->host;
           $this->db_name = $conf->db->name;
+          $this->boinc_user_email = $conf->account_manager->boinc_user_email;
+          $this->boinc_user_name = $conf->account_manager->boinc_user_name;
+          $this->boinc_passwd = $conf->account_manager->boinc_passwd;
+      }
+
+      function create_boinc_user($url)
+      {
+          // Web RPC for create a boinc account and return the weak authenticator
+          $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email).
+                                                          '&user_name='.$this->boinc_user_name;
+          $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false);
+          $p = xml_parser_create();
+          xml_parse_into_struct($p, $authenticator, $vals, $index);
+          xml_parser_free($p);
+          $authenticator =  $vals[$index['AUTHENTICATOR'][0]]['value'];
+         
+          $weak_authenticator = file_get_contents(trim($url).'/am_get_info.php?account_key='.$authenticator,false);
+          $p = xml_parser_create();
+          xml_parse_into_struct($p, $weak_authenticator, $vals, $index);
+          xml_parser_free($p);
+          $weak_authenticator =  $vals[$index['WEAK_AUTH'][0]]['value'];
+          return($weak_authenticator);
       }
 
       function authenticate($userid=null,$password=null)
