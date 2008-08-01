@@ -108,6 +108,21 @@ class html
     }
 
 
+    function empty_table()
+    {
+        printf('
+            <table style="text-align: left; width: 100px; height: 391px;"
+             border="0" cellpadding="2" cellspacing="2">
+                <tbody>
+                    <tr>
+                    <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            '); 
+    }
+
+
     function footer()
     {
         printf('

@@ -87,19 +87,24 @@ class start_page extends html
             {
                 $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
+                $this->empty_table();
+                $this->footer();
                 break;
             }
             case 'allocator':
             {
                 $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
- 
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
+                $this->empty_table();
+                $this->footer();
                 break;
             }
             case 'supplier':
             {
                 $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
+                $this->empty_table();
+                $this->footer;
                 break;
             }
 

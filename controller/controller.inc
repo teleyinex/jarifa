@@ -137,7 +137,6 @@ class controller extends html
                         break;
                     }
 
-
                     default:
                     {
                         $this->pool->page('start');
