@@ -116,19 +116,19 @@ class HTMLpool extends html
             printf ('<td align=center><a href=index.php?action=ed_pool&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
                 ');
             printf ('<td align="center">'.$this->hosts_per_pool($obj[$i]->id).'</td>');
-            if ($obj[$i]->user_active==1) printf('<td align=center>Yes</td>');
+            if ($obj[$i]->suspend_if_user_active==1) printf('<td align=center>Yes</td>');
             else printf('<td align=center>No</td>');
             $obj[$i]->start_hour = $this->adapt_time($obj[$i]->start_hour,'edit');
             $obj[$i]->end_hour = $this->adapt_time($obj[$i]->end_hour,'edit');
             printf('
                 <td align="center">'.$obj[$i]->start_hour.'</td>
                 <td align="center">'.$obj[$i]->end_hour.'</td>
-                <td align="center">'.$obj[$i]->net_upload.' KB/s</td>
-                <td align="center">'.$obj[$i]->net_download.' KB/s</td>
-                <td align="center">'.$obj[$i]->hd_max.' GB</td>
-                <td align="center">'.$obj[$i]->hd_left.' GB</td>
-                <td align="center">'.$obj[$i]->ram_use_max.' %%</td>
-                <td align="center">'.$obj[$i]->ram_idle_max.' %%</td>'
+                <td align="center">'.$obj[$i]->max_bytes_sec_up.' KB/s</td>
+                <td align="center">'.$obj[$i]->max_bytes_sec_down.' KB/s</td>
+                <td align="center">'.$obj[$i]->disk_max_used_gb.' GB</td>
+                <td align="center">'.$obj[$i]->disk_min_free_gb.' GB</td>
+                <td align="center">'.$obj[$i]->ram_max_used_busy_pct.' %%</td>
+                <td align="center">'.$obj[$i]->ram_max_used_idle_pct.' %%</td>'
                   );
             if ($this->role == 'root') 
                 printf('<td align="center">'.$obj[$i]->supplier.'</td>');
@@ -650,36 +650,12 @@ class HTMLpool extends html
           return ($this->db->lookup_fields($this->table,$this->class,'*','id="'.$id.'"'));
       }
 
-      function update2($id,$values)
-      {
-        $values['start_hour'] = $this->adapt_time($values['start_hour'],'insert');
-        $values['end_hour'] = $this->adapt_time($values['end_hour'],'insert');
-
-        $obj = $this->db->lookup_id($id,$this->table,$this->class);
-        $query = 'name="'.$values['name'].'",';
-        if ($this->role == 'root')
-            $query = $query . 'supplier="'.$values['supplier'].'",';
-        if ($values['user_active']=="on") $query = $query . ' user_active=1,';
-        else $query = $query . ' user_active=0,';
-        $query = $query . ' start_hour="' . $values['start_hour'].
-            '", end_hour="'   . $values['end_hour'].
-            '", net_upload=' . $values['net_upload'].
-            ', net_download=' . $values['net_download'].
-            ', hd_max=' . $values['hd_max'].
-            ', hd_left='. $values['hd_left'].
-            ', ram_use_max='. $values['ram_use_max']. 
-            ', ram_idle_max='. $values['ram_idle_max'];
-        return($this->db->update($obj,$this->table,$query));
-      }
-
       function update($id,$values)
       {
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
 
         $query = 'name="'.$values['name'].'"';
-        if ($this->role == 'root')
-            $query = $query . ', supplier="'.$values['supplier'].'"';
-
+        if ($this->role == 'root') $query = $query . ', supplier="'.$values['supplier'].'"';
         $query = $query . ', start_hour='.$values['start_hour'];
         $query = $query . ', end_hour='.$values['end_hour'];
         $query = $query . ', suspend_while_on_batteries='.$values['suspend_while_on_batteries'];
@@ -783,36 +759,5 @@ class HTMLpool extends html
             return($this->db->insert($this->table, $query));
       }
 
-      function insert2($values)
-      {
-          $insert=True;
-          if (empty($values['name'])) $insert=False;
-          if ($values['user_active']=="on") $values['user_active']=1;
-          else $values['user_active']=0;
-          if (empty($values['start_hour'])) $insert=False;
-          if (empty($values['end_hour'])) $insert=False;
-          //if (empty($values['net_upload'])) $insert=False;
-          //if (empty($values['net_download'])) $insert=False;
-          if (empty($values['hd_max'])) $insert=False;
-          if (empty($values['hd_left'])) $insert=False;
-          if (empty($values['ram_use_max'])) $insert=False;
-          if (empty($values['ram_idle_max'])) $insert=False;
-          if ($this->role != 'root') $values['supplier']=$this->supplier;
-          $values['start_hour'] = $this->adapt_time($values['start_hour'],'insert');
-          $values['end_hour'] = $this->adapt_time($values['end_hour'],'insert');
-          if ($insert)
-          {
-            $query = '(name, supplier, user_active, start_hour, end_hour, net_upload, net_download, hd_max, hd_left, ram_use_max,
-                ram_idle_max) values ("'
-              .$values['name'].'","'
-              .$values['supplier'].'",
-              '.$values['user_active'].',"'.$values['start_hour'].'","'.$values['end_hour'].'",'.$values['net_upload'].',
-              '.$values['net_download'].','.$values['hd_max'].','.$values['hd_left'].', "'.$values['ram_use_max'].'",
-              "'.$values['ram_idle_max'].'")';
-            return($this->db->insert($this->table, $query));
-          }
-          else
-              return(False);
-      }
 }
 ?>
