@@ -55,7 +55,11 @@ class HTMLhost extends html
     {
         $assigned_pool = False;
         printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td>');
+        if ($this->role == "root")
+            printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td
+                align="center">'.gettext("Supplier").'</td>');
+        else
+            printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
         {
@@ -70,6 +74,7 @@ class HTMLhost extends html
                 }
             }
             if (!$assigned_pool) printf('<td align="center">'.gettext("Without Pool").'</td>');
+            if ($this->role == "root") printf('<td align="center">'.$obj[$i]->supplier.'</td>');
             printf ("\n</tr>");
         }
         printf("</table>");
