@@ -1,6 +1,6 @@
 <?php 
 require_once("inc/html.inc");
-require_once("views/class_view.inc");
+require_once("views/default.inc");
 require_once("controller/controller.inc");
 require_once("inc/lang.inc");
 
