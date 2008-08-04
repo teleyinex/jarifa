@@ -13,6 +13,7 @@ class rpc
     public $db_name;
     public $ac_name;
     public $ac_public_signature;
+    public $ac_repeat_sec;
     public $user;
     public $host;
 
@@ -38,6 +39,7 @@ class rpc
         $this->db_name = $conf->db->name;
         $this->ac_name = $conf->account_manager->name;
         $this->ac_public_signature = $conf->account_manager->public_signature;
+        $this->ac_repeat_sec = $conf->account_manager->repeat_sec;
     }
     
     function auth($host)
@@ -96,6 +98,12 @@ class rpc
         $projects = $this->db->enum_fields("project","project","*","1","order by id");
         if (!empty($projects)) return ($projects);
         else return (False);
+    }
+
+    function xmlRepeat_sec()
+    {
+        $element = $this->dom->createElement("repeat_sec",$this->ac_repeat_sec);
+        $this->xml->appendChild($element);
     }
 
     function xmlPreferences()

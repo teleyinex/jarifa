@@ -22,6 +22,7 @@ if ($rpc->auth($host))
             $rpc->xmlSigningKey();
     }
 
+    $rpc->xmlRepeat_sec();
     $rpc->xmlPreferences();
     $rpc->xmlOpaqueID();
     $projects = $rpc->projects();
