@@ -3,6 +3,8 @@ require_once("model/data.inc");
 
 class html
 {
+    public $logo;
+
     function __construct($language='es_ES.utf8')
     {
         putenv("LANG=$language");
@@ -11,6 +13,14 @@ class html
         bindtextdomain($domain, "locale"); 
         textdomain($domain);
     }
+
+
+    function load_config()
+    {
+        $conf = simplexml_load_file("conf/ogm.conf");
+        $this->logo = $conf->account_manager->logo;
+    }
+
 
     function header($msg=null)
     {
@@ -27,8 +37,11 @@ class html
             </head> 
             <body>
             <div id="container">
+            <div id="logo" align="center">
+            <img src='.$this->logo.'> 
+            </div>
             <div id="header">
-                <h1>'.$msg.'</h1>
+                <h1>'.$msg.'</h1> 
             </div>
             ');
     }

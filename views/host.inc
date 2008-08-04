@@ -24,6 +24,7 @@ class HTMLhost extends html
         $this->supplier = $supplier;
         $this->db = $db;
         $this->language;
+        $this->load_config();
     }
 
     function page($view=null,$values=null)

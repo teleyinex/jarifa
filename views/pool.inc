@@ -23,6 +23,7 @@ class HTMLpool extends html
         $this->supplier = $supplier;
         $this->db = $db;
         $this->language;
+        $this->load_config();
     }
 
     function adapt_time($time,$action)

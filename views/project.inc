@@ -19,6 +19,7 @@ class HTMLproject extends html
         textdomain($domain);
         $this->role = $role;
         $this->db = $db;
+        $this->load_config();
     }
 
     function page($view=null,$values=null)

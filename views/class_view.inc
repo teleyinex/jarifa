@@ -13,7 +13,9 @@ class login_page extends html
         $domain = 'text';
         bindtextdomain($domain, "lang");
         textdomain($domain);
+        $this->load_config();
     }
+
 
     function page()
     {
@@ -77,6 +79,7 @@ class start_page extends html
     function __construct($role='default')
     {
         $this->role = $role;
+        $this->load_config();
     }
 
     function page()
