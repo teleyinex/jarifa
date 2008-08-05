@@ -65,7 +65,8 @@ class HTMLhost extends html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj[$i]->id.'>'.$obj[$i]->id.'</a></td>');
+            printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj[$i]->id.'><img src="img/computer.png"
+                border="0"></a></td>');
             for ($j=0;$j<count($pools);$j++)
             {
                 if ($obj[$i]->poolid == $pools[$j]->id)

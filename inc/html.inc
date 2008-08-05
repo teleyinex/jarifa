@@ -38,7 +38,7 @@ class html
             <body>
             <div id="container">
             <div id="logo" align="center">
-            <img src='.$this->logo.'> 
+            <a href=index.php><img src='.$this->logo.' border="0"></a>
             </div>
             <div id="header">
                 <h1>'.$msg.'</h1> 
