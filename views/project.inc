@@ -109,19 +109,19 @@ class HTMLproject extends html
     <table align="center" style="text-align: left; width: 100px;" border="1"  cellpadding="2" cellspacing="2" class="form">
         <tbody>
           <tr>
-            <td>Name</td>
+            <td>'.gettext("Name").'</td>
             <td><input size="30" maxlength="255" name="name"></td>
           </tr>
           <tr>
-            <td>URL</td>
+            <td>'.gettext("URL").'</td>
             <td><input size="30" maxlength="255" name="url"></td>
           </tr>
           <tr>
-            <td>Signature</td>
+            <td>'.gettext("Signature").'</td>
             <td><input size="30" maxlength="1024" name="signature"></td>
           </tr>
           <tr>
-            <td>Share</td>
+            <td>'.gettext("Share").'</td>
             <td align="center"><input size="2" maxlength="3" name="share" value="50"></td>
           </tr>
           <tr>

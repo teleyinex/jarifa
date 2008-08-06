@@ -85,16 +85,12 @@ table.form tr
 {
 	border-width: 1px 1px 1px 1px;
 	padding: 5px 5px 5px 5px;
-	border-style: dotted dotted dotted dotted;
-	border-color: gray gray gray gray;
 }
 
 table.form td 
 {
 	border-width: 1px 1px 1px 1px;
 	padding: 5px 5px 5px 5px;
-	border-style: dotted dotted dotted dotted;
-	border-color: gray gray gray gray;
 }
 
 table.form tbody tr:hover 
