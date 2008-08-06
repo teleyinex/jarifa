@@ -95,10 +95,10 @@ class HTMLpool extends html
 
     function table($obj)
     {
-        printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td colspan=3></td><td align="center" colspan=2>'.gettext("Time").'<td align="center" colspan=2>'.gettext("Network").'
+        printf('<table border=1 align=center cellpadding="4" class="form">');
+        printf('<tr class="Hd"><td colspan=3></td><td align="center" colspan=2>'.gettext("Time").'<td align="center" colspan=2>'.gettext("Network").'
                 <td align="center" colspan=2>'.gettext("Hard Disk Usage").'</td><td align="center"
-                colspan=2>'.gettext("Memory Usage").'</td></tr>');
+                colspan=2>'.gettext("Memory Usage").'</td><td></td></tr>');
         printf('<tr><td align="center">'.gettext("Name").'<td align="center">'.gettext("Hosts").'</td>
             </td><td align="center">'.gettext("Run Always").'</td>
             <td align="center">'.gettext("Start").'</td><td align="center">'.gettext("End").'</td>
@@ -144,9 +144,9 @@ class HTMLpool extends html
     {
     
         printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="pool">');
-        printf('<table align="center" stype="text-align: left;" border="1" cellpadding="2" cellspacing="2">');
+        printf('<table align="center" stype="text-align: left;" border="1" cellpadding="2" cellspacing="2" class="form">');
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Pool Features").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Pool Features").'</td>
                 </tr>
                ');
         printf('<tr>
@@ -175,7 +175,7 @@ class HTMLpool extends html
         }
 
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Processor usage").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Processor usage").'</td>
                 </tr>
             ');
         printf('<tr>
@@ -265,7 +265,7 @@ class HTMLpool extends html
             ');
 
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;" >'.gettext("Disk and memory usage").'</td>
+                    <td colspan="2" class="Hd" >'.gettext("Disk and memory usage").'</td>
                 </tr>
             ');
 
@@ -317,7 +317,7 @@ class HTMLpool extends html
               ');
         printf('
                 <tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Network usage").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Network usage").'</td>
                 </tr>
                ');
         printf('
@@ -407,9 +407,9 @@ class HTMLpool extends html
     function html_insert($suppliers=null)
     {
         printf('<form method="post" action="index.php?action=in_pool">');
-        printf('<table align="center" stype="text-align: left;" border="1" cellpadding="2" cellspacing="2">');
+        printf('<table align="center" stype="text-align: left;" border="1" cellpadding="2" cellspacing="2" class="form">');
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Pool Features").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Pool Features").'</td>
                 </tr>
                ');
         printf('<tr>
@@ -435,7 +435,7 @@ class HTMLpool extends html
         }
 
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Processor usage").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Processor usage").'</td>
                 </tr>
             ');
         printf('<tr>
@@ -507,7 +507,7 @@ class HTMLpool extends html
             ');
 
         printf('<tr>
-                    <td colspan="2" style="background-color: silver;" >'.gettext("Disk and memory usage").'</td>
+                    <td colspan="2" class="Hd" >'.gettext("Disk and memory usage").'</td>
                 </tr>
             ');
 
@@ -559,7 +559,7 @@ class HTMLpool extends html
               ');
         printf('
                 <tr>
-                    <td colspan="2" style="background-color: silver;">'.gettext("Network usage").'</td>
+                    <td colspan="2" class="Hd">'.gettext("Network usage").'</td>
                 </tr>
                ');
         printf('

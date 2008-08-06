@@ -55,8 +55,8 @@ class HTMLuser extends html
 
     function table($obj)
     {
-        printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td align="center">'.gettext("User ID").'</td><td align="center">'.gettext("Role").'</td><td
+        printf('<table border=1 align=center cellpadding="4" class="form">');
+        printf('<tr class="Hd"><td align="center">'.gettext("User ID").'</td><td align="center">'.gettext("Role").'</td><td
             align="center">'.gettext("Supplier").'</td></tr>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
@@ -69,12 +69,13 @@ class HTMLuser extends html
         }
         printf("</table>");
         printf('<div style="text-align: center;"><a href=index.php?action=vin_user>'.gettext("New User").'</a></div>');
+        $this->footer();
     }
 
     function html_edit($obj)
     {
         printf('<form method="post" action="index.php?action=up_user&id='.$obj->id.'" name="user">');
-        printf('<table border=1 align=center cellpading="4">');
+        printf('<table border=1 align=center cellpading="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
                  <td align=center><input name="name" value="'.$obj->name.'"></td>
@@ -106,12 +107,13 @@ class HTMLuser extends html
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
+        $this->footer();
     }
 
     function html_insert()
     {
         printf('<form method="post" action="index.php?action=in_user" name="user">');
-        printf('<table border="1" align="center" cellpading="4">');
+        printf('<table border="1" align="center" cellpading="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
                  <td align="center"><input name="name"></td>

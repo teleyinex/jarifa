@@ -140,6 +140,9 @@ class html
     {
         printf('
             </div>
+            <div id="credits" align="center">
+            <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss"/></a>
+            </div>
             </body>
             </html>
         ');

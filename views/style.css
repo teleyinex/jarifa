@@ -1,77 +1,117 @@
 body
 {
-background-color:#ECF4DF;
+    background-color:#ECF4DF;
 }
 
 #container
 {
-width: 90%;
-margin: 10px auto;
-background-color:#C6DFA4;
-color: #333;
-border: 1px solid gray;
-line-height: 130%;
+    width: 90%;
+    margin: 10px auto;
+    background-color:#C6DFA4;
+    color: #333;
+    border: 1px solid gray;
+    line-height: 130%;
 }
 
 #logo
 {
-padding: .2em;
-background-color:#9FBF6A;
+    padding: .2em;
+    background-color:#9FBF6A;
 }
 
 #header
 {
-padding: .5em;
-background-color:#9FBF6A;
-border-bottom: 1px solid gray;
+    padding: .5em;
+    background-color:#9FBF6A;
+    border-bottom: 1px solid gray;
 }
 
 #header h1
 {
-padding: 0;
-margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 #menu
 {
-float: left;
-width: 160px;
-margin: 0;
-margin-left: 0;
-background-color:#C6DFA4;
+    float: left;
+    width: 160px;
+    margin: 0;
+    margin-left: 0;
+    background-color:#C6DFA4;
 }
 
 #content
 {
-margin-left: 200px;
-padding: 1em;
-max-width: 65em;
-background-color: #ECF4DF;
-border-left: 1px solid gray;
-border-right: 1px solid gray;
+    margin-left: 200px;
+    padding: 1em;
+    max-width: 65em;
+    background-color: #ECF4DF;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
 }
 
 #footer
 {
-clear: both;
-margin: 0;
-padding: .5em;
-color: #333;
-background-color:#9FBF6A;
-border-top: 1px solid gray;
-border-bottom: 1px solid gray;
-text-align: center;
-font-weight: bold;
+    clear: both;
+    margin: 0;
+    padding: .5em;
+    color: #333;
+    background-color:#9FBF6A;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    font-weight: bold;
 }
 table th
 {
-text-align:left;
+    text-align:left;
 }
 
-textarea
-{
-row:5;
-col:50;
-}
 #menu p { margin: 0 0 1em 0; }
 #content h2 { margin: 0 0 .5em 0;  }
+
+table.form
+{
+    font-weight: normal;
+    font-size: 11px;
+    border: 1px #9FBF6A solid;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+table.form tr 
+{
+	border-width: 1px 1px 1px 1px;
+	padding: 5px 5px 5px 5px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+
+table.form td 
+{
+	border-width: 1px 1px 1px 1px;
+	padding: 5px 5px 5px 5px;
+	border-style: dotted dotted dotted dotted;
+	border-color: gray gray gray gray;
+}
+
+table.form tbody tr:hover 
+{
+  background: #C6DFA4;
+  color: black;
+}
+
+.Hd
+{
+    border-bottom: 1px solid #9FBF6A;
+    background-color: #C6DFA4;
+    font-weight: bold;
+    color: black;
+}
+
+#credits
+{
+    padding:2px;
+}

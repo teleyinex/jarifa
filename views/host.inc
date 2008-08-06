@@ -55,12 +55,12 @@ class HTMLhost extends html
     function table($obj,$pools)
     {
         $assigned_pool = False;
-        printf('<table border=1 align=center cellpadding="4">');
+        printf('<table border=1 align=center cellpadding="4" class="form">');
         if ($this->role == "root")
-            printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td
+            printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td
                 align="center">'.gettext("Supplier").'</td>');
         else
-            printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td>');
+            printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td>');
         $row = count($obj);
         for ($i=0 ; $i<$row;$i++)
         {
@@ -86,10 +86,11 @@ class HTMLhost extends html
     function html_edit($obj,$pools)
     {
         printf('<form method="post" action="index.php?action=up_host&id='.$obj->id.'" name="host">');
-        printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td>'.gettext("Delete").'</td>');
+        printf('<table border=1 align=center cellpadding="4" class="form">');
+        printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td>'.gettext("Delete").'</td>');
         printf ("<tr>");
-        printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj->id.'>'.$obj->id.'</a></td>');
+        printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj->id.'><img src="img/computer.png"
+            border="0"></a></td>');
         printf('<td align="center"><select name="pool">');
         $row = count($pools);
         for ($i=0; $i<$row; $i++)

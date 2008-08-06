@@ -55,8 +55,8 @@ class HTMLproject extends html
 
     function table($obj)
     {
-        printf('<table border=1 align=center cellpadding="4">');
-        printf('<tr><td align="center">'.gettext("Name").'</td>
+        printf('<table border=1 align=center cellpadding="4" class="form"><tbody>');
+        printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td>
             <td align="center">'.gettext("Share").'</td>
             <td align="center">'.gettext("Detach").'</td>
             <td align="center">'.gettext("Update").'</td>
@@ -73,15 +73,16 @@ class HTMLproject extends html
             else printf('<td align="center">'.gettext("No").'</td>');
             printf ("\n</tr>");
         }
-        printf("</table>");
+        printf("</tbody></table>");
         printf('<div style="text-align: center;"><a href=index.php?action=vin_project>'.gettext("New Project").'</a></div>');
+        $this->footer();
     }
 
     function html_edit($obj)
     {
         printf('<form method="post" action="index.php?action=up_project&id='.$obj->id.'" name="project">');
-        printf('<table border=1 align=center cellpading="4">');
-        printf('<tr><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
+        printf('<table border=1 align=center cellpading="4" class="form">');
+        printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
                     <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
                     <td align="center">'.gettext("Delete").'</td>
                     
@@ -98,13 +99,14 @@ class HTMLproject extends html
         printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
+        $this->footer();
     }
 
     function html_insert()
     {
     printf('
     <form method="post" action="index.php?action=in_project">
-    <table style="text-align: left; width: 100px;" border="1"  cellpadding="2" cellspacing="2">
+    <table align="center" style="text-align: left; width: 100px;" border="1"  cellpadding="2" cellspacing="2" class="form">
         <tbody>
           <tr>
             <td>Name</td>
