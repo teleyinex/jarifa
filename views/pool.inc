@@ -98,8 +98,10 @@ class HTMLpool extends html
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td colspan=3></td><td align="center" colspan=2>'.gettext("Time").'<td align="center" colspan=2>'.gettext("Network").'
                 <td align="center" colspan=2>'.gettext("Hard Disk Usage").'</td><td align="center"
-                colspan=2>'.gettext("Memory Usage").'</td><td></td></tr>');
-        printf('<tr><td align="center">'.gettext("Name").'<td align="center">'.gettext("Hosts").'</td>
+                colspan=2>'.gettext("Memory Usage").'</td>');
+        if ($this->role == 'root') printf('<td></td>');
+        printf('</tr>
+            <tr><td align="center">'.gettext("Name").'<td align="center">'.gettext("Hosts").'</td>
             </td><td align="center">'.gettext("Run Always").'</td>
             <td align="center">'.gettext("Start").'</td><td align="center">'.gettext("End").'</td>
             <td align="center">'.gettext("Upload").'</td><td align="center">'.gettext("Download").'</td>
