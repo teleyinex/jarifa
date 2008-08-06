@@ -57,17 +57,11 @@ class controller extends html
           $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email).
                                                           '&user_name='.$this->boinc_user_name;
           $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false);
-          $p = xml_parser_create();
-          xml_parse_into_struct($p, $authenticator, $vals, $index);
-          xml_parser_free($p);
-          $authenticator =  $vals[$index['AUTHENTICATOR'][0]]['value'];
+          $xml = new SimpleXMLElement($authenticator);
          
-          $weak_authenticator = file_get_contents(trim($url).'/am_get_info.php?account_key='.$authenticator,false);
-          $p = xml_parser_create();
-          xml_parse_into_struct($p, $weak_authenticator, $vals, $index);
-          xml_parser_free($p);
-          $weak_authenticator =  $vals[$index['WEAK_AUTH'][0]]['value'];
-          return($weak_authenticator);
+          $weak_authenticator = file_get_contents(trim($url).'/am_get_info.php?account_key='.$xml->authenticator,false);
+          $xml = new SimpleXMLElement($weak_authenticator);
+          return($xml->weak_auth);
       }
 
       function authenticate($userid=null,$password=null)
