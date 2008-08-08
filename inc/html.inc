@@ -63,8 +63,8 @@ class html
         case 'supplier':
         {
             printf('<li><a href="index.php?action=host">'.gettext("Hosts").'</a>
-                <li><a href="index.php?action=pool">'.gettext("Pools").'</a>');
-                //<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
+                <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
+                <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
             break;
         }
         case 'root':
@@ -73,8 +73,7 @@ class html
                 <li><a href="index.php?action=host">'.gettext("Hosts").'</a>
                 <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
                 <li><a href="index.php?action=user">'.gettext("Users").'</a>
-                ');
-                //<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
+                <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
             break;
         }
 

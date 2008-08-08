@@ -40,6 +40,7 @@ class rpc
         $this->ac_name = $conf->account_manager->name;
         $this->ac_public_signature = $conf->account_manager->public_signature;
         $this->ac_repeat_sec = $conf->account_manager->repeat_sec;
+        $this->boinc_user_email = $conf->account_manager->boinc_user_email;
     }
     
     function auth($host)
@@ -62,6 +63,7 @@ class rpc
         if (!empty($obj))
         {
             $query = 'CPID="'.$this->host->CPID.'"';
+            $query = $query . ', host_cpid="'.md5($this->host->CPID.$this->boinc_user_email).'"';
             $obj = $this->db->update($obj,"host",$query);
             return (True);
         } 
@@ -72,7 +74,8 @@ class rpc
     {
         $obj = $this->db->lookup_fields("pool","pool","*",'supplier="'.$this->host->supplier.'" and name="default"');
         $this->host->poolid = $obj->id;
-        $query = '(poolid,supplier,CPID,venue) values ('.$this->host->poolid.',"'.$this->host->supplier.'","'.$this->host->CPID.'",null)';
+        $query = '(poolid,supplier,CPID,host_cpid,venue) values
+            ('.$this->host->poolid.',"'.$this->host->supplier.'","'.$this->host->CPID.'","'.md5($this->host-CPID.$this->boinc_user_email).'", null)';
         $obj = $this->db->insert("host",$query);
         $this->host->id = $this->db->insert_id();
         if (!empty($obj)) return ($this->db->insert_id());

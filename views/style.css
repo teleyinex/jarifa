@@ -52,6 +52,11 @@ body
     border-bottom: 1px solid gray;
 }
 
+#stats
+{
+    text-align: center;
+}
+
 #footer
 {
     clear: both;
@@ -72,6 +77,17 @@ table th
 #menu p { margin: 0 0 1em 0; }
 #content h2 { margin: 0 0 .5em 0;  }
 
+table.stats
+{
+    font-weight: normal;
+    font-size: 11px;
+    border-style: none;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 table.form
 {
     font-weight: normal;
@@ -79,6 +95,7 @@ table.form
     border: 1px #9FBF6A solid;
     border-collapse: collapse;
     border-spacing: 0px;
+    text-align: center;
 }
 
 table.form tr 

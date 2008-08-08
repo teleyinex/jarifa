@@ -4,6 +4,7 @@ require_once("views/project.inc");
 require_once("views/host.inc");
 require_once("views/pool.inc");
 require_once("views/user.inc");
+require_once("views/stat.inc");
 require_once("model/data.inc");
 
 class controller extends html
@@ -22,6 +23,7 @@ class controller extends html
       public $language;
       public $host;
       public $user;
+      public $stat;
 
 
       public function __construct($language="es_ES.utf8")
@@ -36,6 +38,7 @@ class controller extends html
           $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
           $this->host = new HTMLhost($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->user = new HTMLuser($this->language,$_SESSION['role'],$this->db);
+          $this->stat = new HTMLstat($this->language,$_SESSION['role'], $_SESSION['supplier'],$this->db);
 
       }
 
@@ -113,6 +116,34 @@ class controller extends html
                 $layout->page();
                 break;
             }
+
+            case 'stat':
+            {
+                $this->stat->role = $_SESSION['role'];
+                switch ($subaction)
+                {
+                    case 'credit':
+                    {
+                        $this->stat->page('credit');
+                        break;
+                    }
+
+                    case 'gflops':
+                    {
+                        $this->stat->page('gflops');
+                        break;
+                    }
+
+                    default:
+                    {
+                        $this->stat->page('start');
+                        break;
+                    }
+                
+                }
+                break;
+            }
+
 
             case 'host':
             {

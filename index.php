@@ -31,6 +31,25 @@ if (isset($_SESSION['userid']))
             $ctr->view("start",$_SESSION['role']);
             break;
         }
+
+        case 'stat':
+        {
+            $ctr->view("stat",$_SESSION['role'],'start');
+            break;
+        }
+
+        case 'st_credit':
+        {
+            $ctr->view("stat",$_SESSION['role'],'credit');
+            break;
+        }
+
+        case 'st_gflops':
+        {
+            $ctr->view("stat",$_SESSION['role'],'gflops');
+            break;
+        }
+
         
         // Users action
         case 'user':

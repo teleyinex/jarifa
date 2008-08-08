@@ -4,8 +4,16 @@ class host
     public $id;
     public $poolid;
     public $supplier;
-    public $DBID;
     public $CPID;
+    public $host_cpid;
+    public $p_ncpus;
+    public $p_vendor;
+    public $p_model;
+    public $p_fpops;
+    public $p_iops;
+    public $os_name;
+    public $os_version;
+
 }
 
 class pool
@@ -67,5 +75,26 @@ class user
     public $password;
     public $role;
     public $supplier;
+}
+
+class stats_user
+{
+    public $date;
+    public $project;
+    public $total_credit;
+    public $expavg_credit;
+    public $expavg_time;
+}
+
+class stats_host
+{
+    public $date;
+    public $id;
+    public $host_cpid;
+    public $supplier;
+    public $project;
+    public $total_credit;
+    public $expavg_credit;
+    public $expavg_time;
 }
 ?>
