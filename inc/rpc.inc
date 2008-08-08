@@ -61,6 +61,8 @@ class rpc
         $obj = $this->db->lookup_fields("host","host","*",'id="'.$this->host->id.'"');
         if (!empty($obj))
         {
+            $query = 'CPID="'.$this->host->CPID.'"';
+            $obj = $this->db->update($obj,"host",$query);
             return (True);
         } 
         else return(False);
