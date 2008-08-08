@@ -1,7 +1,4 @@
-<?php 
-/* 
 Copyright 2008 Daniel Lombraña González, David Anderson, Franisco Fernández de Vega
-
 This file is part of OGM.
 
 OGM is free software: you can redistribute it and/or modify
@@ -16,30 +13,22 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with OGM.  If not, see <http://www.gnu.org/licenses/>.
-*/
 
-require_once("inc/stats.inc");
 
-$st = new stats();
+db_conn.inc - BOINC DB library 
+    Copyright (C) 2008 University of California 
+Libchart - PHP chart library 
+    Copyright (C) 2005-2007 Jean-Marc Trémeaux (jm.tremeaux at gmail.com)
+Images (except avgplv3.png and vcss.png) - Gnome Icons 
+    Ulisse Perusin <uli.peru@gmail.com>
+    Riccardo Buzzotta <raozuzu@yahoo.it>
+    Josef Vybíral <cornelius@vybiral.info>
+    Hylke Bons <h.bons@student.rug.nl>
+    Ricardo González <rick@jinlabs.com>
+    Lapo Calamandrei <calamandrei@gmail.com>
+    Rodney Dawes <dobey@novell.com>
+    Luca Ferretti <elle.uca@libero.it>
+    Tuomas Kuosmanen <tigert@gimp.org>
+    Andreas Nilsson <nisses.mail@home.se>
+    Jakub Steiner <jimmac@novell.com>
 
-$projects = $st->get_projects();
-foreach ($projects as $project)
-{
-    $authenticator = $st->get_authenticator($project->url);
-    if (!empty($authenticator))
-        {
-            $xml = $st->get_stats($project->url,$authenticator);
-            $st->insert_user_stats($xml,$project->name);
-            foreach ($xml->host as $host)
-            {
-                $st->insert_host_stats($host,$xml->host_cpid,$project->name);
-            }
-        }
-    
-}
-
-$st->draw_credit_per_day_user($projects);
-$st->draw_gflops_per_day_user($projects);
-$st->draw_credit_per_day_supplier($projects);
-$st->draw_gflops_per_day_supplier($projects);
-?>
