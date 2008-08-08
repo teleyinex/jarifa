@@ -161,6 +161,7 @@ class html
             <div id="credits" align="center">
             <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss"/></a>
             <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3"></a>
+            <a href="https://forja.unex.es/projects/ogm/"><img style="border:0;"  src="img/download"></a>
             </div>
             </body>
             </html>
