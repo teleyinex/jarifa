@@ -1,0 +1,34 @@
+Copyright 2008 Daniel Lombraña González, David Anderson, Franisco Fernández de Vega
+This file is part of OGM.
+
+OGM is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+OGM is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with OGM.  If not, see <http://www.gnu.org/licenses/>.
+
+
+db_conn.inc - BOINC DB library 
+    Copyright (C) 2008 University of California 
+Libchart - PHP chart library 
+    Copyright (C) 2005-2007 Jean-Marc Trémeaux (jm.tremeaux at gmail.com)
+Images (except avgplv3.png and vcss.png) - Gnome Icons 
+    Ulisse Perusin <uli.peru@gmail.com>
+    Riccardo Buzzotta <raozuzu@yahoo.it>
+    Josef Vybíral <cornelius@vybiral.info>
+    Hylke Bons <h.bons@student.rug.nl>
+    Ricardo González <rick@jinlabs.com>
+    Lapo Calamandrei <calamandrei@gmail.com>
+    Rodney Dawes <dobey@novell.com>
+    Luca Ferretti <elle.uca@libero.it>
+    Tuomas Kuosmanen <tigert@gimp.org>
+    Andreas Nilsson <nisses.mail@home.se>
+    Jakub Steiner <jimmac@novell.com>
+
