@@ -141,7 +141,7 @@ class stats extends DBConn
 
       function get_credit_host($host)
       {
-        $st = $this->db->lookup_fields("stats_host","stats_host","*",'host_cpid="'.$host->host_cpid.'"');
+        $st = $this->db->lookup_fields("stats_host","stats_host","*",'host_cpid="'.$host->host_cpid.'" ORDER BY `stats_host`.`date` DESC');
         if (!empty($st))
         {
             $st->expavg_credit = $this->decay_average($st->expavg_credit,$st->expavg_time,0);
