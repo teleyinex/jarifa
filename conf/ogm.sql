@@ -2,40 +2,46 @@
 -- version 2.11.3deb1ubuntu1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Aug 06, 2008 at 02:22 PM
--- Server version: 5.0.51
--- PHP Version: 5.2.4-2ubuntu5.3
+-- Servidor: localhost
+-- Tiempo de generación: 11-08-2008 a las 14:40:50
+-- Versión del servidor: 5.0.51
+-- Versión de PHP: 5.2.4-2ubuntu5.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `ogm`
+-- Base de datos: `ogm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `host`
+-- Estructura de tabla para la tabla `host`
 --
 
 CREATE TABLE IF NOT EXISTS `host` (
   `id` int(11) NOT NULL auto_increment,
   `poolid` int(11) default NULL,
   `supplier` varchar(255) collate utf8_bin NOT NULL,
-  `DBID` varchar(255) collate utf8_bin default NULL,
   `CPID` varchar(255) collate utf8_bin default NULL,
+  `host_cpid` varchar(255) collate utf8_bin NOT NULL,
   `venue` varchar(254) collate utf8_bin default NULL,
+  `p_ncpus` int(11) NOT NULL,
+  `p_vendor` varchar(255) collate utf8_bin NOT NULL,
+  `p_model` varchar(255) collate utf8_bin NOT NULL,
+  `p_fpops` float NOT NULL,
+  `p_iops` float NOT NULL,
+  `os_name` varchar(255) collate utf8_bin NOT NULL,
+  `os_version` varchar(255) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `poolid` (`poolid`),
-  KEY `CPID` (`CPID`),
-  KEY `DBID` (`DBID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=13 ;
+  KEY `CPID` (`CPID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pool`
+-- Estructura de tabla para la tabla `pool`
 --
 
 CREATE TABLE IF NOT EXISTS `pool` (
@@ -76,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `project`
+-- Estructura de tabla para la tabla `project`
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
@@ -89,12 +95,43 @@ CREATE TABLE IF NOT EXISTS `project` (
   `detach` tinyint(1) NOT NULL default '0',
   `update` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=38 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estructura de tabla para la tabla `stats_host`
+--
+
+CREATE TABLE IF NOT EXISTS `stats_host` (
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `host_cpid` varchar(255) collate utf8_bin NOT NULL,
+  `supplier` varchar(255) collate utf8_bin NOT NULL,
+  `project` varchar(255) collate utf8_bin NOT NULL,
+  `total_credit` float NOT NULL,
+  `expavg_credit` float NOT NULL,
+  `expavg_time` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `stats_user`
+--
+
+CREATE TABLE IF NOT EXISTS `stats_user` (
+  `date` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  `project` varchar(255) collate utf8_bin NOT NULL,
+  `total_credit` float NOT NULL,
+  `expavg_credit` float NOT NULL,
+  `expavg_time` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
