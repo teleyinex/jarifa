@@ -2,21 +2,21 @@
 -- version 2.11.3deb1ubuntu1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 11-08-2008 a las 14:40:50
--- Versión del servidor: 5.0.51
--- Versión de PHP: 5.2.4-2ubuntu5.3
+-- Host: localhost
+-- Generation Time: Aug 11, 2008 at 02:43 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.4-2ubuntu5.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Base de datos: `ogm`
+-- Database: `ogm`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `host`
+-- Table structure for table `host`
 --
 
 CREATE TABLE IF NOT EXISTS `host` (
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `host` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pool`
+-- Table structure for table `pool`
 --
 
 CREATE TABLE IF NOT EXISTS `pool` (
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `project`
+-- Table structure for table `project`
 --
 
 CREATE TABLE IF NOT EXISTS `project` (
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `project` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stats_host`
+-- Table structure for table `stats_host`
 --
 
 CREATE TABLE IF NOT EXISTS `stats_host` (
@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `stats_host` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stats_user`
+-- Table structure for table `stats_user`
 --
 
 CREATE TABLE IF NOT EXISTS `stats_user` (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `stats_user` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
