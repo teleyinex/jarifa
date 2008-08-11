@@ -139,6 +139,17 @@ class stats extends DBConn
           return($days);
       }
 
+      function get_credit_host($host)
+      {
+        $st = $this->db->lookup_fields("stats_host","stats_host","*",'host_cpid="'.$host->host_cpid.'"');
+        if (!empty($st))
+        {
+            $st->expavg_credit = $this->decay_average($st->expavg_credit,$st->expavg_time,0);
+            return ($st);
+        }
+        else return(False);
+      }
+
       function get_total_credit($table,$class,$clause=null)
       {
           if ($clause == null) $out = $this->db->enum_fields($table,$class,'*','1','group by date');

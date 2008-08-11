@@ -19,6 +19,7 @@ along with OGM.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/html.inc");
+require_once("inc/stats.inc");
 require_once("model/data.inc");
 
 class HTMLhost extends html
@@ -104,12 +105,11 @@ class HTMLhost extends html
 
     function html_edit($obj,$pools)
     {
+        $st = new stats();
         printf('<form method="post" action="index.php?action=up_host&id='.$obj->id.'" name="host">');
         printf('<table border=1 align=center cellpadding="4" class="form">');
-        printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td>'.gettext("Delete").'</td>');
-        printf ("<tr>");
-        printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj->id.'><img src="img/computer.png"
-            border="0"></a></td>');
+        printf('<tr class="Hd"><td><img src="img/computer.png"></td><td>'.gettext("Features").'</td></tr>');
+        printf('<tr><td>'.gettext("Supplier").'</td>');
         printf('<td align="center"><select name="pool">');
         $row = count($pools);
         for ($i=0; $i<$row; $i++)
@@ -120,6 +120,31 @@ class HTMLhost extends html
                 printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
         }
         printf("</selection></td>");
+        printf('<tr><td>'.gettext("Venue").'</td>');
+        printf('<td>'.$obj->venue.'</td></tr>');
+        printf('<tr><td>'.gettext("Number of CPUS").'</td>');
+        printf('<td>'.$obj->p_ncpus.'</td></tr>');
+        printf('<tr><td>'.gettext("Processor Vendor").'</td>');
+        printf('<td>'.$obj->p_vendor.'</td></tr>');
+        printf('<tr><td>'.gettext("Processor Model").'</td>');
+        printf('<td>'.$obj->p_model.'</td></tr>');
+        printf('<tr><td>'.gettext("FLOPS").'</td>');
+        printf('<td>'.$obj->p_fpops.'</td></tr>');
+        printf('<tr><td>'.gettext("IOPS").'</td>');
+        printf('<td>'.$obj->p_iops.'</td></tr>');
+        printf('<tr><td>'.gettext("OS").'</td>');
+        printf('<td>'.$obj->os_name.'</td></tr>');
+        $credit = $st->get_credit_host($obj);
+        if (!empty($credit))
+        {
+            printf('<tr><td>'.gettext("Total Credit").'</td>');
+            printf('<td>'.$credit->total_credit.'</td>');
+            printf('<tr><td>'.gettext("RAC").'</td>');
+            printf('<td>'.$credit->expavg_credit.'</td>');
+        }
+        printf('<tr><td>'.gettext("OS Version").'</td>');
+        printf('<td>'.$obj->os_version.'</td></tr>');
+        printf('<tr><td>'.gettext("Delete").'</td>');
         printf('<td align="center"><input name="delete" type=checkbox>');
         printf ("\n</tr>");
         printf('<td align="center" colspan="3"><input name="submit" type="submit"</td>');
@@ -128,6 +153,7 @@ class HTMLhost extends html
         $this->footer();
 
     }
+
 
     function lists()
       {
@@ -146,6 +172,7 @@ class HTMLhost extends html
             $obj = $this->db->enum_fields('pool','pool','*','supplier="'.$this->supplier.'"','order by id');
         return($obj);
     }
+
 
       function get($id)
       {
