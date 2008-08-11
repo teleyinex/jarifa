@@ -163,6 +163,45 @@ class stats extends DBConn
           return($credit);
       }
 
+      function get_ncpus()
+      {
+          $cpus = $this->db->enum_fields("host","host","p_ncpus","1","order by id");
+          $types_cpus = $this->db->enum_fields("host","host","p_ncpus","1","group by p_ncpus");
+          $aux = array();
+          foreach ($types_cpus as $type)
+          {
+              $aux["$type->p_ncpus"] = 0;
+          
+          }
+          $types_cpus = $aux;
+
+          foreach (array_keys($types_cpus) as $type)
+          {
+              foreach ($cpus as $host_ncpus)
+              {
+                  if ($type == "$host_ncpus->p_ncpus") $types_cpus[$type] += 1;
+              }
+          }
+          return($types_cpus);
+
+      }
+
+      function draw_ncpus_per_host()
+      {
+          $chart = new HorizontalBarChart();
+          $dataset = new XYDataSet();
+          $types_cpus= $this->get_ncpus();
+          foreach(array_keys($types_cpus) as $cpu)
+          {
+              $dataset->addPoint(new Point("$cpu",$types_cpus[$cpu]));
+          }
+          $chart->setDataSet($dataset);
+          $chart->getPlot();
+          $chart->setTitle(gettext("Number of Hosts per CPUs"));
+          $chart->render("img/stats/cpus.png");
+      
+      }
+
       function draw_credit_per_day_user($projects)
       {
           $chart = new LineChart();
