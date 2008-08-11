@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2008 at 02:43 PM
+-- Generation Time: Aug 11, 2008 at 03:03 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.3
 
@@ -141,5 +141,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` varchar(255) collate utf8_bin NOT NULL,
   `supplier` varchar(255) collate utf8_bin NOT NULL,
   `supp_auth` varchar(255) collate utf8_bin NOT NULL,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
