@@ -165,7 +165,7 @@ class HTMLpool extends html
     {
     
         printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="pool">');
-        printf('<table align="center" stype="text-align: left;" border="1" cellpadding="2" cellspacing="2" class="form">');
+        printf('<table align="center" style="text-align: left;" border="1" cellpadding="2" cellspacing="2" class="form">');
         printf('<tr>
                     <td colspan="2" class="Hd">'.gettext("Pool Features").'</td>
                 </tr>
