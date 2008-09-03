@@ -126,7 +126,7 @@ class start_page extends html
                 $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
-                $this->footer;
+                $this->footer();
                 break;
             }
 
