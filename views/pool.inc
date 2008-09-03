@@ -97,7 +97,7 @@ class HTMLpool extends html
             }
             default:
             {
-                $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
+                $this->header(gettext("Welcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Available Pools"));
                 break;
             }

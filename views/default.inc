@@ -107,7 +107,7 @@ class start_page extends html
         {
             case 'root':
             {
-                $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
+                $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
                 $this->footer();
@@ -115,7 +115,7 @@ class start_page extends html
             }
             case 'allocator':
             {
-                $this->header(gettext("Wellcome"). ' '.$_SESSION['userid']);
+                $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
                 $this->footer();
@@ -123,7 +123,7 @@ class start_page extends html
             }
             case 'supplier':
             {
-                $this->header(gettext("Wellcome").' '.$_SESSION['userid']);
+                $this->header(gettext("Welcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
                 $this->footer();
