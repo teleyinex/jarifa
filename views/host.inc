@@ -109,17 +109,27 @@ class HTMLhost extends html
         printf('<form method="post" action="index.php?action=up_host&id='.$obj->id.'" name="host">');
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td><img src="img/computer.png"></td><td>'.gettext("Features").'</td></tr>');
-        printf('<tr><td>'.gettext("Supplier").'</td>');
-        printf('<td align="center"><select name="pool">');
         $row = count($pools);
-        for ($i=0; $i<$row; $i++)
+        if ($this->role == "root")
         {
-            if ($this->role == "root")
-                printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'->'.$pools[$i]->supplier.'</option>');
-            else
-                printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+            printf('<tr><td>'.gettext("Supplier").'</td>');
+            printf('<td align="center"><select name="pool">');
+            for ($i=0; $i<$row; $i++)
+            {
+                    printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'->'.$pools[$i]->supplier.'</option>');
+            }
+            printf("</selection></td>");
         }
-        printf("</selection></td>");
+        else
+        {
+            printf('<tr><td>'.gettext("Pools").'</td>');
+            printf('<td align="center"><select name="pool">');
+            for ($i=0; $i<$row; $i++)
+            {
+                    printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+            }
+            printf("</selection></td>");
+        }
         printf('<tr><td>'.gettext("Venue").'</td>');
         printf('<td>'.$obj->venue.'</td></tr>');
         printf('<tr><td>'.gettext("Number of CPUS").'</td>');
