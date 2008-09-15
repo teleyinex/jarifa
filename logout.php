@@ -1,6 +1,6 @@
 <?php
 /* 
-Copyright 2008 Daniel Lombraña González, David Anderson, Franisco Fernández de Vega
+Copyright 2008 Daniel Lombraña González, David P. Anderson, Franisco Fernández de Vega
 
 This file is part of OGM.
 
