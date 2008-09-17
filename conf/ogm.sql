@@ -144,3 +144,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+
+--
+-- Adding data
+--
+
+INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`) VALUES
+(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '');
