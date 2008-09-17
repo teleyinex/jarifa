@@ -9,6 +9,7 @@ The following requirements are needed in order to install OrgGrid:
     * GNU/Linux (tested and developed in Debian Stable.
     * Apache 2.0 or greater (SSL support it is recommended).
     * PHP 5.0 or greater.
+    * PHP-GETTEXT.
     * PHP 5.0 for MySQL.
     * MySQL. 
 
