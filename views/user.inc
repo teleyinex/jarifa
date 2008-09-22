@@ -222,8 +222,9 @@ class HTMLuser extends html
           {
             $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
             if (empty($pool)) $create_default_pool = True;
-            $query = '(name,password,role,supplier) values ("'
-              .$values['name'].'", "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'")';
+            $query = '(name,password,role,supplier,supp_auth) values ("'
+              .$values['name'].'",
+              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'")';
             $res = $this->db->insert($this->table, $query);
             if ($res and $create_default_pool)
             {
