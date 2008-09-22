@@ -33,7 +33,7 @@ $element = $dom->createElement('account_manager');
 $root->appendChild($element);
 if ($conf->account_manager->usernames == '1')
     {
-    $element = $dom->createElement('user_username');
+    $element = $dom->createElement('uses_username');
     $root->appendChild($element);
     }
 echo $dom->saveXML();
