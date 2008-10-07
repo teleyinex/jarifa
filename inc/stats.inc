@@ -2,20 +2,20 @@
 /* 
 Copyright 2008 Daniel Lombraña González, David P. Anderson, Francisco Fernández de Vega
 
-This file is part of OGM.
+This file is part of Jarifa.
 
-OGM is free software: you can redistribute it and/or modify
+Jarifa is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-OGM is distributed in the hope that it will be useful,
+Jarifa is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
-along with OGM.  If not, see <http://www.gnu.org/licenses/>.
+along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/db_conn.inc");
@@ -44,7 +44,7 @@ class stats extends DBConn
 
       function load_config()
       {
-          $conf = simplexml_load_file("conf/ogm.conf");
+          $conf = simplexml_load_file("conf/jarifa.conf");
           $this->db_user = $conf->db->user;
           $this->db_password = $conf->db->password;
           $this->db_host = $conf->db->host;

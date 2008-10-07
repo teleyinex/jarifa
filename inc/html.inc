@@ -2,20 +2,20 @@
 /* 
 Copyright 2008 Daniel Lombraña González, David P. Anderson, Francisco Fernández de Vega
 
-This file is part of OGM.
+This file is part of Jarifa.
 
-OGM is free software: you can redistribute it and/or modify
+Jarifa is free software: you can redistribute it and/or modify
 it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-OGM is distributed in the hope that it will be useful,
+Jarifa is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
-along with OGM.  If not, see <http://www.gnu.org/licenses/>.
+along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("model/data.inc");
@@ -36,14 +36,14 @@ class html
 
     function load_config()
     {
-        $conf = simplexml_load_file("conf/ogm.conf");
+        $conf = simplexml_load_file("conf/jarifa.conf");
         $this->logo = $conf->account_manager->logo;
     }
 
 
     function header($msg=null)
     {
-        $title = gettext("OGM Server");
+        $title = gettext("Jarifa Server");
         printf('
             <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
             <html>
@@ -161,7 +161,7 @@ class html
             <div id="credits" align="center">
             <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss"/></a>
             <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3"></a>
-            <a href="https://forja.unex.es/projects/ogm/"><img style="border:0;"  src="img/download"></a>
+            <a href="http://forja.unex.es/projects/jarifa/"><img style="border:0;"  src="img/download"></a>
             </div>
             </body>
             </html>
