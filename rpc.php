@@ -26,29 +26,38 @@ $host = simplexml_load_file("php://input");
 
 if ($rpc->auth($host))
 {
+    //fill reply with name and public key
+    $rpc->xmlSigningKey();
+    //check, if host already exists
     if (!$rpc->exist_host())
     {
+        //host is unknown, add it 
         $id = $rpc->add_host();
-        if ($id != False)
+        if ($id == False)
         {
-            $rpc->xmlSigningKey();
+            $rpc->error('database operation (add host) failed');
+            echo $rpc->dom->saveXML();
+            return;         
         }
-        else
-            printf ("Error, no se ha añadido el host");
-    }
-    else
-    {
-            $rpc->xmlSigningKey();
-    }
-
+    }   
+    //  
     $rpc->xmlRepeat_sec();
+    //fill reply withh preferences from pool
     $rpc->xmlPreferences();
+    //
     $rpc->xmlOpaqueID();
+    //fill reply with project infos
     $projects = $rpc->projects();
     foreach ($projects as $project)
     {
         $rpc->xmlProject($project);
     }
+    //return the reply as xml string
+    echo $rpc->dom->saveXML();
+}
+else {
+    $rpc->xmlSigningKey();
+    $rpc->error('host authentication failed');  
     echo $rpc->dom->saveXML();
 }
 ?>

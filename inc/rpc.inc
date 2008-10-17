@@ -21,6 +21,10 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 require_once("inc/db_conn.inc");
 require_once("model/data.inc");
 
+/**
+ * class to handle an account manager rpc from boinc client.
+ *
+ */
 class rpc
 {
     public $dom;
@@ -36,6 +40,10 @@ class rpc
     public $user;
     public $host;
 
+    /**
+     * constructor. initializes some members
+     *
+     */
     public function __construct()
     {
         $this->db = new DbConn();
@@ -48,7 +56,7 @@ class rpc
         $this->xml = $this->dom->createElement('acct_mgr_reply');
         $this->dom->appendChild($this->xml);
     }
-
+     
     function load_config()
     {
         $conf = simplexml_load_file("conf/jarifa.conf");
@@ -61,19 +69,27 @@ class rpc
         $this->ac_repeat_sec = $conf->account_manager->repeat_sec;
         $this->boinc_user_email = $conf->account_manager->boinc_user_email;
     }
+
     
     function auth($host)
     {
+        error_log('start rpc->auth');
+        error_log('hosts password_hash: '.$host->password_hash);
         $obj = $this->db->lookup_fields("user","user","*",'supp_auth="'.$host->password_hash.'"');
-        if (!empty($obj)) 
+        if (!empty($obj))
         {
+            error_log('db_lookup successful');
             $this->host->supplier = $obj->supplier;
             $this->host->CPID = $host->host_cpid;
             $this->host->DBID = $host->host_dbid;
             $this->host->id = $host->opaque->id;
             return (True);
         }
-        else return(False);
+        else
+        {
+            error_log('db_lookup failed');
+            return(False);
+        }
     }
 
     function exist_host()
@@ -85,7 +101,7 @@ class rpc
             $query = $query . ', host_cpid="'.md5($this->host->CPID.$this->boinc_user_email).'"';
             $obj = $this->db->update($obj,"host",$query);
             return (True);
-        } 
+        }
         else return(False);
     }
 
@@ -160,7 +176,7 @@ class rpc
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('disk_min_free_gb',$prefs->disk_min_free_gb);
            $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('disk_max_used_pct',$prefs->dis_max_used_pct);
+           $element = $this->dom->createElement('disk_max_used_pct',$prefs->disk_max_used_pct);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('disk_interval',$prefs->disk_interval);
            $global_preferences->appendChild($element);
@@ -214,5 +230,11 @@ class rpc
         $element = $this->dom->createElement('update',$project->update);
         $account->appendChild($element);
     }
+    
+    function error($errormsg) {
+        $element = $this->dom->createElement('error',$errormsg);        
+        $this->xml->appendChild($element);
+    }
+    
 }
 ?>
