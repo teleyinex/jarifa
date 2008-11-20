@@ -6,6 +6,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
@@ -15,108 +16,171 @@
    inkscape:version="0.46"
    sodipodi:docname="logo.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   inkscape:export-filename="img/logo.png"
+   inkscape:export-filename="/home/teleyinex/logo.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150">
   <defs
      id="defs4">
-    <inkscape:path-effect
-       effect="skeletal"
-       id="path-effect3329"
-       prop_scale="1" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient9517">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop9519" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop9521" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3717">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3719" />
+      <stop
+         style="stop-color:#204a87;stop-opacity:0;"
+         offset="1"
+         id="stop3721" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3331">
+      <stop
+         style="stop-color:#f57900;stop-opacity:1;"
+         offset="0"
+         id="stop3333" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1"
+         offset="1"
+         id="stop3335" />
+    </linearGradient>
     <inkscape:perspective
        sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-11.482285 : 665.20564 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_z="450.77964 : 670.2564 : 1"
-       inkscape:persp3d-origin="215.103 : 103.93367 : 1"
-       id="perspective2597" />
-    <inkscape:perspective
-       id="perspective2581"
-       inkscape:persp3d-origin="215.103 : 163.27576 : 1"
-       inkscape:vp_z="450.77964 : 729.59849 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_x="-11.482285 : 724.54773 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-11.48228 : 783.8898 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_z="450.77964 : 788.94056 : 1"
-       inkscape:persp3d-origin="215.103 : 222.61783 : 1"
-       id="perspective2565" />
-    <inkscape:perspective
-       id="perspective2549"
-       inkscape:persp3d-origin="157.38674 : 222.61783 : 1"
-       inkscape:vp_z="393.06338 : 788.94056 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_x="-69.198541 : 783.8898 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-127.72771 : 783.8898 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_z="334.53421 : 788.94056 : 1"
-       inkscape:persp3d-origin="98.857568 : 222.61783 : 1"
-       id="perspective2533" />
-    <inkscape:perspective
-       id="perspective2517"
-       inkscape:persp3d-origin="98.857579 : 163.27576 : 1"
-       inkscape:vp_z="334.53422 : 729.59849 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_x="-127.7277 : 724.54773 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-69.198528 : 724.54773 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_z="393.06339 : 729.59849 : 1"
-       inkscape:persp3d-origin="157.38675 : 163.27576 : 1"
-       id="perspective2501" />
-    <inkscape:perspective
-       id="perspective2485"
-       inkscape:persp3d-origin="157.38675 : 103.93367 : 1"
-       inkscape:vp_z="393.06339 : 670.2564 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_x="-69.198528 : 665.20564 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-129.35351 : 665.20564 : 1"
-       inkscape:vp_y="6.1230318e-14 : 1000 : 0"
-       inkscape:vp_z="332.90841 : 670.2564 : 1"
-       inkscape:persp3d-origin="97.231768 : 103.93367 : 1"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
        id="perspective10" />
     <pattern
-       patternUnits="userSpaceOnUse"
-       width="50.9938"
-       height="50.993"
-       patternTransform="translate(66.1582,167.828)"
-       id="pattern3335">
+       id="pattern7133"
+       patternTransform="translate(64.500005,328.29074)"
+       height="107.14494"
+       width="78.142857"
+       patternUnits="userSpaceOnUse">
       <path
-         inkscape:path-effect="#path-effect3329"
-         sodipodi:ry="24.996834"
-         sodipodi:rx="24.996834"
-         sodipodi:cy="193.32465"
-         sodipodi:cx="91.65506"
-         id="path3327"
-         style="fill:#ff0000;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         sodipodi:type="arc"
-         transform="translate(-66.1582,-167.828)"
-         d="M 116.652,193.325 C 116.652,199.869 113.956,206.37 109.328,210.997 C 104.7,215.625 98.1996,218.321 91.6551,218.321 C 85.1105,218.321 78.61,215.625 73.9823,210.997 C 69.3546,206.37 66.6582,199.869 66.6582,193.325 C 66.6582,186.78 69.3546,180.28 73.9823,175.652 C 73.9823,175.652 73.9823,175.652 73.9823,175.652 C 78.61,171.024 85.1105,168.328 91.6551,168.328 C 98.1996,168.328 104.7,171.024 109.328,175.652 C 113.956,180.28 116.652,186.78 116.652,193.325 z" />
+         transform="matrix(0.7962154,0,0,0.7962154,-166.80714,-315.41906)"
+         d="M 307.14287,445.21933 A 48.57143,48.57143 0 1 1 210.00001,445.21933 A 48.57143,48.57143 0 1 1 307.14287,445.21933 z"
+         sodipodi:ry="48.57143"
+         sodipodi:rx="48.57143"
+         sodipodi:cy="445.21933"
+         sodipodi:cx="258.57144"
+         id="path6166"
+         style="fill:#f57900;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         sodipodi:type="arc" />
+      <path
+         id="path5847"
+         d="M 59.749015,102.22351 C 59.749015,104.88494 58.869015,107.04494 57.784725,107.04494 C 56.700445,107.04494 55.820445,104.88494 55.820445,102.22351 C 55.820445,99.562078 56.700445,97.402078 57.784725,97.402078 C 58.869015,97.402078 59.749015,99.562078 59.749015,102.22351 z"
+         style="fill:#ff0000;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1" />
     </pattern>
+    <inkscape:perspective
+       id="perspective2464"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3978" />
     <filter
        inkscape:collect="always"
-       id="filter9921"
-       x="-0.11265416"
-       width="1.2253083"
-       y="-0.10838084"
-       height="1.2167617">
+       id="filter3317">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="0.74558135"
-         id="feGaussianBlur9923" />
+         stdDeviation="0.10948233"
+         id="feGaussianBlur3319" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3717"
+       id="linearGradient4460"
+       gradientUnits="userSpaceOnUse"
+       x1="145"
+       y1="180.72417"
+       x2="145"
+       y2="219.63971" />
+    <filter
+       inkscape:collect="always"
+       id="filter4494"
+       x="-0.090012032"
+       width="1.1800241"
+       y="-0.11506985"
+       height="1.2301397">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.6987803"
+         id="feGaussianBlur4496" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3331"
+       id="linearGradient4532"
+       gradientUnits="userSpaceOnUse"
+       x1="145.72244"
+       y1="214.60933"
+       x2="145.81883"
+       y2="174.04102" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3717"
+       id="linearGradient4628"
+       gradientUnits="userSpaceOnUse"
+       x1="145"
+       y1="180.72417"
+       x2="145"
+       y2="219.63971" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3717"
+       id="linearGradient5142"
+       gradientUnits="userSpaceOnUse"
+       x1="145"
+       y1="180.72417"
+       x2="145"
+       y2="219.63971" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3717"
+       id="linearGradient5224"
+       gradientUnits="userSpaceOnUse"
+       x1="145"
+       y1="180.72417"
+       x2="145"
+       y2="219.63971" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient9517"
+       id="linearGradient9523"
+       x1="440.25"
+       y1="201.95239"
+       x2="440.25"
+       y2="77.348129"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-10.606602,-220.61732)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3717"
+       id="linearGradient24129"
+       gradientUnits="userSpaceOnUse"
+       x1="145"
+       y1="180.72417"
+       x2="145"
+       y2="219.63971" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -125,16 +189,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.9206232"
-     inkscape:cx="187.32054"
-     inkscape:cy="958.96269"
+     inkscape:zoom="1.6690577"
+     inkscape:cx="153.01512"
+     inkscape:cy="872.86783"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1440"
-     inkscape:window-height="825"
+     inkscape:window-height="823"
      inkscape:window-x="0"
-     inkscape:window-y="50" />
+     inkscape:window-y="53"
+     showguides="true"
+     inkscape:guide-bbox="true" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -150,90 +216,486 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
-       style="font-size:48px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       d="M 193.28125 90 L 193.28125 95.46875 L 197.59375 95.46875 L 197.59375 90 L 193.28125 90 z M 215.8125 90 C 212.85936 90.000036 210.70311 90.656286 209.34375 92 C 207.98437 93.328158 207.31249 95.453156 207.3125 98.375 L 207.3125 100.21875 L 203.1875 100.21875 L 203.1875 103.5625 L 207.3125 103.5625 L 207.3125 126.46875 L 211.625 126.46875 L 211.625 103.5625 L 218.75 103.5625 L 218.75 100.21875 L 211.625 100.21875 L 211.625 97.90625 C 211.62499 96.28128 211.93748 95.156281 212.53125 94.53125 C 213.14061 93.906283 214.20311 93.593783 215.75 93.59375 L 219.875 93.59375 L 219.875 90 L 215.8125 90 z M 130.09375 91.46875 L 130.09375 106.90625 C 131.94256 108.13296 133.5973 109.4361 134.84375 110.6875 L 134.84375 91.46875 L 130.09375 91.46875 z M 153.28125 99.59375 C 151.87499 99.593777 150.42186 99.750027 148.9375 100.0625 C 147.45312 100.3594 145.92186 100.7969 144.34375 101.40625 L 144.34375 105.40625 C 145.65624 104.68752 147.01561 104.14065 148.4375 103.78125 C 149.85936 103.4219 151.34373 103.25002 152.84375 103.25 C 155.20311 103.25002 157.0156 103.78127 158.3125 104.875 C 159.62498 105.95315 160.28122 107.48439 160.28125 109.46875 L 160.28125 109.90625 L 154.25 109.90625 C 150.32811 109.90627 147.35936 110.65627 145.375 112.15625 C 143.40625 113.65626 142.43749 115.85939 142.4375 118.8125 C 142.4375 121.34376 143.20311 123.39063 144.78125 124.90625 C 146.37499 126.40625 148.53123 127.15625 151.21875 127.15625 C 153.34374 127.15625 155.12498 126.78125 156.59375 126.03125 C 158.06248 125.26563 159.29685 124.0625 160.28125 122.46875 L 160.28125 126.46875 L 164.59375 126.46875 L 164.59375 111.5 C 164.59372 107.50002 163.65622 104.50002 161.78125 102.53125 C 159.90623 100.56253 157.0781 99.593777 153.28125 99.59375 z M 186.5 99.59375 C 184.42186 99.593777 182.67185 99.968776 181.21875 100.75 C 179.76561 101.51565 178.59373 102.68752 177.6875 104.28125 L 177.6875 100.21875 L 173.34375 100.21875 L 173.34375 126.46875 L 177.6875 126.46875 L 177.6875 112.625 C 177.68749 109.65627 178.32811 107.39064 179.625 105.8125 C 180.93749 104.21877 182.81248 103.43752 185.25 103.4375 C 185.93748 103.43752 186.56247 103.4844 187.125 103.625 C 187.70311 103.75002 188.23435 103.96877 188.71875 104.25 L 188.6875 99.8125 C 188.24998 99.734402 187.85935 99.687527 187.5 99.65625 C 187.14061 99.609402 186.79685 99.593777 186.5 99.59375 z M 232.6875 99.59375 C 231.28124 99.593777 229.82811 99.750027 228.34375 100.0625 C 226.85937 100.3594 225.32811 100.7969 223.75 101.40625 L 223.75 105.40625 C 225.06249 104.68752 226.42186 104.14065 227.84375 103.78125 C 229.26561 103.4219 230.74998 103.25002 232.25 103.25 C 234.60936 103.25002 236.42185 103.78127 237.71875 104.875 C 239.03123 105.95315 239.68747 107.48439 239.6875 109.46875 L 239.6875 109.90625 L 233.65625 109.90625 C 229.73436 109.90627 226.76561 110.65627 224.78125 112.15625 C 222.8125 113.65626 221.84374 115.85939 221.84375 118.8125 C 221.84375 121.34376 222.60936 123.39063 224.1875 124.90625 C 225.78124 126.40625 227.93748 127.15625 230.625 127.15625 C 232.74999 127.15625 234.53123 126.78125 236 126.03125 C 237.46873 125.26563 238.7031 124.0625 239.6875 122.46875 L 239.6875 126.46875 L 244 126.46875 L 244 121.25 C 242.08832 119.88177 240.42031 118.46619 239.375 117.15625 C 239.03213 118.65634 238.40819 119.93555 237.5 121 C 236.06248 122.6875 234.17185 123.53125 231.78125 123.53125 C 230.04686 123.53125 228.67186 123.07813 227.65625 122.1875 C 226.65624 121.28126 226.15624 120.06251 226.15625 118.53125 C 226.15624 116.60938 226.81248 115.26564 228.15625 114.46875 C 229.49999 113.67189 231.92185 113.28126 235.40625 113.28125 L 238.46875 113.28125 C 239.20071 111.69635 241.19163 109.79318 243.6875 107.96875 C 243.27824 105.69493 242.45899 103.86635 241.1875 102.53125 C 239.31248 100.56253 236.48435 99.593777 232.6875 99.59375 z M 193.28125 100.21875 L 193.28125 126.46875 L 197.59375 126.46875 L 197.59375 100.21875 L 193.28125 100.21875 z M 156 113.28125 L 160.28125 113.28125 L 160.28125 114.21875 C 160.28123 117.03126 159.54685 119.29688 158.09375 121 C 156.65623 122.6875 154.7656 123.53125 152.375 123.53125 C 150.64061 123.53125 149.26561 123.07813 148.25 122.1875 C 147.24999 121.28126 146.74999 120.06251 146.75 118.53125 C 146.74999 116.60938 147.40623 115.26564 148.75 114.46875 C 150.09374 113.67189 152.5156 113.28126 156 113.28125 z M 134.84375 118.3125 C 133.5973 119.5639 131.94256 120.86704 130.09375 122.09375 L 130.09375 124.03125 C 130.09375 127.0625 129.67186 129.17188 128.8125 130.34375 C 127.95312 131.51562 126.46875 132.09375 124.375 132.09375 L 122.90625 132.09375 L 122.90625 136.0625 L 124.71875 136.0625 C 128.26562 136.06249 130.81249 135.125 132.40625 133.21875 C 134.01562 131.3125 134.84373 128.25 134.84375 124.03125 L 134.84375 118.3125 z "
-       id="text2401"
-       inkscape:export-filename="/home/teleyinex/Proyectos/jarifa/img/logo.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:url(#linearGradient9523);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect6265"
+       width="372"
+       height="114"
+       x="341.3934"
+       y="-129.25513" />
+    <text
+       xml:space="preserve"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:AnjaliOldLipi;-inkscape-font-specification:AnjaliOldLipi"
+       x="39.39595"
+       y="155.34673"
+       id="text3691"><tspan
+         sodipodi:role="line"
+         id="tspan3693"
+         x="39.39595"
+         y="155.34673" /></text>
     <g
-       id="g2409"
-       inkscape:export-filename="/home/teleyinex/Proyectos/jarifa/img/logo.png"
+       id="g3986"
+       inkscape:label="Capa 1"
+       transform="translate(55.052279,-100.6838)" />
+    <text
+       id="text4513"
+       y="340.73813"
+       x="396.58484"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       xml:space="preserve"><tspan
+         y="340.73813"
+         x="396.58484"
+         id="tspan4515"
+         sodipodi:role="line" /></text>
+    <text
+       id="text4537"
+       y="407.91327"
+       x="409.31277"
+       style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+       xml:space="preserve"><tspan
+         y="407.91327"
+         x="409.31277"
+         id="tspan4539"
+         sodipodi:role="line" /></text>
+    <g
+       id="g4656"
+       inkscape:export-filename="/home/teleyinex/jarifa-new.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"
-       transform="matrix(-1,0,0,1,365.23844,-1.4808852)">
+       transform="translate(-118.62376,-118.62376)">
       <path
-         transform="matrix(0,-1.5918614,1.5918614,0,55.80943,322.02472)"
-         d="M 136.78441,122.35416 C 135.25932,124.99569 122.25591,124.99569 120.73082,122.35416 C 119.20573,119.71262 125.70743,108.45134 128.75761,108.45134 C 131.8078,108.45134 138.3095,119.71262 136.78441,122.35416 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0.19"
-         inkscape:flatsided="true"
-         sodipodi:arg2="1.5707963"
-         sodipodi:arg1="0.52359878"
-         sodipodi:r2="4.6342726"
-         sodipodi:r1="9.2685452"
-         sodipodi:cy="117.71989"
-         sodipodi:cx="128.75761"
-         sodipodi:sides="3"
-         id="path2411"
-         style="fill:#2e3436;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter9921)"
-         sodipodi:type="star" />
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:nodetypes="ccccccccc"
+         id="path4281"
+         d="M 204.76878,204.86469 L 204.76878,254.38374 C 204.22302,270.75621 151.61993,257.23407 175.95692,251.58672 C 164.43193,252.83781 167.20721,260.35822 167.88762,262.40354 C 171.01427,271.90485 197.60329,276.0747 211.35293,267.62631 C 216.21925,264.44038 220.04503,259.7753 220.46183,254.38374 L 220.51134,204.86469 C 219.04365,207.96226 216.29336,208.0716 212.68956,208.02947 C 208.42271,207.68176 206.77255,208.04126 204.76878,204.86469 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <path
-         sodipodi:type="star"
-         style="fill:#204a87;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="path2413"
-         sodipodi:sides="3"
-         sodipodi:cx="128.75761"
-         sodipodi:cy="117.71989"
-         sodipodi:r1="9.2685452"
-         sodipodi:r2="4.6342726"
-         sodipodi:arg1="0.52359878"
-         sodipodi:arg2="1.5707963"
-         inkscape:flatsided="true"
-         inkscape:rounded="0.19"
-         inkscape:randomized="0"
-         d="M 136.78441,122.35416 C 135.25932,124.99569 122.25591,124.99569 120.73082,122.35416 C 119.20573,119.71262 125.70743,108.45134 128.75761,108.45134 C 131.8078,108.45134 138.3095,119.71262 136.78441,122.35416 z"
-         transform="matrix(0,-1.5918614,1.5918614,0,56.67165,320.58769)" />
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:nodetypes="ccsssscsssccc"
+         d="M 206.35162,200.38911 C 201.6701,190.73873 209.61196,175.09007 229.68026,178.60153 C 248.44837,184.01328 252.48732,199.69796 253.10889,204.01295 C 255.96703,223.85422 243.92512,242.29572 224.68671,247.21 C 200.46942,253.3961 176.33427,237.00559 170.62998,214.06539 C 163.71979,186.27559 183.79154,165.06421 211.87196,158.93104 C 216.66209,157.88479 221.58897,157.44107 225.91794,157.55576 C 221.3494,157.37813 217.34278,157.75027 213.44736,158.62772 C 190.61186,163.77143 174.28916,180.56038 179.90865,203.86684 C 184.54747,223.1061 204.1746,236.85232 223.86853,231.66422 C 239.51355,227.54277 250.7015,211.25858 245.92461,195.18453 C 241.63631,182.73677 229.69234,175.17881 216.92508,178.86974 C 208.34955,181.86828 202.45389,190.93661 206.35162,200.38911 z"
+         style="fill:#f57900;fill-opacity:1;fill-rule:evenodd;stroke:#f57900;stroke-width:0.23762356;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path2383" />
+      <g
+         transform="translate(-22.053572,5.0446429)"
+         id="g4526">
+        <path
+           sodipodi:type="arc"
+           style="fill:#f57900;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           id="path3346"
+           sodipodi:cx="145"
+           sodipodi:cy="205.93361"
+           sodipodi:rx="10.714286"
+           sodipodi:ry="10.714286"
+           d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+           transform="matrix(0.6911768,0,0,0.6911768,134.7969,50.066134)"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150" />
+        <g
+           id="g3556"
+           transform="translate(22.321429,-4.1964286)">
+          <path
+             inkscape:export-ydpi="150"
+             inkscape:export-xdpi="150"
+             inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+             sodipodi:type="arc"
+             style="fill:#f57900;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+             id="path3348"
+             sodipodi:cx="145"
+             sodipodi:cy="205.93361"
+             sodipodi:rx="10.714286"
+             sodipodi:ry="10.714286"
+             d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+             transform="matrix(0.6747302,0,0,0.6747302,114.86023,57.664389)" />
+          <path
+             inkscape:export-ydpi="150"
+             inkscape:export-xdpi="150"
+             inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+             transform="matrix(0.5188241,0,0,0.3648009,137.46663,118.13874)"
+             d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+             sodipodi:ry="10.714286"
+             sodipodi:rx="10.714286"
+             sodipodi:cy="205.93361"
+             sodipodi:cx="145"
+             id="path3350"
+             style="fill:url(#linearGradient4532);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+             sodipodi:type="arc" />
+        </g>
+      </g>
+      <path
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter4494)"
+         d="M 182,181.29075 C 182,181.29075 177.59645,188.34541 177.17857,192.18361 C 176.76069,196.02181 176.7848,203.58906 177.89285,207.18361 C 179.39105,212.04384 182.10852,217.62041 185.21428,221.64789 C 187.79952,225.00037 192.12358,229.10635 195.75,231.29075 C 199.16066,233.34519 206.29851,235.56959 210.21428,236.29075 C 214.32914,237.04858 220.42741,236.17868 224.5,235.21932 C 227.62909,234.48222 232.0006,232.35494 234.67856,230.57646 C 238.56108,227.99802 241.64441,223.61808 244.14285,219.68361 C 245.77749,217.10943 246.81777,213.04201 247.35714,210.04075 C 247.91654,206.92809 248.11901,202.97045 247.53571,199.86218 C 247.00896,197.05527 243.96428,190.75504 243.96428,190.75504 L 243.96428,190.75504 L 243.96428,190.75504 L 243.96428,190.75504"
+         id="path4536"
+         sodipodi:nodetypes="csssssssssscccs" />
+      <g
+         id="g3542">
+        <g
+           transform="matrix(0.7920785,0,0,0.7920785,7.0039545,-151.61607)"
+           id="g4309"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150">
+          <path
+             sodipodi:nodetypes="cscccccccsc"
+             id="path4311"
+             d="M 340.76196,503.93907 C 342.22861,503.93907 343.42466,502.76674 343.42465,501.32584 C 343.42465,501.19921 343.40945,501.0767 343.39168,500.95487 L 343.39168,482.88485 C 343.57345,477.43212 361.09252,481.93557 352.98726,483.81638 C 356.82558,483.39971 355.9044,480.89867 355.6778,480.21749 C 354.63649,477.05315 345.7781,475.66084 341.19888,478.47451 C 339.57818,479.53556 338.30404,481.08923 338.16522,482.88485 L 338.14874,500.90542 C 338.12601,501.04269 338.10752,501.1823 338.10752,501.32584 C 338.10752,502.76675 339.29531,503.93906 340.76196,503.93907 z"
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             transform="translate(4.596194,0.7071068)"
+             d="M 345.77521,471.47397 A 3.7123106,2.8284271 0 1 1 338.35059,471.47397 A 3.7123106,2.8284271 0 1 1 345.77521,471.47397 z"
+             sodipodi:ry="2.8284271"
+             sodipodi:rx="3.7123106"
+             sodipodi:cy="471.47397"
+             sodipodi:cx="342.0629"
+             id="path4313"
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             sodipodi:type="arc" />
+        </g>
+        <g
+           transform="matrix(0.7920785,0,0,0.7920785,6.4381839,-150.82932)"
+           id="g4315"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150">
+          <path
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="M 362.68227,492.62536 C 364.14892,492.62536 365.34497,491.45303 365.34496,490.01213 C 365.34496,489.8855 365.32976,489.76299 365.31199,489.64116 L 365.31199,471.57114 C 365.49376,466.11841 383.01283,470.62186 374.90757,472.50267 C 378.74589,472.086 377.82471,469.58496 377.59811,468.90378 C 376.5568,465.73944 367.69841,464.34713 363.11919,467.1608 C 361.49849,468.22185 360.22435,469.77552 360.08553,471.57114 L 360.06905,489.59171 C 360.04632,489.72898 360.02783,489.86859 360.02783,490.01213 C 360.02783,491.45304 361.21562,492.62535 362.68227,492.62536 z"
+             id="path4317"
+             sodipodi:nodetypes="cscccccccsc" />
+          <path
+             sodipodi:nodetypes="cscccccccsc"
+             id="path4319"
+             d="M 362.70485,485.9619 C 361.2382,485.9619 360.04215,487.13423 360.04216,488.57513 C 360.04216,488.70176 360.05736,488.82427 360.07513,488.9461 L 360.07513,507.01612 C 359.89336,512.46885 342.37429,507.9654 350.47955,506.08459 C 346.64123,506.50126 347.56241,509.0023 347.78901,509.68348 C 348.83032,512.84782 357.68871,514.24013 362.26793,511.42646 C 363.88863,510.36541 365.16277,508.81174 365.30159,507.01612 L 365.31807,488.99555 C 365.3408,488.85828 365.35929,488.71867 365.35929,488.57513 C 365.35929,487.13422 364.1715,485.96191 362.70485,485.9619 z"
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <rect
+             y="488.61218"
+             x="356.125"
+             height="2.375"
+             width="13.25"
+             id="rect4321"
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        </g>
+        <g
+           id="g4332"
+           transform="matrix(0.7920785,0,0,0.7920785,32.481095,33.291297)"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150">
+          <path
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="M 287.02311,270.49331 C 288.48976,270.49331 289.68581,269.32098 289.6858,267.88008 C 289.6858,267.75345 289.6706,267.63094 289.65283,267.50911 L 289.65283,249.43909 C 289.8346,243.98636 307.35367,248.48981 299.24841,250.37062 C 303.08673,249.95395 302.16555,247.45291 301.93895,246.77173 C 300.89764,243.60739 292.03925,242.21508 287.46003,245.02875 C 285.83933,246.0898 284.56519,247.64347 284.42637,249.43909 L 284.40989,267.45966 C 284.38716,267.59693 284.36867,267.73654 284.36867,267.88008 C 284.36867,269.32099 285.55646,270.4933 287.02311,270.49331 z"
+             id="path4307"
+             sodipodi:nodetypes="cscccccccsc" />
+          <path
+             id="path4327"
+             d="M 287.24866,248.89116 C 285.62741,247.11565 283.79396,246.0218 282.40366,246.31186 C 281.70044,246.45621 279.0768,246.90376 280.63513,250.43618 C 279.39091,246.35017 282.10825,247.78 284.43408,250.51616 L 287.24866,248.89116 z"
+             style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        </g>
+        <path
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 241.73126,218.03814 C 237.57253,218.03714 233.53175,219.46552 232.82038,221.62724 C 232.57269,222.3718 231.57047,225.08269 235.76592,225.53813 C 226.90652,223.48232 246.03752,218.56321 246.23621,224.52328 L 246.23621,242.68493 C 246.16694,243.28929 245.91143,243.59051 245.36673,243.76156 C 244.81,243.95995 240.34247,244.23612 235.76258,243.63217 C 235.36054,243.57916 234.85008,243.58108 234.85008,242.63492 L 234.85008,230.85991 C 234.99406,226.54093 248.86909,230.11273 242.44908,231.60248 C 245.48933,231.27244 244.75728,229.2955 244.57779,228.75595 C 243.753,226.24955 236.74451,225.14116 233.11741,227.36981 C 231.83368,228.21026 230.82638,229.43764 230.71642,230.85991 L 230.69167,245.14207 C 230.67366,245.25081 230.66692,245.35016 230.66692,245.46386 C 230.66692,246.31983 231.19934,247.05513 231.95404,247.36979 C 232.18864,247.47699 232.44571,247.54306 232.72137,247.54306 C 232.73812,247.54345 232.75403,247.54306 232.77087,247.54306 L 248.46393,247.54306 C 248.91873,247.54306 249.33054,247.3678 249.65205,247.09752 C 250.47516,246.5929 251.03819,245.71943 251.03818,244.69653 C 251.03818,244.53963 251.01353,244.37627 250.98868,244.22623 L 250.56789,224.52328 C 250.41616,222.56059 250.40868,220.88109 248.6372,219.7213 C 246.76022,218.56801 244.2265,218.03874 241.73126,218.03814 z"
+           id="path4356"
+           sodipodi:nodetypes="csccccssccscccscscccscccc"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150" />
+        <path
+           sodipodi:nodetypes="csccccssccscccscscccscccc"
+           id="path4380"
+           d="M 316.41295,218.03814 C 312.25421,218.03714 308.21344,219.46552 307.50206,221.62724 C 307.25437,222.3718 306.25216,225.08269 310.4476,225.53813 C 301.5882,223.48232 320.71921,218.56321 320.91789,224.52328 L 320.91789,242.68493 C 320.84863,243.28929 320.59312,243.59051 320.04841,243.76156 C 319.49168,243.95995 315.02416,244.23612 310.44426,243.63217 C 310.04222,243.57916 309.53176,243.58108 309.53176,242.63492 L 309.53176,230.85991 C 309.67574,226.54093 323.55077,230.11273 317.13077,231.60248 C 320.17102,231.27244 319.43896,229.2955 319.25948,228.75595 C 318.43468,226.24955 311.42619,225.14116 307.79909,227.36981 C 306.51536,228.21026 305.50806,229.43764 305.3981,230.85991 L 305.37335,245.14207 C 305.35534,245.25081 305.3486,245.35016 305.3486,245.46386 C 305.3486,246.31983 305.88103,247.05513 306.63573,247.36979 C 306.87032,247.47699 307.12739,247.54306 307.40305,247.54306 C 307.41981,247.54345 307.43571,247.54306 307.45256,247.54306 L 323.14561,247.54306 C 323.60042,247.54306 324.01223,247.3678 324.33373,247.09752 C 325.15684,246.5929 325.71988,245.71943 325.71987,244.69653 C 325.71987,244.53963 325.69521,244.37627 325.67036,244.22623 L 325.24957,224.52328 C 325.09784,222.56059 325.09036,220.88109 323.31888,219.7213 C 321.4419,218.56801 318.90818,218.03874 316.41295,218.03814 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           inkscape:export-xdpi="150"
+           inkscape:export-ydpi="150" />
+      </g>
     </g>
     <g
-       transform="translate(9.8612995,-1.122977)"
-       inkscape:export-ydpi="150"
+       id="g4538"
+       inkscape:export-filename="/home/teleyinex/jarifa-new.png"
        inkscape:export-xdpi="150"
-       inkscape:export-filename="/home/teleyinex/Proyectos/jarifa/img/logo.png"
-       id="g2417">
+       inkscape:export-ydpi="150"
+       transform="translate(-123.70763,-101.67751)">
       <path
-         sodipodi:type="star"
-         style="fill:#2e3436;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;filter:url(#filter9921)"
-         id="path2419"
-         sodipodi:sides="3"
-         sodipodi:cx="128.75761"
-         sodipodi:cy="117.71989"
-         sodipodi:r1="9.2685452"
-         sodipodi:r2="4.6342726"
-         sodipodi:arg1="0.52359878"
-         sodipodi:arg2="1.5707963"
-         inkscape:flatsided="true"
-         inkscape:rounded="0.19"
-         inkscape:randomized="0"
-         d="M 136.78441,122.35416 C 135.25932,124.99569 122.25591,124.99569 120.73082,122.35416 C 119.20573,119.71262 125.70743,108.45134 128.75761,108.45134 C 131.8078,108.45134 138.3095,119.71262 136.78441,122.35416 z"
-         transform="matrix(0,-1.5918614,1.5918614,0,55.80943,322.02472)" />
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 208.69735,324.86469 L 208.69735,374.38374 C 208.15159,390.75621 155.5485,377.23407 179.88549,371.58672 C 168.3605,372.83781 171.13578,380.35822 171.81619,382.40354 C 174.94284,391.90485 201.53186,396.0747 215.2815,387.62631 C 220.14782,384.44038 223.9736,379.7753 224.3904,374.38374 L 224.43991,324.86469 C 222.97222,327.96226 220.22193,328.0716 216.61813,328.02947 C 212.35128,327.68176 210.70112,328.04126 208.69735,324.86469 z"
+         id="path3651"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
       <path
-         transform="matrix(0,-1.5918614,1.5918614,0,56.67165,320.58769)"
-         d="M 136.78441,122.35416 C 135.25932,124.99569 122.25591,124.99569 120.73082,122.35416 C 119.20573,119.71262 125.70743,108.45134 128.75761,108.45134 C 131.8078,108.45134 138.3095,119.71262 136.78441,122.35416 z"
-         inkscape:randomized="0"
-         inkscape:rounded="0.19"
-         inkscape:flatsided="true"
-         sodipodi:arg2="1.5707963"
-         sodipodi:arg1="0.52359878"
-         sodipodi:r2="4.6342726"
-         sodipodi:r1="9.2685452"
-         sodipodi:cy="117.71989"
-         sodipodi:cx="128.75761"
-         sodipodi:sides="3"
-         id="path2421"
-         style="fill:#204a87;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         sodipodi:type="star" />
+         id="path3653"
+         style="fill:#204a87;fill-opacity:1;fill-rule:evenodd;stroke:#204a87;stroke-width:0.23762356;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 210.28019,320.38911 C 205.59867,310.73873 213.54053,295.09007 233.60883,298.60153 C 252.37694,304.01328 256.41589,319.69796 257.03746,324.01295 C 259.8956,343.85422 247.85369,362.29572 228.61528,367.21 C 204.39799,373.3961 180.26284,357.00559 174.55855,334.06539 C 167.64836,306.27559 187.72011,285.06421 215.80053,278.93104 C 220.59066,277.88479 225.51754,277.44107 229.84651,277.55576 C 225.27797,277.37813 221.27135,277.75027 217.37593,278.62772 C 194.54043,283.77143 178.21773,300.56038 183.83722,323.86684 C 188.47604,343.1061 208.10317,356.85232 227.7971,351.66422 C 243.44212,347.54277 254.63007,331.25858 249.85318,315.18453 C 245.56488,302.73677 233.62091,295.17881 220.85365,298.86974 C 212.27812,301.86828 206.38246,310.93661 210.28019,320.38911 z"
+         sodipodi:nodetypes="ccsssscsssccc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <g
+         transform="translate(-0.3571429,-0.1785714)"
+         id="g4456">
+        <path
+           inkscape:export-ydpi="150"
+           inkscape:export-xdpi="150"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           sodipodi:type="arc"
+           style="fill:#204a87;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+           id="path3665"
+           sodipodi:cx="145"
+           sodipodi:cy="205.93361"
+           sodipodi:rx="10.714286"
+           sodipodi:ry="10.714286"
+           d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+           transform="matrix(0.6747302,0,0,0.6747302,118.7888,177.66439)" />
+        <path
+           inkscape:export-ydpi="150"
+           inkscape:export-xdpi="150"
+           inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+           transform="matrix(0.5188241,0,0,0.3648009,141.3952,238.13874)"
+           d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+           sodipodi:ry="10.714286"
+           sodipodi:rx="10.714286"
+           sodipodi:cy="205.93361"
+           sodipodi:cx="145"
+           id="path3667"
+           style="fill:url(#linearGradient4460);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+           sodipodi:type="arc" />
+      </g>
+      <path
+         sodipodi:nodetypes="csssssssssscccs"
+         id="path4464"
+         d="M 185.89286,299.50504 C 185.89286,299.50504 181.48931,306.5597 181.07143,310.3979 C 180.65355,314.2361 180.67766,321.80335 181.78571,325.3979 C 183.28391,330.25813 186.00138,335.8347 189.10714,339.86218 C 191.69238,343.21466 196.01644,347.32064 199.64286,349.50504 C 203.05352,351.55948 210.19137,353.78388 214.10714,354.50504 C 218.222,355.26287 224.32027,354.39297 228.39286,353.43361 C 231.52195,352.69651 235.89346,350.56923 238.57142,348.79075 C 242.45394,346.21231 245.53727,341.83237 248.03571,337.8979 C 249.67035,335.32372 250.71063,331.2563 251.25,328.25504 C 251.8094,325.14238 252.01187,321.18474 251.42857,318.07647 C 250.90182,315.26956 247.85714,308.96933 247.85714,308.96933 L 247.85714,308.96933 L 247.85714,308.96933 L 247.85714,308.96933"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter4494)" />
+    </g>
+    <g
+       id="g4679"
+       transform="translate(-232.09741,22.063238)">
+      <path
+         transform="matrix(0.6747302,0,0,0.6747302,220.96214,179.50612)"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         sodipodi:ry="10.714286"
+         sodipodi:rx="10.714286"
+         sodipodi:cy="205.93361"
+         sodipodi:cx="145"
+         id="path4626"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:nodetypes="ccccccccc"
+         id="path4548"
+         d="M 311.22783,326.885 L 311.22783,376.40404 C 310.68207,392.77652 258.07898,379.25437 282.41597,373.60703 C 270.89098,374.85811 273.66626,382.37853 274.34667,384.42385 C 277.47332,393.92516 304.06234,398.09501 317.81198,389.64661 C 322.6783,386.46069 326.50408,381.79561 326.92088,376.40404 L 326.97039,326.885 C 325.5027,329.98257 322.75241,330.0919 319.14861,330.04978 C 314.88176,329.70207 313.2316,330.06157 311.22783,326.885 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:type="arc"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+         id="path4554"
+         sodipodi:cx="145"
+         sodipodi:cy="205.93361"
+         sodipodi:rx="10.714286"
+         sodipodi:ry="10.714286"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         transform="matrix(0.6747302,0,0,0.6747302,220.96214,179.50612)" />
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:nodetypes="ccsssscsssccc"
+         d="M 312.81067,322.40942 C 308.12915,312.75903 316.07101,297.11038 336.13931,300.62184 C 354.90742,306.03359 358.94637,321.71827 359.56794,326.03325 C 362.42608,345.87453 350.38417,364.31603 331.14576,369.2303 C 306.92847,375.4164 282.79332,359.02589 277.08903,336.08569 C 270.17884,308.2959 290.25059,287.08452 318.33101,280.95135 C 323.12114,279.9051 328.04802,279.46138 332.37699,279.57607 C 327.80845,279.39844 323.80183,279.77058 319.90641,280.64803 C 297.07091,285.79174 280.74821,302.58069 286.3677,325.88715 C 291.00652,345.12641 310.63365,358.87263 330.32758,353.68453 C 345.9726,349.56308 357.16055,333.27889 352.38366,317.20484 C 348.09536,304.75707 336.15139,297.19912 323.38413,300.89004 C 314.8086,303.88859 308.91294,312.95691 312.81067,322.40942 z"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:#5c3566;stroke-width:0.23762356;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4550" />
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         transform="matrix(0.5188241,0,0,0.3648009,243.56854,239.98047)"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         sodipodi:ry="10.714286"
+         sodipodi:rx="10.714286"
+         sodipodi:cy="205.93361"
+         sodipodi:cx="145"
+         id="path4556"
+         style="fill:url(#linearGradient4628);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter4494)"
+         d="M 288.42334,301.52535 C 288.42334,301.52535 284.01979,308.58001 283.60191,312.41821 C 283.18403,316.25641 283.20814,323.82366 284.31619,327.41821 C 285.81439,332.27844 288.53186,337.85501 291.63762,341.88249 C 294.22286,345.23496 298.54692,349.34095 302.17334,351.52535 C 305.584,353.57979 312.72185,355.80419 316.63762,356.52535 C 320.75248,357.28318 326.85075,356.41327 330.92334,355.45391 C 334.05243,354.71681 338.42394,352.58954 341.1019,350.81106 C 344.98442,348.23262 348.06775,343.85268 350.56619,339.91821 C 352.20083,337.34402 353.24111,333.27661 353.78048,330.27535 C 354.33988,327.16269 354.54235,323.20504 353.95905,320.09677 C 353.4323,317.28987 350.38762,310.98964 350.38762,310.98964 L 350.38762,310.98964 L 350.38762,310.98964 L 350.38762,310.98964"
+         id="path4558"
+         sodipodi:nodetypes="csssssssssscccs" />
+    </g>
+    <g
+       id="g4630"
+       transform="translate(-131.83978,153.88815)"
+       inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <g
+         transform="matrix(0.7920785,0,0,0.7920785,7.0039545,-151.61607)"
+         id="g4632"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150">
+        <path
+           sodipodi:nodetypes="cscccccccsc"
+           id="path4634"
+           d="M 340.76196,503.93907 C 342.22861,503.93907 343.42466,502.76674 343.42465,501.32584 C 343.42465,501.19921 343.40945,501.0767 343.39168,500.95487 L 343.39168,482.88485 C 343.57345,477.43212 361.09252,481.93557 352.98726,483.81638 C 356.82558,483.39971 355.9044,480.89867 355.6778,480.21749 C 354.63649,477.05315 345.7781,475.66084 341.19888,478.47451 C 339.57818,479.53556 338.30404,481.08923 338.16522,482.88485 L 338.14874,500.90542 C 338.12601,501.04269 338.10752,501.1823 338.10752,501.32584 C 338.10752,502.76675 339.29531,503.93906 340.76196,503.93907 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           transform="translate(4.596194,0.7071068)"
+           d="M 345.77521,471.47397 A 3.7123106,2.8284271 0 1 1 338.35059,471.47397 A 3.7123106,2.8284271 0 1 1 345.77521,471.47397 z"
+           sodipodi:ry="2.8284271"
+           sodipodi:rx="3.7123106"
+           sodipodi:cy="471.47397"
+           sodipodi:cx="342.0629"
+           id="path4636"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           sodipodi:type="arc" />
+      </g>
+      <g
+         transform="matrix(0.7920785,0,0,0.7920785,6.4381839,-150.82932)"
+         id="g4638"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150">
+        <path
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 362.68227,492.62536 C 364.14892,492.62536 365.34497,491.45303 365.34496,490.01213 C 365.34496,489.8855 365.32976,489.76299 365.31199,489.64116 L 365.31199,471.57114 C 365.49376,466.11841 383.01283,470.62186 374.90757,472.50267 C 378.74589,472.086 377.82471,469.58496 377.59811,468.90378 C 376.5568,465.73944 367.69841,464.34713 363.11919,467.1608 C 361.49849,468.22185 360.22435,469.77552 360.08553,471.57114 L 360.06905,489.59171 C 360.04632,489.72898 360.02783,489.86859 360.02783,490.01213 C 360.02783,491.45304 361.21562,492.62535 362.68227,492.62536 z"
+           id="path4640"
+           sodipodi:nodetypes="cscccccccsc" />
+        <path
+           sodipodi:nodetypes="cscccccccsc"
+           id="path4642"
+           d="M 362.70485,485.9619 C 361.2382,485.9619 360.04215,487.13423 360.04216,488.57513 C 360.04216,488.70176 360.05736,488.82427 360.07513,488.9461 L 360.07513,507.01612 C 359.89336,512.46885 342.37429,507.9654 350.47955,506.08459 C 346.64123,506.50126 347.56241,509.0023 347.78901,509.68348 C 348.83032,512.84782 357.68871,514.24013 362.26793,511.42646 C 363.88863,510.36541 365.16277,508.81174 365.30159,507.01612 L 365.31807,488.99555 C 365.3408,488.85828 365.35929,488.71867 365.35929,488.57513 C 365.35929,487.13422 364.1715,485.96191 362.70485,485.9619 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <rect
+           y="488.61218"
+           x="356.125"
+           height="2.375"
+           width="13.25"
+           id="rect4644"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+      <g
+         id="g4646"
+         transform="matrix(0.7920785,0,0,0.7920785,32.481095,33.291297)"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150">
+        <path
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="M 287.02311,270.49331 C 288.48976,270.49331 289.68581,269.32098 289.6858,267.88008 C 289.6858,267.75345 289.6706,267.63094 289.65283,267.50911 L 289.65283,249.43909 C 289.8346,243.98636 307.35367,248.48981 299.24841,250.37062 C 303.08673,249.95395 302.16555,247.45291 301.93895,246.77173 C 300.89764,243.60739 292.03925,242.21508 287.46003,245.02875 C 285.83933,246.0898 284.56519,247.64347 284.42637,249.43909 L 284.40989,267.45966 C 284.38716,267.59693 284.36867,267.73654 284.36867,267.88008 C 284.36867,269.32099 285.55646,270.4933 287.02311,270.49331 z"
+           id="path4648"
+           sodipodi:nodetypes="cscccccccsc" />
+        <path
+           id="path4650"
+           d="M 287.24866,248.89116 C 285.62741,247.11565 283.79396,246.0218 282.40366,246.31186 C 281.70044,246.45621 279.0768,246.90376 280.63513,250.43618 C 279.39091,246.35017 282.10825,247.78 284.43408,250.51616 L 287.24866,248.89116 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 241.73126,218.03814 C 237.57253,218.03714 233.53175,219.46552 232.82038,221.62724 C 232.57269,222.3718 231.57047,225.08269 235.76592,225.53813 C 226.90652,223.48232 246.03752,218.56321 246.23621,224.52328 L 246.23621,242.68493 C 246.16694,243.28929 245.91143,243.59051 245.36673,243.76156 C 244.81,243.95995 240.34247,244.23612 235.76258,243.63217 C 235.36054,243.57916 234.85008,243.58108 234.85008,242.63492 L 234.85008,230.85991 C 234.99406,226.54093 248.86909,230.11273 242.44908,231.60248 C 245.48933,231.27244 244.75728,229.2955 244.57779,228.75595 C 243.753,226.24955 236.74451,225.14116 233.11741,227.36981 C 231.83368,228.21026 230.82638,229.43764 230.71642,230.85991 L 230.69167,245.14207 C 230.67366,245.25081 230.66692,245.35016 230.66692,245.46386 C 230.66692,246.31983 231.19934,247.05513 231.95404,247.36979 C 232.18864,247.47699 232.44571,247.54306 232.72137,247.54306 C 232.73812,247.54345 232.75403,247.54306 232.77087,247.54306 L 248.46393,247.54306 C 248.91873,247.54306 249.33054,247.3678 249.65205,247.09752 C 250.47516,246.5929 251.03819,245.71943 251.03818,244.69653 C 251.03818,244.53963 251.01353,244.37627 250.98868,244.22623 L 250.56789,224.52328 C 250.41616,222.56059 250.40868,220.88109 248.6372,219.7213 C 246.76022,218.56801 244.2265,218.03874 241.73126,218.03814 z"
+         id="path4652"
+         sodipodi:nodetypes="csccccssccscccscscccscccc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         sodipodi:nodetypes="csccccssccscccscscccscccc"
+         id="path4654"
+         d="M 316.41295,218.03814 C 312.25421,218.03714 308.21344,219.46552 307.50206,221.62724 C 307.25437,222.3718 306.25216,225.08269 310.4476,225.53813 C 301.5882,223.48232 320.71921,218.56321 320.91789,224.52328 L 320.91789,242.68493 C 320.84863,243.28929 320.59312,243.59051 320.04841,243.76156 C 319.49168,243.95995 315.02416,244.23612 310.44426,243.63217 C 310.04222,243.57916 309.53176,243.58108 309.53176,242.63492 L 309.53176,230.85991 C 309.67574,226.54093 323.55077,230.11273 317.13077,231.60248 C 320.17102,231.27244 319.43896,229.2955 319.25948,228.75595 C 318.43468,226.24955 311.42619,225.14116 307.79909,227.36981 C 306.51536,228.21026 305.50806,229.43764 305.3981,230.85991 L 305.37335,245.14207 C 305.35534,245.25081 305.3486,245.35016 305.3486,245.46386 C 305.3486,246.31983 305.88103,247.05513 306.63573,247.36979 C 306.87032,247.47699 307.12739,247.54306 307.40305,247.54306 C 307.41981,247.54345 307.43571,247.54306 307.45256,247.54306 L 323.14561,247.54306 C 323.60042,247.54306 324.01223,247.3678 324.33373,247.09752 C 325.15684,246.5929 325.71988,245.71943 325.71987,244.69653 C 325.71987,244.53963 325.69521,244.37627 325.67036,244.22623 L 325.24957,224.52328 C 325.09784,222.56059 325.09036,220.88109 323.31888,219.7213 C 321.4419,218.56801 318.90818,218.03874 316.41295,218.03814 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+    </g>
+    <g
+       transform="matrix(9.4720624e-2,0,0,9.4720624e-2,135.0532,159.73212)"
+       id="g24115"
+       inkscape:export-filename="/home/teleyinex/favicon.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <path
+         inkscape:export-ydpi="150"
+         inkscape:export-xdpi="150"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         sodipodi:type="arc"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path24117"
+         sodipodi:cx="145"
+         sodipodi:cy="205.93361"
+         sodipodi:rx="10.714286"
+         sodipodi:ry="10.714286"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         transform="matrix(0.6747302,0,0,0.6747302,220.96214,179.50612)" />
+      <path
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.17318439px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 311.22783,326.885 L 311.22783,376.40404 C 310.68207,392.77652 258.07898,379.25437 282.41597,373.60703 C 270.89098,374.85811 273.66626,382.37853 274.34667,384.42385 C 277.47332,393.92516 304.06234,398.09501 317.81198,389.64661 C 322.6783,386.46069 326.50408,381.79561 326.92088,376.40404 L 326.97039,326.885 C 325.5027,329.98257 322.75241,330.0919 319.14861,330.04978 C 314.88176,329.70207 313.2316,330.06157 311.22783,326.885 z"
+         id="path24119"
+         sodipodi:nodetypes="ccccccccc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         transform="matrix(0.6747302,0,0,0.6747302,220.96214,179.50612)"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         sodipodi:ry="10.714286"
+         sodipodi:rx="10.714286"
+         sodipodi:cy="205.93361"
+         sodipodi:cx="145"
+         id="path24121"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         id="path24123"
+         style="fill:#5c3566;fill-opacity:1;fill-rule:evenodd;stroke:#5c3566;stroke-width:0.23762356;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 312.81067,322.40942 C 308.12915,312.75903 316.07101,297.11038 336.13931,300.62184 C 354.90742,306.03359 358.94637,321.71827 359.56794,326.03325 C 362.42608,345.87453 350.38417,364.31603 331.14576,369.2303 C 306.92847,375.4164 282.79332,359.02589 277.08903,336.08569 C 270.17884,308.2959 290.25059,287.08452 318.33101,280.95135 C 323.12114,279.9051 328.04802,279.46138 332.37699,279.57607 C 327.80845,279.39844 323.80183,279.77058 319.90641,280.64803 C 297.07091,285.79174 280.74821,302.58069 286.3677,325.88715 C 291.00652,345.12641 310.63365,358.87263 330.32758,353.68453 C 345.9726,349.56308 357.16055,333.27889 352.38366,317.20484 C 348.09536,304.75707 336.15139,297.19912 323.38413,300.89004 C 314.8086,303.88859 308.91294,312.95691 312.81067,322.40942 z"
+         sodipodi:nodetypes="ccsssscsssccc"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         sodipodi:type="arc"
+         style="fill:url(#linearGradient24129);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.24892932;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3317)"
+         id="path24125"
+         sodipodi:cx="145"
+         sodipodi:cy="205.93361"
+         sodipodi:rx="10.714286"
+         sodipodi:ry="10.714286"
+         d="M 155.71429,205.93361 A 10.714286,10.714286 0 1 1 134.28571,205.93361 A 10.714286,10.714286 0 1 1 155.71429,205.93361 z"
+         transform="matrix(0.5188241,0,0,0.3648009,243.56854,239.98047)"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
+      <path
+         sodipodi:nodetypes="csssssssssscccs"
+         id="path24127"
+         d="M 288.42334,301.52535 C 288.42334,301.52535 284.01979,308.58001 283.60191,312.41821 C 283.18403,316.25641 283.20814,323.82366 284.31619,327.41821 C 285.81439,332.27844 288.53186,337.85501 291.63762,341.88249 C 294.22286,345.23496 298.54692,349.34095 302.17334,351.52535 C 305.584,353.57979 312.72185,355.80419 316.63762,356.52535 C 320.75248,357.28318 326.85075,356.41327 330.92334,355.45391 C 334.05243,354.71681 338.42394,352.58954 341.1019,350.81106 C 344.98442,348.23262 348.06775,343.85268 350.56619,339.91821 C 352.20083,337.34402 353.24111,333.27661 353.78048,330.27535 C 354.33988,327.16269 354.54235,323.20504 353.95905,320.09677 C 353.4323,317.28987 350.38762,310.98964 350.38762,310.98964 L 350.38762,310.98964 L 350.38762,310.98964 L 350.38762,310.98964"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter4494)"
+         inkscape:export-filename="/home/teleyinex/jarifa-new.png"
+         inkscape:export-xdpi="150"
+         inkscape:export-ydpi="150" />
     </g>
   </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Brillo" />
 </svg>
