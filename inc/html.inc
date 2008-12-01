@@ -67,6 +67,8 @@ class html
 
     function menu($role=null,$h2=null)
     {
+        if ($role != "volunteer")
+        {
         printf('
                 <div id="menu">
                 <ul id="menu_list">
@@ -77,6 +79,7 @@ class html
         case 'allocator':
         {
             printf('<li><a href="index.php?action=project">'.gettext("Projects").'</a>');
+            printf('<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
             break;
         }
         case 'supplier':
@@ -103,7 +106,7 @@ class html
             <div id="content">
             <h2>'.$h2.'</h2> 
             ');
-
+        }
     }
 
 

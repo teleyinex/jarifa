@@ -19,11 +19,13 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/db_conn.inc");
+require_once("views/default.inc");
 require_once("views/project.inc");
 require_once("views/host.inc");
 require_once("views/pool.inc");
 require_once("views/user.inc");
 require_once("views/stat.inc");
+require_once("views/volunteer.inc");
 require_once("model/data.inc");
 
 class controller extends html
@@ -58,6 +60,7 @@ class controller extends html
           $this->host = new HTMLhost($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->user = new HTMLuser($this->language,$_SESSION['role'],$this->db);
           $this->stat = new HTMLstat($this->language,$_SESSION['role'], $_SESSION['supplier'],$this->db);
+          $this->volunteer = new HTMLvolunteer($this->language,"volunteer",$this->db);
 
       }
 
@@ -95,7 +98,7 @@ class controller extends html
           else
           {
               $user =  $this->db->lookup_fields('user','user','name,role,supplier','name="'.$userid.'" and password="'.md5($password).'"');
-              if (!$user==null)
+              if ((!$user==null) and ($user->role!="volunteer"))
               {
                 $_SESSION['userid']=$user->name;
                 $_SESSION['role']=$user->role;
@@ -122,6 +125,7 @@ class controller extends html
       {
           switch ($view)
           {
+
             case 'error':
             {
                 $layout = new error_page($_SESSION['role'],$msg);
@@ -133,6 +137,27 @@ class controller extends html
             {
                 $layout = new start_page($_SESSION['role']);
                 $layout->page();
+                break;
+            }
+
+            case 'volunteer':
+            {
+                //$this->volunteer->role = $_SESSION['role'];
+                switch ($subaction)
+                {
+                    case 'thanks':
+                    {
+                        $this->volunteer->page('thanks');
+                        break;
+                    }
+
+                    default:
+                    {
+                        $this->volunteer->page('start');
+                        break;
+                    }
+                
+                }
                 break;
             }
 
@@ -278,6 +303,7 @@ class controller extends html
                 $layout->page();
                 break;
             }
+
           }
       }
 

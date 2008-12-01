@@ -66,6 +66,7 @@ class login_page extends html
         </table>
         &nbsp;</form>
         ',gettext("User"),gettext("Password"));
+        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us, <a href=volunteer.php>Join Jarifa</a></div>"));
         $this->footer();
     }
 
