@@ -19,6 +19,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/html.inc");
+require_once("inc/recaptchalib.php");
 
 class HTMLvolunteer extends html
 {
@@ -27,6 +28,8 @@ class HTMLvolunteer extends html
     public $table='user';
     public $class='user';
     public $language;
+    public $recap_pubkey = "";
+    public $recap_prikey = "";
 
     function __construct($language,$role=null,$db)
     {
@@ -152,6 +155,9 @@ class HTMLvolunteer extends html
                  <td align="center">'.gettext("Repeat Password").'</td>
                  <td align="center"><input name="password2" type="password"></td>
                 </tr>
+                <tr>
+                 <td align="center" colspan=2>'.recaptcha_get_html($this->recap_pubkey).'
+                </tr>
                  ');
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf('</table>');
@@ -219,6 +225,13 @@ class HTMLvolunteer extends html
           if ($values['password']!=$values['password2']) $insert=False;
           $values['role'] = "volunteer";
           $values['supplier'] = "Volunteer";
+          // reCaptcha checking
+          $resp = recaptcha_check_answer ($this->recap_prikey,$_SERVER["REMOTE_ADDR"], $_POST["recaptcha_challenge_field"],$_POST["recaptcha_response_field"]);
+          if (!$resp->is_valid) {
+              $insert = False;
+              die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." . "(reCAPTCHA said: " . $resp->error . ")");
+          }
+
           if ($insert)
           {
             $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
