@@ -138,7 +138,7 @@ class HTMLpool extends html
             printf ('<td align=center><a href=index.php?action=ed_pool&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
                 ');
             printf ('<td align="center">'.$this->hosts_per_pool($obj[$i]->id).'</td>');
-            if ($obj[$i]->suspend_if_user_active==1) printf('<td align=center>Yes</td>');
+            if ($obj[$i]->suspend_if_user_active==0) printf('<td align=center>Yes</td>');
             else printf('<td align=center>No</td>');
             $obj[$i]->start_hour = $this->adapt_time($obj[$i]->start_hour,'edit');
             $obj[$i]->end_hour = $this->adapt_time($obj[$i]->end_hour,'edit');
