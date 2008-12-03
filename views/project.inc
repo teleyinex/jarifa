@@ -103,8 +103,6 @@ class HTMLproject extends html
         printf('<table border=1 align=center cellpading="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
                     <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
-                    <td align="center">'.gettext("Delete").'</td>
-                    
                     </tr>');
         printf ('<tr>');
         printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td
@@ -113,7 +111,6 @@ class HTMLproject extends html
         else printf ('<td align="center"><input name="detach" type="checkbox"></td>');
         if ($obj->update) printf ('<td align="center"><input name="update" type="checkbox" CHECKED></td>');
         else printf ('<td align="center"><input name="update" type="checkbox"></td>');
-        printf('<td align=center><input name="delete" type="checkbox"></td>');
         printf ("\n</tr>");
         printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
