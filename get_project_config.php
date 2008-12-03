@@ -36,5 +36,31 @@ if ($conf->account_manager->usernames == '1')
     $element = $dom->createElement('uses_username');
     $root->appendChild($element);
     }
+
+// if project has a min client version, enforce it
+$min_core_client_version = (int) $conf->account_manager->min_core_client_version;
+if ($min_core_client_version){
+    $x = $_SERVER['HTTP_USER_AGENT'];
+    list($platform, $maj, $min)  = sscanf($x, "BOINC client (%s %d.%d)");
+    $too_old = false;
+    if ($maj !== null && $min !== null) {
+        $v = $maj*100 + $min;
+        if ($v < $min_core_client_version) {
+            $too_old = true;
+        }
+    } else {
+        $too_old = true;
+    }
+    if ($too_old) {
+        $rmaj = $min_core_client_version/100;
+        $rmin = $min_core_client_version%100;
+        error_log("get_project_config.php: [-190] This project requires BOINC client version $rmaj.$rmin or later.");
+        // There is not <error_msg> item in the documentation, so for now it is not reported.
+        //$element = $dom->createElement('error_msg',"This project requires BOINC client version $rmaj.$rmin or later.");
+        //$root->appendChild($element);
+        $element = $dom->createElement('error_num',"-190");
+        $root->appendChild($element);
+    }
+}
 echo $dom->saveXML();
 ?>
