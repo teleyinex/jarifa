@@ -104,6 +104,10 @@ class HTMLuser extends html
                  <td align="center"><input name="password" type="password"></td>
                 </tr>
                 <tr>
+                 <td align="center">'.gettext("Repeat Password").'</td>
+                 <td align="center"><input name="password2" type="password"></td>
+                </tr>
+                <tr>
                  <td align="center">'.gettext("Role").'</td>
                  <td align="center"><select name="role">');
                  if ($obj->role == 'root') printf('<option value="root" selected="selected">'.gettext("root").'</option>');
@@ -142,6 +146,10 @@ class HTMLuser extends html
                  <td align="center"><input name="password" type="password"></td>
                 </tr>
                 <tr>
+                 <td align="center">'.gettext("Repeat Password").'</td>
+                 <td align="center"><input name="password2" type="password"></td>
+                </tr>
+                <tr>
                  <td align="center">'.gettext("Role").'</td>
                  <td align="center"><select name="role">');
                  printf('<option value="root">'.gettext("root").'</option>');
@@ -174,20 +182,21 @@ class HTMLuser extends html
 
       function update($id,$values)
       {
-          if (empty($values['password']))
-          {
+          //if (empty($values['password']))
           $query = 'name="'.$values['name'].'",
                     role="'.$values['role'].'",
-                    supplier="'.$values['supplier'].'"';
-          }
-          else
-          {
-          $query = 'name="'.$values['name'].'",
                     password="'.md5($values['password']).'",
-                    role="'.$values['role'].'",
-                    supplier="'.$values['supplier'].'"';
+                    supplier="'.$values['supplier'].'",
+                    supp_auth="'.md5($values['password'].$values['name']).'"';
+          //else
+          //{
+          //$query = 'name="'.$values['name'].'",
+          //          password="'.md5($values['password']).'",
+          //          role="'.$values['role'].'",
+          //          supplier="'.$values['supplier'].'",
+          //          supp_auth="'.md5($values['password'].$values['name']).'"';
 
-          }
+          //}
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
         return($this->db->update($obj,$this->table,$query));
       }
@@ -216,8 +225,10 @@ class HTMLuser extends html
           $create_default_pool=False;
           if (empty($values['name'])) $insert=False;
           if (empty($values['password'])) $insert=False;
+          if (empty($values['password2'])) $insert=False;
           if (empty($values['role'])) $insert=False;
           if (empty($values['supplier'])) $insert=False;
+          if ($values['password']!=$values['password2']) $insert=False;
           if ($insert)
           {
             $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');

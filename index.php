@@ -99,7 +99,7 @@ if (isset($_SESSION['userid']))
                 $err=$ctr->user->update($_GET['id'],$_POST);
                 }
             if ($err != null) $ctr->view("user",$_SESSION['role']);
-            else $ctr->view("error",$_SESSION['role'],null,gettext("The user can not be updated or deleted"));
+            else $ctr->view("error",$_SESSION['role'],null,gettext("The user can not be updated or deleted (password mismatch)"));
                 
             break;
         }
@@ -109,7 +109,7 @@ if (isset($_SESSION['userid']))
                 if ($ctr->user->insert($_POST))
                     $ctr->view("user",$_SESSION['role']);
                 else
-                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form."));
+                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form or password mismatch."));
                 break;
         }
 
