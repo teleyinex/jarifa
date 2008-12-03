@@ -130,6 +130,15 @@ class start_page extends html
                 $this->footer();
                 break;
             }
+            case 'volunteer':
+            {
+                $this->header(gettext("Welcome").' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("Choose an action from the left panel"));
+                $this->empty_table();
+                $this->footer();
+                break;
+            }
+
 
         }
     }

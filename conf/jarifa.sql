@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.3deb1ubuntu1
+-- version 2.11.3deb1ubuntu1.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 11, 2008 at 03:03 PM
+-- Generation Time: Dec 03, 2008 at 12:30 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.3
 
@@ -12,6 +12,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `jarifa`
 --
+CREATE DATABASE `jarifa` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `jarifa`;
 
 -- --------------------------------------------------------
 
@@ -22,6 +24,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `host` (
   `id` int(11) NOT NULL auto_increment,
   `poolid` int(11) default NULL,
+  `username` varchar(255) collate utf8_bin NOT NULL,
   `supplier` varchar(255) collate utf8_bin NOT NULL,
   `CPID` varchar(255) collate utf8_bin default NULL,
   `host_cpid` varchar(255) collate utf8_bin NOT NULL,
@@ -36,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `host` (
   PRIMARY KEY  (`id`),
   KEY `poolid` (`poolid`),
   KEY `CPID` (`CPID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=17 ;
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
   `dont_verify_images` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `department` (`supplier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=32 ;
 
 -- --------------------------------------------------------
 
@@ -143,11 +146,5 @@ CREATE TABLE IF NOT EXISTS `user` (
   `supp_auth` varchar(255) collate utf8_bin NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=17 ;
 
---
--- Adding data
---
-
-INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`) VALUES
-(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '');

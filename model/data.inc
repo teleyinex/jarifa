@@ -21,6 +21,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 class host 
 {
     public $id;
+    public $name;
     public $poolid;
     public $supplier;
     public $CPID;

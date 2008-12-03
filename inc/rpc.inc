@@ -83,6 +83,7 @@ class rpc
             $this->host->CPID = $host->host_cpid;
             $this->host->DBID = $host->host_dbid;
             $this->host->id = $host->opaque->id;
+            $this->host->name = $host->name;
             return (True);
         }
         else
@@ -109,8 +110,8 @@ class rpc
     {
         $obj = $this->db->lookup_fields("pool","pool","*",'supplier="'.$this->host->supplier.'" and name="default"');
         $this->host->poolid = $obj->id;
-        $query = '(poolid,supplier,CPID,host_cpid,venue) values
-            ('.$this->host->poolid.',"'.$this->host->supplier.'","'.$this->host->CPID.'","'.md5($this->host-CPID.$this->boinc_user_email).'", null)';
+        $query = '(username,poolid,supplier,CPID,host_cpid,venue) values
+            ("'.$this->host->name.'",'.$this->host->poolid.',"'.$this->host->supplier.'","'.$this->host->CPID.'","'.md5($this->host-CPID.$this->boinc_user_email).'", null)';
         $obj = $this->db->insert("host",$query);
         $this->host->id = $this->db->insert_id();
         if (!empty($obj)) return ($this->db->insert_id());

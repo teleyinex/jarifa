@@ -67,8 +67,6 @@ class html
 
     function menu($role=null,$h2=null)
     {
-        if ($role != "volunteer")
-        {
         printf('
                 <div id="menu">
                 <ul id="menu_list">
@@ -82,6 +80,13 @@ class html
             printf('<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
             break;
         }
+        case 'volunteer':
+        {
+            printf('<li><a href="index.php?action=host">'.gettext("Hosts").'</a>');
+            //printf('<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
+            break;
+        }
+
         case 'supplier':
         {
             printf('<li><a href="index.php?action=host">'.gettext("Hosts").'</a>
@@ -107,7 +112,6 @@ class html
             <h2>'.$h2.'</h2> 
             ');
         }
-    }
 
 
     function table_project($obj)

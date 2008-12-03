@@ -98,7 +98,7 @@ class controller extends html
           else
           {
               $user =  $this->db->lookup_fields('user','user','name,role,supplier','name="'.$userid.'" and password="'.md5($password).'"');
-              if ((!$user==null) and ($user->role!="volunteer"))
+              if (!$user==null) 
               {
                 $_SESSION['userid']=$user->name;
                 $_SESSION['role']=$user->role;

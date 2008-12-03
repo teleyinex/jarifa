@@ -122,13 +122,16 @@ class HTMLhost extends html
         }
         else
         {
-            printf('<tr><td>'.gettext("Pools").'</td>');
-            printf('<td align="center"><select name="pool">');
-            for ($i=0; $i<$row; $i++)
+            if ($this->role != "volunteer")
             {
-                    printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+                printf('<tr><td>'.gettext("Pools").'</td>');
+                printf('<td align="center"><select name="pool">');
+                for ($i=0; $i<$row; $i++)
+                {
+                        printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+                }
+                printf("</selection></td>");
             }
-            printf("</selection></td>");
         }
         printf('<tr><td>'.gettext("Venue").'</td>');
         printf('<td>'.$obj->venue.'</td></tr>');
@@ -167,10 +170,28 @@ class HTMLhost extends html
 
     function lists()
       {
-          if ($this->role == 'root')
-            $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
-          else
-            $obj = $this->db->enum_fields($this->table,$this->class,'*','supplier="'.$this->supplier.'"', 'order by id');
+          switch ($this->role)
+          {
+            case "root":  
+            {
+                $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+                break;
+            }
+            case "volunteer":
+            {
+                $obj = $this->db->enum_fields($this->table,$this->class,'*','username="'.$_SESSION['userid'].'"', 'order by id');
+                break;
+            }
+            default:
+            {
+                $obj = $this->db->enum_fields($this->table,$this->class,'*','supplier="'.$this->supplier.'"', 'order by id');
+            }
+
+          }
+          //if ($this->role == 'root')
+          //  $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          //else
+          //  $obj = $this->db->enum_fields($this->table,$this->class,'*','supplier="'.$this->supplier.'"', 'order by id');
           return($obj);
       }
 
