@@ -143,6 +143,11 @@ table.form tbody tr:hover
     color: black;
 }
 
+#requirements
+{
+    font-size: 10px;
+}
+
 #credits
 {
     padding:2px;

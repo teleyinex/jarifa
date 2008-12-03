@@ -23,6 +23,7 @@ require_once("model/data.inc");
 class html
 {
     public $logo;
+    public $conf;
 
     function __construct($language='es_ES.utf8')
     {
@@ -36,8 +37,8 @@ class html
 
     function load_config()
     {
-        $conf = simplexml_load_file("conf/jarifa.conf");
-        $this->logo = $conf->account_manager->logo;
+        $this->conf = simplexml_load_file("conf/jarifa.conf");
+        $this->logo = $this->conf->account_manager->logo;
     }
 
 
