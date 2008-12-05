@@ -35,6 +35,10 @@ class stats extends DBConn
       public $boinc_user_email;
       public $boinc_user_name;
       public $boinc_passwd;
+      public $context = False;
+      public $proxy_name;
+      public $proxy_port;
+
       function __construct()
       {
           $this->load_config();
@@ -52,13 +56,26 @@ class stats extends DBConn
           $this->boinc_user_email = $conf->account_manager->boinc_user_email;
           $this->boinc_user_name = $conf->account_manager->boinc_user_name;
           $this->boinc_passwd = $conf->account_manager->boinc_passwd;
+          // Are we using a proxy?
+          if ($conf->xpath("/conf/proxy"))
+          {
+            error_log("Using proxy configuration");
+            $this->proxy = True;
+            $this->proxy_name = $conf->proxy->name;
+            $this->proxy_port = $conf->proxy->port;
+            if ($conf->proxy->request_fulluri == 1) $this->proxy_request_fulluri = True;
+            else $this->proxy_request_fulluri = False;
+            $opts= array('http' => array('request_fulluri' => $this->proxy_request_fulluri,'proxy' =>'tcp://'.$this->proxy_name.':'.$this->proxy_port));
+            $this->context = stream_context_create($opts);
+          }
+          else $this->context = null;
       }
 
       function get_authenticator($url)
       {
           // Web RPC for getting a boinc account 
           $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email);
-          $authenticator = file_get_contents(trim($url).'/lookup_account.php'.$request, false);
+          $authenticator = file_get_contents(trim($url).'/lookup_account.php'.$request,false,$this->context);
           $p = xml_parser_create();
           xml_parse_into_struct($p, $authenticator, $vals, $index);
           xml_parser_free($p);
@@ -76,7 +93,7 @@ class stats extends DBConn
       function get_stats($url,$authenticator)
       {
           $request='?auth='.$authenticator.'&format=xml';
-          $stats = file_get_contents(trim($url).'/show_user.php'.$request, false);
+          $stats = file_get_contents(trim($url).'/show_user.php'.$request,false,$this->context);
           $xml = new SimpleXMLElement($stats);
           return($xml);
       }

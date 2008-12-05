@@ -45,6 +45,10 @@ class controller extends html
       public $host;
       public $user;
       public $stat;
+      public $context = False;
+      public $proxy_name;
+      public $proxy_port;
+      public $proxy_request_fulluri;
 
 
       public function __construct($language="es_ES.utf8")
@@ -74,6 +78,19 @@ class controller extends html
           $this->boinc_user_email = $conf->account_manager->boinc_user_email;
           $this->boinc_user_name = $conf->account_manager->boinc_user_name;
           $this->boinc_passwd = $conf->account_manager->boinc_passwd;
+          // Are we using a proxy?
+          if ($conf->xpath("/conf/proxy"))
+          {
+            error_log("Using proxy configuration");
+            $this->proxy_name = $conf->proxy->name;
+            $this->proxy_port = $conf->proxy->port;
+            if ($conf->proxy->request_fulluri == 1) $this->proxy_request_fulluri = True;
+            else $this->proxy_request_fulluri = False;
+            $opts= array('http' => array('request_fulluri' => $this->proxy_request_fulluri,'proxy' =>'tcp://'.$this->proxy_name.':'.$this->proxy_port));
+            $this->context = stream_context_create($opts);
+          }
+          else $this->context = null;
+
       }
 
       function create_boinc_user($url)
@@ -81,10 +98,11 @@ class controller extends html
           // Web RPC for create a boinc account and return the weak authenticator
           $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email).
                                                           '&user_name='.$this->boinc_user_name;
-          $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false);
+          $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false,$this->context);
           $xml = new SimpleXMLElement($authenticator);
          
-          $weak_authenticator = file_get_contents(trim($url).'/am_get_info.php?account_key='.$xml->authenticator,false);
+          $weak_authenticator =
+              file_get_contents(trim($url).'/am_get_info.php?account_key='.$xml->authenticator,false,$this->context);
           $xml = new SimpleXMLElement($weak_authenticator);
           return($xml->weak_auth);
       }
