@@ -66,8 +66,10 @@ class login_page extends html
         </table>
         &nbsp;</form>
         ',gettext("User"),gettext("Password"));
-        printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version:
-            ").$this->conf->account_manager->min_core_client_version."</div>");
+        $major = intval($this->conf->account_manager->min_core_client_version/100);
+        $minor = $this->conf->account_manager->min_core_client_version % 100;
+        printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version: "));
+        printf ("$major.$minor</div>");
         printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us, <a href=volunteer.php>Join Jarifa</a></div>"));
         $this->footer();
     }
