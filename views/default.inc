@@ -29,7 +29,7 @@ class login_page extends html
     {
         putenv("LANG=$language");
         setlocale(LC_ALL, $language);
-        $domain = 'text';
+        $domain = 'messages';
         bindtextdomain($domain, "lang");
         textdomain($domain);
         $this->load_config();
