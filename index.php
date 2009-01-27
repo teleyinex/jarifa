@@ -21,9 +21,8 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 require_once("inc/html.inc");
 require_once("views/default.inc");
 require_once("controller/controller.inc");
-require_once("inc/lang.inc");
 
-$ctr = new controller("en_US.utf8");
+$ctr = new controller("es_ES.utf8");
 // If the user has not been authenticated and there is not any action, the login screen must be shown
 if (!isset($_SESSION['userid']) and (empty($_POST)))
 {

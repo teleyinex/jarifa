@@ -27,6 +27,7 @@ require_once("views/user.inc");
 require_once("views/stat.inc");
 require_once("views/volunteer.inc");
 require_once("model/data.inc");
+//require_once("inc/lang.inc");
 
 class controller extends html
 {
@@ -51,14 +52,14 @@ class controller extends html
       public $proxy_request_fulluri;
 
 
-      public function __construct($language="es_ES.utf8")
+      public function __construct()
       {
           
           session_start();
           $this->load_config();
           $this->db = new DbConn();
           $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
-          $this->language = $language;
+          //$this->language = $language;
           $this->pool = new HTMLpool($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
           $this->host = new HTMLhost($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
@@ -75,6 +76,7 @@ class controller extends html
           $this->db_password = $conf->db->password;
           $this->db_host = $conf->db->host;
           $this->db_name = $conf->db->name;
+          $this->language = $conf->account_manager->language;
           $this->boinc_user_email = $conf->account_manager->boinc_user_email;
           $this->boinc_user_name = $conf->account_manager->boinc_user_name;
           $this->boinc_passwd = $conf->account_manager->boinc_passwd;

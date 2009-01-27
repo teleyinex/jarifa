@@ -25,7 +25,7 @@ class login_page extends html
     public $userid;
     public $password;
 
-    function __construct($language="es_ES.utf8")
+    function __construct($language="en_US.utf8")
     {
         putenv("LANG=$language");
         setlocale(LC_ALL, $language);

@@ -19,11 +19,9 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 $language='en_US.utf8';
-
 putenv("LANG=$language");
-setlocale(LC_ALL, $language);
+setlocale(LC_ALL, "");
 $domain = 'messages';
-bindtextdomain($domain, "locale"); 
+$path = bindtextdomain($domain,"lang");
 textdomain($domain);
-
 ?>
