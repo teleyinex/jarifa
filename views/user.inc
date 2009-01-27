@@ -33,7 +33,7 @@ class HTMLuser extends html
         $this->language=$language;
         putenv("LANG=$this->language");
         setlocale(LC_ALL, $this->language);
-        $domain = 'text';
+        $domain = 'messages';
         bindtextdomain($domain, "lang");
         textdomain($domain);
         $this->role = $role;

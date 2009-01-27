@@ -33,7 +33,7 @@ class HTMLvolunteer extends html
         $this->language=$language;
         putenv("LANG=$this->language");
         setlocale(LC_ALL, $this->language);
-        $domain = 'text';
+        $domain = 'messages';
         bindtextdomain($domain, "lang");
         textdomain($domain);
         $this->role = "volunteer";
@@ -137,7 +137,9 @@ class HTMLvolunteer extends html
         printf('
                 <tr>
                 <td colspan=2>
-                Fill in the following form, to become a Jarifa user
+                ');
+        printf(gettext("Fill in the following form, to become a Jarifa user"));
+        printf('
                 </td>
                 </tr>
                 <tr>
