@@ -36,7 +36,7 @@ class login_page extends html
     }
 
 
-    function page()
+    function page($nvolunteers="0")
     {
         $this->header();
         printf('
@@ -70,7 +70,13 @@ class login_page extends html
         $minor = $this->conf->account_manager->min_core_client_version % 100;
         printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version: "));
         printf ("$major.$minor</div>");
-        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us, <a href=volunteer.php>Join us</a></div>"));
+        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us, <a href=volunteer.php>Join us</a>"));
+        if ($nvolunteers != 0) 
+        {
+            printf("<br>");
+            printf(gettext("Powered by")." ".$nvolunteers." ".gettext("Volunteers"));
+        }
+        printf("</div>");
         $this->footer();
     }
 

@@ -59,7 +59,6 @@ class controller extends html
           $this->load_config();
           $this->db = new DbConn();
           $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
-          //$this->language = $language;
           $this->pool = new HTMLpool($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
           $this->project = new HTMLproject($this->language,$_SESSION['role'],$this->db);
           $this->host = new HTMLhost($this->language,$_SESSION['role'],$_SESSION['supplier'],$this->db);
@@ -139,6 +138,16 @@ class controller extends html
           session_unset();
           session_destroy();
           header("Location: index.php");
+      }
+
+      function how_many_volunteers()
+      {
+          $user = $this->db->enum_fields('user','user','*','supplier="Volunteer"','');
+          if (!$user == null) 
+          {
+            return(count($user));
+          }
+          else return(0);
       }
 
       function view($view='start',$role='default',$subaction=null,$msg=null)
@@ -320,7 +329,7 @@ class controller extends html
             case 'login':
             {
                 $layout = new login_page($this->language);
-                $layout->page();
+                $layout->page($this->how_many_volunteers());
                 break;
             }
 

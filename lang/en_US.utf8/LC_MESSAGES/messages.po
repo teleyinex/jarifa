@@ -1,18 +1,18 @@
 # Jarifa i18n file
 # Copyright 2008 Daniel Lombraña González, David P. Anderson, Francisco Fernández de Vega
-# 
+#
 # This file is part of Jarifa.
-# 
+#
 # Jarifa is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # Jarifa is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Affero General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Affero General Public License
 # along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 #
@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 16:19+0100\n"
+"POT-Creation-Date: 2009-02-05 14:06+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -34,7 +34,7 @@ msgid "User"
 msgstr "Usuario"
 
 #: views/default.inc:68 views/user.inc:103 views/user.inc:145
-#: views/volunteer.inc:94 views/volunteer.inc:148
+#: views/volunteer.inc:94 views/volunteer.inc:150
 #, php-format
 msgid "Password"
 msgstr "Contraseña"
@@ -46,26 +46,35 @@ msgstr "Versión mínima del cliente BOINC: "
 
 #: views/default.inc:73
 #, php-format
-msgid ""
-"If you want to collaborate with us, <a href=volunteer.php>Join us</a></div>"
-msgstr "Si quiere colaborar con nostros, <a href=volunteer.php>Únase</a></div>"
+msgid "If you want to collaborate with us, <a href=volunteer.php>Join us</a>"
+msgstr "Si quiere colaborar con nostros, <a href=volunteer.php>Únase</a>"
 
-#: views/default.inc:92
+#: views/default.inc:77
+#, php-format
+msgid "Volunteers"
+msgstr "Voluntarios"
+
+#: views/default.inc:77
+#, php-format
+msgid "Powered by"
+msgstr "Soportado por"
+
+#: views/default.inc:98
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:93
+#: views/default.inc:99
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:115 views/default.inc:123 views/default.inc:131
-#: views/default.inc:139 views/host.inc:66 views/pool.inc:100
+#: views/default.inc:121 views/default.inc:129 views/default.inc:137
+#: views/default.inc:145 views/host.inc:66 views/pool.inc:100
 #: views/project.inc:66 views/user.inc:66
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:116 views/default.inc:124 views/default.inc:132
-#: views/default.inc:140
+#: views/default.inc:122 views/default.inc:130 views/default.inc:138
+#: views/default.inc:146
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
@@ -278,7 +287,8 @@ msgstr "Utilización del procesador"
 msgid ""
 "Suspend work while computer is on battery power?<br>(matters\n"
 "                    only for portable computers)"
-msgstr "Suspender el trabajo cuando el PC está con la batería?<br>(solo\n"
+msgstr ""
+"Suspender el trabajo cuando el PC está con la batería?<br>(solo\n"
 "                    para portátiles)"
 
 #: views/pool.inc:206 views/pool.inc:211 views/pool.inc:217 views/pool.inc:221
@@ -323,14 +333,16 @@ msgid ""
 "Suspend work if no mouse/keyboard activity in last<br>(Needed to enter low-"
 "power mode on some computers)\n"
 "<br>Enforced by version 5.10.14+"
-msgstr "Suspender trabajo si no actividad de ratón/teclado en los últimos<br>(Necesario introducir"
-"bajo consumo en algunos PCs)\n"
+msgstr ""
+"Suspender trabajo si no actividad de ratón/teclado en los últimos<br>"
+"(Necesario introducirbajo consumo en algunos PCs)\n"
 "<br>Versión 5.10.14+"
 
 #: views/pool.inc:237 views/pool.inc:486
 #, php-format
 msgid "Do work only between the hours of <br>(no restriction if equal)"
-msgstr "Realizar trabajo solo entre las horas <br>(sin restricción si son iguales)"
+msgstr ""
+"Realizar trabajo solo entre las horas <br>(sin restricción si son iguales)"
 
 #: views/pool.inc:244 views/pool.inc:404 views/pool.inc:492 views/pool.inc:637
 #, php-format
@@ -342,8 +354,11 @@ msgstr "y"
 msgid ""
 "Leave applications in memory while suspended?<br>(suspended\n"
 "                    applications will consume swap space if 'yes')"
-msgstr "¿Dejar aplicaciones en memorias cuando se suspende la ejecución?<br>(las aplicaciones\n"
-"                    pausadas consumirán espacio de intercambio en caso afirmativo)"
+msgstr ""
+"¿Dejar aplicaciones en memorias cuando se suspende la ejecución?<br>(las "
+"aplicaciones\n"
+"                    pausadas consumirán espacio de intercambio en caso "
+"afirmativo)"
 
 #: views/pool.inc:267 views/pool.inc:509
 #, php-format
@@ -374,7 +389,9 @@ msgstr "%% de los procesadores"
 #, php-format
 msgid ""
 "Use at most <br>(Can be used to reduce CPU heat)<br>Enforced by version 5.6+"
-msgstr "Utilizar como mucho <br>(Puede utilizarse para reducir el calor de la CPU)<br>Versión 5.6+)"
+msgstr ""
+"Utilizar como mucho <br>(Puede utilizarse para reducir el calor de la CPU)"
+"<br>Versión 5.6+)"
 
 #: views/pool.inc:284 views/pool.inc:526
 #, php-format
@@ -471,8 +488,7 @@ msgid ""
 "                    connected.<br>BOINC will try to maintain at least this "
 "much work.)"
 msgstr ""
-"El PC se conecta a Internet cada<br>(Dejar en blanco o 0 si "
-"se conecta\n"
+"El PC se conecta a Internet cada<br>(Dejar en blanco o 0 si se conecta\n"
 "                   permanentemente. BOINC intentará obtener al menos esta "
 "cantidad de trabajo.)"
 
@@ -492,16 +508,18 @@ msgid ""
 "Confirm before connecting to Internet?<br>(matters only if you have a modem, "
 "ISDN or VPN\n"
 "                    connection)"
-msgstr "¿Preguntar antes de contectarse a Internet?<br>(útil cuando hay un modem, o conexión ISDN o VPN)"
-
+msgstr ""
+"¿Preguntar antes de contectarse a Internet?<br>(útil cuando hay un modem, o "
+"conexión ISDN o VPN)"
 
 #: views/pool.inc:373 views/pool.inc:611
 #, php-format
 msgid ""
 "Disconnect when done?<br>(matters only if you have a modem, ISDN or VPN\n"
 "                    connection)"
-msgstr " "
-"¿Desconectar al finalizar?<br>(útil cuando hay un modem, o conexión ISDN o VPN)"
+msgstr ""
+" ¿Desconectar al finalizar?<br>(útil cuando hay un modem, o conexión ISDN o "
+"VPN)"
 
 #: views/pool.inc:384 views/pool.inc:618
 #, php-format
@@ -525,8 +543,8 @@ msgid ""
 "restriction if\n"
 "                    equal)"
 msgstr ""
-"Utilizar la red solo entre las horas<br>Versión 4.46+<br>(sin "
-"restricción si\n"
+"Utilizar la red solo entre las horas<br>Versión 4.46+<br>(sin restricción "
+"si\n"
 "                   igual)"
 
 #: views/pool.inc:414 views/pool.inc:646
@@ -537,8 +555,10 @@ msgid ""
 "                    files (UMTS does this, for example).<br>Skipping "
 "verification reduces the security of BOINC."
 msgstr ""
-"¿Saltar verificación de imagen?<br>(Marque sí, SOLO si su ISP modifica imágenes\n"
-"(UMTS hace esto, por ejemplo).<br>Evitar la verificación reduce la seguridad de BOINC"
+"¿Saltar verificación de imagen?<br>(Marque sí, SOLO si su ISP modifica "
+"imágenes\n"
+"(UMTS hace esto, por ejemplo).<br>Evitar la verificación reduce la seguridad "
+"de BOINC"
 
 #: views/project.inc:50 views/project.inc:59
 msgid "Projects"
@@ -615,7 +635,7 @@ msgid "Available users"
 msgstr "Usuarios disponibles"
 
 #: views/user.inc:78 views/user.inc:99 views/user.inc:141
-#: views/volunteer.inc:69 views/volunteer.inc:90 views/volunteer.inc:144
+#: views/volunteer.inc:69 views/volunteer.inc:90 views/volunteer.inc:146
 #, php-format
 msgid "User ID"
 msgstr "Identificador de usuario"
@@ -631,7 +651,7 @@ msgstr "Rol"
 msgid "New User"
 msgstr "Nuevo usuario"
 
-#: views/user.inc:107 views/user.inc:149 views/volunteer.inc:152
+#: views/user.inc:107 views/user.inc:149 views/volunteer.inc:154
 #, php-format
 msgid "Repeat Password"
 msgstr "Repita contraseña"
@@ -671,7 +691,6 @@ msgstr ""
 "<h2>Gracias por unirse a Jarifa, ahora solo queda unir su cliente BOINC\n"
 "            a Jarifa.</h2>"
 
-
 #: views/volunteer.inc:127
 #, php-format
 msgid ""
@@ -685,4 +704,5 @@ msgstr ""
 #: views/volunteer.inc:141
 #, php-format
 msgid "Fill in the following form, to become a Jarifa user"
-msgstr "Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
+msgstr ""
+"Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
