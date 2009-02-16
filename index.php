@@ -24,7 +24,7 @@ require_once("controller/controller.inc");
 
 $ctr = new controller("es_ES.utf8");
 // If the user has not been authenticated and there is not any action, the login screen must be shown
-if (!isset($_SESSION['userid']) and (empty($_POST)))
+if (!isset($_SESSION['userid']) and (empty($_POST) and empty($_GET)))
 {
     $ctr->view("login");
 }
@@ -257,5 +257,28 @@ if (isset($_SESSION['userid']))
         }
     }
 
+}
+else
+{
+    switch($_GET['action'])
+    {
+        case 'ranking':
+        {
+            $ctr->view("ranking",null);
+            break;
+        }
+        case 'volunteer':
+        {
+            $ctr->view("volunteer",null);
+            break;
+        }
+
+        case 'in_volunteer':
+        {
+            $ctr->view("volunteer",null,"in_volunteer");
+            break;
+        }
+
+    }
 }
 ?>

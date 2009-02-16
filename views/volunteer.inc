@@ -132,7 +132,7 @@ class HTMLvolunteer extends html
     function html_insert()
     {
         printf('<div id="content">');
-        printf('<form method="post" action="volunteer.php?action=in_volunteer" name="user">');
+        printf('<form method="post" action="index.php?action=in_volunteer" name="user">');
         printf('<table border="1" align="center" cellpading="4" class="form">');
         printf('
                 <tr>

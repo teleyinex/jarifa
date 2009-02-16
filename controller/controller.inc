@@ -26,6 +26,7 @@ require_once("views/pool.inc");
 require_once("views/user.inc");
 require_once("views/stat.inc");
 require_once("views/volunteer.inc");
+require_once("views/ranking.inc");
 require_once("model/data.inc");
 //require_once("inc/lang.inc");
 
@@ -65,6 +66,7 @@ class controller extends html
           $this->user = new HTMLuser($this->language,$_SESSION['role'],$this->db);
           $this->stat = new HTMLstat($this->language,$_SESSION['role'], $_SESSION['supplier'],$this->db);
           $this->volunteer = new HTMLvolunteer($this->language,"volunteer",$this->db);
+          $this->ranking = new HTMLranking($this->language,"",$this->db);
 
       }
 
@@ -169,6 +171,13 @@ class controller extends html
                 break;
             }
 
+            case 'ranking':
+            {
+                $this->ranking->page("volunteers");
+                break;
+          
+            }
+
             case 'volunteer':
             {
                 //$this->volunteer->role = $_SESSION['role'];
@@ -178,6 +187,17 @@ class controller extends html
                     {
                         $this->volunteer->page('thanks');
                         break;
+                    }
+
+                    case 'in_volunteer':
+                    {
+                          if ($this->volunteer->insert($_POST))
+                            // If everything went OK, thank the user
+                            $this->view("volunteer",$_SESSION['role']="volunteer","thanks");
+                          else
+                            // Else show an error page
+                            $this->view("error",$_SESSION['role']="volunteer",null,gettext("Empty fields on the insert form or password mismatch."));
+                          break;
                     }
 
                     default:
