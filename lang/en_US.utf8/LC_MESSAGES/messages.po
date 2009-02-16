@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-05 14:06+0100\n"
+"POT-Creation-Date: 2009-02-16 18:49+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -29,7 +29,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: views/default.inc:68
+#: views/default.inc:68 views/ranking.inc:147
+#, php-format
 msgid "User"
 msgstr "Usuario"
 
@@ -46,35 +47,45 @@ msgstr "Versión mínima del cliente BOINC: "
 
 #: views/default.inc:73
 #, php-format
-msgid "If you want to collaborate with us, <a href=volunteer.php>Join us</a>"
-msgstr "Si quiere colaborar con nostros, <a href=volunteer.php>Únase</a>"
+msgid "If you want to collaborate with us"
+msgstr "Si quiere colaborar con nostros"
 
-#: views/default.inc:77
+#: views/default.inc:73
 #, php-format
-msgid "Volunteers"
-msgstr "Voluntarios"
+msgid "Join us"
+msgstr "Únase"
 
 #: views/default.inc:77
 #, php-format
 msgid "Powered by"
 msgstr "Soportado por"
 
-#: views/default.inc:98
+#: views/default.inc:77
+#, php-format
+msgid "Volunteers"
+msgstr "Voluntarios"
+
+#: views/default.inc:78
+#, php-format
+msgid "Best volunteers"
+msgstr "Mejores voluntarios"
+
+#: views/default.inc:99
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:99
+#: views/default.inc:100
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:121 views/default.inc:129 views/default.inc:137
-#: views/default.inc:145 views/host.inc:66 views/pool.inc:100
+#: views/default.inc:122 views/default.inc:130 views/default.inc:138
+#: views/default.inc:146 views/host.inc:66 views/pool.inc:100
 #: views/project.inc:66 views/user.inc:66
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:122 views/default.inc:130 views/default.inc:138
-#: views/default.inc:146
+#: views/default.inc:123 views/default.inc:131 views/default.inc:139
+#: views/default.inc:147
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
@@ -605,6 +616,34 @@ msgstr ""
 #, php-format
 msgid "Signature"
 msgstr "Firma"
+
+#: views/ranking.inc:50
+msgid "Ranking of suppliers"
+msgstr "Clasificación de proveedores"
+
+#: views/ranking.inc:57
+msgid "Ranking of volunteers"
+msgstr "Clasificación de voluntarios"
+
+#: views/ranking.inc:69
+#, php-format
+msgid "Volunteer"
+msgstr "Voluntarios"
+
+#: views/ranking.inc:69
+#, php-format
+msgid "Credit"
+msgstr "Crédito total"
+
+#: views/ranking.inc:147
+#, php-format
+msgid "Position"
+msgstr "Posición"
+
+#: views/ranking.inc:147
+#, php-format
+msgid "Total credit"
+msgstr "Crédito total"
 
 #: views/stat.inc:51 views/stat.inc:60 views/stat.inc:69
 msgid "Statistics"

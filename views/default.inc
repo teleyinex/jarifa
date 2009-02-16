@@ -70,8 +70,7 @@ class login_page extends html
         $minor = $this->conf->account_manager->min_core_client_version % 100;
         printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version: "));
         printf ("$major.$minor</div>");
-        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us, <a
-            href=index.php?action=volunteer>Join us</a>"));
+        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us").", <a href=index.php?action=volunteer>".gettext("Join us")."</a>");
         if ($nvolunteers != 0) 
         {
             printf("<br>");
