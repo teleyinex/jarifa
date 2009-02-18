@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-16 18:49+0100\n"
+"POT-Creation-Date: 2009-02-18 13:50+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -70,22 +70,22 @@ msgstr "Voluntarios"
 msgid "Best volunteers"
 msgstr "Mejores voluntarios"
 
-#: views/default.inc:99
+#: views/default.inc:100
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:100
+#: views/default.inc:101
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:122 views/default.inc:130 views/default.inc:138
-#: views/default.inc:146 views/host.inc:66 views/pool.inc:100
+#: views/default.inc:123 views/default.inc:131 views/default.inc:139
+#: views/default.inc:147 views/host.inc:66 views/pool.inc:100
 #: views/project.inc:66 views/user.inc:66
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:123 views/default.inc:131 views/default.inc:139
-#: views/default.inc:147
+#: views/default.inc:124 views/default.inc:132 views/default.inc:140
+#: views/default.inc:148
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
@@ -356,6 +356,7 @@ msgstr ""
 "Realizar trabajo solo entre las horas <br>(sin restricción si son iguales)"
 
 #: views/pool.inc:244 views/pool.inc:404 views/pool.inc:492 views/pool.inc:637
+#: views/volunteer.inc:228 views/volunteer.inc:237 views/volunteer.inc:245
 #, php-format
 msgid "and"
 msgstr "y"
@@ -745,3 +746,19 @@ msgstr ""
 msgid "Fill in the following form, to become a Jarifa user"
 msgstr ""
 "Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
+
+#: views/volunteer.inc:221
+msgid "Empty user name"
+msgstr "Nombre de usuario vacío"
+
+#: views/volunteer.inc:228 views/volunteer.inc:229
+msgid "User name must be lowercase"
+msgstr "El nombre de usuario tiene que ir en minúsculas"
+
+#: views/volunteer.inc:237 views/volunteer.inc:238
+msgid "Password mismatch"
+msgstr "Contraseñas diferentes"
+
+#: views/volunteer.inc:245 views/volunteer.inc:246
+msgid "User name exists on the site"
+msgstr "El nombre de usuario ya existe"
