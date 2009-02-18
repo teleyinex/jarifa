@@ -92,6 +92,7 @@ class error_page extends html
     {
         $this->role = $role;
         $this->msg = $msg;
+        $this->load_config();
     }
 
     function page()

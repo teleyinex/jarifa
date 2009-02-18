@@ -191,12 +191,12 @@ class controller extends html
 
                     case 'in_volunteer':
                     {
-                          if ($this->volunteer->insert($_POST))
+                          if ($this->volunteer->insert($_POST,&$err_msg))
                             // If everything went OK, thank the user
-                            $this->view("volunteer",$_SESSION['role']="volunteer","thanks");
+                            $this->view("volunteer",null,"thanks");
                           else
                             // Else show an error page
-                            $this->view("error",$_SESSION['role']="volunteer",null,gettext("Empty fields on the insert form or password mismatch."));
+                            $this->view("error",null,null,$err_msg);
                           break;
                     }
 

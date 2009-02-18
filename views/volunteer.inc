@@ -210,15 +210,42 @@ class HTMLvolunteer extends html
         }
       }
 
-      function insert($values)
+      function insert($values,&$err_msg)
       {
           $insert=True;
+          $err_msg=null;
           $create_default_pool=False;
-          if (empty($values['name'])) $insert=False;
+          if (empty($values['name'])) 
+          {
+              $insert=False;
+              $err_msg=gettext("Empty user name");
+          }
+          // Temporary fix for a bug on BOINC client when generating password hash. This will be removed in a future,
+          // allowing uppercase and lowercase letters on user name.
+          if (strtolower($values['name'])!=$values['name']) 
+          {
+              $insert=False;
+              if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("User name must be lowercase");
+              else $err_msg=gettext("User name must be lowercase");
+          }
           if (empty($values['password'])) $insert=False;
           if (empty($values['password2'])) $insert=False;
           // If passwords are different, give an error
-          if ($values['password']!=$values['password2']) $insert=False;
+          if ($values['password']!=$values['password2']) 
+          {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("Password mismatch");
+                else $err_msg=gettext("Password mismatch");
+          }
+          // Exists the user name on the DB?
+          $check_username = $this->db->lookup_fields($this->table,$this->class,'*','name="'.$values['name'].'"');
+          if (!(empty($check_username)))
+          {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("User name exists on the site");
+                else $err_msg=gettext("User name exists on the site");
+          }
+           
           $values['role'] = "volunteer";
           $values['supplier'] = "Volunteer";
           if ($insert)
