@@ -254,7 +254,7 @@ class HTMLvolunteer extends html
             if (empty($pool)) $create_default_pool = True;
             $query = '(name,password,role,supplier,supp_auth) values ("'
               .$values['name'].'",
-              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].strtolower($values['name'])).'")';
+              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'")';
             $res = $this->db->insert($this->table, $query);
             if ($res and $create_default_pool)
             {
