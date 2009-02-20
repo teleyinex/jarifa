@@ -105,10 +105,10 @@ if (isset($_SESSION['userid']))
 
         case 'in_user':
         {
-                if ($ctr->user->insert($_POST))
+                if ($ctr->user->insert($_POST,&$err_msg))
                     $ctr->view("user",$_SESSION['role']);
                 else
-                    $ctr->view("error",$_SESSION['role'],null,gettext("Empty fields on the insert form or password mismatch."));
+                    $ctr->view("error",$_SESSION['role'],null,$err_msg);
                 break;
         }
 

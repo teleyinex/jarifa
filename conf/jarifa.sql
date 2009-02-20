@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 03, 2008 at 12:30 PM
+-- Generation Time: Feb 20, 2009 at 02:29 PM
 -- Server version: 5.0.51
--- PHP Version: 5.2.4-2ubuntu5.3
+-- PHP Version: 5.2.4-2ubuntu5.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `host` (
   PRIMARY KEY  (`id`),
   KEY `poolid` (`poolid`),
   KEY `CPID` (`CPID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
   `dont_verify_images` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `department` (`supplier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `project` (
   `detach` tinyint(1) NOT NULL default '0',
   `update` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=38 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -144,7 +144,12 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` varchar(255) collate utf8_bin NOT NULL,
   `supplier` varchar(255) collate utf8_bin NOT NULL,
   `supp_auth` varchar(255) collate utf8_bin NOT NULL,
+  `email` varchar(255) collate utf8_bin default NULL,
+  `city` varchar(255) collate utf8_bin default NULL,
+  `state` varchar(255) collate utf8_bin default NULL,
+  `country` varchar(255) collate utf8_bin default NULL,
+  `postalcode` varchar(255) collate utf8_bin default NULL,
+  `date` date NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=17 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

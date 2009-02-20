@@ -154,6 +154,27 @@ class HTMLvolunteer extends html
                  <td align="center">'.gettext("Repeat Password").'</td>
                  <td align="center"><input name="password2" type="password"></td>
                 </tr>
+                <tr>
+                <td align="center">'.gettext("E-mail").'
+                <td align="center"><input name="email"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("City").'
+                <td align="center"><input name="city"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("State").'
+                <td align="center"><input name="state"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("Country").'
+                <td align="center"><input name="country"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("Postal code").'
+                <td align="center"><input name="postalcode"></td>
+                </tr>
+
                  ');
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf('</table>');
@@ -218,14 +239,14 @@ class HTMLvolunteer extends html
           if (empty($values['name'])) 
           {
               $insert=False;
-              $err_msg=gettext("Empty user name");
+              $err_msg=gettext("User name empty");
           }
           // Temporary fix for a bug on BOINC client when generating password hash. This will be removed in a future,
           // allowing uppercase and lowercase letters on user name.
           if (strtolower($values['name'])!=$values['name']) 
           {
               $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("User name must be lowercase");
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name must be lowercase");
               else $err_msg=gettext("User name must be lowercase");
           }
           if (empty($values['password'])) $insert=False;
@@ -234,27 +255,46 @@ class HTMLvolunteer extends html
           if ($values['password']!=$values['password2']) 
           {
                 $insert=False;
-                if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("Password mismatch");
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Password mismatch");
                 else $err_msg=gettext("Password mismatch");
           }
+
+          if (empty($values['email']))
+          {
+              $insert=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail empty");
+              else $err_msg=gettext("E-mail empty");
+
+          }
+
           // Exists the user name on the DB?
           $check_username = $this->db->lookup_fields($this->table,$this->class,'*','name="'.$values['name'].'"');
           if (!(empty($check_username)))
           {
                 $insert=False;
-                if ($err_msg != null) $err_msg = $err_msg." ".gettext("and")." ".gettext("User name exists on the site");
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name exists on the site");
                 else $err_msg=gettext("User name exists on the site");
           }
-           
+
+          // Exists the e-mail on the DB?
+          $check_email = $this->db->lookup_fields($this->table,$this->class,'*','email="'.$values['email'].'"');
+          if (!(empty($check_email)))
+          {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail exists on the site");
+                else $err_msg=gettext("E-mail exists on the site");
+          }
+
           $values['role'] = "volunteer";
           $values['supplier'] = "Volunteer";
           if ($insert)
           {
             $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
             if (empty($pool)) $create_default_pool = True;
-            $query = '(name,password,role,supplier,supp_auth) values ("'
+            $query = '(name,password,role,supplier,supp_auth,email,city,state,country,postalcode,date) values ("'
               .$values['name'].'",
-              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'")';
+              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'","'.                $values['email'].'","'.$values['city'].'","'.$values['state'].'","'.$values['country'].'","'.$values['postalcode'].'",CURDATE())';
+
             $res = $this->db->insert($this->table, $query);
             if ($res and $create_default_pool)
             {

@@ -95,6 +95,13 @@ class user
     public $password;
     public $role;
     public $supplier;
+    public $supp_auth;
+    public $email;
+    public $city;
+    public $state;
+    public $country;
+    public $postalcode;
+    public $date;
 }
 
 class stats_user
