@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2009 at 02:29 PM
+-- Generation Time: Feb 23, 2009 at 09:14 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.5
 
@@ -39,7 +39,12 @@ CREATE TABLE IF NOT EXISTS `host` (
   PRIMARY KEY  (`id`),
   KEY `poolid` (`poolid`),
   KEY `CPID` (`CPID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `host`
+--
+
 
 -- --------------------------------------------------------
 
@@ -80,7 +85,12 @@ CREATE TABLE IF NOT EXISTS `pool` (
   `dont_verify_images` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `department` (`supplier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `pool`
+--
+
 
 -- --------------------------------------------------------
 
@@ -98,7 +108,12 @@ CREATE TABLE IF NOT EXISTS `project` (
   `detach` tinyint(1) NOT NULL default '0',
   `update` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `project`
+--
+
 
 -- --------------------------------------------------------
 
@@ -117,6 +132,11 @@ CREATE TABLE IF NOT EXISTS `stats_host` (
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `stats_host`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +150,11 @@ CREATE TABLE IF NOT EXISTS `stats_user` (
   `expavg_credit` float NOT NULL,
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `stats_user`
+--
+
 
 -- --------------------------------------------------------
 
@@ -153,3 +178,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `date`) VALUES
+(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, '0000-00-00');
