@@ -87,7 +87,8 @@ class HTMLuser extends html
             printf ("\n</tr>");
         }
         printf("</table>");
-        printf('<div style="text-align: center;"><a href=index.php?action=vin_user>'.gettext("New User").'</a></div>');
+        if ($this->role=="root")
+            printf('<div style="text-align: center;"><a href=index.php?action=vin_user>'.gettext("New User").'</a></div>');
         $this->footer();
     }
 
@@ -97,7 +98,7 @@ class HTMLuser extends html
         printf('<table border=1 align=center cellpading="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
-                 <td align=center><input name="name" value="'.$obj->name.'"></td>
+                 <td align=center><input name="name" value="'.$obj->name.'" readonly></td>
                 </tr>
                 <tr>
                  <td align="center">'.gettext("Password").'</td>
@@ -106,7 +107,10 @@ class HTMLuser extends html
                 <tr>
                  <td align="center">'.gettext("Repeat Password").'</td>
                  <td align="center"><input name="password2" type="password"></td>
-                </tr>
+                 </tr>');
+        if ($this->role=="root")
+        {
+            printf('
                 <tr>
                  <td align="center">'.gettext("Role").'</td>
                  <td align="center"><select name="role">');
@@ -123,10 +127,46 @@ class HTMLuser extends html
                 <td align="center">'.gettext("Supplier").'
                 <td align="center"><input name="supplier" value="'.$obj->supplier.'"></td>
                 </tr>
+                ');
+        }
+        else
+        {
+        printf('<tr>
+                <td align="center">'.gettext("Role").'</td>
+                <td align="center"><input name="role" value="'.$obj->role.'" readonly></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("Supplier").'</td>
+                <td align="center"><input name="supplier" value="'.$obj->supplier.'" readonly></td>
+                </tr>');
+        }
+        printf('
+                <tr>
+                <td align="center">'.gettext("E-mail").'
+                <td align="center"><input name="email" value="'.$obj->email.'"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("City").'
+                <td align="center"><input name="city" value="'.$obj->city.'"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("State").'
+                <td align="center"><input name="state" value="'.$obj->state.'"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("Country").'
+                <td align="center"><input name="country" value="'.$obj->country.'"></td>
+                </tr>
+                <tr>
+                <td align="center">'.gettext("Postal code").'
+                <td align="center"><input name="postalcode" value="'.$obj->postalcode.'"></td>
+                </tr>');
+        if ($this->role=="root")
+        printf('
                 <tr>
                     <td align="center">'.gettext("Delete").'</td>
-            <td align="center"><input name="delete" type="checkbox"></td>');
-        printf ("</tr>");
+            <td align="center"><input name="delete" type="checkbox"></td></tr>');
+        //printf ("</tr>");
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
@@ -189,9 +229,12 @@ class HTMLuser extends html
         $this->footer();
     }
 
-    function lists()
+    function lists($userid=null)
       {
-          $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          if ($this->role=="root")
+              $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+          else
+              $obj = $this->db->enum_fields($this->table,$this->class,'*','name="'.$userid.'"', 'order by id');
           return($obj);
       }
 
@@ -200,25 +243,61 @@ class HTMLuser extends html
           return ($this->db->lookup_fields($this->table,$this->class,'*','id="'.$id.'"'));
       }
 
-      function update($id,$values)
+      function update($id,$values,&$err_msg)
       {
-          //if (empty($values['password']))
-          $query = 'name="'.$values['name'].'",
-                    role="'.$values['role'].'",
-                    password="'.md5($values['password']).'",
-                    supplier="'.$values['supplier'].'",
-                    supp_auth="'.md5($values['password'].$values['name']).'"';
-          //else
-          //{
-          //$query = 'name="'.$values['name'].'",
-          //          password="'.md5($values['password']).'",
-          //          role="'.$values['role'].'",
-          //          supplier="'.$values['supplier'].'",
-          //          supp_auth="'.md5($values['password'].$values['name']).'"';
+          $err_msg=null;
+          $update=True;
+          if (empty($values['password']))
+          {
+              $update=False;
+              $err_msg=gettext("Password empty");
+          }
+          if ($values['password']!=$values['password2'])
+          {
+              $update=False;
+              if ($err_msg!=null) $err_msg=gettext("Password missmatch");
+              else $err_msg = $err_msg."<br>".gettext("Password missmatch");
+          }
+          // Exists the e-mail on the DB?
+          $check_email = $this->db->lookup_fields($this->table,$this->class,'*','email="'.$values['email'].'" and name!="'.$values['name'].'"');
+          if (!(empty($check_email)))
+          {
+                $update=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail exists on the site");
+                else $err_msg=gettext("E-mail exists on the site");
+          }
 
-          //}
-        $obj = $this->db->lookup_id($id,$this->table,$this->class);
-        return($this->db->update($obj,$this->table,$query));
+          if ($update)
+          {
+            if ($this->role="root")
+            {
+            $query = 'role="'.$values['role'].'",
+                      password="'.md5($values['password']).'",
+                      supplier="'.$values['supplier'].'",
+                      supp_auth="'.md5($values['password'].$values['name']).'",
+                      email="'.$values['email'].'",
+                      city="'.$values['city'].'",
+                      state="'.$values['state'].'",
+                      country="'.$values['country'].'",
+                      postalcode="'.$values['postalcode'].'"';
+
+            }
+            else
+            {
+             $query = 'password="'.md5($values['password']).'",
+                       supplier="'.$values['supplier'].'",
+                       supp_auth="'.md5($values['password'].$values['name']).'",
+                       email="'.$values['email'].'",
+                       city="'.$values['city'].'",
+                       state="'.$values['state'].'",
+                       country="'.$values['country'].'",
+                       postalcode="'.$values['postalcode'].'"';
+            }
+            $obj = $this->db->lookup_id($id,$this->table,$this->class);
+            return($this->db->update($obj,$this->table,$query));
+          }
+          else
+              return(False);
       }
 
       function delete($id)

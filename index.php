@@ -95,10 +95,10 @@ if (isset($_SESSION['userid']))
                 }
             else
                 {
-                $err=$ctr->user->update($_GET['id'],$_POST);
+                $err=$ctr->user->update($_GET['id'],$_POST,&$err_msg);
                 }
             if ($err != null) $ctr->view("user",$_SESSION['role']);
-            else $ctr->view("error",$_SESSION['role'],null,gettext("The user can not be updated or deleted (password mismatch)"));
+            else $ctr->view("error",$_SESSION['role'],null,$err_msg);
                 
             break;
         }

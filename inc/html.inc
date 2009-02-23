@@ -77,6 +77,7 @@ class html
         {
         case 'allocator':
         {
+            printf('<li><a href="index.php?action=user">'.gettext("Profile").'</a>');
             printf('<li><a href="index.php?action=project">'.gettext("Projects").'</a>');
             printf('<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
             printf('<li><a href="index.php?action=logout">'.gettext("Log Out").'</a>');
@@ -85,6 +86,7 @@ class html
         case 'volunteer':
         {
             printf('<li><a href="index.php?action=host">'.gettext("Hosts").'</a>
+                    <li><a href="index.php?action=user">'.gettext("Profile").'</a>
                     <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>');
             //printf('<li><a href="index.php?action=stat">'.gettext("Statistics").'</a>');
 
@@ -94,6 +96,7 @@ class html
         case 'supplier':
         {
             printf('<li><a href="index.php?action=host">'.gettext("Hosts").'</a>
+                <li><a href="index.php?action=user">'.gettext("Profile").'</a>
                 <li><a href="index.php?action=pool">'.gettext("Pools").'</a>
                 <li><a href="index.php?action=stat">'.gettext("Statistics").'</a>
                 <li><a href="index.php?action=logout">'.gettext("Log Out").'</a>');

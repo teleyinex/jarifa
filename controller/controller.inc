@@ -337,7 +337,7 @@ class controller extends html
                         default:
                         {
                             $this->user->page('start');
-                            $obj = $this->user->lists();
+                            $obj = $this->user->lists($_SESSION['userid']);
                             $this->user->table($obj);
                             break;
                         }
