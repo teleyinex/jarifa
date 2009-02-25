@@ -28,6 +28,7 @@ class HTMLvolunteer extends html
     public $table='user';
     public $class='user';
     public $language;
+    public $key;
     public $map;
 
     function __construct($language,$role=null,$db)
@@ -42,7 +43,19 @@ class HTMLvolunteer extends html
         $this->db = $db;
         $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
-        $this->map = new map();
+        $this->map = new map($this->key);
+    }
+
+    function load_config()
+    {
+        $conf = simplexml_load_file("conf/jarifa.conf");
+        $this->logo = $conf->account_manager->logo;
+        $this->db_user = $conf->db->user;
+        $this->db_password = $conf->db->password;
+        $this->db_host = $conf->db->host;
+        $this->db_name = $conf->db->name;
+        $this->key = $conf->gmap->key;
+        $this->country = $conf->gmap->country;
     }
 
     function page($view=null,$values=null)
