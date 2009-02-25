@@ -19,6 +19,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/html.inc");
+require_once("inc/map.inc");
 
 class HTMLuser extends html
 {
@@ -27,6 +28,7 @@ class HTMLuser extends html
     public $table='user';
     public $class='user';
     public $language;
+    public $map;
 
     function __construct($language,$role=null,$db)
     {
@@ -39,6 +41,7 @@ class HTMLuser extends html
         $this->role = $role;
         $this->db = $db;
         $this->load_config();
+        $this->map = new map();
     }
 
     function page($view=null,$values=null)
@@ -267,6 +270,42 @@ class HTMLuser extends html
                 else $err_msg=gettext("E-mail exists on the site");
           }
 
+          // Check if it will be possible to add Latitude and Longitude
+          if (empty($values['city']))
+          {
+              $update=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("City empty");
+              else $err_msg=gettext("City empty");
+          }
+          if (empty($values['state']))
+          {
+              $update=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("State empty");
+              else $err_msg=gettext("City empty");
+          }
+          if (empty($values['country']))
+          {
+              $update=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Country empty");
+              else $err_msg=gettext("Country empty");
+          }
+
+          if ($update)
+          {
+              // Obtain the coordinates
+              // First we check if the address is stored on the DB
+              $address = $this->db->lookup_fields('user','user','*','city="'.$values['city'].'" and state="'.$values['state'].'" and country="'.               $values['country'].'"');
+              if (empty($address))
+              {
+                  $coordinates = $this->map->coordinates($values['city'].'+'.$values['state'].'+'.$values['country']);
+              }
+              else
+              {
+                  $coordinates = array($address->latitude,$address->longitude);
+              }
+          }
+
+
           if ($update)
           {
             if ($this->role="root")
@@ -279,8 +318,9 @@ class HTMLuser extends html
                       city="'.$values['city'].'",
                       state="'.$values['state'].'",
                       country="'.$values['country'].'",
-                      postalcode="'.$values['postalcode'].'"';
-
+                      postalcode="'.$values['postalcode'].'",
+                      latitude="'.$coordinates[0].'",
+                      longitude="'.$coordinates[1].'"';
             }
             else
             {
@@ -291,7 +331,10 @@ class HTMLuser extends html
                        city="'.$values['city'].'",
                        state="'.$values['state'].'",
                        country="'.$values['country'].'",
-                       postalcode="'.$values['postalcode'].'"';
+                       postalcode="'.$values['postalcode'].'",
+                       latitude="'.$coordinates[0].'",
+                       longitude="'.$coordinates[1].'"';
+
             }
             $obj = $this->db->lookup_id($id,$this->table,$this->class);
             return($this->db->update($obj,$this->table,$query));

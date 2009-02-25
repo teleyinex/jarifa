@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2009 at 09:14 AM
+-- Generation Time: Feb 25, 2009 at 01:19 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.5
 
@@ -174,6 +174,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `state` varchar(255) collate utf8_bin default NULL,
   `country` varchar(255) collate utf8_bin default NULL,
   `postalcode` varchar(255) collate utf8_bin default NULL,
+  `latitude` varchar(255) collate utf8_bin default NULL,
+  `longitude` varchar(255) collate utf8_bin default NULL,
   `date` date NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
@@ -183,5 +185,5 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `date`) VALUES
-(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, '0000-00-00');
+INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `latitude`, `longitude`, `date`) VALUES
+(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00');

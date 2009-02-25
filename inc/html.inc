@@ -55,7 +55,7 @@ class html
              @import url("views/style.css");
              </style>
             </head> 
-            <body>
+            <body onload="initialize()" onunload="GUnload()">
             <div id="container">
             <div id="logo" align="center">
             <a href=index.php><img src='.$this->logo.' border="0"></a>

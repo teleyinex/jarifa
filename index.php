@@ -267,6 +267,13 @@ else
             $ctr->view("ranking",null);
             break;
         }
+
+        case 'map':
+        {
+            $ctr->view("map",null);
+            break;
+        }
+
         case 'volunteer':
         {
             $ctr->view("volunteer",null);

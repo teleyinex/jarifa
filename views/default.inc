@@ -76,6 +76,7 @@ class login_page extends html
             printf("<br>");
             printf(gettext("Powered by")." ".$nvolunteers." ".gettext("Volunteers"));
             printf("<br><a href=index.php?action=ranking>".gettext("Best volunteers")."</a>");
+            printf("<br><a href=index.php?action=map>".gettext("Map")."</a>");
         }
         printf("</div>");
         $this->footer();

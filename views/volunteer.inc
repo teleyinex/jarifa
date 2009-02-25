@@ -19,6 +19,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/html.inc");
+require_once("inc/map.inc");
 
 class HTMLvolunteer extends html
 {
@@ -27,6 +28,7 @@ class HTMLvolunteer extends html
     public $table='user';
     public $class='user';
     public $language;
+    public $map;
 
     function __construct($language,$role=null,$db)
     {
@@ -38,7 +40,9 @@ class HTMLvolunteer extends html
         textdomain($domain);
         $this->role = "volunteer";
         $this->db = $db;
+        $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
+        $this->map = new map();
     }
 
     function page($view=null,$values=null)
@@ -285,15 +289,49 @@ class HTMLvolunteer extends html
                 else $err_msg=gettext("E-mail exists on the site");
           }
 
+          // Check if it will be possible to add Latitude and Longitude
+          if (empty($values['city']))
+          {
+              $insert=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("City empty");
+              else $err_msg=gettext("City empty");
+          }
+          if (empty($values['state']))
+          {
+              $insert=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("State empty");
+              else $err_msg=gettext("City empty");
+          }
+          if (empty($values['country']))
+          {
+              $insert=False;
+              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Country empty");
+              else $err_msg=gettext("Country empty");
+          }
+
+          if ($insert)
+          {
+              // Obtain the coordinates
+              // First we check if the address is stored on the DB
+              $address = $this->db->lookup_fields('user','user','*','city="'.$values['city'].'" and state="'.$values['state'].'" and country="'.$values['country'].'"');
+              if (empty($address))
+              {
+                  $coordinates = $this->map->coordinates($values['city'].'+'.$values['state'].'+'.$values['country']);
+              }
+              else
+              {
+                  $coordinates = array($address->latitude,$address->longitude);
+              }
+          }
+
           $values['role'] = "volunteer";
           $values['supplier'] = "Volunteer";
           if ($insert)
           {
             $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
             if (empty($pool)) $create_default_pool = True;
-            $query = '(name,password,role,supplier,supp_auth,email,city,state,country,postalcode,date) values ("'
-              .$values['name'].'",
-              "'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'","'.                $values['email'].'","'.$values['city'].'","'.$values['state'].'","'.$values['country'].'","'.$values['postalcode'].'",CURDATE())';
+            $query = '(name,password,role,supplier,supp_auth,email,city,state,country,postalcode,latitude,longitude,date) values ("'
+              .$values['name'].'","'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'","'.$values['email'].'","'.$values['city'].'","'.$values['state'].'","'.$values['country'].'","'.$values['postalcode'].'","'.$coordinates[0].'","'.$coordinates[1].'",CURDATE())';
 
             $res = $this->db->insert($this->table, $query);
             if ($res and $create_default_pool)
