@@ -52,6 +52,8 @@ class map
       function coordinates($location)
       {
           // Web RPC to conver a location into longitude and latitude
+          // Escape blanks with plus chars
+          $location=str_replace(" ","+",$location);
           $request='q='.$location.'&output=csv&key='.$this->key;
           $LatLng = file_get_contents(trim('http://maps.google.com/maps/geo?').$request, false,$this->context);
           $LatLng = explode(",",$LatLng);
