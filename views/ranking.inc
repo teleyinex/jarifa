@@ -38,6 +38,7 @@ class HTMLranking extends html
         textdomain($domain);
         $this->role = "volunteer";
         $this->db = $db;
+        $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
     }
 

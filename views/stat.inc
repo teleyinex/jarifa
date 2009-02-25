@@ -39,6 +39,7 @@ class HTMLstat extends html
         $this->role = $role;
         $this->supplier = $supplier;
         $this->db = $db;
+        $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
     }
 

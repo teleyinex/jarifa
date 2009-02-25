@@ -40,6 +40,7 @@ class HTMLuser extends html
         textdomain($domain);
         $this->role = $role;
         $this->db = $db;
+        $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
         $this->map = new map();
     }

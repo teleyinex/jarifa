@@ -41,6 +41,7 @@ class HTMLpool extends html
         $this->role = $role;
         $this->supplier = $supplier;
         $this->db = $db;
+        $this->db->do_query("SET NAMES 'utf8'");
         $this->language;
         $this->load_config();
     }
