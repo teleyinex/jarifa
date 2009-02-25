@@ -101,6 +101,8 @@ class user
     public $state;
     public $country;
     public $postalcode;
+    public $latitude;
+    public $longitude;
     public $date;
 }
 
