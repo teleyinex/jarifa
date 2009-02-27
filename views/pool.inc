@@ -171,11 +171,19 @@ class HTMLpool extends html
                     <td colspan="2" class="Hd">'.gettext("Pool Features").'</td>
                 </tr>
                ');
+        if ($obj->name=="default")
+        printf('<tr>
+                    <td style="text-align: right;">'.gettext("Pool Name").'</td>
+                    <td><input name="name" value="'.$obj->name.'" readonly></td>
+                </tr>
+              ');
+        else
         printf('<tr>
                     <td style="text-align: right;">'.gettext("Pool Name").'</td>
                     <td><input name="name" value="'.$obj->name.'"></td>
                 </tr>
               ');
+
         if ($this->role == 'root')
         {
             printf('
@@ -420,8 +428,11 @@ class HTMLpool extends html
         else
             printf('<td>'.gettext("Yes").'<input type=radio name="dont_verify_images" value="1">'
                          .gettext("No").'<input type=radio  name="dont_verify_images" value="0" checked></td></tr>');
-        printf('<tr><td style="text-align: right;">'.gettext("Delete").'</td>');
-        printf('<td><input name="delete" type=checkbox></td>');
+        if ($obj->name != "default")
+        {
+            printf('<tr><td style="text-align: right;">'.gettext("Delete").'</td>');
+            printf('<td><input name="delete" type=checkbox></td>');
+        }
         printf('<tr><td colspan="2" align="center"><input type="submit"></td></tr></table></form>');
         $this->footer();
     }
