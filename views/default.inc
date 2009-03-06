@@ -36,7 +36,7 @@ class login_page extends html
     }
 
 
-    function page($nvolunteers="0",$ncomputers="0")
+    function page($nvolunteers="0",$ncomputers="0",$nsuppliers="0")
     {
         $this->header();
         printf('
@@ -75,10 +75,18 @@ class login_page extends html
         {
             printf("<br>");
             printf(gettext("Powered by")." ".$nvolunteers." ".gettext("Volunteers"));
-            printf(" ".gettext("and")." $ncomputers ".gettext("Computers"));
-            printf("<br><a href=index.php?action=ranking>".gettext("Best volunteers")."</a>");
-            printf("<br><a href=index.php?action=map>".gettext("Map")."</a>");
+            printf(" ".gettext("and")." $nsuppliers ".gettext("Suppliers"));
+            printf("<br>".gettext("Computers:")." $ncomputers");
         }
+        else
+        {
+            printf("<br>");
+            printf(gettext("Powered by")." ".$nsuppliers." ".gettext("Suppliers"));
+            printf("<br>".gettext("Computers:")." $ncomputers");
+               
+        }
+        printf("<br><a href=index.php?action=ranking>".gettext("Best volunteers")."</a>");
+        printf("<br><a href=index.php?action=map>".gettext("Map")."</a>");
         printf("</div>");
         $this->footer();
     }

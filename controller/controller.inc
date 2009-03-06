@@ -144,6 +144,18 @@ class controller extends html
           header("Location: index.php");
       }
 
+      function how_many_suppliers()
+      {
+          $user = $this->db->enum_fields('pool','pool','*','1','group by supplier');
+          if (!$user == null) 
+          {
+             // The volunteer supplier has to be removed:
+            return(count($user)-1);
+          }
+          else return(0);
+      }
+
+
       function how_many_volunteers()
       {
           $user = $this->db->enum_fields('user','user','*','supplier="Volunteer"','');
@@ -370,7 +382,7 @@ class controller extends html
             case 'login':
             {
                 $layout = new login_page($this->language);
-                $layout->page($this->how_many_volunteers(),$this->how_many_computers());
+                $layout->page($this->how_many_volunteers(),$this->how_many_computers(),$this->how_many_suppliers());
                 break;
             }
 
