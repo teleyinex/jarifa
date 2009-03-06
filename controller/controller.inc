@@ -154,6 +154,17 @@ class controller extends html
           else return(0);
       }
 
+      function how_many_computers()
+      {
+          $user = $this->db->enum_fields('host','host','*','1','');
+          if (!$user == null) 
+          {
+            return(count($user));
+          }
+          else return(0);
+      }
+
+
       function view($view='start',$role='default',$subaction=null,$msg=null)
       {
           switch ($view)
@@ -359,7 +370,7 @@ class controller extends html
             case 'login':
             {
                 $layout = new login_page($this->language);
-                $layout->page($this->how_many_volunteers());
+                $layout->page($this->how_many_volunteers(),$this->how_many_computers());
                 break;
             }
 
