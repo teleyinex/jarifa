@@ -39,28 +39,48 @@ class map
 
 var volunteer = new GIcon();
 volunteer.image = "./img/volunteer.png"
-volunteer.iconSize = new GSize(38, 38);
+volunteer.iconSize = new GSize(37, 37);
 volunteer.iconAnchor = new GPoint(18, 33);
-volunteer.infoWindowAnchor = new GPoint(18, 0);
+volunteer.infoWindowAnchor = new GPoint(18,3);
 
 var supplier = new GIcon();
 supplier.image = "./img/supplier.png"
-supplier.iconSize = new GSize(38, 38);
+supplier.iconSize = new GSize(37, 37);
 supplier.iconAnchor = new GPoint(18, 33);
-supplier.infoWindowAnchor = new GPoint(18, 0);
+supplier.infoWindowAnchor = new GPoint(18,3);
 
 
                     ');
+    // Function for adding the event of clicking the icons and pop-up a window with the name of the user
+    printf('
+        
+        function createMarker(map,point,icon,user) {
+      var marker = new GMarker(point,icon);
+      map.addOverlay(marker);
+      GEvent.addListener(marker, "click", function() {
+        var myHtml = "<b>" + user + "</b><br/>";
+        map.openInfoWindowHtml(point, myHtml);
+      });
+      return marker;
+    }
+
+    
+    ');
        $user_LatLng = $this->markers();
        foreach ($user_LatLng as $user => $coordinates)
        {
                 //print($user_LatLng[$user][2]);
                 printf('var point = new GLatLng('.$coordinates[0].','.$coordinates[1].');');
+                printf("\n");
                 // We check if the role is volunteer (green arrow) or supplier (purple arrow)
                 if ($user_LatLng[$user][2]=="volunteer")
-                    printf('map.addOverlay(new GMarker(point,volunteer));');
+                {
+                    //printf('map.addOverlay(new GMarker(point,volunteer));');
+                      printf('createMarker(map,point,volunteer,"'.$user.'");');  
+                }
                 else
-                    printf('map.addOverlay(new GMarker(point,supplier));');
+                //    printf('map.addOverlay(new GMarker(point,supplier));');
+                      printf('createMarker(map,point,supplier,"'.$user.'");');  
        }
        printf('             
                   }
