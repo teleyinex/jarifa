@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-06 14:33+0100\n"
+"POT-Creation-Date: 2009-04-02 14:30+0200\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -60,7 +60,7 @@ msgstr "Únase"
 msgid "Powered by"
 msgstr "Soportado por"
 
-#: views/default.inc:77
+#: views/default.inc:77 views/map.inc:89
 #, php-format
 msgid "Volunteers"
 msgstr "Voluntarios"
@@ -71,7 +71,7 @@ msgstr "Voluntarios"
 msgid "and"
 msgstr "y"
 
-#: views/default.inc:78 views/default.inc:84
+#: views/default.inc:78 views/default.inc:84 views/map.inc:93
 #, php-format
 msgid "Suppliers"
 msgstr "Proveedores"
@@ -850,8 +850,14 @@ msgstr ""
 msgid "Password mismatch"
 msgstr "Contraseñas diferentes"
 
-#~ msgid "Profile"
-#~ msgstr "Perfil"
+#, php-format
+msgid "Profile"
+msgstr "Perfil"
 
-#~ msgid "Empty user name"
-#~ msgstr "Nombre de usuario vacío"
+#, php-format
+msgid "Empty user name"
+msgstr "Nombre de usuario vacío"
+
+#, php-format
+msgid "Log Out"
+msgstr "Salir"
