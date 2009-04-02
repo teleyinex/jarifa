@@ -78,7 +78,7 @@ class HTMLmap extends html
 
     function html_map()
     {
-        $users = $this->db->enum_fields('user','user','*','latitude!="" and longitude!=""', 'order by id');
+        $users = $this->db->enum_fields('user','user','*','latitude!="" and longitude!="" and latitude!="0" and longitude!="0"', 'order by id');
         $this->map->create($users,$this->country);
         printf('</script>
                 </head>
