@@ -78,10 +78,25 @@ class HTMLmap extends html
 
     function html_map()
     {
-        $users = $this->db->enum_fields('user','user','*','role="volunteer" and latitude!="" and longitude!=""', 'order by id');
+        $users = $this->db->enum_fields('user','user','*','latitude!="" and longitude!=""', 'order by id');
         $this->map->create($users,$this->country);
         printf('</script>
                 </head>
+                <div id="legend" align="center">');
+        printf('<table>
+            <tr>
+            <td>');
+        printf(gettext("Volunteers"));
+        printf('</td>
+            <td><img src=./img/volunteer.png></td>');
+        printf('<td></td><td>');
+        printf(gettext("Suppliers"));
+        printf('</td>
+            <td><img src=./img/supplier.png></td>
+            </tr>
+            </table>');
+        printf('</div>
+                    
                     <div id="map_canvas" align="center" style="width: 600; height: 380px"></div>
                  </body>
                ');

@@ -36,12 +36,31 @@ class map
                     var map = new GMap2(document.getElementById("map_canvas"));
                         map.addControl(new GLargeMapControl());
                         map.setCenter(new GLatLng('.$LatLng[0].','.$LatLng[1].'), '.$zoom.');
+
+var volunteer = new GIcon();
+volunteer.image = "./img/volunteer.png"
+volunteer.iconSize = new GSize(38, 38);
+volunteer.iconAnchor = new GPoint(18, 33);
+volunteer.infoWindowAnchor = new GPoint(18, 0);
+
+var supplier = new GIcon();
+supplier.image = "./img/supplier.png"
+supplier.iconSize = new GSize(38, 38);
+supplier.iconAnchor = new GPoint(18, 33);
+supplier.infoWindowAnchor = new GPoint(18, 0);
+
+
                     ');
        $user_LatLng = $this->markers();
        foreach ($user_LatLng as $user => $coordinates)
        {
+                //print($user_LatLng[$user][2]);
                 printf('var point = new GLatLng('.$coordinates[0].','.$coordinates[1].');');
-                printf('map.addOverlay(new GMarker(point));');
+                // We check if the role is volunteer (green arrow) or supplier (purple arrow)
+                if ($user_LatLng[$user][2]=="volunteer")
+                    printf('map.addOverlay(new GMarker(point,volunteer));');
+                else
+                    printf('map.addOverlay(new GMarker(point,supplier));');
        }
        printf('             
                   }
@@ -69,7 +88,7 @@ class map
     {
         foreach($this->users as $user)
         {
-            $user_LatLng[$user->name]=array($user->latitude,$user->longitude);
+            $user_LatLng[$user->name]=array($user->latitude,$user->longitude,$user->role);
         }
         return($user_LatLng);
     }
