@@ -39,15 +39,15 @@ class map
 
 var volunteer = new GIcon();
 volunteer.image = "./img/volunteer.png"
-volunteer.iconSize = new GSize(37, 37);
-volunteer.iconAnchor = new GPoint(18, 33);
-volunteer.infoWindowAnchor = new GPoint(18,3);
+volunteer.iconSize = new GSize(38, 38);
+volunteer.iconAnchor = new GPoint(18, 34);
+volunteer.infoWindowAnchor = new GPoint(18,0);
 
 var supplier = new GIcon();
 supplier.image = "./img/supplier.png"
-supplier.iconSize = new GSize(37, 37);
-supplier.iconAnchor = new GPoint(18, 33);
-supplier.infoWindowAnchor = new GPoint(18,3);
+supplier.iconSize = new GSize(38, 38);
+supplier.iconAnchor = new GPoint(18, 34);
+supplier.infoWindowAnchor = new GPoint(18,0);
 
 
                     ');
