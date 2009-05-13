@@ -80,7 +80,9 @@ class HTMLmap extends html
     {
         $users = $this->db->enum_fields('user','user','*','latitude!="" and longitude!="" and latitude!="0" and longitude!="0"', 'order by id');
         $this->map->create($users,$this->country);
-        printf('</script>
+        printf('//]]>');
+        printf('</script>');
+        printf('
                 </head>
                 <div id="legend" align="center">');
         printf('<table>

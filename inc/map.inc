@@ -67,20 +67,23 @@ supplier.infoWindowAnchor = new GPoint(18,0);
     
     ');
        $user_LatLng = $this->markers();
+
        foreach ($user_LatLng as $user => $coordinates)
        {
-                //print($user_LatLng[$user][2]);
-                printf('var point = new GLatLng('.$coordinates[0].','.$coordinates[1].');');
+                printf('var point = new GLatLng('.$coordinates[0].'+Math.random()*0.005,'.$coordinates[1].'+Math.random()*0.005);');
                 printf("\n");
                 // We check if the role is volunteer (green arrow) or supplier (purple arrow)
                 if ($user_LatLng[$user][2]=="volunteer")
                 {
-                    //printf('map.addOverlay(new GMarker(point,volunteer));');
                       printf('createMarker(map,point,volunteer,"'.$user.'");');  
+                      printf("\n");
                 }
                 else
-                //    printf('map.addOverlay(new GMarker(point,supplier));');
+                {
                       printf('createMarker(map,point,supplier,"'.$user.'");');  
+                      printf("\n");
+                }
+                                
        }
        printf('             
                   }
@@ -113,12 +116,15 @@ supplier.infoWindowAnchor = new GPoint(18,0);
         return($user_LatLng);
     }
 
+
     function create($users,$country)
     {
         $this->users = $users;
         printf('<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key='.$this->key.'"
                 type="text/javascript"></script>
+                <script src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js"></script>
                 <script type="text/javascript">
+                //<![CDATA[
               ');
         $LatLng = $this->coordinates($country);
         $this->initialize($LatLng,1);
