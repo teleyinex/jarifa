@@ -167,11 +167,12 @@ class stats extends DBConn
         else return(False);
       }
 
-      function get_total_credit($table,$class,$clause=null)
+      function get_total_credit($table,$class,$clause=null,$limit='DESC LIMIT 60')
       {
-          if ($clause == null) $out = $this->db->enum_fields($table,$class,'*','1','group by date');
-          else $out = $this->db->enum_fields($table,$class,'*',$clause,'group by date');
+          if ($clause == null) $out = $this->db->enum_fields($table,$class,'*','1','group by date'.' '.$limit);
+          else $out = $this->db->enum_fields($table,$class,'*',$clause,'group by date'.' '.$limit);
           $credit = array();
+          $out = array_reverse($out);
           foreach ($out as $value)
           {
               $credit[$value->date]=$value;
@@ -232,13 +233,14 @@ class stats extends DBConn
                 foreach ($days as $value)
                 {
                     list($day,$hour) = split(" ", $value);
+                    list($y,$m,$d) = split("-",$day);
                     if ($project->name == $credit[$value]->project)
                     {
-                        $serie->addPoint(new Point($day,$credit[$value]->total_credit));
+                        $serie->addPoint(new Point("$m-$d",$credit[$value]->total_credit));
                     }
                 }
                 $chart->setDataSet($serie);
-                $chart->setTitle("Total Credit for project ". $project->name);
+                $chart->setTitle("Total Credit for project ". $project->name." ($y)");
                 $chart->getPlot()->setGraphCaptionRatio(0.62);
                 $chart->render("img/stats/credit_$project->name.png");
           }
@@ -258,14 +260,15 @@ class stats extends DBConn
                 foreach ($days as $value)
                 {
                     list($day,$hour) = split(" ", $value);
+                    list($y,$m,$d) = split("-", $day);
                     if ($project->name == $credit[$value]->project)
                     {
                         $gflops = $this->decay_average($credit[$value]->expavg_credit,$credit[$value]->expavg_time,0);
-                        $serie->addPoint(new Point($day,$gflops));
+                        $serie->addPoint(new Point("$m-$d",$gflops));
                     }
                 }
                 $chart->setDataSet($serie);
-                $chart->setTitle("Total GFLOPS for project ". $project->name);
+                $chart->setTitle("Total GFLOPS for project ". $project->name." ($y)");
                 $chart->getPlot()->setGraphCaptionRatio(0.62);
                 $chart->render("img/stats/gflops_$project->name.png");
           }

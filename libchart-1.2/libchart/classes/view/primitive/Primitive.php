@@ -32,6 +32,7 @@
 		 */
 		public function Primitive($img) {
 			$this->img = $img;
+            imagecolortransparent($this->img,imagecolorallocate($this->img,255,255,255));
 		}
 		
 		/**
