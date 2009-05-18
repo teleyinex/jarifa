@@ -148,7 +148,7 @@ if (isset($_SESSION['userid']))
 
         case 'in_project':
         {
-                $weak_auth = $ctr->create_boinc_user($_POST['url']);
+                $weak_auth = $ctr->create_boinc_user($_POST['url'],$_POST['invitation']);
                 if (!empty($weak_auth))
                 {
                     $_POST['authenticator'] = $weak_auth;

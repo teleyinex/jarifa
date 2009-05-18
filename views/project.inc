@@ -138,6 +138,10 @@ class HTMLproject extends html
             <td><input size="30" maxlength="1024" name="signature"></td>
           </tr>
           <tr>
+            <td>'.gettext("Invitation code").'</td>
+            <td><input size="30" maxlength="1024" name="invitation"></td>
+          </tr>
+          <tr>
             <td>'.gettext("Share").'</td>
             <td align="center"><input size="2" maxlength="3" name="share" value="50"></td>
           </tr>

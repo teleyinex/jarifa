@@ -98,11 +98,12 @@ class controller extends html
 
       }
 
-      function create_boinc_user($url)
+      function create_boinc_user($url,$invitation=null)
       {
           // Web RPC for create a boinc account and return the weak authenticator
           $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email).
                                                           '&user_name='.$this->boinc_user_name;
+          if ($invitation != null) $request = $request . '&invite_code='.$invitation;
           $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false,$this->context);
           $xml = new SimpleXMLElement($authenticator);
          
