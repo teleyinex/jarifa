@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-02 14:30+0200\n"
+"POT-Creation-Date: 2009-05-18 12:51+0200\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -60,7 +60,7 @@ msgstr "Únase"
 msgid "Powered by"
 msgstr "Soportado por"
 
-#: views/default.inc:77 views/map.inc:89
+#: views/default.inc:77 views/map.inc:91
 #, php-format
 msgid "Volunteers"
 msgstr "Voluntarios"
@@ -71,7 +71,7 @@ msgstr "Voluntarios"
 msgid "and"
 msgstr "y"
 
-#: views/default.inc:78 views/default.inc:84 views/map.inc:93
+#: views/default.inc:78 views/default.inc:84 views/map.inc:95
 #, php-format
 msgid "Suppliers"
 msgstr "Proveedores"
@@ -607,7 +607,7 @@ msgstr "Insertar un nuevo proyecto"
 msgid "Available BOINC projects"
 msgstr "Proyectos BOINC disponibles"
 
-#: views/project.inc:80 views/project.inc:105 views/project.inc:141
+#: views/project.inc:80 views/project.inc:105 views/project.inc:145
 #, php-format
 msgid "Share"
 msgstr "Compartir"
@@ -636,6 +636,11 @@ msgstr ""
 #, php-format
 msgid "Signature"
 msgstr "Firma"
+
+#: views/project.inc:141
+#, php-format
+msgid "Invitation code"
+msgstr "Código de Invitación"
 
 #: views/ranking.inc:51
 msgid "Ranking of suppliers"
