@@ -155,6 +155,8 @@ class rpc
         {
            $global_preferences = $this->dom->createElement('global_preferences');
            $this->xml->appendChild($global_preferences);
+           $element = $this->dom->createElement('mod_time',time());
+           $global_preferences->appendChild($element);
            $element = $this->dom->createElement('run_if_user_active',(int)!((boolean)$prefs->suspend_if_user_active));
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('suspend_while_on_batteries',$prefs->suspend_while_on_batteries);
