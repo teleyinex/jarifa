@@ -19,6 +19,8 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/html.inc");
+require_once("ranking.inc");
+require_once("inc/db_conn.inc");
 
 class login_page extends html
 {
@@ -122,7 +124,33 @@ class start_page extends html
     {
         $this->role = $role;
         $this->load_config();
+        $this->db = new DbConn();
+        $this->db->init_conn($this->db_user,$this->db_password,$this->db_host,$this->db_name);
+
     }
+
+    function load_config()
+      {
+          $conf = simplexml_load_file("conf/jarifa.conf");
+          $this->db_user = $conf->db->user;
+          $this->db_password = $conf->db->password;
+          $this->db_host = $conf->db->host;
+          $this->db_name = $conf->db->name;
+          $this->language = $conf->account_manager->language;
+          $this->logo = $conf->account_manager->logo;
+      }
+
+
+    function welcome_table()
+    {
+        // A ranking object is created for obtaining the user or supplier stats
+        $ranking = new HTMLranking($this->language,"",$this->db);
+        print('<div align="center">');
+        $ranking->table_ranking_volunteers($_SESSION['userid']);
+        print('</div>');
+    }
+
+
 
     function page()
     {
@@ -156,7 +184,7 @@ class start_page extends html
             {
                 $this->header(gettext("Welcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
-                $this->empty_table();
+                $this->welcome_table();
                 $this->footer();
                 break;
             }

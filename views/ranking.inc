@@ -101,9 +101,12 @@ class HTMLranking extends html
         return($this->db->enum_fields('project','project','*','1','order by name'));
       }
 
-      function get_volunteers()
+      function get_volunteers($userid=null)
       {
-        return($this->db->enum_fields($this->table,$this->class,'*','supplier="Volunteer"','group by name'));
+          if ($userid==null)
+            return($this->db->enum_fields($this->table,$this->class,'*','supplier="Volunteer"','group by name'));
+          else
+            return($this->db->enum_fields($this->table,$this->class,'*','supplier="Volunteer" and name="'.$userid.'"','group by name'));
       }
 
       function get_user_host_cpid($username)
@@ -116,11 +119,14 @@ class HTMLranking extends html
           return($this->db->enum_fields('stats_host','stats_host','*','host_cpid="'.$host.'"','order by date desc limit '.$n));
       }
 
-      function obtain_ranking_volunteers()
+      function obtain_ranking_volunteers($userid=null)
       {
           $ranking = array();
           $n = count($this->get_projects());
-          $volunteers = $this->get_volunteers();
+          if ($userid==null)
+              $volunteers = $this->get_volunteers();
+          else
+              $volunteers = $this->get_volunteers($userid);
           foreach ($volunteers as $volunteer)
           {
                 $ranking[$volunteer->name]= 0; 
@@ -138,24 +144,46 @@ class HTMLranking extends html
           
           } 
           arsort($ranking);
-          return(array_slice($ranking,0,10));
+          //return(array_slice($ranking,0,10));
+          return($ranking);
       }
 
-      function html_ranking_volunteers()
+      function table_ranking_volunteers($userid=null)
       {
-          $ranking = $this->obtain_ranking_volunteers();
-          printf("<div id=content align=center>");
+           $ranking = $this->obtain_ranking_volunteers();
           printf("<table border=1 cellpadding=4 class=form><tr><td>".gettext("Position")."</td><td>".gettext("User")."</td><td>".gettext("Total credit")."</td></tr>");
           $position = 1;
-          foreach($ranking as $key => $val)
+          $total = count($ranking);
+          if ($userid == null)
           {
-              if ($val != 0)
-              {
-                    printf("<tr><td align=center>$position</td><td>$key</td><td>$val</td></tr>\n");
-                    $position += 1;
-              }
+            // We only want to show the 10 best volunteers
+            $ranking = array_slice($ranking,0,10);
+            foreach($ranking as $key => $val)
+            {
+                if ($val != 0)
+                {
+                      printf("<tr><td align=center>$position</td><td>$key</td><td>$val</td></tr>\n");
+                      $position += 1;
+                }
+            }
           }
+          else
+          {
+              foreach($ranking as $key =>$val)
+                  if ($key!=$userid) $position+=1;
+                  else break;
+              printf("<tr><td align=center>$position/$total</td><td>$userid</td><td>$ranking[$userid]</td></tr>\n");
+          }
+
           printf("</table>");
+     
+      }
+
+      function html_ranking_volunteers($userid=null)
+      {
+
+          printf("<div id=content align=center>");
+          $this->table_ranking_volunteers();
           $this->footer();
       }
 

@@ -124,6 +124,8 @@ class HTMLuser extends html
                  else printf('<option value="supplier">'.gettext("supplier").'</option>');
                  if ($obj->role == 'allocator') printf('<option value="allocator" selected="selected">'.gettext("allocator").'</option>');
                  else printf('<option value="allocator">'.gettext("allocator").'</option>');
+                 if ($obj->role == 'volunteer') printf('<option value="volunteer" selected="selected">'.gettext("volunteer").'</option>');
+                 else printf('<option value="volunteer">'.gettext("volunteer").'</option>');
                  printf('
                  </select></td>
                 </tr>
