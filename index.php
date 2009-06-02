@@ -165,7 +165,10 @@ if (isset($_SESSION['userid']))
         // Hosts action
         case 'host':
         {
-            $ctr->view("host",$_SESSION['role']);
+            if (isset($_GET['pos'])and(isset($_GET['num']))and(isset($_GET['init'])))
+                $ctr->view("host",$_SESSION['role'],'','',$_GET['pos'],$_GET['num'],$_GET['init']);
+            else
+                $ctr->view("host",$_SESSION['role'],'','',0,30,5);
             break;
         }
 

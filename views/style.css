@@ -152,3 +152,8 @@ table.form tbody tr:hover
 {
     padding:2px;
 }
+
+#nav a
+{
+    font-size:10px;
+}

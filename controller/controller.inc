@@ -178,7 +178,7 @@ class controller extends html
       }
 
 
-      function view($view='start',$role='default',$subaction=null,$msg=null)
+      function view($view='start',$role='default',$subaction=null,$msg=null,$pos=null,$num=null,$init=null)
       {
           switch ($view)
           {
@@ -288,7 +288,7 @@ class controller extends html
                         $this->host->page('start');
                         $obj = $this->host->lists();
                         $pools = $this->host->pools();
-                        $this->host->table($obj,$pools);
+                        $this->host->table($obj,$pools,$pos,$num,$init);
                         break;
                     }
                 

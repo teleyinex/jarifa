@@ -73,9 +73,35 @@ class HTMLhost extends html
 
     }
 
-    function table($obj,$pools)
+    function table($obj,$pools,$pos=0,$num,$init=0)
     {
         $assigned_pool = False;
+        if (count($obj)>$num)
+        {
+            $total = count($obj);
+            $pags = (int)round($total/$num);
+            $nav = "";
+            if ($init!=0)
+                $j=$init-5;
+            else
+                $j = 0;
+            if ($init>5)
+            {
+                $nav = $nav . '<a href=index.php?action=host&pos='.(($pos)-($num*5)).'&num='.$num.'&init='.($init-5).'>...</a> ';
+            }
+
+            for($i=0;$i<5;$i++)
+            {
+                $position = $j*$num;
+                $nav = $nav . '<a
+                    href=index.php?action=host&pos='.$position.'&num='.$num.'&init='.$init.'>'.(($position/$num)+1).'</a> ';
+                $j+=1;
+            }
+            if ($j<$pags)
+                $nav = $nav . '<a href=index.php?action=host&pos='.$j*$num.'&num='.$num.'&init='.($init+5).'>...</a> ';
+        print('<div id="nav" align="center">'.$nav.'</div>');
+        $obj=array_slice($obj,$pos,$num);
+        }
         printf('<table border=1 align=center cellpadding="4" class="form">');
         if ($this->role == "root")
             printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td
