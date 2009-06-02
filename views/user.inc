@@ -20,6 +20,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once("inc/html.inc");
 require_once("inc/map.inc");
+require_once("inc/nav_bar.inc");
 
 class HTMLuser extends html
 {
@@ -29,6 +30,7 @@ class HTMLuser extends html
     public $class='user';
     public $language;
     public $map;
+    public $nbar;
 
     function __construct($language,$role=null,$db)
     {
@@ -43,6 +45,7 @@ class HTMLuser extends html
         $this->db->do_query("SET NAMES 'utf8'");
         $this->load_config();
         $this->map = new map();
+        $this->nbar = new nav_bar();
     }
 
     function page($view=null,$values=null)
@@ -76,8 +79,9 @@ class HTMLuser extends html
 
     }
 
-    function table($obj)
+    function table($obj,$pos=0,$num=0,$init=0)
     {
+        $obj = $this->nbar->create_num_bar($obj,$pos,$num,$init,"user");
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("User ID").'</td><td align="center">'.gettext("Role").'</td><td
             align="center">'.gettext("Supplier").'</td></tr>');
@@ -238,7 +242,7 @@ class HTMLuser extends html
     function lists($userid=null)
       {
           if ($this->role=="root")
-              $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by id');
+              $obj = $this->db->enum_fields($this->table,$this->class,'*','1', 'order by name');
           else
               $obj = $this->db->enum_fields($this->table,$this->class,'*','name="'.$userid.'"', 'order by id');
           return($obj);

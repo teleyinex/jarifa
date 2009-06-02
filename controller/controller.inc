@@ -372,7 +372,7 @@ class controller extends html
                         {
                             $this->user->page('start');
                             $obj = $this->user->lists($_SESSION['userid']);
-                            $this->user->table($obj);
+                            $this->user->table($obj,$pos,$num,$init);
                             break;
                         }
 

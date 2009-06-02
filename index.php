@@ -72,7 +72,10 @@ if (isset($_SESSION['userid']))
         // Users action
         case 'user':
         {
-            $ctr->view("user",$_SESSION['role']);
+            if ((isset($_GET['pos']))and(isset($_GET['num']))and(isset($_GET['init'])))
+                $ctr->view("user",$_SESSION['role'],'','',$_GET['pos'],$_GET['num'],$_GET['init']);
+            else
+                $ctr->view("user",$_SESSION['role'],'','',0,30,5);
             break;
         }
 

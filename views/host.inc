@@ -21,6 +21,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 require_once("inc/html.inc");
 require_once("inc/stats.inc");
 require_once("model/data.inc");
+require_once("inc/nav_bar.inc");
 
 class HTMLhost extends html
 {
@@ -31,6 +32,7 @@ class HTMLhost extends html
     public $table='host';
     public $class='host';
     public $language;
+    public $nbar;
 
     function __construct($language,$role=null,$supplier=null,$db)
     {
@@ -46,6 +48,7 @@ class HTMLhost extends html
         $this->db->do_query("SET NAMES 'utf8'");
         $this->language;
         $this->load_config();
+        $this->nbar = new nav_bar();
     }
 
     function page($view=null,$values=null)
@@ -76,32 +79,7 @@ class HTMLhost extends html
     function table($obj,$pools,$pos=0,$num,$init=0)
     {
         $assigned_pool = False;
-        if (count($obj)>$num)
-        {
-            $total = count($obj);
-            $pags = (int)round($total/$num);
-            $nav = "";
-            if ($init!=0)
-                $j=$init-5;
-            else
-                $j = 0;
-            if ($init>5)
-            {
-                $nav = $nav . '<a href=index.php?action=host&pos='.(($pos)-($num*5)).'&num='.$num.'&init='.($init-5).'>...</a> ';
-            }
-
-            for($i=0;$i<5;$i++)
-            {
-                $position = $j*$num;
-                $nav = $nav . '<a
-                    href=index.php?action=host&pos='.$position.'&num='.$num.'&init='.$init.'>'.(($position/$num)+1).'</a> ';
-                $j+=1;
-            }
-            if ($j<$pags)
-                $nav = $nav . '<a href=index.php?action=host&pos='.$j*$num.'&num='.$num.'&init='.($init+5).'>...</a> ';
-        print('<div id="nav" align="center">'.$nav.'</div>');
-        $obj=array_slice($obj,$pos,$num);
-        }
+        $obj = $this->nbar->create_num_bar($obj,$pos,$num,$init,"host");
         printf('<table border=1 align=center cellpadding="4" class="form">');
         if ($this->role == "root")
             printf('<tr class="Hd"><td>'.gettext("Host").'</td><td align="center">'.gettext("Pool").'</td><td
