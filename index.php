@@ -85,6 +85,13 @@ if (isset($_SESSION['userid']))
             break;
         }
 
+        case 'sch_user':
+        {
+            $ctr->view("user",$_SESSION['role'],'search');
+            break;
+        
+        }
+
         case 'vin_user':
         {
             $ctr->view("user",$_SESSION['role'],'insert');

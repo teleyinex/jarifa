@@ -68,6 +68,16 @@ class HTMLuser extends html
                 $this->html_insert(); 
                 break;
             }
+
+            case 'search':
+            {
+                $this->header(gettext("Users"));
+                $this->menu($this->role,gettext("Found users"));
+                $obj = $this->search($_POST['name']);
+                $this->table($obj,$pos=0,$num=30,$init=0,true);
+                break;
+            
+            }
             default:
             {
                 $this->header(gettext("Welcome").' '.$_SESSION['userid']);
@@ -79,9 +89,26 @@ class HTMLuser extends html
 
     }
 
-    function table($obj,$pos=0,$num=0,$init=0)
+    function html_search()
     {
-        $obj = $this->nbar->create_num_bar($obj,$pos,$num,$init,"user");
+        print('<div id="search" align="center">');
+        print('<form method="post" action="index.php?action=sch_user">');
+        print(gettext('Search:').' ');
+        print('<input name="name">');
+        print('</form></div>');
+
+    
+    }
+
+    function search($name)
+    {
+        return($this->db->enum_fields($this->table,$this->class,'*','name like"%'.$name.'%"','order by name'));
+    }
+
+    function table($obj,$pos=0,$num=0,$init=0,$search=false)
+    {
+        if (!$search)
+            $obj = $this->nbar->create_num_bar($obj,$pos,$num,$init,"user");
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("User ID").'</td><td align="center">'.gettext("Role").'</td><td
             align="center">'.gettext("Supplier").'</td></tr>');

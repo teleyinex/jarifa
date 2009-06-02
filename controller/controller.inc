@@ -368,10 +368,17 @@ class controller extends html
                             $this->user->page('insert');
                             break;
                         }
+
+                        case 'search':
+                        {
+                            $this->user->page('search',$_POST);
+                            break;
+                        }
                         default:
                         {
                             $this->user->page('start');
                             $obj = $this->user->lists($_SESSION['userid']);
+                            $this->user->html_search();
                             $this->user->table($obj,$pos,$num,$init);
                             break;
                         }
