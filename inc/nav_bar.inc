@@ -52,6 +52,8 @@ class nav_bar
         $obj=array_slice($obj,$pos,$num);
         return($obj);
         }
+        else
+             return($obj);
     }
 }
 ?>

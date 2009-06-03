@@ -74,7 +74,8 @@ class HTMLuser extends html
                 $this->header(gettext("Users"));
                 $this->menu($this->role,gettext("Found users"));
                 $obj = $this->search($_POST['name']);
-                $this->table($obj,$pos=0,$num=30,$init=0,true);
+                $this->html_search();
+                $this->table($obj,$pos=0,$num=30,$init=0,false);
                 break;
             
             }
@@ -93,9 +94,15 @@ class HTMLuser extends html
     {
         print('<div id="search" align="center">');
         print('<form method="post" action="index.php?action=sch_user">');
-        print(gettext('Search:').' ');
-        print('<input name="name">');
-        print('</form></div>');
+        $sch_string=gettext("Search...");
+        print("<table><tr><td>");
+        print('<input name="name" value="'.$sch_string.'" type="text" onblur="if(this.value==\'\')
+            this.value=\''.$sch_string.'\';" onfocus="if(this.value==\''.$sch_string.'\') this.value=\'\';"/>');
+        print("</td><td>");
+        print('<img src="img/search.png"/>');
+        print("</td></tr></table>");
+        print('</form>');
+        print('</div>');
 
     
     }
@@ -105,9 +112,9 @@ class HTMLuser extends html
         return($this->db->enum_fields($this->table,$this->class,'*','name like"%'.$name.'%"','order by name'));
     }
 
-    function table($obj,$pos=0,$num=0,$init=0,$search=false)
+    function table($obj,$pos=0,$num=0,$init=0,$nav_bar=true)
     {
-        if (!$search)
+        if ($nav_bar)
             $obj = $this->nbar->create_num_bar($obj,$pos,$num,$init,"user");
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("User ID").'</td><td align="center">'.gettext("Role").'</td><td

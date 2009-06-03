@@ -378,8 +378,14 @@ class controller extends html
                         {
                             $this->user->page('start');
                             $obj = $this->user->lists($_SESSION['userid']);
-                            $this->user->html_search();
-                            $this->user->table($obj,$pos,$num,$init);
+                            if ($_SESSION['role']=='root')
+                                $this->user->html_search();
+                            if ((isset($_GET['pos']))and(isset($_GET['num']))and(isset($_GET['init'])))
+                                $this->user->table($obj,$pos,$num,$init,true);
+                            else
+                            {
+                              $this->user->table($obj,0,30,5,true);
+                            }
                             break;
                         }
 
