@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-18 12:51+0200\n"
+"POT-Creation-Date: 2009-06-03 10:02+0200\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -29,183 +29,183 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: views/default.inc:68 views/ranking.inc:148
+#: views/default.inc:70 views/ranking.inc:154
 #, php-format
 msgid "User"
 msgstr "Usuario"
 
-#: views/default.inc:68 views/user.inc:108 views/user.inc:189
+#: views/default.inc:70 views/user.inc:146 views/user.inc:229
 #: views/volunteer.inc:111 views/volunteer.inc:167
 #, php-format
 msgid "Password"
 msgstr "Contraseña"
 
-#: views/default.inc:71
+#: views/default.inc:73
 #, php-format
 msgid "Mininum BOINC core client version: "
 msgstr "Versión mínima del cliente BOINC: "
 
-#: views/default.inc:73
+#: views/default.inc:75
 #, php-format
 msgid "If you want to collaborate with us"
-msgstr "Si quiere colaborar con nostros"
+msgstr "Si quiere colaborar con nosotros"
 
-#: views/default.inc:73
+#: views/default.inc:75
 #, php-format
 msgid "Join us"
 msgstr "Únase"
 
-#: views/default.inc:77 views/default.inc:84
+#: views/default.inc:79 views/default.inc:86
 #, php-format
 msgid "Powered by"
 msgstr "Soportado por"
 
-#: views/default.inc:77 views/map.inc:91
+#: views/default.inc:79 views/map.inc:91
 #, php-format
 msgid "Volunteers"
 msgstr "Voluntarios"
 
-#: views/default.inc:78 views/pool.inc:253 views/pool.inc:413
-#: views/pool.inc:504 views/pool.inc:649 views/user.inc:380
+#: views/default.inc:80 views/pool.inc:253 views/pool.inc:413
+#: views/pool.inc:504 views/pool.inc:649 views/user.inc:420
 #, php-format
 msgid "and"
 msgstr "y"
 
-#: views/default.inc:78 views/default.inc:84 views/map.inc:95
+#: views/default.inc:80 views/default.inc:86 views/map.inc:95
 #, php-format
 msgid "Suppliers"
 msgstr "Proveedores"
 
-#: views/default.inc:79 views/default.inc:85
+#: views/default.inc:81 views/default.inc:87
 #, php-format
 msgid "Computers:"
 msgstr "PCs:"
 
-#: views/default.inc:88
+#: views/default.inc:90
 #, php-format
 msgid "Best volunteers"
 msgstr "Mejores voluntarios"
 
-#: views/default.inc:89
+#: views/default.inc:91
 #, php-format
 msgid "Map"
 msgstr "Mapa"
 
-#: views/default.inc:110
+#: views/default.inc:112
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:111
+#: views/default.inc:113
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:133 views/default.inc:141 views/default.inc:149
-#: views/default.inc:157 views/host.inc:67 views/pool.inc:101
-#: views/project.inc:67 views/user.inc:70
+#: views/default.inc:161 views/default.inc:169 views/default.inc:177
+#: views/default.inc:185 views/host.inc:70 views/pool.inc:101
+#: views/project.inc:67 views/user.inc:84
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:134 views/default.inc:142 views/default.inc:150
-#: views/default.inc:158
+#: views/default.inc:162 views/default.inc:170 views/default.inc:178
+#: views/default.inc:186
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
-#: views/host.inc:57 views/pool.inc:124
+#: views/host.inc:60 views/pool.inc:124
 #, php-format
 msgid "Hosts"
 msgstr "Equipos"
 
-#: views/host.inc:58
+#: views/host.inc:61
 msgid "Editing host"
 msgstr "Editando equipo"
 
-#: views/host.inc:68
+#: views/host.inc:71
 msgid "Available Hosts"
 msgstr "Equipos disponibles"
 
-#: views/host.inc:81 views/host.inc:84
+#: views/host.inc:85 views/host.inc:88
 #, php-format
 msgid "Host"
 msgstr "Equipos"
 
-#: views/host.inc:81 views/host.inc:84
+#: views/host.inc:85 views/host.inc:88
 #, php-format
 msgid "Pool"
 msgstr "Grupo"
 
-#: views/host.inc:82 views/host.inc:116 views/pool.inc:132 views/pool.inc:191
-#: views/pool.inc:457 views/user.inc:83 views/user.inc:131 views/user.inc:143
-#: views/user.inc:206 views/volunteer.inc:87 views/volunteer.inc:127
+#: views/host.inc:86 views/host.inc:120 views/pool.inc:132 views/pool.inc:191
+#: views/pool.inc:457 views/user.inc:121 views/user.inc:171 views/user.inc:183
+#: views/user.inc:246 views/volunteer.inc:87 views/volunteer.inc:127
 #, php-format
 msgid "Supplier"
 msgstr "Proveedor"
 
-#: views/host.inc:99
+#: views/host.inc:103
 #, php-format
 msgid "Without Pool"
 msgstr "Sin grupo"
 
-#: views/host.inc:112
+#: views/host.inc:116
 #, php-format
 msgid "Features"
 msgstr "Características"
 
-#: views/host.inc:128 views/pool.inc:83 views/pool.inc:93
+#: views/host.inc:132 views/pool.inc:83 views/pool.inc:93
 #, php-format
 msgid "Pools"
 msgstr "Grupos"
 
-#: views/host.inc:137
+#: views/host.inc:141
 #, php-format
 msgid "Venue"
 msgstr "Localización"
 
-#: views/host.inc:139
+#: views/host.inc:143
 #, php-format
 msgid "Number of CPUS"
 msgstr "Número de CPUs"
 
-#: views/host.inc:141
+#: views/host.inc:145
 #, php-format
 msgid "Processor Vendor"
 msgstr "Marca del procesador"
 
-#: views/host.inc:143
+#: views/host.inc:147
 #, php-format
 msgid "Processor Model"
 msgstr "Modelo del procesador"
 
-#: views/host.inc:145
+#: views/host.inc:149
 #, php-format
 msgid "FLOPS"
 msgstr "FLOPS"
 
-#: views/host.inc:147
+#: views/host.inc:151
 #, php-format
 msgid "IOPS"
 msgstr "IOPS"
 
-#: views/host.inc:149
+#: views/host.inc:153
 #, php-format
 msgid "OS"
 msgstr "SO"
 
-#: views/host.inc:154 views/stat.inc:53
+#: views/host.inc:158 views/stat.inc:53
 #, php-format
 msgid "Total Credit"
 msgstr "Crédito total"
 
-#: views/host.inc:156
+#: views/host.inc:160
 #, php-format
 msgid "RAC"
 msgstr "RAC"
 
-#: views/host.inc:159
+#: views/host.inc:163
 #, php-format
 msgid "OS Version"
 msgstr "Versión del SO"
 
-#: views/host.inc:161 views/pool.inc:433 views/user.inc:171
+#: views/host.inc:165 views/pool.inc:433 views/user.inc:211
 #: views/volunteer.inc:131
 #, php-format
 msgid "Delete"
@@ -660,12 +660,12 @@ msgstr "Voluntarios"
 msgid "Credit"
 msgstr "Crédito total"
 
-#: views/ranking.inc:148
+#: views/ranking.inc:154
 #, php-format
 msgid "Position"
 msgstr "Posición"
 
-#: views/ranking.inc:148
+#: views/ranking.inc:154
 #, php-format
 msgid "Total credit"
 msgstr "Crédito total"
@@ -682,138 +682,151 @@ msgstr ""
 msgid "Figures"
 msgstr "Imágenes"
 
-#: views/user.inc:54 views/user.inc:63
+#: views/user.inc:57 views/user.inc:66 views/user.inc:74
 msgid "Users"
 msgstr "Usuarios"
 
-#: views/user.inc:55
+#: views/user.inc:58
 msgid "Editing user"
 msgstr "Editando usuario"
 
-#: views/user.inc:64
+#: views/user.inc:67
 msgid "Insert a new user"
 msgstr "Crear nuevo usuario"
 
-#: views/user.inc:71
+#: views/user.inc:75
+msgid "Found users"
+msgstr "Usuarios encontrados"
+
+#: views/user.inc:85
 msgid "Available users"
 msgstr "Usuarios disponibles"
 
-#: views/user.inc:82 views/user.inc:104 views/user.inc:185
+#: views/user.inc:97
+msgid "Search..."
+msgstr "Buscar..."
+
+#: views/user.inc:120 views/user.inc:142 views/user.inc:225
 #: views/volunteer.inc:86 views/volunteer.inc:107 views/volunteer.inc:163
 #, php-format
 msgid "User ID"
 msgstr "Identificador de usuario"
 
-#: views/user.inc:82 views/user.inc:119 views/user.inc:139 views/user.inc:197
+#: views/user.inc:120 views/user.inc:157 views/user.inc:179 views/user.inc:237
 #: views/volunteer.inc:86 views/volunteer.inc:115
 #, php-format
 msgid "Role"
 msgstr "Rol"
 
-#: views/user.inc:95 views/volunteer.inc:98
+#: views/user.inc:133 views/volunteer.inc:98
 #, php-format
 msgid "New User"
 msgstr "Nuevo usuario"
 
-#: views/user.inc:112 views/user.inc:193 views/volunteer.inc:171
+#: views/user.inc:150 views/user.inc:233 views/volunteer.inc:171
 #, php-format
 msgid "Repeat Password"
 msgstr "Repita contraseña"
 
-#: views/user.inc:121 views/user.inc:122 views/user.inc:199
+#: views/user.inc:159 views/user.inc:160 views/user.inc:239
 #: views/volunteer.inc:117 views/volunteer.inc:118
 #, php-format
 msgid "root"
 msgstr ""
 
-#: views/user.inc:123 views/user.inc:124 views/user.inc:200
+#: views/user.inc:161 views/user.inc:162 views/user.inc:240
 #: views/volunteer.inc:119 views/volunteer.inc:120
 #, php-format
 msgid "supplier"
 msgstr "proveedor"
 
-#: views/user.inc:125 views/user.inc:126 views/user.inc:201
+#: views/user.inc:163 views/user.inc:164 views/user.inc:241
 #: views/volunteer.inc:121 views/volunteer.inc:122
 #, php-format
 msgid "allocator"
 msgstr ""
 
-#: views/user.inc:149 views/user.inc:210 views/volunteer.inc:175
+#: views/user.inc:165 views/user.inc:166
+#, fuzzy, php-format
+msgid "volunteer"
+msgstr "Voluntarios"
+
+#: views/user.inc:189 views/user.inc:250 views/volunteer.inc:175
 #, php-format
 msgid "E-mail"
 msgstr "Correo electrónico"
 
-#: views/user.inc:153 views/user.inc:214 views/volunteer.inc:179
+#: views/user.inc:193 views/user.inc:254 views/volunteer.inc:179
 #, php-format
 msgid "City"
 msgstr "Ciudad"
 
-#: views/user.inc:157 views/user.inc:218 views/volunteer.inc:183
+#: views/user.inc:197 views/user.inc:258 views/volunteer.inc:183
 #, php-format
 msgid "State"
 msgstr "Autonomía"
 
-#: views/user.inc:161 views/user.inc:222 views/volunteer.inc:187
+#: views/user.inc:201 views/user.inc:262 views/volunteer.inc:187
 #, php-format
 msgid "Country"
 msgstr "País"
 
-#: views/user.inc:165 views/user.inc:226 views/volunteer.inc:191
+#: views/user.inc:205 views/user.inc:266 views/volunteer.inc:191
 #, php-format
 msgid "Postal code"
 msgstr "Código postal"
 
-#: views/user.inc:257 views/user.inc:387 views/user.inc:388 views/user.inc:394
-#: views/user.inc:395
+#: views/user.inc:297 views/user.inc:427 views/user.inc:428 views/user.inc:434
+#: views/user.inc:435
 msgid "Password empty"
 msgstr "Contraseña vacía"
 
-#: views/user.inc:262 views/user.inc:263 views/user.inc:422 views/user.inc:423
+#: views/user.inc:302 views/user.inc:303 views/user.inc:462 views/user.inc:463
 msgid "Password missmatch"
 msgstr "Contraseñas diferentes"
 
-#: views/user.inc:270 views/user.inc:271 views/user.inc:440 views/user.inc:441
+#: views/user.inc:310 views/user.inc:311 views/user.inc:480 views/user.inc:481
 #: views/volunteer.inc:301 views/volunteer.inc:302
 msgid "E-mail exists on the site"
 msgstr "El correo electrónico ya existe"
 
-#: views/user.inc:278 views/user.inc:279 views/user.inc:285
+#: views/user.inc:318 views/user.inc:319 views/user.inc:325
 #: views/volunteer.inc:309 views/volunteer.inc:310 views/volunteer.inc:316
 msgid "City empty"
 msgstr "Ciudad vacía"
 
-#: views/user.inc:284 views/volunteer.inc:315
+#: views/user.inc:324 views/volunteer.inc:315
 msgid "State empty"
 msgstr "Provincia vacía"
 
-#: views/user.inc:290 views/user.inc:291 views/volunteer.inc:321
+#: views/user.inc:330 views/user.inc:331 views/volunteer.inc:321
 #: views/volunteer.inc:322
 msgid "Country empty"
 msgstr "País vacío"
 
-#: views/user.inc:373 views/volunteer.inc:259
+#: views/user.inc:413 views/volunteer.inc:259
 msgid "User name empty"
 msgstr "Nombre de usuario vacío"
 
-#: views/user.inc:380 views/user.inc:381 views/volunteer.inc:266
+#: views/user.inc:420 views/user.inc:421 views/volunteer.inc:266
 #: views/volunteer.inc:267
 msgid "User name must be lowercase"
 msgstr "El nombre de usuario tiene que ir en minúsculas"
 
-#: views/user.inc:401 views/user.inc:402
+#: views/user.inc:441 views/user.inc:442
 msgid "Role empty"
 msgstr "Rol vacío"
 
-#: views/user.inc:408 views/user.inc:409
+#: views/user.inc:448 views/user.inc:449
 msgid "Supplier empty"
 msgstr "Proveedor vacío"
 
-#: views/user.inc:415 views/user.inc:416 views/volunteer.inc:282
+#: views/user.inc:455 views/user.inc:456 views/volunteer.inc:282
 #: views/volunteer.inc:283
 msgid "E-mail empty"
 msgstr "Correo electrónico vacío"
 
-#: views/user.inc:431 views/user.inc:432 views/volunteer.inc:292
+#: views/user.inc:471 views/user.inc:472 views/volunteer.inc:292
 #: views/volunteer.inc:293
 msgid "User name exists on the site"
 msgstr "El nombre de usuario ya existe"
