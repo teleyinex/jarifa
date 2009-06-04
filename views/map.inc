@@ -83,23 +83,23 @@ class HTMLmap extends html
         printf('//]]>');
         printf('</script>');
         printf('
-                </head>
                 <div id="legend" align="center">');
         printf('<table>
             <tr>
             <td>');
         printf(gettext("Volunteers"));
         printf('</td>
-            <td><img src=./img/volunteer.png></td>');
+            <td><img src="./img/volunteer.png" alt="volunteer"></td>');
         printf('<td></td><td>');
         printf(gettext("Suppliers"));
         printf('</td>
-            <td><img src=./img/supplier.png></td>
+            <td><img src="./img/supplier.png" alt="supplier"></td>
             </tr>
             </table>');
         printf('</div>
                     
                     <div id="map_canvas" align="center" style="width: 600; height: 380px"></div>
+                    </div>
                  </body>
                ');
     }

@@ -46,7 +46,7 @@ class html
     {
         $title = gettext("Jarifa Server");
         printf('
-            <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+            <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
             <html>
             <head>
               <meta content="text/html; charset=utf-8"  http-equiv="content-type">
@@ -58,7 +58,7 @@ class html
             <body onload="initialize()" onunload="GUnload()">
             <div id="container">
             <div id="logo" align="center">
-            <a href=index.php><img src='.$this->logo.' border="0"></a>
+            <a href=index.php><img src="'.$this->logo.'" alt="logo" border="0"></a>
             </div>
             <div id="header">
                 <h1>'.$msg.'</h1> 
@@ -169,15 +169,20 @@ class html
     }
 
 
-    function footer()
+    function footer($container=false)
     {
         printf('
             </div>
             <div id="credits" align="center">
-            <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss"/></a>
-            <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3"></a>
-            <a href="http://forja.unex.es/projects/jarifa/"><img style="border:0;"  src="img/download"></a>
+            <a href="http://validator.w3.org/check?uri=referer"><img style="border:0;"
+            src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31px" width="88px"></a>
+            <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss" alt="vcss"></a>
+            <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3" alt="agplv3"></a>
+            <a href="http://forja.unex.es/projects/jarifa/"><img style="border:0;"  src="img/download" alt="download"></a>
             </div>
+            ');
+        if ($container) print("</div>");
+        printf('
             </body>
             </html>
         ');

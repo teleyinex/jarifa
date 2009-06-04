@@ -97,9 +97,9 @@ class HTMLuser extends html
         $sch_string=gettext("Search...");
         print("<table><tr><td>");
         print('<input name="name" value="'.$sch_string.'" type="text" onblur="if(this.value==\'\')
-            this.value=\''.$sch_string.'\';" onfocus="if(this.value==\''.$sch_string.'\') this.value=\'\';"/>');
+            this.value=\''.$sch_string.'\';" onfocus="if(this.value==\''.$sch_string.'\') this.value=\'\';">');
         print("</td><td>");
-        print('<img src="img/search.png"/>');
+        print('<img src="img/search.png" alt="search">');
         print("</td></tr></table>");
         print('</form>');
         print('</div>');
@@ -123,21 +123,21 @@ class HTMLuser extends html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_user&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
+            printf ('<td align=center><a href="index.php?action=ed_user&amp;id='.$obj[$i]->id.'">'.$obj[$i]->name.'</a></td>
                 <td align="center">'.$obj[$i]->role.'</td>
                 <td align="center">'.$obj[$i]->supplier.'</td>');
             printf ("\n</tr>");
         }
         printf("</table>");
         if ($this->role=="root")
-            printf('<div style="text-align: center;"><a href=index.php?action=vin_user>'.gettext("New User").'</a></div>');
-        $this->footer();
+            printf('<div style="text-align: center;"><a href="index.php?action=vin_user">'.gettext("New User").'</a></div>');
+        $this->footer(true);
     }
 
     function html_edit($obj)
     {
-        printf('<form method="post" action="index.php?action=up_user&id='.$obj->id.'" name="user">');
-        printf('<table border=1 align=center cellpading="4" class="form">');
+        printf('<form method="post" action="index.php?action=up_user&amp;id='.$obj->id.'" name="user">');
+        printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
                  <td align=center><input name="name" value="'.$obj->name.'" readonly></td>
@@ -214,13 +214,13 @@ class HTMLuser extends html
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
-        $this->footer();
+        $this->footer(true);
     }
 
     function html_insert()
     {
         printf('<form method="post" action="index.php?action=in_user" name="user">');
-        printf('<table border="1" align="center" cellpading="4" class="form">');
+        printf('<table border="1" align="center" cellpadding="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
                  <td align="center"><input name="name"></td>
@@ -270,7 +270,7 @@ class HTMLuser extends html
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf('</table>');
         printf('</form>');
-        $this->footer();
+        $this->footer(true);
     }
 
     function lists($userid=null)

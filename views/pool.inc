@@ -122,7 +122,7 @@ class HTMLpool extends html
         if ($this->role == 'root') printf('<td></td>');
         printf('</tr>
             <tr><td align="center">'.gettext("Name").'<td align="center">'.gettext("Hosts").'</td>
-            </td><td align="center">'.gettext("Run Always").'</td>
+            <td align="center">'.gettext("Run Always").'</td>
             <td align="center">'.gettext("Start").'</td><td align="center">'.gettext("End").'</td>
             <td align="center">'.gettext("Upload").'</td><td align="center">'.gettext("Download").'</td>
             <td align="center">'.gettext("Max Space").'</td><td align="center">'.gettext("Left Space").'</td>
@@ -136,7 +136,7 @@ class HTMLpool extends html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_pool&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
+            printf ('<td align=center><a href="index.php?action=ed_pool&amp;id='.$obj[$i]->id.'">'.$obj[$i]->name.'</a></td>
                 ');
             printf ('<td align="center">'.$this->hosts_per_pool($obj[$i]->id).'</td>');
             if ($obj[$i]->suspend_if_user_active==0) printf('<td align=center>Yes</td>');
@@ -158,14 +158,14 @@ class HTMLpool extends html
             printf ("\n</tr>");
         }
         printf("</table>");
-        printf('<div style="text-align: center;"><a href=index.php?action=vin_pool>'.gettext("New Pool").'</a></div>');
-        $this->footer();
+        printf('<div style="text-align: center;"><a href="index.php?action=vin_pool">'.gettext("New Pool").'</a></div>');
+        $this->footer(true);
     }
 
     function html_edit($obj,$suppliers=null)
     {
     
-        printf('<form method="post" action="index.php?action=up_pool&id='.$obj->id.'" name="pool">');
+        printf('<form method="post" action="index.php?action=up_pool&amp;id='.$obj->id.'" name="pool">');
         printf('<table align="center" style="text-align: left;" border="1" cellpadding="2" cellspacing="2" class="form">');
         printf('<tr>
                     <td colspan="2" class="Hd">'.gettext("Pool Features").'</td>
@@ -434,7 +434,7 @@ class HTMLpool extends html
             printf('<td><input name="delete" type=checkbox></td>');
         }
         printf('<tr><td colspan="2" align="center"><input type="submit"></td></tr></table></form>');
-        $this->footer();
+        $this->footer(true);
     }
 
     function html_insert($suppliers=null)
@@ -660,7 +660,7 @@ class HTMLpool extends html
         printf('<td>'.gettext("Yes").'<input type=radio name="dont_verify_images" value="1">'
                      .gettext("No").'<input type=radio  name="dont_verify_images" value="0" checked></td></tr>');
         printf('<tr><td colspan="2" align="center"><input type="submit"></td></tr></table></form>');
-        $this->footer();
+        $this->footer(true);
 
     }
 

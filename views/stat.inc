@@ -52,7 +52,7 @@ class HTMLstat extends html
                 $this->header(gettext("Statistics").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Total Credit"));
                 $this->figures('credit');
-                $this->footer();
+                $this->footer(true);
                 break;
             }
 
@@ -61,7 +61,7 @@ class HTMLstat extends html
                 $this->header(gettext("Statistics").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("GFLOPS"));
                 $this->figures('gflops');
-                $this->footer();
+                $this->footer(true);
                 break;
             }
 
@@ -70,7 +70,7 @@ class HTMLstat extends html
                 $this->header(gettext("Statistics").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Figures"));
                 $this->options();
-                $this->footer();
+                $this->footer(true);
                 break;
             }
 
@@ -99,8 +99,8 @@ class HTMLstat extends html
                 <table class="stats">
                   <tbody>
                     <tr>
-                      <td><a href=index.php?action=st_credit><img alt="Credit" src="img/credit.png" border="0"></a></td>
-                      <td><a href=index.php?action=st_gflops><img src="img/gflops.png" border="0" alt="GFLOPS"></td>
+                      <td><a href="index.php?action=st_credit"><img src="img/credit.png" alt="credit" border="0"></a></td>
+                      <td><a href="index.php?action=st_gflops"><img src="img/gflops.png" alt="GFLOPS" border="0"></a></td>
                     </tr>
                   </tbody>
                 </table>
@@ -118,12 +118,13 @@ class HTMLstat extends html
         {
             if ($this->role == "root") 
             {
-                printf("<img src=img/stats/".$type."_".$project->name.".png><br>");
+                printf('<img src="img/stats/'.$type.'_'.$project->name.'.png" alt="'.$type.'_'.$project->name.'"><br>');
             
             }
             else
             {
-                printf("<img src=img/stats/".$type."_".$project->name."_".$this->supplier.".png><br>");
+                printf('<img src="img/stats/'.$type.'_'.$project->name.'_'.$this->supplier.'.png"
+                    alt="'.$type.'_'.$project->name.'_'.$this->supplier.'"><br>');
             
             }
         

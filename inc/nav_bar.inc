@@ -34,7 +34,7 @@ class nav_bar
                 $j = 0;
             if ($init>5)
             {
-                $nav = $nav . '<a href=index.php?action='.$action.'&pos='.(($pos)-($num*5)).'&num='.$num.'&init='.($init-5).'>...</a> ';
+                $nav = $nav . '<a href="index.php?action='.$action.'&amp;pos='.(($pos)-($num*5)).'&amp;num='.$num.'&amp;init='.($init-5).'">...</a> ';
             }
 
             for($i=0;$i<5;$i++)
@@ -42,12 +42,12 @@ class nav_bar
                 $position = $j*$num;
                 if ((($position/$num)) < $pags)
                 {
-                    $nav = $nav . '<a href=index.php?action='.$action.'&pos='.$position.'&num='.$num.'&init='.$init.'>'.(($position/$num)+1).'</a> ';
+                    $nav = $nav . '<a href="index.php?action='.$action.'&amp;pos='.$position.'&amp;num='.$num.'&amp;init='.$init.'">'.(($position/$num)+1).'</a> ';
                     $j+=1;
                 }
             }
             if ($j<$pags)
-                $nav = $nav . '<a href=index.php?action='.$action.'&pos='.$j*$num.'&num='.$num.'&init='.($init+5).'>...</a> ';
+                $nav = $nav . '<a href="index.php?action='.$action.'&amp;pos='.$j*$num.'&amp;num='.$num.'&amp;init='.($init+5).'">...</a> ';
         print('<div id="nav" align="center">'.$nav.'</div>');
         $obj=array_slice($obj,$pos,$num);
         return($obj);

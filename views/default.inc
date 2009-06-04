@@ -61,7 +61,7 @@ class login_page extends html
            <tr>
            <td style="width: 117px; text-align: center; vertical-align: middle;"
  colspan="2" rowspan="1">
-           <input type="submit"/>
+           <input type="submit">
            </td>
            </tr>
          </tbody>
@@ -72,7 +72,7 @@ class login_page extends html
         $minor = $this->conf->account_manager->min_core_client_version % 100;
         printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version: "));
         printf ("$major.$minor</div>");
-        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us").", <a href=index.php?action=volunteer>".gettext("Join us")."</a>");
+        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us").', <a href="index.php?action=volunteer">'.gettext("Join us")."</a>");
         if ($nvolunteers != 0) 
         {
             printf("<br>");
@@ -87,8 +87,8 @@ class login_page extends html
             printf("<br>".gettext("Computers:")." $ncomputers");
                
         }
-        printf("<br><a href=index.php?action=ranking>".gettext("Best volunteers")."</a>");
-        printf("<br><a href=index.php?action=map>".gettext("Map")."</a>");
+        printf('<br><a href="index.php?action=ranking">'.gettext("Best volunteers")."</a>");
+        printf('<br><a href="index.php?action=map">'.gettext("Map").'</a>');
         printf("</div>");
         $this->footer();
     }
@@ -112,7 +112,7 @@ class error_page extends html
         $this->header(gettext("ERROR"));
         $this->menu($this->role,gettext("An error has occurred"));
         printf("<div id=error>".$this->msg."</div>");
-        $this->footer();
+        $this->footer(true);
     }
 }
 
@@ -161,7 +161,7 @@ class start_page extends html
                 $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
-                $this->footer();
+                $this->footer(true);
                 break;
             }
             case 'allocator':
@@ -169,7 +169,7 @@ class start_page extends html
                 $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
-                $this->footer();
+                $this->footer(true);
                 break;
             }
             case 'supplier':
@@ -177,7 +177,7 @@ class start_page extends html
                 $this->header(gettext("Welcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->empty_table();
-                $this->footer();
+                $this->footer(true);
                 break;
             }
             case 'volunteer':
@@ -185,7 +185,7 @@ class start_page extends html
                 $this->header(gettext("Welcome").' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
                 $this->welcome_table();
-                $this->footer();
+                $this->footer(true);
                 break;
             }
 

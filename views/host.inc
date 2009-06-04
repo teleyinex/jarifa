@@ -90,13 +90,13 @@ class HTMLhost extends html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_host&id='.$obj[$i]->id.'><img src="img/computer.png"
-                border="0"></a></td>');
+            printf ('<td align=center><a href="index.php?action=ed_host&amp;id='.$obj[$i]->id.'"><img src="img/computer.png"
+                border="0" alt="host"></a></td>');
             for ($j=0;$j<count($pools);$j++)
             {
                 if ($obj[$i]->poolid == $pools[$j]->id)
                 {
-                    printf('<td align="center"><a href=index.php?action=ed_pool&id='.$pools[$j]->id.'>'.$pools[$j]->name.'</td>');
+                    printf('<td align="center"><a href="index.php?action=ed_pool&amp;id='.$pools[$j]->id.'">'.$pools[$j]->name.'</a></td>');
                     $assigned_pool = True;
                 }
             }
@@ -105,15 +105,15 @@ class HTMLhost extends html
             printf ("\n</tr>");
         }
         printf("</table>");
-        $this->footer();
+        $this->footer(true);
     }
 
     function html_edit($obj,$pools)
     {
         $st = new stats();
-        printf('<form method="post" action="index.php?action=up_host&id='.$obj->id.'" name="host">');
+        printf('<form method="post" action="index.php?action=up_host&amp;id='.$obj->id.'" name="host">');
         printf('<table border=1 align=center cellpadding="4" class="form">');
-        printf('<tr class="Hd"><td><img src="img/computer.png"></td><td>'.gettext("Features").'</td></tr>');
+        printf('<tr class="Hd"><td><img src="img/computer.png" alt="host"></td><td>'.gettext("Features").'</td></tr>');
         $row = count($pools);
         if ($this->role == "root")
         {
@@ -123,7 +123,7 @@ class HTMLhost extends html
             {
                     printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'->'.$pools[$i]->supplier.'</option>');
             }
-            printf("</selection></td>");
+            printf("</select></td>");
         }
         else
         {
@@ -165,10 +165,10 @@ class HTMLhost extends html
         printf('<tr><td>'.gettext("Delete").'</td>');
         printf('<td align="center"><input name="delete" type=checkbox>');
         printf ("\n</tr>");
-        printf('<td align="center" colspan="2"><input name="submit" type="submit"></td>');
+        printf('<tr><td align="center" colspan="2"><input name="submit" type="submit"></td></tr>');
         printf('</table>');
         printf("</form>");
-        $this->footer();
+        $this->footer(true);
 
     }
 

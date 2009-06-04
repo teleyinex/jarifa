@@ -184,6 +184,7 @@ class HTMLranking extends html
 
           printf("<div id=content align=center>");
           $this->table_ranking_volunteers();
+          printf("</div>");
           $this->footer();
       }
 

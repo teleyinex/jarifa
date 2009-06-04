@@ -102,7 +102,7 @@ class HTMLvolunteer extends html
     function html_edit($obj)
     {
         printf('<form method="post" action="index.php?action=up_user&id='.$obj->id.'" name="user">');
-        printf('<table border=1 align=center cellpading="4" class="form">');
+        printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr>
                  <td align="center">'.gettext("User ID").'</td>
                  <td align=center><input name="name" value="'.$obj->name.'"></td>
@@ -150,7 +150,7 @@ class HTMLvolunteer extends html
     {
         printf('<div id="content">');
         printf('<form method="post" action="index.php?action=in_volunteer" name="user">');
-        printf('<table border="1" align="center" cellpading="4" class="form">');
+        printf('<table border="1" align="center" cellpadding="4" class="form">');
         printf('
                 <tr>
                 <td colspan=2>
@@ -196,6 +196,7 @@ class HTMLvolunteer extends html
         printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf('</table>');
         printf('</form>');
+        printf('</div>');
         $this->footer();
     }
 

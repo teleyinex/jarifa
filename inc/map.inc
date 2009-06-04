@@ -58,7 +58,7 @@ supplier.infoWindowAnchor = new GPoint(18,0);
       var marker = new GMarker(point,icon);
       map.addOverlay(marker);
       GEvent.addListener(marker, "click", function() {
-        var myHtml = "<b>" + user + "</b><br/>";
+        var myHtml = "<b>" + user + "<\/b><br\/>";
         map.openInfoWindowHtml(point, myHtml);
       });
       return marker;
@@ -122,7 +122,8 @@ supplier.infoWindowAnchor = new GPoint(18,0);
         $this->users = $users;
         printf('<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key='.$this->key.'"
                 type="text/javascript"></script>
-                <script src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js"></script>
+                <script
+src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js" type="text/javascript"></script>
                 <script type="text/javascript">
                 //<![CDATA[
               ');

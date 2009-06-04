@@ -85,7 +85,7 @@ class HTMLproject extends html
         for ($i=0 ; $i<$row;$i++)
         {
             printf ("<tr>");
-            printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj[$i]->id.'>'.$obj[$i]->name.'</a></td>
+            printf ('<td align=center><a href="index.php?action=ed_project&amp;id='.$obj[$i]->id.'">'.$obj[$i]->name.'</a></td>
                      <td align=center>'.$obj[$i]->share.'</td>');
             if ($obj[$i]->detach) printf('<td align="center">'.gettext("Yes").'</td>');
             else printf('<td align="center">'.gettext("No").'</td>');
@@ -94,19 +94,19 @@ class HTMLproject extends html
             printf ("\n</tr>");
         }
         printf("</tbody></table>");
-        printf('<div style="text-align: center;"><a href=index.php?action=vin_project>'.gettext("New Project").'</a></div>');
-        $this->footer();
+        printf('<div style="text-align: center;"><a href="index.php?action=vin_project">'.gettext("New Project").'</a></div>');
+        $this->footer(true);
     }
 
     function html_edit($obj)
     {
-        printf('<form method="post" action="index.php?action=up_project&id='.$obj->id.'" name="project">');
-        printf('<table border=1 align=center cellpading="4" class="form">');
+        printf('<form method="post" action="index.php?action=up_project&amp;id='.$obj->id.'" name="project">');
+        printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
                     <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
                     </tr>');
         printf ('<tr>');
-        printf ('<td align=center><a href=index.php?action=ed_project&id='.$obj->id.'>'.$obj->name.'</a></td><td
+        printf ('<td align=center><a href="index.php?action=ed_project&amp;id='.$obj->id.'">'.$obj->name.'</a></td><td
             align="center"><input name="share" size="2" value="'.$obj->share.'">');
         if ($obj->detach) printf ('<td align="center"><input name="detach" type="checkbox" CHECKED></td>');
         else printf ('<td align="center"><input name="detach" type="checkbox"></td>');
@@ -116,7 +116,7 @@ class HTMLproject extends html
         printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"></td> </tr>');
         printf("</table>");
         printf("</form>");
-        $this->footer();
+        $this->footer(true);
     }
 
     function html_insert()
@@ -153,7 +153,7 @@ class HTMLproject extends html
           <input name="authenticator" type="hidden">
     </form>
     ');
-    $this->footer();
+    $this->footer(true);
     }
 
     function lists()
