@@ -71,10 +71,15 @@ body
     border-bottom: 1px solid gray;
 }
 
-#stats
+#stats_index
 {
     text-align: center;
     height: 75px;
+}
+
+#stats
+{
+    text-align: center;
 }
 
 #footer

@@ -95,7 +95,7 @@ class HTMLstat extends html
     function options()
     {
         printf('
-                <div id="stats">
+                <div id="stats_index">
                 <table class="stats">
                   <tbody>
                     <tr>
@@ -113,12 +113,12 @@ class HTMLstat extends html
     {
         $projects = $this->projects();
 
-        printf('<div id="stats">');
+        printf('<div id="stats">'."\n");
         foreach($projects as $project)
         {
             if ($this->role == "root") 
             {
-                printf('<img src="img/stats/'.$type.'_'.$project->name.'.png" alt="'.$type.'_'.$project->name.'"><br>');
+                printf('<img src="img/stats/'.$type.'_'.$project->name.'.png" alt="'.$type.'_'.$project->name.'"><br>'."\n");
             
             }
             else
