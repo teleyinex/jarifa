@@ -264,6 +264,7 @@ class stats extends DBConn
                     if ($project->name == $credit[$value]->project)
                     {
                         $gflops = $this->decay_average($credit[$value]->expavg_credit,$credit[$value]->expavg_time,0);
+                        $gflops = (float)$gflops/100;
                         $serie->addPoint(new Point("$m-$d",$gflops));
                     }
                 }
@@ -294,6 +295,7 @@ class stats extends DBConn
                         if ($project->name == $credit[$value]->project) 
                         {
                             $gflops = $this->decay_average($credit[$value]->expavg_credit,$credit[$value]->expavg_time,0);
+                            $gflops = (float)$gflops/100;
                             $serie->addPoint(new Point($day,$gflops));
                         }
                     }
