@@ -184,17 +184,18 @@ class HTMLproject extends html
         return($this->db->delete($obj,$this->table));
       }
 
-      function insert($values)
+      function insert ($values)
       {
           $insert=True;
           if (empty($values['name'])) $insert=False;
           if (empty($values['url'])) $insert=False;
           if (empty($values['signature'])) $insert=False;
           if (empty($values['authenticator'])) $insert=False;
-          if ($insert)
+          if ($insert) 
           {
-            $query = '(name,url,signature,authenticator,share) values ("'
-              .$values['name'].'", "'.$values['url'].'","'.str_replace(' ','',$values['signature']).'","'.$values['authenticator'].'",'.$values['share'].')';
+            $query = '(name,url,signature,authenticator,opaque_auth,share) values ("'
+              .$values['name'].'", "'.$values['url'].'","'.str_replace(' ','',$values['signature']).'","'.$values['authenticator'].'","'.$values['opaque_auth'].'",'.$values['share'].')';
+            
             return($this->db->insert($this->table, $query));
           }
           else

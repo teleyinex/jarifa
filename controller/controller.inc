@@ -98,7 +98,7 @@ class controller extends html
 
       }
 
-      function create_boinc_user($url,$invitation=null)
+      function create_boinc_user($url, $invitation=null, &$opaque_auth)
       {
           // Web RPC for create a boinc account and return the weak authenticator
           $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email).
@@ -106,9 +106,24 @@ class controller extends html
           if ($invitation != null) $request = $request . '&invite_code='.$invitation;
           $authenticator = file_get_contents(trim($url).'/create_account.php'.$request, false,$this->context);
           $xml = new SimpleXMLElement($authenticator);
-         
+          // We have to check if the project is using the <opaque_auth> attribute
+          if ($xml->xpath("/account_out/opaque_auth"))
+          {
+              $opaque_auth = $xml->opaque_auth;
+          }
+          else
+              $opaque_auth = null;
+          
+          if ($opaque_auth != null)
+          {
+          $weak_authenticator =
+              file_get_contents(trim($url).'/am_get_info.php?account_key='.$xml->authenticator.'&opaque_auth='.$opaque_auth,false,$this->context);
+          }
+          else
+          {
           $weak_authenticator =
               file_get_contents(trim($url).'/am_get_info.php?account_key='.$xml->authenticator,false,$this->context);
+          }
           $xml = new SimpleXMLElement($weak_authenticator);
           return($xml->weak_auth);
       }

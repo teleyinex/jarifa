@@ -71,15 +71,27 @@ class stats extends DBConn
           else $this->context = null;
       }
 
-      function get_authenticator($url)
+      function get_authenticator($url,&$opaque_auth)
       {
           // Web RPC for getting a boinc account 
-          $request='?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email);
+          $request = '?email_addr='.$this->boinc_user_email.'&passwd_hash='.md5($this->boinc_passwd.$this->boinc_user_email);
+          // Request the opaque auth to the BOINC project always
+          $request = $request . '&get_opaque_auth=1';
           $authenticator = file_get_contents(trim($url).'/lookup_account.php'.$request,false,$this->context);
+          $xml_reply = new SimpleXMLElement($authenticator);
           $p = xml_parser_create();
           xml_parse_into_struct($p, $authenticator, $vals, $index);
           xml_parser_free($p);
           $authenticator =  $vals[$index['AUTHENTICATOR'][0]]['value'];
+          if ($xml_reply->xpath("/account_out/opaque_auth"))
+          {
+              $opaque_auth = $xml_reply->opaque_auth;
+          }
+          else 
+          {
+            $opaque_auth = null; 
+          }
+          
           return($authenticator);
       }
 
@@ -90,9 +102,16 @@ class stats extends DBConn
           else return(False);
       }
 
-      function get_stats($url,$authenticator)
+      function get_stats($url,$authenticator,$opaque_auth)
       {
-          $request='?auth='.$authenticator.'&format=xml';
+          if ($opaque_auth != null)
+          {
+              $request='?auth='.$authenticator.'&opaque_auth='.$opaque_auth.'&format=xml';
+          }
+          else
+          {
+              $request='?auth='.$authenticator.'&format=xml';
+          }
           $stats = file_get_contents(trim($url).'/show_user.php'.$request,false,$this->context);
           $xml = new SimpleXMLElement($stats);
           return($xml);

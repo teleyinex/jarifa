@@ -25,10 +25,10 @@ $st = new stats();
 $projects = $st->get_projects();
 foreach ($projects as $project)
 {
-    $authenticator = $st->get_authenticator($project->url);
+    $authenticator = $st->get_authenticator($project->url,&$opaque_auth);
     if (!empty($authenticator))
         {
-            $xml = $st->get_stats($project->url,$authenticator);
+            $xml = $st->get_stats($project->url,$authenticator,$opaque_auth);
             $st->insert_user_stats($xml,$project->name);
             foreach ($xml->host as $host)
             {

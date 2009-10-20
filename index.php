@@ -158,10 +158,13 @@ if (isset($_SESSION['userid']))
 
         case 'in_project':
         {
-                $weak_auth = $ctr->create_boinc_user($_POST['url'],$_POST['invitation']);
+                $weak_auth = $ctr->create_boinc_user($_POST['url'],$_POST['invitation'],&$opaque_auth);
                 if (!empty($weak_auth))
                 {
                     $_POST['authenticator'] = $weak_auth;
+                    // If the project requires the opaque_auth attribute we have to store it in the DB
+                    if ($opaque_auth!=null) $_POST['opaque_auth'] = $opaque_auth;
+
                     if ($ctr->project->insert($_POST))
                         $ctr->view("project",$_SESSION['role']);
                     else
