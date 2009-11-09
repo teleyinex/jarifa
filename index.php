@@ -198,7 +198,7 @@ if (isset($_SESSION['userid']))
                 {
                 $err=$ctr->host->update($_GET['id'],$_POST);
                 }
-            if ($err != null) $ctr->view("host",$_SESSION['role']);
+            if ($err != null) $ctr->view("host",$_SESSION['role'],'','',0,30,5);
             else $ctr->view("error",$_SESSION['role'],null,gettext("The host can not be updated or deleted"));
             break;
         }
