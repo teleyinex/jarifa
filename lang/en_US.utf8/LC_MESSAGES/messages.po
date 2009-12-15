@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-15 17:00+0100\n"
+"POT-Creation-Date: 2009-12-15 17:40+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -213,12 +213,10 @@ msgid "Delete"
 msgstr "Borrar"
 
 #: views/map.inc:73
-#, php-format
 msgid "Volunteers and Suppliers on the map"
 msgstr "Red de voluntarios y proveedores"
 
 #: views/map.inc:75
-#, php-format
 msgid "Suppliers on the map"
 msgstr "Red de proveedores"
 
@@ -338,7 +336,7 @@ msgstr ""
 #: views/pool.inc:269 views/pool.inc:272 views/pool.inc:374 views/pool.inc:377
 #: views/pool.inc:385 views/pool.inc:388 views/pool.inc:426 views/pool.inc:429
 #: views/pool.inc:477 views/pool.inc:483 views/pool.inc:518 views/pool.inc:618
-#: views/pool.inc:625 views/pool.inc:660 views/project.inc:90
+#: views/pool.inc:625 views/pool.inc:660 views/project.inc:91
 #: views/project.inc:92
 #, php-format
 msgid "Yes"
@@ -348,7 +346,7 @@ msgstr "Sí"
 #: views/pool.inc:270 views/pool.inc:273 views/pool.inc:375 views/pool.inc:378
 #: views/pool.inc:386 views/pool.inc:389 views/pool.inc:427 views/pool.inc:430
 #: views/pool.inc:478 views/pool.inc:484 views/pool.inc:519 views/pool.inc:619
-#: views/pool.inc:626 views/pool.inc:661 views/project.inc:91
+#: views/pool.inc:626 views/pool.inc:661 views/project.inc:90
 #: views/project.inc:93
 #, php-format
 msgid "No"
@@ -619,10 +617,10 @@ msgstr "Proyectos BOINC disponibles"
 msgid "Share"
 msgstr "Compartir"
 
-#: views/project.inc:81 views/project.inc:106
+#: views/project.inc:81
 #, php-format
-msgid "Detach"
-msgstr "Quitar"
+msgid "Active"
+msgstr "Activo"
 
 #: views/project.inc:82 views/project.inc:106
 #, php-format
@@ -633,6 +631,11 @@ msgstr "Actualizar"
 #, php-format
 msgid "New Project"
 msgstr "Nuevo proyecto"
+
+#: views/project.inc:106
+#, php-format
+msgid "Detach"
+msgstr "Quitar"
 
 #: views/project.inc:133
 #, php-format

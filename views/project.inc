@@ -78,7 +78,7 @@ class HTMLproject extends html
         printf('<table border=1 align=center cellpadding="4" class="form"><tbody>');
         printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td>
             <td align="center">'.gettext("Share").'</td>
-            <td align="center">'.gettext("Detach").'</td>
+            <td align="center">'.gettext("Active").'</td>
             <td align="center">'.gettext("Update").'</td>
             </tr>');
         $row = count($obj);
@@ -87,8 +87,8 @@ class HTMLproject extends html
             printf ("<tr>");
             printf ('<td align=center><a href="index.php?action=ed_project&amp;id='.$obj[$i]->id.'">'.$obj[$i]->name.'</a></td>
                      <td align=center>'.$obj[$i]->share.'</td>');
-            if ($obj[$i]->detach) printf('<td align="center">'.gettext("Yes").'</td>');
-            else printf('<td align="center">'.gettext("No").'</td>');
+            if ($obj[$i]->detach) printf('<td align="center">'.gettext("No").'</td>');
+            else printf('<td align="center">'.gettext("Yes").'</td>');
             if ($obj[$i]->update) printf('<td align="center">'.gettext("Yes").'</td>');
             else printf('<td align="center">'.gettext("No").'</td>');
             printf ("\n</tr>");
