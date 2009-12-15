@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-03 10:02+0200\n"
+"POT-Creation-Date: 2009-12-15 17:00+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -45,68 +45,69 @@ msgstr "Contraseña"
 msgid "Mininum BOINC core client version: "
 msgstr "Versión mínima del cliente BOINC: "
 
-#: views/default.inc:75
+#: views/default.inc:77
 #, php-format
 msgid "If you want to collaborate with us"
 msgstr "Si quiere colaborar con nosotros"
 
-#: views/default.inc:75
+#: views/default.inc:77
 #, php-format
 msgid "Join us"
 msgstr "Únase"
 
-#: views/default.inc:79 views/default.inc:86
+#: views/default.inc:81 views/default.inc:88 views/default.inc:97
 #, php-format
 msgid "Powered by"
-msgstr "Soportado por"
+msgstr "Colaboran"
 
-#: views/default.inc:79 views/map.inc:91
+#: views/default.inc:81 views/map.inc:97
 #, php-format
 msgid "Volunteers"
 msgstr "Voluntarios"
 
-#: views/default.inc:80 views/pool.inc:253 views/pool.inc:413
+#: views/default.inc:82 views/pool.inc:253 views/pool.inc:413
 #: views/pool.inc:504 views/pool.inc:649 views/user.inc:420
 #, php-format
 msgid "and"
 msgstr "y"
 
-#: views/default.inc:80 views/default.inc:86 views/map.inc:95
+#: views/default.inc:82 views/default.inc:88 views/default.inc:97
+#: views/map.inc:101 views/map.inc:113
 #, php-format
 msgid "Suppliers"
 msgstr "Proveedores"
 
-#: views/default.inc:81 views/default.inc:87
+#: views/default.inc:83 views/default.inc:89 views/default.inc:98
 #, php-format
 msgid "Computers:"
 msgstr "PCs:"
 
-#: views/default.inc:90
+#: views/default.inc:92
 #, php-format
 msgid "Best volunteers"
 msgstr "Mejores voluntarios"
 
-#: views/default.inc:91
+#: views/default.inc:100
 #, php-format
 msgid "Map"
 msgstr "Mapa"
 
-#: views/default.inc:112
+#: views/default.inc:121
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:113
+#: views/default.inc:122
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:161 views/default.inc:169 views/default.inc:177
-#: views/default.inc:185 views/host.inc:70 views/pool.inc:101
+#: views/default.inc:170 views/default.inc:178 views/default.inc:186
+#: views/default.inc:194 views/host.inc:70 views/pool.inc:101
 #: views/project.inc:67 views/user.inc:84
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:162 views/default.inc:170 views/default.inc:178
-#: views/default.inc:186
+#: views/default.inc:171 views/default.inc:179 views/default.inc:187
+#: views/default.inc:195
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
@@ -211,9 +212,15 @@ msgstr "Versión del SO"
 msgid "Delete"
 msgstr "Borrar"
 
-#: views/map.inc:70
-msgid "Volunteers on the map"
-msgstr "Red de voluntarios"
+#: views/map.inc:73
+#, php-format
+msgid "Volunteers and Suppliers on the map"
+msgstr "Red de voluntarios y proveedores"
+
+#: views/map.inc:75
+#, php-format
+msgid "Suppliers on the map"
+msgstr "Red de proveedores"
 
 #: views/pool.inc:84
 msgid "Editing pool"
@@ -786,30 +793,30 @@ msgid "Password missmatch"
 msgstr "Contraseñas diferentes"
 
 #: views/user.inc:310 views/user.inc:311 views/user.inc:480 views/user.inc:481
-#: views/volunteer.inc:301 views/volunteer.inc:302
+#: views/volunteer.inc:302 views/volunteer.inc:303
 msgid "E-mail exists on the site"
 msgstr "El correo electrónico ya existe"
 
 #: views/user.inc:318 views/user.inc:319 views/user.inc:325
-#: views/volunteer.inc:309 views/volunteer.inc:310 views/volunteer.inc:316
+#: views/volunteer.inc:310 views/volunteer.inc:311 views/volunteer.inc:317
 msgid "City empty"
 msgstr "Ciudad vacía"
 
-#: views/user.inc:324 views/volunteer.inc:315
+#: views/user.inc:324 views/volunteer.inc:316
 msgid "State empty"
 msgstr "Provincia vacía"
 
-#: views/user.inc:330 views/user.inc:331 views/volunteer.inc:321
-#: views/volunteer.inc:322
+#: views/user.inc:330 views/user.inc:331 views/volunteer.inc:322
+#: views/volunteer.inc:323
 msgid "Country empty"
 msgstr "País vacío"
 
-#: views/user.inc:413 views/volunteer.inc:259
+#: views/user.inc:413 views/volunteer.inc:260
 msgid "User name empty"
 msgstr "Nombre de usuario vacío"
 
-#: views/user.inc:420 views/user.inc:421 views/volunteer.inc:266
-#: views/volunteer.inc:267
+#: views/user.inc:420 views/user.inc:421 views/volunteer.inc:267
+#: views/volunteer.inc:268
 msgid "User name must be lowercase"
 msgstr "El nombre de usuario tiene que ir en minúsculas"
 
@@ -821,13 +828,13 @@ msgstr "Rol vacío"
 msgid "Supplier empty"
 msgstr "Proveedor vacío"
 
-#: views/user.inc:455 views/user.inc:456 views/volunteer.inc:282
-#: views/volunteer.inc:283
+#: views/user.inc:455 views/user.inc:456 views/volunteer.inc:283
+#: views/volunteer.inc:284
 msgid "E-mail empty"
 msgstr "Correo electrónico vacío"
 
-#: views/user.inc:471 views/user.inc:472 views/volunteer.inc:292
-#: views/volunteer.inc:293
+#: views/user.inc:471 views/user.inc:472 views/volunteer.inc:293
+#: views/volunteer.inc:294
 msgid "User name exists on the site"
 msgstr "El nombre de usuario ya existe"
 
@@ -864,7 +871,7 @@ msgid "Fill in the following form, to become a Jarifa user"
 msgstr ""
 "Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
 
-#: views/volunteer.inc:275 views/volunteer.inc:276
+#: views/volunteer.inc:276 views/volunteer.inc:277
 msgid "Password mismatch"
 msgstr "Contraseñas diferentes"
 

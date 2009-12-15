@@ -72,22 +72,31 @@ class login_page extends html
         $minor = $this->conf->account_manager->min_core_client_version % 100;
         printf("<div id=requirements align=center>".gettext("Mininum BOINC core client version: "));
         printf ("$major.$minor</div>");
-        printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us").', <a href="index.php?action=volunteer">'.gettext("Join us")."</a>");
-        if ($nvolunteers != 0) 
+        if ($this->volunteer_enabled==1)
         {
-            printf("<br>");
-            printf(gettext("Powered by")." ".$nvolunteers." ".gettext("Volunteers"));
-            printf(" ".gettext("and")." $nsuppliers ".gettext("Suppliers"));
-            printf("<br>".gettext("Computers:")." $ncomputers");
+            printf("<div id=volunteer align=center>".gettext("If you want to collaborate with us").', <a href="index.php?action=volunteer">'.gettext("Join us")."</a>");
+            if ($nvolunteers != 0) 
+            {
+                printf("<br>");
+                printf(gettext("Powered by")." ".$nvolunteers." ".gettext("Volunteers"));
+                printf(" ".gettext("and")." $nsuppliers ".gettext("Suppliers"));
+                printf("<br>".gettext("Computers:")." $ncomputers");
+            }
+            else
+            {
+                printf("<br>");
+                printf(gettext("Powered by")." ".$nsuppliers." ".gettext("Suppliers"));
+                printf("<br>".gettext("Computers:")." $ncomputers");
+                   
+            }
+                printf('<br><a href="index.php?action=ranking">'.gettext("Best volunteers")."</a>");
         }
         else
         {
-            printf("<br>");
+            printf("<div align=center>");
             printf(gettext("Powered by")." ".$nsuppliers." ".gettext("Suppliers"));
             printf("<br>".gettext("Computers:")." $ncomputers");
-               
         }
-        printf('<br><a href="index.php?action=ranking">'.gettext("Best volunteers")."</a>");
         printf('<br><a href="index.php?action=map">'.gettext("Map").'</a>');
         printf("</div>");
         $this->footer();

@@ -24,6 +24,7 @@ class html
 {
     public $logo;
     public $conf;
+    public $volunteer_enabled = 1; // By default Volunteer Role is enabled
 
     function __construct($language='en_US.utf8')
     {
@@ -39,6 +40,7 @@ class html
     {
         $this->conf = simplexml_load_file("conf/jarifa.conf");
         $this->logo = $this->conf->account_manager->logo;
+        $this->volunteer_enabled = $this->conf->account_manager->volunteer;
     }
 
 

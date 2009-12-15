@@ -31,6 +31,7 @@ class HTMLmap extends html
     public $map;
     public $key;
     public $country;
+    public $volunteer_enabled=1; // Volunteer Role enabled by default
 
     function __construct($language,$role=null,$db)
     {
@@ -57,6 +58,7 @@ class HTMLmap extends html
         $this->db_name = $conf->db->name;
         $this->key = $conf->gmap->key;
         $this->country = $conf->gmap->country;
+        $this->volunteer_enabled = $conf->account_manager->volunteer;
     }
 
 
@@ -67,7 +69,10 @@ class HTMLmap extends html
 
             default:
             {
-                $this->header(gettext("Volunteers on the map"));
+                if ($this->volunteer_enabled==1)
+                    $this->header(gettext("Volunteers and Suppliers on the map"));
+                else
+                    $this->header(gettext("Suppliers on the map"));
                 $this->html_map();
                 break;
             }
@@ -84,19 +89,35 @@ class HTMLmap extends html
         printf('</script>');
         printf('
                 <div id="legend" align="center">');
-        printf('<table>
-            <tr>
-            <td>');
-        printf(gettext("Volunteers"));
-        printf('</td>
-            <td><img src="./img/volunteer.png" alt="volunteer"></td>');
-        printf('<td></td><td>');
-        printf(gettext("Suppliers"));
-        printf('</td>
-            <td><img src="./img/supplier.png" alt="supplier"></td>
-            </tr>
-            </table>');
-        printf('</div>
+        if ($this->volunteer_enabled==1)
+        {
+            printf('<table>
+                <tr>
+                <td>');
+            printf(gettext("Volunteers"));
+            printf('</td>
+                <td><img src="./img/volunteer.png" alt="volunteer"></td>');
+            printf('<td></td><td>');
+            printf(gettext("Suppliers"));
+            printf('</td>
+                <td><img src="./img/supplier.png" alt="supplier"></td>
+                </tr>
+                </table>');
+            printf("</div>");
+        }
+        else
+        {
+            printf('<table>
+                <tr>
+                <td>');
+            printf(gettext("Suppliers"));
+            printf('</td>
+                <td><img src="./img/supplier.png" alt="supplier"></td>
+                </tr>
+                </table>');
+            printf("</div>");
+        }
+        printf('
                     
                     <div id="map_canvas" align="center" style="width: 600; height: 380px"></div>
                     </div>
