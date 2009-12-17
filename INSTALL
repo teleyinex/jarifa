@@ -24,3 +24,5 @@ The installation process of Jarifa is the following:
     * Create the root account using the MySQL interface (it is easier if you are using phpmyadmin).
     * Give Apache user read, write and access permissions to the Jarifa folder.
     * Access Jarifa with your web browser in: http://SERVER/jarifa 
+
+Check the following URL for further details
