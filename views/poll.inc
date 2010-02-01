@@ -92,7 +92,9 @@ class HTMLpoll extends poll
     {
         $this->draw_results();
         printf('<div align="center">');
-        printf(gettext("<h3>Most voted projects<h3><br>"));
+        printf("<h3>");
+        printf(gettext("Most voted projects"));
+        printf("</h3><br>");
         printf('<img style="border:0;"  src="img/stats/votes.png" alt="votes">');
     }
 }
