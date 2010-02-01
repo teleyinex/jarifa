@@ -79,7 +79,7 @@ class HTMLpoll extends poll
                 printf('<option value="'.$project->name.'">'.$project->name.'</option>');
             }
             printf('</select>');
-            printf('<input name="submit" type="submit" value="Vote">');
+            printf('<input name="submit" type="submit" value="'.gettext("Vote").'"');
             printf('</form>');
         }
         else // show the results

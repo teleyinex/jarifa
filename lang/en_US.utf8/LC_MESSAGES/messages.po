@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-15 17:40+0100\n"
+"POT-Creation-Date: 2010-02-01 17:52+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -29,85 +29,85 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: views/default.inc:70 views/ranking.inc:154
+#: views/default.inc:71 views/ranking.inc:154
 #, php-format
 msgid "User"
 msgstr "Usuario"
 
-#: views/default.inc:70 views/user.inc:146 views/user.inc:229
+#: views/default.inc:71 views/user.inc:146 views/user.inc:229
 #: views/volunteer.inc:111 views/volunteer.inc:167
 #, php-format
 msgid "Password"
 msgstr "Contraseña"
 
-#: views/default.inc:73
+#: views/default.inc:74
 #, php-format
 msgid "Mininum BOINC core client version: "
 msgstr "Versión mínima del cliente BOINC: "
 
-#: views/default.inc:77
+#: views/default.inc:78
 #, php-format
 msgid "If you want to collaborate with us"
 msgstr "Si quiere colaborar con nosotros"
 
-#: views/default.inc:77
+#: views/default.inc:78
 #, php-format
 msgid "Join us"
 msgstr "Únase"
 
-#: views/default.inc:81 views/default.inc:88 views/default.inc:97
+#: views/default.inc:82 views/default.inc:89 views/default.inc:98
 #, php-format
 msgid "Powered by"
 msgstr "Colaboran"
 
-#: views/default.inc:81 views/map.inc:97
+#: views/default.inc:82 views/map.inc:97
 #, php-format
 msgid "Volunteers"
 msgstr "Voluntarios"
 
-#: views/default.inc:82 views/pool.inc:253 views/pool.inc:413
+#: views/default.inc:83 views/pool.inc:253 views/pool.inc:413
 #: views/pool.inc:504 views/pool.inc:649 views/user.inc:420
 #, php-format
 msgid "and"
 msgstr "y"
 
-#: views/default.inc:82 views/default.inc:88 views/default.inc:97
+#: views/default.inc:83 views/default.inc:89 views/default.inc:98
 #: views/map.inc:101 views/map.inc:113
 #, php-format
 msgid "Suppliers"
 msgstr "Proveedores"
 
-#: views/default.inc:83 views/default.inc:89 views/default.inc:98
+#: views/default.inc:84 views/default.inc:90 views/default.inc:99
 #, php-format
 msgid "Computers:"
 msgstr "PCs:"
 
-#: views/default.inc:92
+#: views/default.inc:93
 #, php-format
 msgid "Best volunteers"
 msgstr "Mejores voluntarios"
 
-#: views/default.inc:100
+#: views/default.inc:101
 #, php-format
 msgid "Map"
 msgstr "Mapa"
 
-#: views/default.inc:121
+#: views/default.inc:122
 msgid "ERROR"
 msgstr "ERROR"
 
-#: views/default.inc:122
+#: views/default.inc:123
 msgid "An error has occurred"
 msgstr "Ha ocurrido un fallo"
 
-#: views/default.inc:170 views/default.inc:178 views/default.inc:186
-#: views/default.inc:194 views/host.inc:70 views/pool.inc:101
+#: views/default.inc:194 views/default.inc:203 views/default.inc:211
+#: views/default.inc:219 views/host.inc:70 views/pool.inc:101
 #: views/project.inc:67 views/user.inc:84
 msgid "Welcome"
 msgstr "Bienvenido"
 
-#: views/default.inc:171 views/default.inc:179 views/default.inc:187
-#: views/default.inc:195
+#: views/default.inc:195 views/default.inc:204 views/default.inc:212
+#: views/default.inc:220
 msgid "Choose an action from the left panel"
 msgstr "Escoja una acción del panel izquierdo"
 
@@ -219,6 +219,25 @@ msgstr "Red de voluntarios y proveedores"
 #: views/map.inc:75
 msgid "Suppliers on the map"
 msgstr "Red de proveedores"
+
+#: views/poll.inc:58
+msgid "Vote for the most interesting project"
+msgstr "Vote el proyecto más interesante"
+
+#: views/poll.inc:74
+#, php-format
+msgid "Vote for the most interesting project:"
+msgstr "Vote el proyecto más interesante"
+
+#: views/poll.inc:82
+#, php-format
+msgid "Vote"
+msgstr "Votar"
+
+#: views/poll.inc:96
+#, php-format
+msgid "Most voted projects"
+msgstr "Proyectos más votados"
 
 #: views/pool.inc:84
 msgid "Editing pool"
@@ -757,7 +776,7 @@ msgid "allocator"
 msgstr ""
 
 #: views/user.inc:165 views/user.inc:166
-#, fuzzy, php-format
+#, php-format
 msgid "volunteer"
 msgstr "Voluntarios"
 
@@ -878,14 +897,14 @@ msgstr ""
 msgid "Password mismatch"
 msgstr "Contraseñas diferentes"
 
-#, php-format
+#: php-format
 msgid "Profile"
 msgstr "Perfil"
 
-#, php-format
+#: php-format
 msgid "Empty user name"
 msgstr "Nombre de usuario vacío"
 
-#, php-format
+#: php-format
 msgid "Log Out"
 msgstr "Salir"
