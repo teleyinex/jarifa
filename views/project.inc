@@ -88,7 +88,7 @@ class HTMLproject extends html
             printf ('<td align=center><a href="index.php?action=ed_project&amp;id='.$obj[$i]->id.'">'.$obj[$i]->name.'</a></td>
                      <td align=center>'.$obj[$i]->share.'</td>');
             if ($obj[$i]->detach) printf('<td align="center">'.gettext("No").'</td>');
-            else printf('<td align="center">'.gettext("Yes").'</td>');
+            else printf('<td align="center"><b>'.gettext("Yes").'</b></td>');
             if ($obj[$i]->update) printf('<td align="center">'.gettext("Yes").'</td>');
             else printf('<td align="center">'.gettext("No").'</td>');
             printf ("\n</tr>");

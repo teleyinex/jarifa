@@ -20,6 +20,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once("inc/html.inc");
 require_once("ranking.inc");
+require_once("poll.inc");
 require_once("inc/db_conn.inc");
 
 class login_page extends html
@@ -140,13 +141,13 @@ class start_page extends html
 
     function load_config()
       {
-          $conf = simplexml_load_file("conf/jarifa.conf");
-          $this->db_user = $conf->db->user;
-          $this->db_password = $conf->db->password;
-          $this->db_host = $conf->db->host;
-          $this->db_name = $conf->db->name;
-          $this->language = $conf->account_manager->language;
-          $this->logo = $conf->account_manager->logo;
+          $this->conf = simplexml_load_file("conf/jarifa.conf");
+          $this->db_user = $this->conf->db->user;
+          $this->db_password = $this->conf->db->password;
+          $this->db_host = $this->conf->db->host;
+          $this->db_name = $this->conf->db->name;
+          $this->language = $this->conf->account_manager->language;
+          $this->logo = $this->conf->account_manager->logo;
       }
 
 
@@ -157,6 +158,29 @@ class start_page extends html
         print('<div align="center">');
         $ranking->table_ranking_volunteers($_SESSION['userid']);
         print('</div>');
+
+        // If Jarifa has enabled the poll, show it
+        if ($this->conf->projects->poll=='1')
+        {
+            printf('<br>');
+            $poll = new HTMLpoll($this->language,"",$this->db);
+            printf('<div align="center">');
+            $poll->html_poll($_SESSION['userid']);
+            printf('</div>');
+        }
+    }
+
+    function poll_results()
+    {
+        // Shows the poll results if enabled
+        if ($this->conf->projects->poll='1')
+        {
+            $poll = new HTMLpoll($this->language,"",$this->db);
+            printf('<div align="center">');
+            $poll->page('results');
+        }
+
+    
     }
 
 
@@ -169,7 +193,8 @@ class start_page extends html
             {
                 $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
-                $this->empty_table();
+                //$this->empty_table();
+                $this->poll_results();
                 $this->footer(true);
                 break;
             }

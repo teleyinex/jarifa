@@ -81,12 +81,14 @@ class pool
 class project
 {
     public $id;
+    public $name;
     public $url;
     public $signature;
     public $authenticator;
     public $share;
     public $detach;
     public $update;
+    public $votes;
 }
 
 class user
@@ -104,6 +106,7 @@ class user
     public $latitude;
     public $longitude;
     public $date;
+    public $voted;
 }
 
 class stats_user

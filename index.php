@@ -262,6 +262,17 @@ if (isset($_SESSION['userid']))
             break;        
         }
 
+        case 'vote':
+        {
+            // The user votes, so it cannot vote again until the field voted from the user table is restored to 0, and adds 
+            // one vote for the project.
+            $ctr->poll->user_voted($_SESSION['userid'],$_POST['vote']);
+            // Loads the welcome web page for the user
+            $ctr->view("start",$_SESSION['role']);
+            break;
+                
+        }
+
         // Default screen
         default:
         {

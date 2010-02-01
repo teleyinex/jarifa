@@ -27,6 +27,7 @@ require_once("views/user.inc");
 require_once("views/stat.inc");
 require_once("views/volunteer.inc");
 require_once("views/ranking.inc");
+require_once("views/poll.inc");
 require_once("views/map.inc");
 require_once("model/data.inc");
 //require_once("inc/lang.inc");
@@ -68,6 +69,7 @@ class controller extends html
           $this->stat = new HTMLstat($this->language,$_SESSION['role'], $_SESSION['supplier'],$this->db);
           $this->volunteer = new HTMLvolunteer($this->language,"volunteer",$this->db);
           $this->ranking = new HTMLranking($this->language,"",$this->db);
+          $this->poll = new HTMLpoll($this->language,"",$this->db);
           $this->map = new HTMLmap($this->language,"",$this->db);
 
       }
