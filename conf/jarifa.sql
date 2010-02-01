@@ -1,19 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.3deb1ubuntu1.1
+-- version 2.11.3deb1ubuntu1.3
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2009 at 01:19 PM
+-- Generation Time: Feb 01, 2010 at 06:03 PM
 -- Server version: 5.0.51
--- PHP Version: 5.2.4-2ubuntu5.5
+-- PHP Version: 5.2.4-2ubuntu5.10
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
 -- Database: `jarifa`
 --
-CREATE DATABASE `jarifa` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
-USE `jarifa`;
 
 -- --------------------------------------------------------
 
@@ -39,12 +37,7 @@ CREATE TABLE IF NOT EXISTS `host` (
   PRIMARY KEY  (`id`),
   KEY `poolid` (`poolid`),
   KEY `CPID` (`CPID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `host`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -85,12 +78,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
   `dont_verify_images` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `department` (`supplier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `pool`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -107,13 +95,9 @@ CREATE TABLE IF NOT EXISTS `project` (
   `share` tinyint(4) NOT NULL,
   `detach` tinyint(1) NOT NULL default '0',
   `update` tinyint(1) NOT NULL default '0',
+  `votes` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `project`
---
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -132,11 +116,6 @@ CREATE TABLE IF NOT EXISTS `stats_host` (
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Dumping data for table `stats_host`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -150,11 +129,6 @@ CREATE TABLE IF NOT EXISTS `stats_user` (
   `expavg_credit` float NOT NULL,
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `stats_user`
---
-
 
 -- --------------------------------------------------------
 
@@ -177,13 +151,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `latitude` varchar(255) collate utf8_bin default NULL,
   `longitude` varchar(255) collate utf8_bin default NULL,
   `date` date NOT NULL,
+  `voted` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `latitude`, `longitude`, `date`) VALUES
-(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
