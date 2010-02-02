@@ -659,7 +659,7 @@ class HTMLpool extends html
                     files (UMTS does this, for example).<br>Skipping verification reduces the security of BOINC.").'</td>');
         printf('<td>'.gettext("Yes").'<input type=radio name="dont_verify_images" value="1">'
                      .gettext("No").'<input type=radio  name="dont_verify_images" value="0" checked></td></tr>');
-        printf('<tr><td colspan="2" align="center"><input type="submit" value="'.gettext("New pool").'"></td></tr></table></form>');
+        printf('<tr><td colspan="2" align="center"><input type="submit" value="'.gettext("New Pool").'"></td></tr></table></form>');
         $this->footer(true);
 
     }

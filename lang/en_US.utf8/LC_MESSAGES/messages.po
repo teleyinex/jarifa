@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-01 17:52+0100\n"
+"POT-Creation-Date: 2010-02-02 11:19+0100\n"
 "PO-Revision-Date: 2009-01-27 16:53+0100\n"
 "Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
 "Language-Team: Spanish <daniellg@unex.es>\n"
@@ -29,12 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: views/default.inc:65
+#, php-format
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
 #: views/default.inc:71 views/ranking.inc:154
 #, php-format
 msgid "User"
 msgstr "Usuario"
 
-#: views/default.inc:71 views/user.inc:146 views/user.inc:229
+#: views/default.inc:71 views/user.inc:146 views/user.inc:230
 #: views/volunteer.inc:111 views/volunteer.inc:167
 #, php-format
 msgid "Password"
@@ -66,7 +71,7 @@ msgid "Volunteers"
 msgstr "Voluntarios"
 
 #: views/default.inc:83 views/pool.inc:253 views/pool.inc:413
-#: views/pool.inc:504 views/pool.inc:649 views/user.inc:420
+#: views/pool.inc:504 views/pool.inc:649 views/user.inc:422
 #, php-format
 msgid "and"
 msgstr "y"
@@ -136,7 +141,7 @@ msgstr "Grupo"
 
 #: views/host.inc:86 views/host.inc:120 views/pool.inc:132 views/pool.inc:191
 #: views/pool.inc:457 views/user.inc:121 views/user.inc:171 views/user.inc:183
-#: views/user.inc:246 views/volunteer.inc:87 views/volunteer.inc:127
+#: views/user.inc:247 views/volunteer.inc:87 views/volunteer.inc:127
 #, php-format
 msgid "Supplier"
 msgstr "Proveedor"
@@ -212,6 +217,12 @@ msgstr "Versión del SO"
 msgid "Delete"
 msgstr "Borrar"
 
+#: views/host.inc:168 views/pool.inc:436 views/project.inc:117
+#: views/user.inc:215
+#, php-format
+msgid "Submit changes"
+msgstr "Enviar cambios"
+
 #: views/map.inc:73
 msgid "Volunteers and Suppliers on the map"
 msgstr "Red de voluntarios y proveedores"
@@ -272,7 +283,7 @@ msgid "Memory Usage"
 msgstr "Uso de memoria"
 
 #: views/pool.inc:124 views/project.inc:79 views/project.inc:105
-#: views/project.inc:129
+#: views/project.inc:130
 #, php-format
 msgid "Name"
 msgstr "Nombre"
@@ -631,7 +642,7 @@ msgstr "Insertar un nuevo proyecto"
 msgid "Available BOINC projects"
 msgstr "Proyectos BOINC disponibles"
 
-#: views/project.inc:80 views/project.inc:105 views/project.inc:145
+#: views/project.inc:80 views/project.inc:105 views/project.inc:146
 #, php-format
 msgid "Share"
 msgstr "Compartir"
@@ -656,20 +667,25 @@ msgstr "Nuevo proyecto"
 msgid "Detach"
 msgstr "Quitar"
 
-#: views/project.inc:133
+#: views/project.inc:134
 #, php-format
 msgid "URL"
 msgstr ""
 
-#: views/project.inc:137
+#: views/project.inc:138
 #, php-format
 msgid "Signature"
 msgstr "Firma"
 
-#: views/project.inc:141
+#: views/project.inc:142
 #, php-format
 msgid "Invitation code"
 msgstr "Código de Invitación"
+
+#: views/project.inc:150
+#, php-format
+msgid "Add project"
+msgstr "Añadir proyecto"
 
 #: views/ranking.inc:51
 msgid "Ranking of suppliers"
@@ -735,13 +751,13 @@ msgstr "Usuarios disponibles"
 msgid "Search..."
 msgstr "Buscar..."
 
-#: views/user.inc:120 views/user.inc:142 views/user.inc:225
+#: views/user.inc:120 views/user.inc:142 views/user.inc:226
 #: views/volunteer.inc:86 views/volunteer.inc:107 views/volunteer.inc:163
 #, php-format
 msgid "User ID"
 msgstr "Identificador de usuario"
 
-#: views/user.inc:120 views/user.inc:157 views/user.inc:179 views/user.inc:237
+#: views/user.inc:120 views/user.inc:157 views/user.inc:179 views/user.inc:238
 #: views/volunteer.inc:86 views/volunteer.inc:115
 #, php-format
 msgid "Role"
@@ -752,24 +768,24 @@ msgstr "Rol"
 msgid "New User"
 msgstr "Nuevo usuario"
 
-#: views/user.inc:150 views/user.inc:233 views/volunteer.inc:171
+#: views/user.inc:150 views/user.inc:234 views/volunteer.inc:171
 #, php-format
 msgid "Repeat Password"
 msgstr "Repita contraseña"
 
-#: views/user.inc:159 views/user.inc:160 views/user.inc:239
+#: views/user.inc:159 views/user.inc:160 views/user.inc:240
 #: views/volunteer.inc:117 views/volunteer.inc:118
 #, php-format
 msgid "root"
 msgstr ""
 
-#: views/user.inc:161 views/user.inc:162 views/user.inc:240
+#: views/user.inc:161 views/user.inc:162 views/user.inc:241
 #: views/volunteer.inc:119 views/volunteer.inc:120
 #, php-format
 msgid "supplier"
 msgstr "proveedor"
 
-#: views/user.inc:163 views/user.inc:164 views/user.inc:241
+#: views/user.inc:163 views/user.inc:164 views/user.inc:242
 #: views/volunteer.inc:121 views/volunteer.inc:122
 #, php-format
 msgid "allocator"
@@ -780,82 +796,87 @@ msgstr ""
 msgid "volunteer"
 msgstr "Voluntarios"
 
-#: views/user.inc:189 views/user.inc:250 views/volunteer.inc:175
+#: views/user.inc:189 views/user.inc:251 views/volunteer.inc:175
 #, php-format
 msgid "E-mail"
 msgstr "Correo electrónico"
 
-#: views/user.inc:193 views/user.inc:254 views/volunteer.inc:179
+#: views/user.inc:193 views/user.inc:255 views/volunteer.inc:179
 #, php-format
 msgid "City"
 msgstr "Ciudad"
 
-#: views/user.inc:197 views/user.inc:258 views/volunteer.inc:183
+#: views/user.inc:197 views/user.inc:259 views/volunteer.inc:183
 #, php-format
 msgid "State"
 msgstr "Autonomía"
 
-#: views/user.inc:201 views/user.inc:262 views/volunteer.inc:187
+#: views/user.inc:201 views/user.inc:263 views/volunteer.inc:187
 #, php-format
 msgid "Country"
 msgstr "País"
 
-#: views/user.inc:205 views/user.inc:266 views/volunteer.inc:191
+#: views/user.inc:205 views/user.inc:267 views/volunteer.inc:191
 #, php-format
 msgid "Postal code"
 msgstr "Código postal"
 
-#: views/user.inc:297 views/user.inc:427 views/user.inc:428 views/user.inc:434
-#: views/user.inc:435
+#: views/user.inc:272
+#, php-format
+msgid "New user"
+msgstr "Nuevo usuario"
+
+#: views/user.inc:299 views/user.inc:429 views/user.inc:430 views/user.inc:436
+#: views/user.inc:437
 msgid "Password empty"
 msgstr "Contraseña vacía"
 
-#: views/user.inc:302 views/user.inc:303 views/user.inc:462 views/user.inc:463
+#: views/user.inc:304 views/user.inc:305 views/user.inc:464 views/user.inc:465
 msgid "Password missmatch"
 msgstr "Contraseñas diferentes"
 
-#: views/user.inc:310 views/user.inc:311 views/user.inc:480 views/user.inc:481
+#: views/user.inc:312 views/user.inc:313 views/user.inc:482 views/user.inc:483
 #: views/volunteer.inc:302 views/volunteer.inc:303
 msgid "E-mail exists on the site"
 msgstr "El correo electrónico ya existe"
 
-#: views/user.inc:318 views/user.inc:319 views/user.inc:325
+#: views/user.inc:320 views/user.inc:321 views/user.inc:327
 #: views/volunteer.inc:310 views/volunteer.inc:311 views/volunteer.inc:317
 msgid "City empty"
 msgstr "Ciudad vacía"
 
-#: views/user.inc:324 views/volunteer.inc:316
+#: views/user.inc:326 views/volunteer.inc:316
 msgid "State empty"
 msgstr "Provincia vacía"
 
-#: views/user.inc:330 views/user.inc:331 views/volunteer.inc:322
+#: views/user.inc:332 views/user.inc:333 views/volunteer.inc:322
 #: views/volunteer.inc:323
 msgid "Country empty"
 msgstr "País vacío"
 
-#: views/user.inc:413 views/volunteer.inc:260
+#: views/user.inc:415 views/volunteer.inc:260
 msgid "User name empty"
 msgstr "Nombre de usuario vacío"
 
-#: views/user.inc:420 views/user.inc:421 views/volunteer.inc:267
+#: views/user.inc:422 views/user.inc:423 views/volunteer.inc:267
 #: views/volunteer.inc:268
 msgid "User name must be lowercase"
 msgstr "El nombre de usuario tiene que ir en minúsculas"
 
-#: views/user.inc:441 views/user.inc:442
+#: views/user.inc:443 views/user.inc:444
 msgid "Role empty"
 msgstr "Rol vacío"
 
-#: views/user.inc:448 views/user.inc:449
+#: views/user.inc:450 views/user.inc:451
 msgid "Supplier empty"
 msgstr "Proveedor vacío"
 
-#: views/user.inc:455 views/user.inc:456 views/volunteer.inc:283
+#: views/user.inc:457 views/user.inc:458 views/volunteer.inc:283
 #: views/volunteer.inc:284
 msgid "E-mail empty"
 msgstr "Correo electrónico vacío"
 
-#: views/user.inc:471 views/user.inc:472 views/volunteer.inc:293
+#: views/user.inc:473 views/user.inc:474 views/volunteer.inc:293
 #: views/volunteer.inc:294
 msgid "User name exists on the site"
 msgstr "El nombre de usuario ya existe"
@@ -892,6 +913,11 @@ msgstr ""
 msgid "Fill in the following form, to become a Jarifa user"
 msgstr ""
 "Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
+
+#: views/volunteer.inc:196
+#, php-format
+msgid "Next"
+msgstr "Siguiente"
 
 #: views/volunteer.inc:276 views/volunteer.inc:277
 msgid "Password mismatch"
