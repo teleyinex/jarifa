@@ -211,7 +211,8 @@ class HTMLuser extends html
                     <td align="center">'.gettext("Delete").'</td>
             <td align="center"><input name="delete" type="checkbox"></td></tr>');
         //printf ("</tr>");
-        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"
+            value="'.gettext("Submit changes").'"></td> </tr>');
         printf("</table>");
         printf("</form>");
         $this->footer(true);
@@ -267,7 +268,8 @@ class HTMLuser extends html
                 <td align="center"><input name="postalcode"></td>
                 </tr>
                  ');
-        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"
+            value="'.gettext("New user").'"></td> </tr>');
         printf('</table>');
         printf('</form>');
         $this->footer(true);

@@ -113,7 +113,8 @@ class HTMLproject extends html
         if ($obj->update) printf ('<td align="center"><input name="update" type="checkbox" CHECKED></td>');
         else printf ('<td align="center"><input name="update" type="checkbox"></td>');
         printf ("\n</tr>");
-        printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"
+            value="'.gettext("Submit changes").'"></td> </tr>');
         printf("</table>");
         printf("</form>");
         $this->footer(true);
@@ -146,7 +147,7 @@ class HTMLproject extends html
             <td align="center"><input size="2" maxlength="3" name="share" value="50"></td>
           </tr>
           <tr>
-          <td align="center" colspan="2"><input name="submit" type="submit"></td>
+          <td align="center" colspan="2"><input name="submit" type="submit" value="'.gettext("Add project").'"></td>
           </tr>
         </tbody>
     </table>

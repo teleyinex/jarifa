@@ -193,7 +193,7 @@ class HTMLvolunteer extends html
                 </tr>
 
                  ');
-        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit"></td> </tr>');
+        printf('<tr align="center"> <td colspan="3" rowspan="1"><input name="submit" type="submit" value="'.gettext("Next").'"></td> </tr>');
         printf('</table>');
         printf('</form>');
         printf('</div>');

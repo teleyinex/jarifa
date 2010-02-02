@@ -165,7 +165,7 @@ class HTMLhost extends html
         printf('<tr><td>'.gettext("Delete").'</td>');
         printf('<td align="center"><input name="delete" type=checkbox>');
         printf ("\n</tr>");
-        printf('<tr><td align="center" colspan="2"><input name="submit" type="submit"></td></tr>');
+        printf('<tr><td align="center" colspan="2"><input name="submit" type="submit" value="'.gettext("Submit changes").'"></td></tr>');
         printf('</table>');
         printf("</form>");
         $this->footer(true);

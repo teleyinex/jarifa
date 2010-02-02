@@ -62,7 +62,7 @@ class login_page extends html
            <tr>
            <td style="width: 117px; text-align: center; vertical-align: middle;"
  colspan="2" rowspan="1">
-           <input type="submit">
+           <input type="submit" value="'.gettext("Sign in").'">
            </td>
            </tr>
          </tbody>
