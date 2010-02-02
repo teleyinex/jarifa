@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 01, 2010 at 06:03 PM
+-- Generation Time: Feb 02, 2010 at 11:54 AM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.10
 
@@ -115,6 +115,20 @@ CREATE TABLE IF NOT EXISTS `stats_host` (
   `expavg_credit` float NOT NULL,
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stats_poll`
+--
+
+CREATE TABLE IF NOT EXISTS `stats_poll` (
+  `id` int(11) NOT NULL auto_increment,
+  `project` varchar(255) collate utf8_bin NOT NULL,
+  `date` date NOT NULL,
+  `votes` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

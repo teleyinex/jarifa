@@ -27,6 +27,10 @@ $two_projects = array();
 // Attach to clients only the two most voted projects (in case of a draft with several projects, choose one random)
 $projects = $poll->get_projects($order="votes");
 
+// Save stats in stats_poll table
+
+$poll->save_stats();
+
 // Rank of votes
 $votes = $poll->get_votes();
 

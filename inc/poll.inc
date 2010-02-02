@@ -84,6 +84,17 @@ class poll extends DBConn
       
       }
 
+      function save_stats()
+      {
+          $projects = $this->get_projects();
+          foreach($projects as $project)
+          {
+              $clause = '(project,`date`,votes) VALUES("'.$project->name.'",CURDATE(),'.$project->votes.')';
+              $this->db->insert('stats_poll',$clause);
+          }
+      
+      }
+
       function disable_projects($projects)
       {
           foreach ($projects as $project)
