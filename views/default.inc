@@ -173,7 +173,7 @@ class start_page extends html
     function poll_results()
     {
         // Shows the poll results if enabled
-        if ($this->conf->projects->poll='1')
+        if ($this->conf->projects->poll=='1')
         {
             $poll = new HTMLpoll($this->language,"",$this->db);
             printf('<div align="center">');
@@ -193,8 +193,10 @@ class start_page extends html
             {
                 $this->header(gettext("Welcome"). ' '.$_SESSION['userid']);
                 $this->menu($this->role,gettext("Choose an action from the left panel"));
-                //$this->empty_table();
-                $this->poll_results();
+                if ($this->conf->projects->poll=='0')
+                    $this->empty_table();
+                else
+                    $this->poll_results();
                 $this->footer(true);
                 break;
             }
