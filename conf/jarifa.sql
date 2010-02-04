@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 02, 2010 at 11:54 AM
+-- Generation Time: Feb 04, 2010 at 04:25 PM
 -- Server version: 5.0.51
 -- PHP Version: 5.2.4-2ubuntu5.10
 
@@ -38,6 +38,11 @@ CREATE TABLE IF NOT EXISTS `host` (
   KEY `poolid` (`poolid`),
   KEY `CPID` (`CPID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `host`
+--
+
 
 -- --------------------------------------------------------
 
@@ -80,6 +85,11 @@ CREATE TABLE IF NOT EXISTS `pool` (
   KEY `department` (`supplier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `pool`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -99,6 +109,11 @@ CREATE TABLE IF NOT EXISTS `project` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `project`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +131,11 @@ CREATE TABLE IF NOT EXISTS `stats_host` (
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Dumping data for table `stats_host`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -130,6 +150,11 @@ CREATE TABLE IF NOT EXISTS `stats_poll` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
+--
+-- Dumping data for table `stats_poll`
+--
+
+
 -- --------------------------------------------------------
 
 --
@@ -143,6 +168,11 @@ CREATE TABLE IF NOT EXISTS `stats_user` (
   `expavg_credit` float NOT NULL,
   `expavg_time` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `stats_user`
+--
+
 
 -- --------------------------------------------------------
 
@@ -169,3 +199,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `latitude`, `longitude`, `date`, `voted`) VALUES
+(1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', 0);
