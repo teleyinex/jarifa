@@ -157,16 +157,25 @@ class rpc
            $this->xml->appendChild($global_preferences);
            $element = $this->dom->createElement('mod_time',time());
            $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('run_if_user_active',(int)!((boolean)$prefs->suspend_if_user_active));
-           $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('suspend_while_on_batteries',$prefs->suspend_while_on_batteries);
-           $global_preferences->appendChild($element);
+           if ($prefs->suspend_while_on_batteries=='0')
+           {
+            $element = $this->dom->createElement('run_on_batteries');
+            $global_preferences->appendChild($element);
+           }
+           if ($prefs->suspend_if_user_active=='0')
+           {
+            $element = $this->dom->createElement('run_if_user_active');
+            $global_preferences->appendChild($element);
+           }
            $element = $this->dom->createElement('idle_time_to_run',$prefs->idle_time_to_run);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('suspend_if_no_recent_input',$prefs->suspend_if_no_recent_input);
            $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('leave_apps_in_memory',$prefs->leave_apps_in_memory);
-           $global_preferences->appendChild($element);
+           if ($prefs->leave_apps_in_memory=='1')
+           {
+            $element = $this->dom->createElement('leave_apps_in_memory');
+            $global_preferences->appendChild($element);
+           }
            $element = $this->dom->createElement('cpu_scheduling_period_minutes',$prefs->cpu_scheduling_period_minutes);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('max_cpus',$prefs->max_cpus);
@@ -193,10 +202,16 @@ class rpc
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('work_buf_additional_days',$prefs->work_buf_additional_days);
            $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('confirm_before_connecting',$prefs->confirm_before_connecting);
-           $global_preferences->appendChild($element);
-           $element = $this->dom->createElement('hangup_if_dialed',$prefs->hangup_if_dialed);
-           $global_preferences->appendChild($element);
+           if ($prefs->confirm_before_connecting=='1')
+           {
+            $element = $this->dom->createElement('confirm_before_connecting');
+            $global_preferences->appendChild($element);
+           }
+           if ($prefs->hangup_if_dialed=='1')
+           {
+            $element = $this->dom->createElement('hangup_if_dialed');
+            $global_preferences->appendChild($element);
+           }
            $element = $this->dom->createElement('max_bytes_sec_up',$prefs->max_bytes_sec_up*1024);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('max_bytes_sec_down',$prefs->max_bytes_sec_down*1024);
@@ -204,8 +219,11 @@ class rpc
            $element = $this->dom->createElement('net_start_hour',$prefs->net_start_hour);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('net_end_hour',$prefs->net_end_hour);
-           $element = $this->dom->createElement('dont_verify_images',$prefs->dont_verify_images);
-           $global_preferences->appendChild($element);
+           if ($prefs->dont_verify_images=='1')
+           {
+            $element = $this->dom->createElement('dont_verify_images');
+            $global_preferences->appendChild($element);
+           }
            $element = $this->dom->createElement('start_hour',$prefs->start_hour);
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('end_hour',$prefs->end_hour);
