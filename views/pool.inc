@@ -382,8 +382,8 @@ class HTMLpool extends html
                     <td style="text-align: right;">'.gettext("Disconnect when done?<br>(matters only if you have a modem, ISDN or VPN
                     connection)").'</td>');
         if ($obj->hangup_if_dialed == 1)
-            printf('<td>'.gettext("Yes").'<input type=radio name="hangup_if_dialed" value="1">'
-                         .gettext("No").'<input  type=radio name="hangup_if_dialed" value="0" checked></td></tr>');
+            printf('<td>'.gettext("Yes").'<input type=radio name="hangup_if_dialed" value="1" checked>'
+                         .gettext("No").'<input  type=radio name="hangup_if_dialed" value="0"tr>');
         else
             printf('<td>'.gettext("Yes").'<input type=radio name="hangup_if_dialed" value="1">'
                          .gettext("No").'<input  type=radio name="hangup_if_dialed" value="0" checked></td></tr>');
