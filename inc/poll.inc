@@ -46,6 +46,7 @@ class poll extends DBConn
       function load_config()
       {
           $conf = simplexml_load_file("conf/jarifa.conf");
+          $this->conf = $conf;
           $this->db_user = $conf->db->user;
           $this->db_password = $conf->db->password;
           $this->db_host = $conf->db->host;

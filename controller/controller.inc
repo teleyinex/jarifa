@@ -228,8 +228,10 @@ class controller extends html
                     case 'in_volunteer':
                     {
                           if ($this->volunteer->insert($_POST,&$err_msg))
+                          {
                             // If everything went OK, thank the user
                             $this->view("volunteer",null,"thanks");
+                          }
                           else
                             // Else show an error page
                             $this->view("error",null,null,$err_msg);

@@ -19,6 +19,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 require_once("inc/poll.inc");
+require_once("inc/identica.inc");
 
 $poll = new poll();
 
@@ -58,6 +59,14 @@ for ($i=0;$i<2;$i++)
 $poll->disable_projects($projects);
 // Then attach only the two most voted
 $poll->enable_projects($two_projects);
+
+// If identica is enabled, post the two most voted projects to Identi.ca
+if ($poll->conf->xpath("/conf/identica"))
+{
+    $Identica = new identica($poll->conf->account_manager->language);
+    $Identica->update_status(gettext("We are now collaborating with the following research projects: #").strtolower(str_replace("@","at",$two_projects[0]->name)).gettext(" and #").strtolower(str_replace("@","at",$two_projects[1]->name)));
+
+}
 
 // Reset the number of votes that each project has received, and allow users to vote again
 $poll->reset_votes();

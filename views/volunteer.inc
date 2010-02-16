@@ -20,6 +20,7 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 
 require_once("inc/html.inc");
 require_once("inc/map.inc");
+require_once("inc/identica.inc");
 
 class HTMLvolunteer extends html
 {
@@ -49,6 +50,7 @@ class HTMLvolunteer extends html
     function load_config()
     {
         $conf = simplexml_load_file("conf/jarifa.conf");
+        $this->conf = $conf;
         $this->logo = $conf->account_manager->logo;
         $this->db_user = $conf->db->user;
         $this->db_password = $conf->db->password;
@@ -354,6 +356,12 @@ class HTMLvolunteer extends html
                     $query = '(name,supplier) values ("default","'.$values['supplier'].'")';
                     return($this->db->insert('pool',$query));
                 }
+            }
+            // If identica is enabled, post the two most voted projects to Identi.ca
+            if ($this->conf->xpath("/conf/identica"))
+            {
+                $Identica = new identica($this->language);
+                $Identica->update_status(gettext("A new user is collaborating with us and #science: ").$values['name']);
             }
             return($res);
           }

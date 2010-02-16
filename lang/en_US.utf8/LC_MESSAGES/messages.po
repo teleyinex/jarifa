@@ -1,357 +1,344 @@
-# Jarifa i18n file
-# Copyright 2008 Daniel Lombraña González, David P. Anderson, Francisco Fernández de Vega
-#
-# This file is part of Jarifa.
-#
-# Jarifa is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Jarifa is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-02 11:19+0100\n"
-"PO-Revision-Date: 2009-01-27 16:53+0100\n"
-"Last-Translator: Daniel Lombraña González <daniellg@unex.es>\n"
-"Language-Team: Spanish <daniellg@unex.es>\n"
+"POT-Creation-Date: 2010-02-16 18:19+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: views/default.inc:65
 #, php-format
 msgid "Sign in"
-msgstr "Iniciar sesión"
+msgstr ""
 
 #: views/default.inc:71 views/ranking.inc:154
 #, php-format
 msgid "User"
-msgstr "Usuario"
+msgstr ""
 
 #: views/default.inc:71 views/user.inc:146 views/user.inc:230
-#: views/volunteer.inc:111 views/volunteer.inc:167
+#: views/volunteer.inc:113 views/volunteer.inc:169
 #, php-format
 msgid "Password"
-msgstr "Contraseña"
+msgstr ""
 
 #: views/default.inc:74
 #, php-format
 msgid "Mininum BOINC core client version: "
-msgstr "Versión mínima del cliente BOINC: "
+msgstr ""
 
 #: views/default.inc:78
 #, php-format
 msgid "If you want to collaborate with us"
-msgstr "Si quiere colaborar con nosotros"
+msgstr ""
 
 #: views/default.inc:78
 #, php-format
 msgid "Join us"
-msgstr "Únase"
+msgstr ""
 
 #: views/default.inc:82 views/default.inc:89 views/default.inc:98
 #, php-format
 msgid "Powered by"
-msgstr "Colaboran"
+msgstr ""
 
 #: views/default.inc:82 views/map.inc:97
 #, php-format
 msgid "Volunteers"
-msgstr "Voluntarios"
+msgstr ""
 
 #: views/default.inc:83 views/pool.inc:253 views/pool.inc:413
 #: views/pool.inc:504 views/pool.inc:649 views/user.inc:422
 #, php-format
 msgid "and"
-msgstr "y"
+msgstr ""
 
 #: views/default.inc:83 views/default.inc:89 views/default.inc:98
 #: views/map.inc:101 views/map.inc:113
 #, php-format
 msgid "Suppliers"
-msgstr "Proveedores"
+msgstr ""
 
 #: views/default.inc:84 views/default.inc:90 views/default.inc:99
 #, php-format
 msgid "Computers:"
-msgstr "PCs:"
+msgstr ""
 
 #: views/default.inc:93
 #, php-format
 msgid "Best volunteers"
-msgstr "Mejores voluntarios"
+msgstr ""
 
 #: views/default.inc:101
 #, php-format
 msgid "Map"
-msgstr "Mapa"
+msgstr ""
 
 #: views/default.inc:122
 msgid "ERROR"
-msgstr "ERROR"
+msgstr ""
 
 #: views/default.inc:123
 msgid "An error has occurred"
-msgstr "Ha ocurrido un fallo"
+msgstr ""
 
-#: views/default.inc:194 views/default.inc:203 views/default.inc:211
-#: views/default.inc:219 views/host.inc:70 views/pool.inc:101
+#: views/default.inc:194 views/default.inc:205 views/default.inc:213
+#: views/default.inc:221 views/host.inc:70 views/pool.inc:101
 #: views/project.inc:67 views/user.inc:84
 msgid "Welcome"
-msgstr "Bienvenido"
+msgstr ""
 
-#: views/default.inc:195 views/default.inc:204 views/default.inc:212
-#: views/default.inc:220
+#: views/default.inc:195 views/default.inc:206 views/default.inc:214
+#: views/default.inc:222
 msgid "Choose an action from the left panel"
-msgstr "Escoja una acción del panel izquierdo"
+msgstr ""
 
 #: views/host.inc:60 views/pool.inc:124
 #, php-format
 msgid "Hosts"
-msgstr "Equipos"
+msgstr ""
 
 #: views/host.inc:61
 msgid "Editing host"
-msgstr "Editando equipo"
+msgstr ""
 
 #: views/host.inc:71
 msgid "Available Hosts"
-msgstr "Equipos disponibles"
+msgstr ""
 
 #: views/host.inc:85 views/host.inc:88
 #, php-format
 msgid "Host"
-msgstr "Equipos"
+msgstr ""
 
 #: views/host.inc:85 views/host.inc:88
 #, php-format
 msgid "Pool"
-msgstr "Grupo"
+msgstr ""
 
 #: views/host.inc:86 views/host.inc:120 views/pool.inc:132 views/pool.inc:191
 #: views/pool.inc:457 views/user.inc:121 views/user.inc:171 views/user.inc:183
-#: views/user.inc:247 views/volunteer.inc:87 views/volunteer.inc:127
+#: views/user.inc:247 views/volunteer.inc:89 views/volunteer.inc:129
 #, php-format
 msgid "Supplier"
-msgstr "Proveedor"
+msgstr ""
 
 #: views/host.inc:103
 #, php-format
 msgid "Without Pool"
-msgstr "Sin grupo"
+msgstr ""
 
 #: views/host.inc:116
 #, php-format
 msgid "Features"
-msgstr "Características"
+msgstr ""
 
 #: views/host.inc:132 views/pool.inc:83 views/pool.inc:93
 #, php-format
 msgid "Pools"
-msgstr "Grupos"
+msgstr ""
 
 #: views/host.inc:141
 #, php-format
 msgid "Venue"
-msgstr "Localización"
+msgstr ""
 
 #: views/host.inc:143
 #, php-format
 msgid "Number of CPUS"
-msgstr "Número de CPUs"
+msgstr ""
 
 #: views/host.inc:145
 #, php-format
 msgid "Processor Vendor"
-msgstr "Marca del procesador"
+msgstr ""
 
 #: views/host.inc:147
 #, php-format
 msgid "Processor Model"
-msgstr "Modelo del procesador"
+msgstr ""
 
 #: views/host.inc:149
 #, php-format
 msgid "FLOPS"
-msgstr "FLOPS"
+msgstr ""
 
 #: views/host.inc:151
 #, php-format
 msgid "IOPS"
-msgstr "IOPS"
+msgstr ""
 
 #: views/host.inc:153
 #, php-format
 msgid "OS"
-msgstr "SO"
+msgstr ""
 
 #: views/host.inc:158 views/stat.inc:53
 #, php-format
 msgid "Total Credit"
-msgstr "Crédito total"
+msgstr ""
 
 #: views/host.inc:160
 #, php-format
 msgid "RAC"
-msgstr "RAC"
+msgstr ""
 
 #: views/host.inc:163
 #, php-format
 msgid "OS Version"
-msgstr "Versión del SO"
+msgstr ""
 
 #: views/host.inc:165 views/pool.inc:433 views/user.inc:211
-#: views/volunteer.inc:131
+#: views/volunteer.inc:133
 #, php-format
 msgid "Delete"
-msgstr "Borrar"
+msgstr ""
 
 #: views/host.inc:168 views/pool.inc:436 views/project.inc:117
 #: views/user.inc:215
 #, php-format
 msgid "Submit changes"
-msgstr "Enviar cambios"
+msgstr ""
 
 #: views/map.inc:73
 msgid "Volunteers and Suppliers on the map"
-msgstr "Red de voluntarios y proveedores"
+msgstr ""
 
 #: views/map.inc:75
 msgid "Suppliers on the map"
-msgstr "Red de proveedores"
+msgstr ""
 
 #: views/poll.inc:58
 msgid "Vote for the most interesting project"
-msgstr "Vote el proyecto más interesante"
+msgstr ""
 
 #: views/poll.inc:74
 #, php-format
 msgid "Vote for the most interesting project:"
-msgstr "Vote el proyecto más interesante"
+msgstr ""
 
 #: views/poll.inc:82
 #, php-format
 msgid "Vote"
-msgstr "Votar"
+msgstr ""
 
 #: views/poll.inc:96
 #, php-format
 msgid "Most voted projects"
-msgstr "Proyectos más votados"
+msgstr ""
 
 #: views/pool.inc:84
 msgid "Editing pool"
-msgstr "Editando grupo"
+msgstr ""
 
 #: views/pool.inc:94
 msgid "Create a new pool"
-msgstr "Crear un nuevo grupo"
+msgstr ""
 
 #: views/pool.inc:102
 msgid "Available Pools"
-msgstr "Grupos disponibles"
+msgstr ""
 
 #: views/pool.inc:119
 #, php-format
 msgid "Time"
-msgstr "Hora"
+msgstr ""
 
 #: views/pool.inc:119
 #, php-format
 msgid "Network"
-msgstr "Red"
+msgstr ""
 
 #: views/pool.inc:120
 #, php-format
 msgid "Hard Disk Usage"
-msgstr "Uso del disco duro"
+msgstr ""
 
 #: views/pool.inc:121
 #, php-format
 msgid "Memory Usage"
-msgstr "Uso de memoria"
+msgstr ""
 
 #: views/pool.inc:124 views/project.inc:79 views/project.inc:105
 #: views/project.inc:130
 #, php-format
 msgid "Name"
-msgstr "Nombre"
+msgstr ""
 
 #: views/pool.inc:125
 #, php-format
 msgid "Run Always"
-msgstr "Ejecutar siempre"
+msgstr ""
 
 #: views/pool.inc:126
 #, php-format
 msgid "Start"
-msgstr "Inicio"
+msgstr ""
 
 #: views/pool.inc:126
 #, php-format
 msgid "End"
-msgstr "Fin"
+msgstr ""
 
 #: views/pool.inc:127
 #, php-format
 msgid "Upload"
-msgstr "Subida"
+msgstr ""
 
 #: views/pool.inc:127
 #, php-format
 msgid "Download"
-msgstr "Descarga"
+msgstr ""
 
 #: views/pool.inc:128
 #, php-format
 msgid "Max Space"
-msgstr "Espacio máximo"
+msgstr ""
 
 #: views/pool.inc:128
 #, php-format
 msgid "Left Space"
-msgstr "Espacio remanente"
+msgstr ""
 
 #: views/pool.inc:129
 #, php-format
 msgid "Max Active"
-msgstr "Activos Max."
+msgstr ""
 
 #: views/pool.inc:129
 #, php-format
 msgid "Max Idle"
-msgstr "Máximo inactivo"
+msgstr ""
 
-#: views/pool.inc:161
+#: views/pool.inc:161 views/pool.inc:662
 #, php-format
 msgid "New Pool"
-msgstr "Nuevo grupo"
+msgstr ""
 
 #: views/pool.inc:171 views/pool.inc:445
 #, php-format
 msgid "Pool Features"
-msgstr "Características del grupo"
+msgstr ""
 
 #: views/pool.inc:176 views/pool.inc:182 views/pool.inc:449
 #, php-format
 msgid "Pool Name"
-msgstr "Nombre del grupo"
+msgstr ""
 
 #: views/pool.inc:208 views/pool.inc:471
 #, php-format
 msgid "Processor usage"
-msgstr "Utilización del procesador"
+msgstr ""
 
 #: views/pool.inc:212 views/pool.inc:475
 #, php-format
@@ -359,8 +346,6 @@ msgid ""
 "Suspend work while computer is on battery power?<br>(matters\n"
 "                    only for portable computers)"
 msgstr ""
-"Suspender el trabajo cuando el PC está con la batería?<br>(solo\n"
-"                    para portátiles)"
 
 #: views/pool.inc:215 views/pool.inc:220 views/pool.inc:226 views/pool.inc:230
 #: views/pool.inc:269 views/pool.inc:272 views/pool.inc:374 views/pool.inc:377
@@ -370,7 +355,7 @@ msgstr ""
 #: views/project.inc:92
 #, php-format
 msgid "Yes"
-msgstr "Sí"
+msgstr ""
 
 #: views/pool.inc:216 views/pool.inc:221 views/pool.inc:227 views/pool.inc:231
 #: views/pool.inc:270 views/pool.inc:273 views/pool.inc:375 views/pool.inc:378
@@ -380,23 +365,23 @@ msgstr "Sí"
 #: views/project.inc:93
 #, php-format
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: views/pool.inc:224 views/pool.inc:482
 #, php-format
 msgid "Suspend work while computer is in use?"
-msgstr "¿Suspender trabajo cuando el PC está en uso?"
+msgstr ""
 
 #: views/pool.inc:235 views/pool.inc:487
 #, php-format
 msgid "'In use' means mouse/keyboard activity in last"
-msgstr "'En uso' significa actividad en teclado/raton en los últimos"
+msgstr ""
 
 #: views/pool.inc:236 views/pool.inc:242 views/pool.inc:278 views/pool.inc:488
 #: views/pool.inc:494 views/pool.inc:523
 #, php-format
 msgid "minutes"
-msgstr "minutos"
+msgstr ""
 
 #: views/pool.inc:240 views/pool.inc:492
 #, php-format
@@ -405,15 +390,11 @@ msgid ""
 "power mode on some computers)\n"
 "<br>Enforced by version 5.10.14+"
 msgstr ""
-"Suspender trabajo si no actividad de ratón/teclado en los últimos<br>"
-"(Necesario introducirbajo consumo en algunos PCs)\n"
-"<br>Versión 5.10.14+"
 
 #: views/pool.inc:246 views/pool.inc:498
 #, php-format
 msgid "Do work only between the hours of <br>(no restriction if equal)"
 msgstr ""
-"Realizar trabajo solo entre las horas <br>(sin restricción si son iguales)"
 
 #: views/pool.inc:266 views/pool.inc:516
 #, php-format
@@ -421,59 +402,53 @@ msgid ""
 "Leave applications in memory while suspended?<br>(suspended\n"
 "                    applications will consume swap space if 'yes')"
 msgstr ""
-"¿Dejar aplicaciones en memorias cuando se suspende la ejecución?<br>(las "
-"aplicaciones\n"
-"                    pausadas consumirán espacio de intercambio en caso "
-"afirmativo)"
 
 #: views/pool.inc:276 views/pool.inc:521
 #, php-format
 msgid "Switch between applications every <br>(recommended: 60 minutes)"
-msgstr "Cambiar entre aplicaciones cada <br> (recomendado: 60 minutos)"
+msgstr ""
 
 #: views/pool.inc:282 views/pool.inc:527
 #, php-format
 msgid "On multiprocessors, use at most<br>Enforced by version 5.10 and earlier"
-msgstr "En multiprocesadores, utilizar como mucho<br>Versión 5.10 y anteriores"
+msgstr ""
 
 #: views/pool.inc:283 views/pool.inc:528
 #, php-format
 msgid "processors"
-msgstr "procesadores"
+msgstr ""
 
 #: views/pool.inc:287 views/pool.inc:532
 #, php-format
 msgid "On multiprocessors, use at most<br> Enforced by version 6.1+"
-msgstr "En multiprocesadores, utilizar como mucho<br> Versión 6.1+"
+msgstr ""
 
 #: views/pool.inc:288 views/pool.inc:533
 #, php-format
 msgid "%% of the processors"
-msgstr "%% de los procesadores"
+msgstr ""
 
 #: views/pool.inc:292 views/pool.inc:537
 #, php-format
 msgid ""
 "Use at most <br>(Can be used to reduce CPU heat)<br>Enforced by version 5.6+"
 msgstr ""
-"Utilizar como mucho <br>(Puede utilizarse para reducir el calor de la CPU)"
-"<br>Versión 5.6+)"
 
 #: views/pool.inc:293 views/pool.inc:538
 #, php-format
 msgid "percent of CPU time"
-msgstr "porcentaje del tiempo de CPU"
+msgstr ""
 
 #: views/pool.inc:298 views/pool.inc:543
 #, php-format
 msgid "Disk and memory usage"
-msgstr "Disco y uso de memoria"
+msgstr ""
 
 #: views/pool.inc:304 views/pool.inc:316 views/pool.inc:329 views/pool.inc:549
 #: views/pool.inc:561 views/pool.inc:574
 #, php-format
 msgid "Use at most"
-msgstr "Utilizar como mucho"
+msgstr ""
 
 #: views/pool.inc:305 views/pool.inc:550
 #, php-format
@@ -483,12 +458,12 @@ msgstr ""
 #: views/pool.inc:310 views/pool.inc:555
 #, php-format
 msgid "Leave at least<br>(Values smaller than 0.001 are ignored)"
-msgstr "Dejar al menos<br>(Valores menores que 0.001 son ignorados)"
+msgstr ""
 
 #: views/pool.inc:311 views/pool.inc:556
 #, php-format
 msgid "GBytes free"
-msgstr "GBytes libres"
+msgstr ""
 
 #: views/pool.inc:317 views/pool.inc:562
 #, php-format
@@ -496,18 +471,16 @@ msgid ""
 "%% of total disk\n"
 "                    space"
 msgstr ""
-"%% del total del disco\n"
-"                    espacio"
 
 #: views/pool.inc:323 views/pool.inc:568
 #, php-format
 msgid "Write to disk at most every"
-msgstr "Escribir a disco como mucho cada"
+msgstr ""
 
 #: views/pool.inc:324 views/pool.inc:569
 #, php-format
 msgid "seconds"
-msgstr "segundos"
+msgstr ""
 
 #: views/pool.inc:330 views/pool.inc:575
 #, php-format
@@ -515,13 +488,11 @@ msgid ""
 "%% of page file (swap\n"
 "                    space)"
 msgstr ""
-"%% de espacio de págian (memoria\n"
-"                    intercambio)"
 
 #: views/pool.inc:336 views/pool.inc:343 views/pool.inc:581 views/pool.inc:588
 #, php-format
 msgid "Use at most<br>Enforced by version 5.8+"
-msgstr "Utilizar como mucho<br>Versión 5.8+"
+msgstr ""
 
 #: views/pool.inc:337 views/pool.inc:582
 #, php-format
@@ -529,8 +500,6 @@ msgid ""
 "%% of memory\n"
 "                    when computer is in use"
 msgstr ""
-"%% de memoria\n"
-"                    cuando el PC está en uso"
 
 #: views/pool.inc:344 views/pool.inc:589
 #, php-format
@@ -538,13 +507,11 @@ msgid ""
 "%% of memory\n"
 "                    when computer is not in use"
 msgstr ""
-"%% de memoria\n"
-"                   cuando el PC no está en uso"
 
 #: views/pool.inc:350 views/pool.inc:595
 #, php-format
 msgid "Network usage"
-msgstr "Utilización de red"
+msgstr ""
 
 #: views/pool.inc:355 views/pool.inc:600
 #, php-format
@@ -554,19 +521,16 @@ msgid ""
 "                    connected.<br>BOINC will try to maintain at least this "
 "much work.)"
 msgstr ""
-"El PC se conecta a Internet cada<br>(Dejar en blanco o 0 si se conecta\n"
-"                   permanentemente. BOINC intentará obtener al menos esta "
-"cantidad de trabajo.)"
 
 #: views/pool.inc:357 views/pool.inc:364 views/pool.inc:602 views/pool.inc:609
 #, php-format
 msgid "days"
-msgstr "días"
+msgstr ""
 
 #: views/pool.inc:362 views/pool.inc:607
 #, php-format
 msgid "Maintain enough work for an additional<br>Enforced by version 5.10+"
-msgstr "Mantener trabajo suficiente para<br>Versión 5.10+"
+msgstr ""
 
 #: views/pool.inc:370 views/pool.inc:615
 #, php-format
@@ -575,8 +539,6 @@ msgid ""
 "ISDN or VPN\n"
 "                    connection)"
 msgstr ""
-"¿Preguntar antes de contectarse a Internet?<br>(útil cuando hay un modem, o "
-"conexión ISDN o VPN)"
 
 #: views/pool.inc:382 views/pool.inc:623
 #, php-format
@@ -584,13 +546,11 @@ msgid ""
 "Disconnect when done?<br>(matters only if you have a modem, ISDN or VPN\n"
 "                    connection)"
 msgstr ""
-" ¿Desconectar al finalizar?<br>(útil cuando hay un modem, o conexión ISDN o "
-"VPN)"
 
 #: views/pool.inc:393 views/pool.inc:630
 #, php-format
 msgid "Maximum download rate:"
-msgstr "Máximo ancho de banda de descarga"
+msgstr ""
 
 #: views/pool.inc:394 views/pool.inc:400 views/pool.inc:631 views/pool.inc:637
 #, php-format
@@ -600,7 +560,7 @@ msgstr ""
 #: views/pool.inc:399 views/pool.inc:636
 #, php-format
 msgid "Maximum upload rate:"
-msgstr "Máximo ancho de banda de subida"
+msgstr ""
 
 #: views/pool.inc:405 views/pool.inc:642
 #, php-format
@@ -609,9 +569,6 @@ msgid ""
 "restriction if\n"
 "                    equal)"
 msgstr ""
-"Utilizar la red solo entre las horas<br>Versión 4.46+<br>(sin restricción "
-"si\n"
-"                   igual)"
 
 #: views/pool.inc:423 views/pool.inc:658
 #, php-format
@@ -621,51 +578,47 @@ msgid ""
 "                    files (UMTS does this, for example).<br>Skipping "
 "verification reduces the security of BOINC."
 msgstr ""
-"¿Saltar verificación de imagen?<br>(Marque sí, SOLO si su ISP modifica "
-"imágenes\n"
-"(UMTS hace esto, por ejemplo).<br>Evitar la verificación reduce la seguridad "
-"de BOINC"
 
 #: views/project.inc:51 views/project.inc:60
 msgid "Projects"
-msgstr "Proyectos"
+msgstr ""
 
 #: views/project.inc:52
 msgid "Editing project"
-msgstr "Editando proyecto"
+msgstr ""
 
 #: views/project.inc:61
 msgid "Insert a new project"
-msgstr "Insertar un nuevo proyecto"
+msgstr ""
 
 #: views/project.inc:68
 msgid "Available BOINC projects"
-msgstr "Proyectos BOINC disponibles"
+msgstr ""
 
 #: views/project.inc:80 views/project.inc:105 views/project.inc:146
 #, php-format
 msgid "Share"
-msgstr "Compartir"
+msgstr ""
 
 #: views/project.inc:81
 #, php-format
 msgid "Active"
-msgstr "Activo"
+msgstr ""
 
 #: views/project.inc:82 views/project.inc:106
 #, php-format
 msgid "Update"
-msgstr "Actualizar"
+msgstr ""
 
 #: views/project.inc:97
 #, php-format
 msgid "New Project"
-msgstr "Nuevo proyecto"
+msgstr ""
 
 #: views/project.inc:106
 #, php-format
 msgid "Detach"
-msgstr "Quitar"
+msgstr ""
 
 #: views/project.inc:134
 #, php-format
@@ -675,49 +628,49 @@ msgstr ""
 #: views/project.inc:138
 #, php-format
 msgid "Signature"
-msgstr "Firma"
+msgstr ""
 
 #: views/project.inc:142
 #, php-format
 msgid "Invitation code"
-msgstr "Código de Invitación"
+msgstr ""
 
 #: views/project.inc:150
 #, php-format
 msgid "Add project"
-msgstr "Añadir proyecto"
+msgstr ""
 
 #: views/ranking.inc:51
 msgid "Ranking of suppliers"
-msgstr "Clasificación de proveedores"
+msgstr ""
 
 #: views/ranking.inc:58
 msgid "Ranking of volunteers"
-msgstr "Clasificación de voluntarios"
+msgstr ""
 
 #: views/ranking.inc:70
 #, php-format
 msgid "Volunteer"
-msgstr "Voluntarios"
+msgstr ""
 
 #: views/ranking.inc:70
 #, php-format
 msgid "Credit"
-msgstr "Crédito total"
+msgstr ""
 
 #: views/ranking.inc:154
 #, php-format
 msgid "Position"
-msgstr "Posición"
+msgstr ""
 
 #: views/ranking.inc:154
 #, php-format
 msgid "Total credit"
-msgstr "Crédito total"
+msgstr ""
 
 #: views/stat.inc:52 views/stat.inc:61 views/stat.inc:70
 msgid "Statistics"
-msgstr "Estadísticas"
+msgstr ""
 
 #: views/stat.inc:62
 msgid "GFLOPS"
@@ -725,68 +678,68 @@ msgstr ""
 
 #: views/stat.inc:71
 msgid "Figures"
-msgstr "Imágenes"
+msgstr ""
 
 #: views/user.inc:57 views/user.inc:66 views/user.inc:74
 msgid "Users"
-msgstr "Usuarios"
+msgstr ""
 
 #: views/user.inc:58
 msgid "Editing user"
-msgstr "Editando usuario"
+msgstr ""
 
 #: views/user.inc:67
 msgid "Insert a new user"
-msgstr "Crear nuevo usuario"
+msgstr ""
 
 #: views/user.inc:75
 msgid "Found users"
-msgstr "Usuarios encontrados"
+msgstr ""
 
 #: views/user.inc:85
 msgid "Available users"
-msgstr "Usuarios disponibles"
+msgstr ""
 
 #: views/user.inc:97
 msgid "Search..."
-msgstr "Buscar..."
+msgstr ""
 
 #: views/user.inc:120 views/user.inc:142 views/user.inc:226
-#: views/volunteer.inc:86 views/volunteer.inc:107 views/volunteer.inc:163
+#: views/volunteer.inc:88 views/volunteer.inc:109 views/volunteer.inc:165
 #, php-format
 msgid "User ID"
-msgstr "Identificador de usuario"
+msgstr ""
 
 #: views/user.inc:120 views/user.inc:157 views/user.inc:179 views/user.inc:238
-#: views/volunteer.inc:86 views/volunteer.inc:115
+#: views/volunteer.inc:88 views/volunteer.inc:117
 #, php-format
 msgid "Role"
-msgstr "Rol"
+msgstr ""
 
-#: views/user.inc:133 views/volunteer.inc:98
+#: views/user.inc:133 views/volunteer.inc:100
 #, php-format
 msgid "New User"
-msgstr "Nuevo usuario"
+msgstr ""
 
-#: views/user.inc:150 views/user.inc:234 views/volunteer.inc:171
+#: views/user.inc:150 views/user.inc:234 views/volunteer.inc:173
 #, php-format
 msgid "Repeat Password"
-msgstr "Repita contraseña"
+msgstr ""
 
 #: views/user.inc:159 views/user.inc:160 views/user.inc:240
-#: views/volunteer.inc:117 views/volunteer.inc:118
+#: views/volunteer.inc:119 views/volunteer.inc:120
 #, php-format
 msgid "root"
 msgstr ""
 
 #: views/user.inc:161 views/user.inc:162 views/user.inc:241
-#: views/volunteer.inc:119 views/volunteer.inc:120
+#: views/volunteer.inc:121 views/volunteer.inc:122
 #, php-format
 msgid "supplier"
-msgstr "proveedor"
+msgstr ""
 
 #: views/user.inc:163 views/user.inc:164 views/user.inc:242
-#: views/volunteer.inc:121 views/volunteer.inc:122
+#: views/volunteer.inc:123 views/volunteer.inc:124
 #, php-format
 msgid "allocator"
 msgstr ""
@@ -794,143 +747,138 @@ msgstr ""
 #: views/user.inc:165 views/user.inc:166
 #, php-format
 msgid "volunteer"
-msgstr "Voluntarios"
+msgstr ""
 
-#: views/user.inc:189 views/user.inc:251 views/volunteer.inc:175
+#: views/user.inc:189 views/user.inc:251 views/volunteer.inc:177
 #, php-format
 msgid "E-mail"
-msgstr "Correo electrónico"
+msgstr ""
 
-#: views/user.inc:193 views/user.inc:255 views/volunteer.inc:179
+#: views/user.inc:193 views/user.inc:255 views/volunteer.inc:181
 #, php-format
 msgid "City"
-msgstr "Ciudad"
+msgstr ""
 
-#: views/user.inc:197 views/user.inc:259 views/volunteer.inc:183
+#: views/user.inc:197 views/user.inc:259 views/volunteer.inc:185
 #, php-format
 msgid "State"
-msgstr "Autonomía"
+msgstr ""
 
-#: views/user.inc:201 views/user.inc:263 views/volunteer.inc:187
+#: views/user.inc:201 views/user.inc:263 views/volunteer.inc:189
 #, php-format
 msgid "Country"
-msgstr "País"
+msgstr ""
 
-#: views/user.inc:205 views/user.inc:267 views/volunteer.inc:191
+#: views/user.inc:205 views/user.inc:267 views/volunteer.inc:193
 #, php-format
 msgid "Postal code"
-msgstr "Código postal"
+msgstr ""
 
 #: views/user.inc:272
 #, php-format
 msgid "New user"
-msgstr "Nuevo usuario"
+msgstr ""
 
 #: views/user.inc:299 views/user.inc:429 views/user.inc:430 views/user.inc:436
 #: views/user.inc:437
 msgid "Password empty"
-msgstr "Contraseña vacía"
+msgstr ""
 
 #: views/user.inc:304 views/user.inc:305 views/user.inc:464 views/user.inc:465
 msgid "Password missmatch"
-msgstr "Contraseñas diferentes"
+msgstr ""
 
 #: views/user.inc:312 views/user.inc:313 views/user.inc:482 views/user.inc:483
-#: views/volunteer.inc:302 views/volunteer.inc:303
+#: views/volunteer.inc:304 views/volunteer.inc:305
 msgid "E-mail exists on the site"
-msgstr "El correo electrónico ya existe"
+msgstr ""
 
 #: views/user.inc:320 views/user.inc:321 views/user.inc:327
-#: views/volunteer.inc:310 views/volunteer.inc:311 views/volunteer.inc:317
+#: views/volunteer.inc:312 views/volunteer.inc:313 views/volunteer.inc:319
 msgid "City empty"
-msgstr "Ciudad vacía"
+msgstr ""
 
-#: views/user.inc:326 views/volunteer.inc:316
+#: views/user.inc:326 views/volunteer.inc:318
 msgid "State empty"
-msgstr "Provincia vacía"
+msgstr ""
 
-#: views/user.inc:332 views/user.inc:333 views/volunteer.inc:322
-#: views/volunteer.inc:323
+#: views/user.inc:332 views/user.inc:333 views/volunteer.inc:324
+#: views/volunteer.inc:325
 msgid "Country empty"
-msgstr "País vacío"
+msgstr ""
 
-#: views/user.inc:415 views/volunteer.inc:260
+#: views/user.inc:415 views/volunteer.inc:262
 msgid "User name empty"
-msgstr "Nombre de usuario vacío"
+msgstr ""
 
-#: views/user.inc:422 views/user.inc:423 views/volunteer.inc:267
-#: views/volunteer.inc:268
+#: views/user.inc:422 views/user.inc:423 views/volunteer.inc:269
+#: views/volunteer.inc:270
 msgid "User name must be lowercase"
-msgstr "El nombre de usuario tiene que ir en minúsculas"
+msgstr ""
 
 #: views/user.inc:443 views/user.inc:444
 msgid "Role empty"
-msgstr "Rol vacío"
+msgstr ""
 
 #: views/user.inc:450 views/user.inc:451
 msgid "Supplier empty"
-msgstr "Proveedor vacío"
+msgstr ""
 
-#: views/user.inc:457 views/user.inc:458 views/volunteer.inc:283
-#: views/volunteer.inc:284
+#: views/user.inc:457 views/user.inc:458 views/volunteer.inc:285
+#: views/volunteer.inc:286
 msgid "E-mail empty"
-msgstr "Correo electrónico vacío"
+msgstr ""
 
-#: views/user.inc:473 views/user.inc:474 views/volunteer.inc:293
-#: views/volunteer.inc:294
+#: views/user.inc:473 views/user.inc:474 views/volunteer.inc:295
+#: views/volunteer.inc:296
 msgid "User name exists on the site"
-msgstr "El nombre de usuario ya existe"
+msgstr ""
 
-#: views/volunteer.inc:67
+#: views/volunteer.inc:69
 msgid "You have joined Jarifa"
-msgstr "Ud. se ha unido a Jarifa"
+msgstr ""
 
-#: views/volunteer.inc:74
+#: views/volunteer.inc:76
 msgid "Welcome volunteer"
-msgstr "Bienvenido voluntario"
+msgstr ""
 
-#: views/volunteer.inc:142
+#: views/volunteer.inc:144
 #, php-format
 msgid ""
 "<h2>Thanks for joining Jarifa, now you should attach your BOINC client\n"
 "            to Jarifa.</h2>"
 msgstr ""
-"<h2>Gracias por unirse a Jarifa, ahora solo queda unir su cliente BOINC\n"
-"            a Jarifa.</h2>"
 
-#: views/volunteer.inc:144
+#: views/volunteer.inc:146
 #, php-format
 msgid ""
 "<h2>Checkout the following link for a <a href=http://jarifa.unex.es/wiki/"
 "wiki/QuickstartClient>quick start</a>\n"
 "            guide."
 msgstr ""
-"<h2>En el siguiente enlace encontrá una <a href=http://jarifa.unex.es/wiki/"
-"wiki/QuickstartClient>guía de configuración</a>"
 
-#: views/volunteer.inc:158
+#: views/volunteer.inc:160
 #, php-format
 msgid "Fill in the following form, to become a Jarifa user"
 msgstr ""
-"Rellene el siguiente formulario para convertirse en un usuario de Jarifa"
 
-#: views/volunteer.inc:196
+#: views/volunteer.inc:198
 #, php-format
 msgid "Next"
-msgstr "Siguiente"
+msgstr ""
 
-#: views/volunteer.inc:276 views/volunteer.inc:277
+#: views/volunteer.inc:278 views/volunteer.inc:279
 msgid "Password mismatch"
-msgstr "Contraseñas diferentes"
+msgstr ""
 
-#: php-format
-msgid "Profile"
-msgstr "Perfil"
+#: views/volunteer.inc:364
+msgid "A new user is collaborating with us and #science: "
+msgstr ""
 
-#: php-format
-msgid "Empty user name"
-msgstr "Nombre de usuario vacío"
+#: votes.php:67
+msgid "We are now collaborating with the following research projects: #"
+msgstr ""
 
-#: php-format
-msgid "Log Out"
-msgstr "Salir"
+#: votes.php:67
+msgid " and #"
+msgstr ""

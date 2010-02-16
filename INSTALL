@@ -10,6 +10,7 @@ The following requirements are needed in order to install OrgGrid:
     * Apache 2.0 or greater (SSL support it is recommended).
     * PHP 5.0 or greater.
     * PHP-GETTEXT.
+    * PHP-CURL for Identi.ca support.
     * PHP 5.0 for MySQL.
     * MySQL. 
 
