@@ -73,7 +73,7 @@ class HTMLvolunteer extends html
 
             default:
             {
-                $this->header(gettext("Welcome volunteer"));
+                $this->header(gettext("Welcome volunteer"),"js/geolocation.js");
                 $this->html_insert();
                 break;
             }

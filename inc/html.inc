@@ -44,7 +44,7 @@ class html
     }
 
 
-    function header($msg=null)
+    function header($msg=null,$js=null)
     {
         $title = gettext("Jarifa Server");
         printf('
@@ -56,9 +56,16 @@ class html
              <style type="text/css">
              @import url("views/style.css");
              </style>
-            </head> 
-            <body onload="initialize()" onunload="GUnload()">
-            <div id="container">
+                 </head>');
+             if ($js == null)
+             {
+                 print('<body onload="initialize()" onunload="GUnload()">');
+             }
+             else
+             {
+                 print('<script type="text/javascript" src="'.$js.'"></script>');
+             }
+            print('<div id="container">
             <div id="logo" align="center">
             <a href=index.php><img src="'.$this->logo.'" alt="logo" border="0"></a>
             </div>
