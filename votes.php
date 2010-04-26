@@ -32,30 +32,34 @@ $projects = $poll->get_projects($order="votes");
 
 $poll->save_stats();
 
-// Rank of votes
+// Rank of votes, zero position has the highest number of votes and last position the lowest one.
 $votes = $poll->get_votes();
 
-for ($i=0;$i<2;$i++)
+if (count($votes)>1) // If there are more than two different scores of votes
 {
-    if (count($votes)>1) // If there are more than two different scores of votes
-    {
-        $clause = "votes=".$votes[$i]->votes;
-    }
-    else // else
-        $clause = "votes=".$votes[0]->votes;
-
-    // Do not allow duplicates
-    if ($i >=1)
-        $clause = $clause . ' and name != "'.$two_projects[0]->name.'"';
-
-    $projects = $poll->get_projects("name",$clause);
-    shuffle($projects);
-    $two_projects[] = $projects[0];
+    for ($i=0;$i<2;$i++)
+        {
+            $clause = "votes=".$votes[$i]->votes;
+            $candidate_projects= $poll->get_projects("name",$clause);
+            // If there are more than one project with the same number of votes, we choose one of them randomly
+            shuffle($candidate_projects);
+            $two_projects[] = $candidate_projects[0];
+        }
+}
+else 
+{
+    $clause = "votes=".$votes[0]->votes;
+    $candidate_projects = $poll->get_projects("name",$clause);
+    // If there are more than one project with the same number of votes, we choose one of them randomly
+    shuffle($candidate_projects);
+    $two_projects[] = $candidate_projects[0];
+    $two_projects[] = $candidate_projects[1];
 }
 
 // Enable the two most voted projects
 
-// First, dettach all projects
+// First, dettach all the projects
+$projects = $poll->get_projects();
 $poll->disable_projects($projects);
 // Then attach only the two most voted
 $poll->enable_projects($two_projects);
