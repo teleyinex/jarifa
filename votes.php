@@ -23,56 +23,69 @@ require_once("inc/identica.inc");
 
 $poll = new poll();
 
-$two_projects = array();
+// First, create the hash of the password for attaching BOINC projects
 
-// Attach to clients only the two most voted projects (in case of a draft with several projects, choose one random)
-$projects = $poll->get_projects($order="votes");
+$passwd_hash = md5($poll->conf->projects->password."\n");
 
-// Save stats in stats_poll table
-
-$poll->save_stats();
-
-// Rank of votes, zero position has the highest number of votes and last position the lowest one.
-$votes = $poll->get_votes();
-
-if (count($votes)>1) // If there are more than two different scores of votes
+if ($_GET['auth']==$passwd_hash)
 {
-    for ($i=0;$i<2;$i++)
-        {
-            $clause = "votes=".$votes[$i]->votes;
-            $candidate_projects= $poll->get_projects("name",$clause);
-            // If there are more than one project with the same number of votes, we choose one of them randomly
-            shuffle($candidate_projects);
-            $two_projects[] = $candidate_projects[0];
-        }
+    
+    $two_projects = array();
+    
+    // Attach to clients only the two most voted projects (in case of a draft with several projects, choose one random)
+    $projects = $poll->get_projects($order="votes");
+    
+    // Save stats in stats_poll table
+    
+    $poll->save_stats();
+    
+    // Rank of votes, zero position has the highest number of votes and last position the lowest one.
+    $votes = $poll->get_votes();
+    
+    if (count($votes)>1) // If there are more than two different scores of votes
+    {
+        for ($i=0;$i<2;$i++)
+            {
+                $clause = "votes=".$votes[$i]->votes;
+                $candidate_projects= $poll->get_projects("name",$clause);
+                // If there are more than one project with the same number of votes, we choose one of them randomly
+                shuffle($candidate_projects);
+                $two_projects[] = $candidate_projects[0];
+            }
+    }
+    else 
+    {
+        $clause = "votes=".$votes[0]->votes;
+        $candidate_projects = $poll->get_projects("name",$clause);
+        // If there are more than one project with the same number of votes, we choose one of them randomly
+        shuffle($candidate_projects);
+        $two_projects[] = $candidate_projects[0];
+        $two_projects[] = $candidate_projects[1];
+    }
+    
+    // Enable the two most voted projects
+    
+    // First, dettach all the projects
+    $projects = $poll->get_projects();
+    $poll->disable_projects($projects);
+    // Then attach only the two most voted
+    $poll->enable_projects($two_projects);
+    
+    // If identica is enabled, post the two most voted projects to Identi.ca
+    if ($poll->conf->xpath("/conf/identica"))
+    {
+        $Identica = new identica($poll->conf->account_manager->language);
+        $Identica->update_status(gettext("We are now collaborating with the following research projects: #").strtolower(str_replace("@","at",$two_projects[0]->name)).gettext(" and #").strtolower(str_replace("@","at",$two_projects[1]->name)));
+    
+    }
+    
+    // Reset the number of votes that each project has received, and allow users to vote again
+    $poll->reset_votes();
 }
-else 
+else
 {
-    $clause = "votes=".$votes[0]->votes;
-    $candidate_projects = $poll->get_projects("name",$clause);
-    // If there are more than one project with the same number of votes, we choose one of them randomly
-    shuffle($candidate_projects);
-    $two_projects[] = $candidate_projects[0];
-    $two_projects[] = $candidate_projects[1];
+    // Print an error explaining the problem
+    printf(gettext("Password mismatch"));
 }
-
-// Enable the two most voted projects
-
-// First, dettach all the projects
-$projects = $poll->get_projects();
-$poll->disable_projects($projects);
-// Then attach only the two most voted
-$poll->enable_projects($two_projects);
-
-// If identica is enabled, post the two most voted projects to Identi.ca
-if ($poll->conf->xpath("/conf/identica"))
-{
-    $Identica = new identica($poll->conf->account_manager->language);
-    $Identica->update_status(gettext("We are now collaborating with the following research projects: #").strtolower(str_replace("@","at",$two_projects[0]->name)).gettext(" and #").strtolower(str_replace("@","at",$two_projects[1]->name)));
-
-}
-
-// Reset the number of votes that each project has received, and allow users to vote again
-$poll->reset_votes();
 
 ?>
