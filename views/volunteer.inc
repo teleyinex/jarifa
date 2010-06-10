@@ -150,6 +150,7 @@ class HTMLvolunteer extends html
 
     function html_insert()
     {
+        $spamField = 'site'.date("MwY").'3';
         printf('<div id="content">');
         printf('<form method="post" action="index.php?action=in_volunteer" name="user">');
         printf('<table border="1" align="center" cellpadding="4" class="form">');
@@ -192,6 +193,10 @@ class HTMLvolunteer extends html
                 <tr>
                 <td align="center">'.gettext("Postal code").'
                 <td align="center"><input name="postalcode"></td>
+                </tr>
+                <tr> 
+                <td align="center" class="invisible">'.gettext("Please, leave it empty").'
+                <td align="center" class="invisible"><input name="'.$spamField.'"></td>
                 </tr>
 
                  ');
@@ -253,120 +258,132 @@ class HTMLvolunteer extends html
 
       function insert($values,&$err_msg)
       {
-          $insert=True;
-          $err_msg=null;
-          $create_default_pool=False;
-          if (empty($values['name'])) 
+          $insert = True;
+          $err_msg = null;
+          $create_default_pool = False;
+          $spamField = 'site'.date("MwY").'3'; 
+          
+          // This field form should be empty, else it is a Spam bot and we do not check the other fields
+          if (!empty($values[$spamField]))
           {
-              $insert=False;
-              $err_msg=gettext("User name empty");
-          }
-          // Temporary fix for a bug on BOINC client when generating password hash. This will be removed in a future,
-          // allowing uppercase and lowercase letters on user name.
-          if (strtolower($values['name'])!=$values['name']) 
-          {
-              $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name must be lowercase");
-              else $err_msg=gettext("User name must be lowercase");
-          }
-          if (empty($values['password'])) $insert=False;
-          if (empty($values['password2'])) $insert=False;
-          // If passwords are different, give an error
-          if ($values['password']!=$values['password2']) 
-          {
-                $insert=False;
-                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Password mismatch");
-                else $err_msg=gettext("Password mismatch");
-          }
-
-          if (empty($values['email']))
-          {
-              $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail empty");
-              else $err_msg=gettext("E-mail empty");
-
-          }
-
-          // Exists the user name on the DB?
-          $check_username = $this->db->lookup_fields($this->table,$this->class,'*','name="'.$values['name'].'"');
-          if (!(empty($check_username)))
-          {
-                $insert=False;
-                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name exists on the site");
-                else $err_msg=gettext("User name exists on the site");
-          }
-
-          // Exists the e-mail on the DB?
-          $check_email = $this->db->lookup_fields($this->table,$this->class,'*','email="'.$values['email'].'"');
-          if (!(empty($check_email)))
-          {
-                $insert=False;
-                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail exists on the site");
-                else $err_msg=gettext("E-mail exists on the site");
-          }
-
-          // Check if it will be possible to add Latitude and Longitude
-          if (empty($values['city']))
-          {
-              $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("City empty");
-              else $err_msg=gettext("City empty");
-          }
-          if (empty($values['state']))
-          {
-              $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("State empty");
-              else $err_msg=gettext("City empty");
-          }
-          if (empty($values['country']))
-          {
-              $insert=False;
-              if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Country empty");
-              else $err_msg=gettext("Country empty");
-          }
-
-          if ($insert)
-          {
-              // Obtain the coordinates
-              // First we check if the address is stored on the DB
-              $address = $this->db->lookup_fields('user','user','*','city="'.$values['city'].'" and state="'.$values['state'].'" and country="'.$values['country'].'"');
-              if (empty($address))
-              {
-                  $coordinates = $this->map->coordinates($values['city'].'+'.$values['state'].'+'.$values['country']);
-              }
-              else
-              {
-                  $coordinates = array($address->latitude,$address->longitude);
-              }
-          }
-
-          $values['role'] = "volunteer";
-          $values['supplier'] = "Volunteer";
-          if ($insert)
-          {
-            $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
-            if (empty($pool)) $create_default_pool = True;
-            $query = '(name,password,role,supplier,supp_auth,email,city,state,country,postalcode,latitude,longitude,date) values ("'
-              .$values['name'].'","'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'","'.$values['email'].'","'.$values['city'].'","'.$values['state'].'","'.$values['country'].'","'.$values['postalcode'].'","'.$coordinates[0].'","'.$coordinates[1].'",CURDATE())';
-
-            $res = $this->db->insert($this->table, $query);
-            if ($res and $create_default_pool)
-            {
-                {
-                    $query = '(name,supplier) values ("default","'.$values['supplier'].'")';
-                    return($this->db->insert('pool',$query));
-                }
-            }
-            // If identica is enabled, post the two most voted projects to Identi.ca
-            if ($this->conf->xpath("/conf/identica"))
-            {
-                $Identica = new identica($this->language);
-                $Identica->update_status(gettext("A new user is collaborating with us and #science: ").$values['name']);
-            }
-            return($res);
+              $insert = False;
+              $err_msg = gettext("You are a Spam bot");
+          
           }
           else
-              return(False);
+          {
+            if (empty($values['name'])) 
+            {
+                $insert=False;
+                $err_msg=gettext("User name empty");
+            }
+            // Temporary fix for a bug on BOINC client when generating password hash. This will be removed in a future,
+            // allowing uppercase and lowercase letters on user name.
+            if (strtolower($values['name'])!=$values['name']) 
+            {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name must be lowercase");
+                else $err_msg=gettext("User name must be lowercase");
+            }
+            if (empty($values['password'])) $insert=False;
+            if (empty($values['password2'])) $insert=False;
+            // If passwords are different, give an error
+            if ($values['password']!=$values['password2']) 
+            {
+                  $insert=False;
+                  if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Password mismatch");
+                  else $err_msg=gettext("Password mismatch");
+            }
+
+            if (empty($values['email']))
+            {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail empty");
+                else $err_msg=gettext("E-mail empty");
+
+            }
+
+            // Exists the user name on the DB?
+            $check_username = $this->db->lookup_fields($this->table,$this->class,'*','name="'.$values['name'].'"');
+            if (!(empty($check_username)))
+            {
+                  $insert=False;
+                  if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("User name exists on the site");
+                  else $err_msg=gettext("User name exists on the site");
+            }
+
+            // Exists the e-mail on the DB?
+            $check_email = $this->db->lookup_fields($this->table,$this->class,'*','email="'.$values['email'].'"');
+            if (!(empty($check_email)))
+            {
+                  $insert=False;
+                  if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("E-mail exists on the site");
+                  else $err_msg=gettext("E-mail exists on the site");
+            }
+
+            // Check if it will be possible to add Latitude and Longitude
+            if (empty($values['city']))
+            {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("City empty");
+                else $err_msg=gettext("City empty");
+            }
+            if (empty($values['state']))
+            {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("State empty");
+                else $err_msg=gettext("City empty");
+            }
+            if (empty($values['country']))
+            {
+                $insert=False;
+                if ($err_msg != null) $err_msg = $err_msg."<br>".gettext("Country empty");
+                else $err_msg=gettext("Country empty");
+            }
+
+            if ($insert)
+            {
+                // Obtain the coordinates
+                // First we check if the address is stored on the DB
+                $address = $this->db->lookup_fields('user','user','*','city="'.$values['city'].'" and state="'.$values['state'].'" and country="'.$values['country'].'"');
+                if (empty($address))
+                {
+                    $coordinates = $this->map->coordinates($values['city'].'+'.$values['state'].'+'.$values['country']);
+                }
+                else
+                {
+                    $coordinates = array($address->latitude,$address->longitude);
+                }
+            }
+
+            $values['role'] = "volunteer";
+            $values['supplier'] = "Volunteer";
+            if ($insert)
+            {
+              $pool = $this->db->lookup_fields('pool','pool','*','name="default" and supplier="'.$values['supplier'].'"');
+              if (empty($pool)) $create_default_pool = True;
+              $query = '(name,password,role,supplier,supp_auth,email,city,state,country,postalcode,latitude,longitude,date) values ("'
+                .$values['name'].'","'.md5($values['password']).'","'.$values['role'].'","'.$values['supplier'].'","'.md5($values['password'].$values['name']).'","'.$values['email'].'","'.$values['city'].'","'.$values['state'].'","'.$values['country'].'","'.$values['postalcode'].'","'.$coordinates[0].'","'.$coordinates[1].'",CURDATE())';
+
+              $res = $this->db->insert($this->table, $query);
+              if ($res and $create_default_pool)
+              {
+                  {
+                      $query = '(name,supplier) values ("default","'.$values['supplier'].'")';
+                      return($this->db->insert('pool',$query));
+                  }
+              }
+              // If identica is enabled, post the two most voted projects to Identi.ca
+              if ($this->conf->xpath("/conf/identica"))
+              {
+                  $Identica = new identica($this->language);
+                  $Identica->update_status(gettext("A new user is collaborating with us and #science: ").$values['name']);
+              }
+              return($res);
+            }
+            else
+                return(False);
+           }
       }
 }
 ?>
