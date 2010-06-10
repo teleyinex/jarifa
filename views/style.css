@@ -141,6 +141,11 @@ table.form tbody tr:hover
   color: black;
 }
 
+.invisible
+{
+  display: none;
+}
+
 .Hd
 {
     border-bottom: 1px solid #9FBF6A;
