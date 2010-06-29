@@ -133,7 +133,10 @@ class HTMLhost extends html
                 printf('<td align="center"><select name="pool">');
                 for ($i=0; $i<$row; $i++)
                 {
-                        printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
+                        if ($obj->poolid == $pools[$i]->id)
+                            printf ('<option value="'.$pools[$i]->id.'" selected="selected">'.$pools[$i]->name.'</option>');
+                        else
+                            printf ('<option value="'.$pools[$i]->id.'">'.$pools[$i]->name.'</option>');
                 }
                 printf("</selection></td>");
             }
