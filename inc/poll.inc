@@ -155,6 +155,7 @@ class poll extends DBConn
           if (!(is_dir("img/stats/")))
               mkdir("img/stats/");
           $chart->setTitle("");
+          $chart->getPlot()->setGraphPadding(new Padding(5, 30, 100, 0));
           $chart->render("img/stats/votes.png");
       }
 

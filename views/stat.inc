@@ -65,6 +65,15 @@ class HTMLstat extends html
                 break;
             }
 
+            case 'cpus':
+            {
+                $this->header(gettext("Statistics").' '.$_SESSION['userid']);
+                $this->menu($this->role,gettext("CPUs"));
+                $this->figures('cpus');
+                $this->footer(true);
+                break;
+            }
+
             default:
             {
                 $this->header(gettext("Statistics").' '.$_SESSION['userid']);
@@ -102,6 +111,8 @@ class HTMLstat extends html
                       <td><a href="index.php?action=st_credit"><img src="img/credit.png" alt="credit" border="0"></a></td>
                       <td><a href="index.php?action=st_gflops"><img src="img/gflops.png" alt="GFLOPS" border="0"></a></td>
                     </tr>
+                    <tr>
+                      <td><a href="index.php?action=st_cpus"><img src="img/cpus.png" alt="CPUs" border="0"></a></td>
                   </tbody>
                 </table>
                 </div>
@@ -111,20 +122,35 @@ class HTMLstat extends html
 
     function figures($type=null)
     {
-        $projects = $this->projects();
-
         printf('<div id="stats">'."\n");
-        foreach($projects as $project)
+
+        if ($type==null)
         {
-            if ($this->role == "root") 
+            $projects = $this->projects();
+
+            foreach($projects as $project)
             {
-                printf('<img src="img/stats/'.$type.'_'.$project->name.'.png" alt="'.$type.'_'.$project->name.'"><br>'."\n");
+                if ($this->role == "root") 
+                {
+                    printf('<img src="img/stats/'.$type.'_'.$project->name.'.png" alt="'.$type.'_'.$project->name.'"><br>'."\n");
+                
+                }
+                else
+                {
+                    printf('<img src="img/stats/'.$type.'_'.$project->name.'_'.$this->supplier.'.png"
+                        alt="'.$type.'_'.$project->name.'_'.$this->supplier.'"><br>');
+                
+                }
             
             }
+        }
+        else
+        {
+            if ($this->role == "root")
+                printf('<img src="img/stats/cpus.png" alt="CPUs"><br>');
             else
             {
-                printf('<img src="img/stats/'.$type.'_'.$project->name.'_'.$this->supplier.'.png"
-                    alt="'.$type.'_'.$project->name.'_'.$this->supplier.'"><br>');
+                printf('<img src="img/stats/cpus_'.$this->supplier.'.png" alt="CPUs">');
             
             }
         

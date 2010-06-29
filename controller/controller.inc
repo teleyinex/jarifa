@@ -265,6 +265,12 @@ class controller extends html
                         break;
                     }
 
+                    case 'cpus':
+                    {
+                        $this->stat->page('cpus');
+                        break;
+                    }
+
                     default:
                     {
                         $this->stat->page('start');

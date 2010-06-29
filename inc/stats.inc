@@ -90,6 +90,14 @@ class stats extends DBConn
           else return(False);
       }
 
+      function get_suppliers()
+      {
+          $suppliers= $this->db->enum_fields('host','host','supplier','1','group by supplier');
+          if (!empty($suppliers)) return($suppliers);
+          else return(False);
+      }
+
+
       function get_stats($url,$authenticator)
       {
           $request='?auth='.$authenticator.'&format=xml';
@@ -181,24 +189,40 @@ class stats extends DBConn
           return($credit);
       }
 
-      function get_ncpus()
+      function get_cpus_types($supplier="all")
       {
-          $cpus = $this->db->enum_fields("host","host","p_ncpus","1","order by id");
-          $types_cpus = $this->db->enum_fields("host","host","p_ncpus","1","group by p_ncpus");
-          $aux = array();
-          foreach ($types_cpus as $type)
+          if ($supplier == "all")
           {
-              $aux["$type->p_ncpus"] = 0;
-          
+            $cpus = $this->db->enum_fields("host","host","p_ncpus","1","order by id");
+            $types_cpus = $this->db->enum_fields("host","host","p_vendor","1","group by p_vendor");
+            $aux = array();
+            foreach ($types_cpus as $type)
+            {
+                if ($type->p_vendor != "")
+                {
+                    $num = $this->db->enum_fields("host","host","*","p_vendor='".$type->p_vendor."'","");
+                    $aux["$type->p_vendor"] = count($num);
+                }
+            
+            }
+            $types_cpus = $aux;
           }
-          $types_cpus = $aux;
-
-          foreach (array_keys($types_cpus) as $type)
+          else
           {
-              foreach ($cpus as $host_ncpus)
+              $cpus = $this->db->enum_fields("host","host","p_ncpus",'supplier="'.$supplier.'"',"order by id");
+              $types_cpus = $this->db->enum_fields("host","host","p_vendor",'supplier="'.$supplier.'"',"group by p_vendor");
+              $aux = array();
+              foreach ($types_cpus as $type)
               {
-                  if ($type == "$host_ncpus->p_ncpus") $types_cpus[$type] += 1;
+                  if ($type->p_vendor != "")
+                  {
+                      $num = $this->db->enum_fields("host","host","*","p_vendor='".$type->p_vendor."'"." and supplier='".$supplier."'","");
+                      $aux["$type->p_vendor"] = count($num);
+                  }
+              
               }
+              $types_cpus = $aux;
+          
           }
           return($types_cpus);
 
@@ -206,17 +230,35 @@ class stats extends DBConn
 
       function draw_ncpus_per_host()
       {
+          // First we draw the CPUs figure for the institution
           $chart = new HorizontalBarChart();
           $dataset = new XYDataSet();
-          $types_cpus= $this->get_ncpus();
+          $types_cpus= $this->get_cpus_types();
           foreach(array_keys($types_cpus) as $cpu)
           {
               $dataset->addPoint(new Point("$cpu",$types_cpus[$cpu]));
           }
           $chart->setDataSet($dataset);
-          $chart->getPlot();
+          $chart->getPlot()->setGraphPadding(new Padding(5,30,20,90));
           $chart->setTitle(gettext("Number of Hosts per CPUs"));
           $chart->render("img/stats/cpus.png");
+
+          // Then we draw the number of CPUs figures by supplier
+          $suppliers = $this->get_suppliers();
+          foreach ($suppliers as $item)
+          {
+              $chart = new HorizontalBarChart();
+              $dataset = new XYDataSet();
+              $types_cpus= $this->get_cpus_types($item->supplier);
+              foreach(array_keys($types_cpus) as $cpu)
+              {
+                  $dataset->addPoint(new Point("$cpu",$types_cpus[$cpu]));
+              }
+              $chart->setDataSet($dataset);
+              $chart->getPlot()->setGraphPadding(new Padding(5,30,20,90));
+              $chart->setTitle(gettext("Number of Hosts per CPUs"));
+              $chart->render("img/stats/cpus_".$item->supplier.".png");
+          }
       
       }
 

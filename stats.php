@@ -42,4 +42,5 @@ $st->draw_credit_per_day_user($projects);
 $st->draw_gflops_per_day_user($projects);
 $st->draw_credit_per_day_supplier($projects);
 $st->draw_gflops_per_day_supplier($projects);
+$st->draw_ncpus_per_host();
 ?>

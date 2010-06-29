@@ -68,6 +68,13 @@ if (isset($_SESSION['userid']))
             break;
         }
 
+        case 'st_cpus':
+        {
+            $ctr->view("stat",$_SESSION['role'],'cpus');
+            break;
+        
+        }
+
         
         // Users action
         case 'user':
