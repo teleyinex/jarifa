@@ -23,10 +23,13 @@ class nav_bar
     // Creates a navigation bar for data grids
     function create_num_bar($obj,$pos=0,$num=0,$init=0,$action)
     {
-         if (count($obj)>$num)
+         $total = count($obj);
+         if ($total > $num)
         {
-            $total = count($obj);
-            $pags = (int)round($total/$num);
+            if (($total % $num)==0)
+                $pags = (int)round($total/$num);
+            else
+                $pags = (int)round($total/$num)+1;
             $nav = "";
             if ($init!=0)
                 $j=$init-5;
