@@ -1,4 +1,6 @@
-Copyright 2008 Daniel Lombraña González, David P. Anderson, Francisco Fernández de Vega
+Copyright 2008 Daniel Lombraña González <teleyinex AT gmail DOT com>, David P. Anderson <davea AT ssl DOT berkeley DOT edu>
+and Francisco Fernández de Vega <fcofdez AT unex DOT es>
+
 This file is part of Jarifa.
 
 Jarifa is free software: you can redistribute it and/or modify
@@ -18,19 +20,19 @@ along with Jarifa.  If not, see <http://www.gnu.org/licenses/>.
 db_conn.inc - BOINC DB library 
     Copyright (C) 2008 University of California 
 Libchart - PHP chart library 
-    Copyright (C) 2005-2007 Jean-Marc Trémeaux (jm.tremeaux at gmail.com)
+    Copyright (C) 2005-2007 Jean-Marc Trémeaux (jm DOT tremeaux at gmail DOT com)
 Jarifa logo
-    Copyright (C) 2008 Daniel Lombraña González <daniellg@unex.es>
+    Copyright (C) 2008 Daniel Lombraña González <teleyinex AT unex DOT es>
 Images (except avgplv3.png and vcss.png) - Gnome Icons 
-    Ulisse Perusin <uli.peru@gmail.com>
-    Riccardo Buzzotta <raozuzu@yahoo.it>
-    Josef Vybíral <cornelius@vybiral.info>
-    Hylke Bons <h.bons@student.rug.nl>
-    Ricardo González <rick@jinlabs.com>
-    Lapo Calamandrei <calamandrei@gmail.com>
-    Rodney Dawes <dobey@novell.com>
-    Luca Ferretti <elle.uca@libero.it>
-    Tuomas Kuosmanen <tigert@gimp.org>
-    Andreas Nilsson <nisses.mail@home.se>
-    Jakub Steiner <jimmac@novell.com>
+    Ulisse Perusin <uli DOT peru AT gmail DOT com>
+    Riccardo Buzzotta <raozuzu AT yahoo DOT it>
+    Josef Vybíral <cornelius AT vybiral DOT info>
+    Hylke Bons <h DOT bons AT student DOT rug DOT nl>
+    Ricardo González <rick AT jinlabs DOT com>
+    Lapo Calamandrei <calamandrei AT gmail DOT com>
+    Rodney Dawes <dobey AT novell DOT com>
+    Luca Ferretti <elle DOT uca AT libero DOT it>
+    Tuomas Kuosmanen <tigert AT gimp DOT org>
+    Andreas Nilsson <nisses DOT mail AT home DOT se>
+    Jakub Steiner <jimmac AT novell DOT com>
 
