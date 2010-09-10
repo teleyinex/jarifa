@@ -68,6 +68,7 @@ class rpc
         $this->ac_public_signature = $conf->account_manager->public_signature;
         $this->ac_repeat_sec = $conf->account_manager->repeat_sec;
         $this->boinc_user_email = $conf->account_manager->boinc_user_email;
+        $this->rss_feed = $conf->rss_feeds->rss_feed;
     }
 
     
@@ -250,6 +251,19 @@ class rpc
         $account->appendChild($element);
         $element = $this->dom->createElement('update',$project->update);
         $account->appendChild($element);
+    }
+
+    function xmlRssFeed()
+    {
+        $rssfeeds = $this->dom->createElement('rss_feeds');
+        $this->xml->appendChild($rssfeeds);
+        $rssfeed = $this->dom->createElement('rss_feed');
+        $rssfeeds->appendChild($rssfeed);
+        $element = $this->dom->createElement('url',$this->rss_feed->url);
+        $rssfeed->appendChild($element);
+        $element = $this->dom->createElement('poll_interval',$this->rss_feed->poll_interval);
+        $rssfeed->appendChild($element);
+    
     }
     
     function error($errormsg) {

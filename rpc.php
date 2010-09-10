@@ -52,6 +52,8 @@ if ($rpc->auth($host))
     {
         $rpc->xmlProject($project);
     }
+
+    $rpc->xmlRssFeed();
     //return the reply as xml string
     echo $rpc->dom->saveXML();
 }
