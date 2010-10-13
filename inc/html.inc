@@ -185,9 +185,9 @@ class html
             <div id="credits" align="center">
             <a href="http://validator.w3.org/check?uri=referer"><img style="border:0;"
             src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01 Transitional" height="31px" width="88px"></a>
-            <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss" alt="vcss"></a>
-            <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3" alt="agplv3"></a>
-            <a href="http://jarifa.unex.es"><img style="border:0;"  src="img/download" alt="download"></a>
+            <a href="http://jigsaw.w3.org/css-validator/"><img style="border:0;width:88px;height:31px" src="img/vcss.png" alt="vcss"></a>
+            <a href="http://www.fsf.org/licensing/licenses/agpl-3.0.html"><img style="border:0;"  src="img/agplv3.png" alt="agplv3"></a>
+            <a href="http://jarifa.unex.es"><img style="border:0;"  src="img/download.png" alt="download"></a>
             </div>
             ');
         if ($container) print("</div>");
