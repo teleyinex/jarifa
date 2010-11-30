@@ -243,6 +243,13 @@ class HTMLpool extends html
                 </tr> 
             ');
         printf('<tr>
+                    <td style="text-align: right;">'.gettext("Suspend work while CPU usage is above
+<br>Enforced by version 6.10.36+
+<br>(0 means no restriction)").'</td>
+                    <td><input size="3" name="suspend_cpu_usage" value="'.$obj->suspend_cpu_usage.'"> '.gettext("%% of CPU usage").'</td>
+                </tr> 
+            ');
+        printf('<tr>
                     <td style="text-align: right;">'.gettext("Do work only between the hours of <br>(no restriction if equal)").'</td>
                     <td><select name=start_hour>');
         for ($i=0;$i<24;$i++)
@@ -495,6 +502,13 @@ class HTMLpool extends html
                 </tr> 
             ');
         printf('<tr>
+                    <td style="text-align: right;">'.gettext("Suspend work while CPU usage is above
+<br>Enforced by version 6.10.36+
+<br>(0 means no restriction)").'</td>
+                    <td><input size="3" name="suspend_cpu_usage" value="25"> '.gettext("%% of CPU usage").'</td>
+                </tr> 
+            ');
+        printf('<tr>
                     <td style="text-align: right;">'.gettext("Do work only between the hours of <br>(no restriction if equal)").'</td>
                     <td><select name=start_hour>');
         for ($i=0;$i<24;$i++)
@@ -696,6 +710,7 @@ class HTMLpool extends html
         $query = $query . ', suspend_if_user_active='.$values['suspend_if_user_active'];
         $query = $query . ', idle_time_to_run='.$values['idle_time_to_run'];
         $query = $query . ', suspend_if_no_recent_input='.$values['suspend_if_no_recent_input'];
+        $query = $query . ', suspend_cpu_usage='.$values['suspend_cpu_usage'];
         $query = $query . ', leave_apps_in_memory='.$values['leave_apps_in_memory'];
         $query = $query . ', cpu_scheduling_period_minutes='.$values['cpu_scheduling_period_minutes'];
         $query = $query . ', max_cpus='.$values['max_cpus']; 
@@ -738,6 +753,7 @@ class HTMLpool extends html
                      suspend_if_user_active,
                      idle_time_to_run,
                      suspend_if_no_recent_input,
+                     suspend_cpu_usage,
                      leave_apps_in_memory,
                      cpu_scheduling_period_minutes,
                      max_cpus,
@@ -768,6 +784,7 @@ class HTMLpool extends html
                    ','.$values["suspend_if_user_active"].
                    ','.$values["idle_time_to_run"].
                    ','.$values["suspend_if_no_recent_input"].
+                   ','.$values["suspend_cpu_usage"].
                    ','.$values["leave_apps_in_memory"].
                    ','.$values["cpu_scheduling_period_minutes"].
                    ','.$values["max_cpus"].

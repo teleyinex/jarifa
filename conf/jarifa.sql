@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `pool` (
   `suspend_if_user_active` tinyint(1) NOT NULL default '1',
   `idle_time_to_run` int(11) NOT NULL default '3',
   `suspend_if_no_recent_input` int(11) NOT NULL default '0',
+  `suspend_cpu_usage` int(11) NOT NULL default '25',
   `leave_apps_in_memory` tinyint(1) NOT NULL default '0',
   `cpu_scheduling_period_minutes` int(11) NOT NULL default '60',
   `max_cpus` int(11) NOT NULL default '16',

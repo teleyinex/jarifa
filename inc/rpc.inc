@@ -172,6 +172,8 @@ class rpc
            $global_preferences->appendChild($element);
            $element = $this->dom->createElement('suspend_if_no_recent_input',$prefs->suspend_if_no_recent_input);
            $global_preferences->appendChild($element);
+           $element = $this->dom->createElement('suspend_cpu_usage',$prefs->suspend_cpu_usage);
+           $global_preferences->appendChild($element);
            if ($prefs->leave_apps_in_memory=='1')
            {
             $element = $this->dom->createElement('leave_apps_in_memory');
