@@ -253,6 +253,26 @@ class rpc
         $account->appendChild($element);
         $element = $this->dom->createElement('update',$project->update);
         $account->appendChild($element);
+
+        $element = $this->dom->createElement('dont_request_more_work',$project->dont_request_more_work);
+        $account->appendChild($element);
+
+        $element = $this->dom->createElement('detach_when_done',$project->detach_when_done);
+        $account->appendChild($element);
+
+        $element = $this->dom->createElement('suspend',$project->suspend);
+        $account->appendChild($element);
+
+        $element = $this->dom->createElement('no_cpu',$project->no_cpu);
+        $account->appendChild($element);
+        $element = $this->dom->createElement('no_cuda',$project->no_cuda);
+        $account->appendChild($element);
+        $element = $this->dom->createElement('no_ati',$project->no_ati);
+        $account->appendChild($element);
+
+
+
+
     }
 
     function xmlRssFeed()

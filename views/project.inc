@@ -103,7 +103,13 @@ class HTMLproject extends html
         printf('<form method="post" action="index.php?action=up_project&amp;id='.$obj->id.'" name="project">');
         printf('<table border=1 align=center cellpadding="4" class="form">');
         printf('<tr class="Hd"><td align="center">'.gettext("Name").'</td><td align="center">'.gettext("Share").'</td>
-                    <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
+            <td align="center">'.gettext("Detach").'</td><td align="center">'.gettext("Update").'</td>
+            <td align="center">'.gettext("Don't request more work").'</td>
+            <td align="center">'.gettext("Detach when done").'</td>
+            <td align="center">'.gettext("Suspend").'</td>
+            <td align="center">'.gettext("No CPU").'</td>
+            <td align="center">'.gettext("No CUDA").'</td>
+            <td align="center">'.gettext("No ATI").'</td>
                     </tr>');
         printf ('<tr>');
         printf ('<td align=center><a href="index.php?action=ed_project&amp;id='.$obj->id.'">'.$obj->name.'</a></td><td
@@ -112,8 +118,21 @@ class HTMLproject extends html
         else printf ('<td align="center"><input name="detach" type="checkbox"></td>');
         if ($obj->update) printf ('<td align="center"><input name="update" type="checkbox" CHECKED></td>');
         else printf ('<td align="center"><input name="update" type="checkbox"></td>');
+
+        if ($obj->dont_request_more_work) printf ('<td align="center"><input name="dont_request_more_work" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="dont_request_more_work" type="checkbox"></td>');
+        if ($obj->detach_when_done) printf ('<td align="center"><input name="detach_when_done" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="detach_when_done" type="checkbox"></td>');
+        if ($obj->suspend) printf ('<td align="center"><input name="suspend" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="suspend" type="checkbox"></td>');
+        if ($obj->no_cpu) printf ('<td align="center"><input name="no_cpu" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="no_cpu" type="checkbox"></td>');
+        if ($obj->no_cuda) printf ('<td align="center"><input name="no_cuda" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="no_cuda" type="checkbox"></td>');
+        if ($obj->no_ati) printf ('<td align="center"><input name="no_ati" type="checkbox" CHECKED></td>');
+        else printf ('<td align="center"><input name="no_ati" type="checkbox"></td>');
         printf ("\n</tr>");
-        printf('<tr align="center"> <td colspan="5" rowspan="1"><input name="submit" type="submit"
+        printf('<tr align="center"> <td colspan="10" rowspan="1"><input name="submit" type="submit"
             value="'.gettext("Submit changes").'"></td> </tr>');
         printf("</table>");
         printf("</form>");
@@ -175,6 +194,19 @@ class HTMLproject extends html
         else $query = $query . ', detach=0';
         if ($values['update']) $query = $query . ', `update`=1';
         else $query = $query . ', `update`=0';
+        if ($values['dont_request_more_work']) $query = $query . ', `dont_request_more_work`=1';
+        else $query = $query . ', `dont_request_more_work`=0';
+        if ($values['detach_when_done']) $query = $query . ', `detach_when_done`=1';
+        else $query = $query . ', `detach_when_done`=0';
+        if ($values['suspend']) $query = $query . ', `suspend`=1';
+        else $query = $query . ', `suspend`=0';
+        if ($values['no_cpu']) $query = $query . ', `no_cpu`=1';
+        else $query = $query . ', `no_cpu`=0';
+        if ($values['no_cuda']) $query = $query . ', `no_cuda`=1';
+        else $query = $query . ', `no_cuda`=0';
+        if ($values['no_ati']) $query = $query . ', `no_ati`=1';
+        else $query = $query . ', `no_ati`=0';
+
         $obj = $this->db->lookup_id($id,$this->table,$this->class);
         return($this->db->update($obj,$this->table,$query));
       }
