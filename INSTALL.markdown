@@ -26,4 +26,4 @@ The installation process of Jarifa is the following:
  * Give Apache user read, write and access permissions to the Jarifa folder.
  * Access Jarifa with your web browser in: http://SERVER/jarifa 
 
-Check the (wiki)[https://github.com/teleyinex/jarifa/wiki] for further details.
+Check the [wiki](https://github.com/teleyinex/jarifa/wiki) for further details.
