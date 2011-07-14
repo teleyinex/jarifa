@@ -22,7 +22,13 @@ require_once("inc/rpc.inc");
 
 $rpc = new rpc;
 
-$host = simplexml_load_file("php://input");
+$host = simplexml_load_file("php://input",'SimpleXMLElement',LIBXML_NOCDATA);
+
+// Update <opaque><id></id></opaque> content as it is surrounded by CDATA:
+
+$host->opaque->addChild('id','');
+$host->opaque->id = simplexml_load_string($host->opaque, 'SimpleXMLElement',LIBXML_NOCDATA);
+
 
 if ($rpc->auth($host))
 {
