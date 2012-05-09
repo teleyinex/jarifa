@@ -2,13 +2,6 @@ Jarifa
 ======
 See COPYRIGHT for the list of authors.
 
-Acknowledgments
----------------
-This application was supported by:
-
- - University of Extremadura, CETA-Ciemat chair (SPAIN) and
- - University of California (USA).
-
 Installation 
 ------------
 
@@ -17,6 +10,8 @@ The installation process of Jarifa is the following:
  * Download the source code.
  * Unzip it in /var/www or the document root of your Apache configuration file.
  * Set up the data base for Jarifa using the file located in /var/www/jarifa/conf/jarifa.sql.
+ * Copy the file jarifa.conf.template to jarifa.conf and change the DB
+   credentials if needed.
  * Log in using the following account: 
    `user name: root`
    `passowrd: root`
@@ -27,3 +22,11 @@ The installation process of Jarifa is the following:
 Check the [wiki](https://github.com/teleyinex/jarifa/wiki) for further details.
 
 See the 'INSTALL' file for more detailed directions.
+
+Acknowledgments
+---------------
+This application was supported by:
+
+ - University of Extremadura, CETA-Ciemat chair (SPAIN) and
+ - University of California (USA).
+
