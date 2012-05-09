@@ -1,6 +1,10 @@
 Jarifa
 ======
-See COPYRIGHT for the list of authors.
+Jarifa (a.k.a OGM) is a system for grid computing on organizational resources, using BOINC.
+
+Jarifa is designed for situations where some entities that own computers (Suppliers) have decided to let another entities (the Allocator) decide how their computer time is to be divided among a set of BOINC projects. With Jarifa, Suppliers are able to control the usage of their computers (for example, the hours during which it does BOINC computation). However, they have no control over which BOINC projects their computers contribute to; the Allocator makes that decision.
+
+The BOINC projects to which computing power is given need not be related to either Suppliers or Allocator; they might be public projects like Climateprediction.net or Rosetta@home.
 
 Installation 
 ------------
