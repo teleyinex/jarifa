@@ -184,3 +184,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+INSERT INTO `user` (`id`, `name`, `password`, `role`, `supplier`, `supp_auth`, `email`, `city`, `state`, `country`, `postalcode`, `latitude`, `longitude`, `date`, `voted`) VALUES (1, 'root', '63a9f0ea7bb98050796b649e85481845', 'root', 'root', '', 'root@domain.com', NULL, NULL, NULL, NULL, NULL, NULL, '0000-00-00', 0);
